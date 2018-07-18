@@ -1,4 +1,9 @@
 package views;
 
-public class ConsoleInterface implements UserInterface{
+public class ConsoleInterface extends UserInterface{
+
+    public void run()
+    {
+
+    }
 }

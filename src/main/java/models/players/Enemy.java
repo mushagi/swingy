@@ -5,4 +5,6 @@ public class Enemy extends Player{
     public int getLevel() {
         return 0;
     }
+
+
 }

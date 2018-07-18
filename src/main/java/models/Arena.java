@@ -11,13 +11,21 @@ public class Arena {
     ArrayList<Enemy> enemies;
     Map map;
     boolean isGameInProgress;
-    BattleResults battleResults;
+    BattleResults lastBattleResults;
 
-    public Arena(Hero hero, ArrayList<Enemy> enemies, Map map, boolean isGameInProgress, BattleResults battleResults) {
+    public Arena(Hero hero, ArrayList<Enemy> enemies, Map map, boolean isGameInProgress, BattleResults lastBattleResults) {
         this.hero = hero;
         this.enemies = enemies;
         this.map = map;
         this.isGameInProgress = isGameInProgress;
-        this.battleResults = battleResults;
+        this.lastBattleResults = lastBattleResults;
+    }
+
+    public boolean getIsGameInProgress() {
+        return isGameInProgress;
+    }
+
+    public Hero getHero() {
+        return hero;
     }
 }

@@ -5,30 +5,23 @@ import models.players.Player;
 public class GUIController implements GameController {
 
     public void moveSouth() {
-
     }
 
     public void moveNorth() {
-
     }
 
     public void moveEast() {
-
     }
 
     public void moveWest() {
-
     }
 
     public void createPlayer(Player hero) {
-
     }
 
     public void attack() {
-
     }
 
     public void runAway() {
-
     }
 }

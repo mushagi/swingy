@@ -1,5 +1,7 @@
 package views;
 
-public class GUIInterface implements UserInterface{
+import controllers.GameController;
+
+public class GUIInterface extends UserInterface{
 
 }
