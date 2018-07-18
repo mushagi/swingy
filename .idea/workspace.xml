@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a691d116-2177-49fe-b7ca-d2647492ce42" name="Default" comment="sdgsdgdsg">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="974489bf-aa0b-4898-8fa0-942b5296ef50" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/controllers/CLIControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/controllers/CLIController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/controllers/GUIController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/controllers/GameController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/Arena.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/Map.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/artifacts/Artifact.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/artifacts/ArtifactType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/artifacts/Gun.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/artifacts/Knife.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/artifacts/Shield.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/players/Enemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/players/Hero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/models/players/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/services/ArenaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/tools/PlayerFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/views/ConsoleInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/views/GUIInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/swingy/views/UserInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/swingy/models/MapTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CLIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/CLIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/GUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/factory/ArenaFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/factory/ArenaFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/players/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/players/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swingy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/swingy.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,32 +49,99 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/swingy$MapTest_createAMapWithASizeOf10Squares.ic" NAME="MapTest.createAMapWithASizeOf10Squares Coverage Results" MODIFIED="1531747643132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>models.*</FILTER>
-    </SUITE>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Map.java" pinned="false" current-in-tab="true">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/java/util/Map.java">
+    <leaf>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
+            <state relative-caret-position="390">
+              <caret line="26" column="28" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUIController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/GUIController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/models/MapTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CLIController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/CLIController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CLIControllerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/controllers/CLIControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/GameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArenaFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/factory/ArenaFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BattleResultsFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/factory/BattleResultsFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnemyFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/factory/EnemyFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Artifact.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/artifacts/Artifact.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="JUnit5 Test Class" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,27 +149,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/src/models/Player.java" />
-        <option value="$PROJECT_DIR$/src/models/Artefact.java" />
-        <option value="$PROJECT_DIR$/src/models/players/Hero.java" />
-        <option value="$PROJECT_DIR$/src/controllers/GameController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/CLIController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/GUIController.java" />
-        <option value="$PROJECT_DIR$/src/models/Direction.java" />
-        <option value="$PROJECT_DIR$/src/models/Arena.java" />
-        <option value="$PROJECT_DIR$/tests/models/MapTest.java" />
-        <option value="$PROJECT_DIR$/src/models/Position.java" />
-        <option value="$PROJECT_DIR$/src/models/artefacts/Artefact.java" />
-        <option value="$PROJECT_DIR$/src/models/artefacts/Artifact.java" />
-        <option value="$PROJECT_DIR$/src/models/artefacts/ArtefactType.java" />
-        <option value="$PROJECT_DIR$/src/models/artefacts/ArtifactType.java" />
-        <option value="$PROJECT_DIR$/src/models/artifacts/ArtifactType.java" />
-        <option value="$PROJECT_DIR$/src/models/players/Enemy.java" />
-        <option value="$PROJECT_DIR$/src/models/players/Player.java" />
-        <option value="$PROJECT_DIR$/src/models/Map.java" />
-        <option value="$PROJECT_DIR$/src/tools/PlayerFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/GUIController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/CLIController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/controllers/CLIControllerTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -75,6 +162,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
@@ -82,12 +176,12 @@
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,79 +192,96 @@
             <path>
               <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
               <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
               <item name="swingy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swingy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="players" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swingy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swingy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swingy" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swingy" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="models" />
+      <recent name="controllers" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="models" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -185,24 +296,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares">
+  <component name="RunManager" selected="JUnit.MapTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CLIControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swingy" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="models.*" />
+          <option name="PATTERN" value="controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.MapTest" />
-      <option name="METHOD_NAME" value="createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="controllers" />
+      <option name="MAIN_CLASS_NAME" value="controllers.CLIControllerTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -212,7 +323,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="MapTest.createAMapWithASizeOf10Squares" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="swingy" />
       <extension name="coverage">
         <pattern>
@@ -224,8 +335,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="models" />
       <option name="MAIN_CLASS_NAME" value="models.MapTest" />
-      <option name="METHOD_NAME" value="createAMapWithASizeOf10Squares" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -274,13 +385,13 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.MapTest.createAMapWithASizeOf10Squares" />
-      <item itemvalue="JUnit.MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" />
+      <item itemvalue="JUnit.CLIControllerTest" />
+      <item itemvalue="JUnit.MapTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" />
-        <item itemvalue="JUnit.MapTest.createAMapWithASizeOf10Squares" />
+        <item itemvalue="JUnit.MapTest" />
+        <item itemvalue="JUnit.CLIControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -289,92 +400,58 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a691d116-2177-49fe-b7ca-d2647492ce42" name="Default" comment="" />
-      <created>1531491611032</created>
+      <changelist id="974489bf-aa0b-4898-8fa0-942b5296ef50" name="Default" comment="" />
+      <created>1531907219981</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1531491611032</updated>
-      <workItem from="1531491612589" duration="1890000" />
-      <workItem from="1531734563955" duration="10385000" />
-      <workItem from="1531760158955" duration="23000" />
+      <updated>1531907219981</updated>
+      <workItem from="1531907224058" duration="630000" />
     </task>
-    <task id="LOCAL-00001" summary="sdgsdgdsg">
-      <created>1531499981768</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1531499981768</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 15h 31m 45s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
+    <history-entry file="CLIControllerTest - 2018.07.18 at 11h 53m 00s.xml">
+      <configuration name="CLIControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 15h 32m 08s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 15h 32m 39s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 15h 32m 47s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 15h 32m 59s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 15h 33m 15s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 16h 23m 03s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 16h 24m 54s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 16h 25m 03s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapTest_createAMapWithALevelOfSevenAndMakeAMapWith1521Squares - 2018.07.16 at 16h 35m 12s.xml">
-      <configuration name="MapTest.createAMapWithALevelOfSevenAndMakeAMapWith1521Squares" configurationId="JUnit" />
+    <history-entry file="MapTest - 2018.07.18 at 11h 53m 33s.xml">
+      <configuration name="MapTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12298000" />
+    <option name="totallyTimeSpent" value="630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3295583" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2550586" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.5005325" side_tool="true" visible="true" weight="0.32935324" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946752" weight="0.32935324" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" sideWeight="0.49946752" visible="true" weight="0.32935324" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973376" />
+      <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3512438" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32960597" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3295583" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,116 +460,87 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="sdgsdgdsg" />
-    <option name="LAST_COMMIT_MESSAGE" value="sdgsdgdsg" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/models/players/Hero.java</url>
-          <properties />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="18" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/java/util/Map.java">
+    <entry file="file://$PROJECT_DIR$/swingy.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/factory/MapFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
+        <state relative-caret-position="60">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
-            <caret line="11" column="116" selection-start-line="11" selection-start-column="116" selection-end-line="11" selection-end-column="116" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/main/java/factory/ArenaFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swingy.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swingy.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
-            <caret line="11" column="116" selection-start-line="11" selection-start-column="116" selection-end-line="11" selection-end-column="116" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/UserInterface.java" />
-    <entry file="file://$PROJECT_DIR$/src/views/GUIInterface.java" />
-    <entry file="file://$PROJECT_DIR$/src/views/ConsoleInterface.java" />
-    <entry file="file://$PROJECT_DIR$/src/controllers/GUIController.java" />
-    <entry file="file://$PROJECT_DIR$/src/controllers/CLIController.java" />
-    <entry file="file://$PROJECT_DIR$/src/controllers/GameController.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/players/Hero.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/javafx-src.zip!/com/sun/prism/image/Coords.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/factory/BattleResultsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/factory/EnemyFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="171" selection-start-line="11" selection-start-column="171" selection-end-line="11" selection-end-column="171" />
+        <state relative-caret-position="90">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Arena.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/artifacts/Shield.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/artifacts/Knife.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/artifacts/Artifact.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/artifacts/ArtifactType.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/artifacts/Gun.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/Direction.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/java/util/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/artifacts/Artifact.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/players/Enemy.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/players/Player.java" />
-    <entry file="file://$PROJECT_DIR$/tests/models/MapTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/services/ArenaService.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/Position.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/Map.java" />
-    <entry file="file://$PROJECT_DIR$/src/tools/PlayerFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/CLIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/models/MapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/controllers/CLIControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/GUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

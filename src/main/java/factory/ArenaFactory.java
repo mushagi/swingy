@@ -9,9 +9,8 @@ import models.players.Hero;
 import java.util.ArrayList;
 
 public class ArenaFactory {
-    public Arena createNewArena()
+    public Arena createNewArena(Hero hero)
     {
-
         Map map = MapFactory.createNewMap(hero.getLevel());
         ArrayList<Enemy> enemies = EnemyFactory.createRandomEnemies();
         BattleResults battleResults = BattleResultsFactory.createResults();
