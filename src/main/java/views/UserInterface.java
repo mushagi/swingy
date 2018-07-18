@@ -9,4 +9,5 @@ public abstract class UserInterface {
     ArenaService arenaService;
     Arena arena;
 
+    public abstract void update();
 }

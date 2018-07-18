@@ -1,28 +1,48 @@
 package services;
 
 import factory.ArenaFactory;
+import factory.EnemyFactory;
+import factory.MapFactory;
+import lombok.Getter;
 import models.Arena;
 import models.Direction;
+import models.Map;
+import models.players.Enemy;
 import models.players.Hero;
-import models.players.Player;
 import views.UserInterface;
 
 import java.util.ArrayList;
 
 public class ArenaService {
-    static Arena arena;
-    static ArrayList<UserInterface> userInterfaces;
+    private static ArenaService arenaService;
+    @Getter private Arena arena;
+    private  ArrayList<UserInterface> userInterfaces;
 
-    public void movePlayer(Direction direction) {
+    public static ArenaService getInstance() {
+        if (arenaService == null)
+            arenaService = new ArenaService();
+        return arenaService;
     }
 
-    public void registerPlayer(Player hero) {
+    public ArenaService() {
+        userInterfaces = new ArrayList<>();
+    }
+
+    public void movePlayer(Direction direction) {
+        updateUserInterfaces();
+    }
+
+    public void registerHero(Hero hero) {
+        createAndRegisterMap(hero);
+        arena.setHero(hero);
     }
 
     public void fight() {
+        updateUserInterfaces();
     }
 
     public void runAway() {
+        updateUserInterfaces();
     }
 
     public void registerUserInterface(UserInterface userInterface)
@@ -35,18 +55,15 @@ public class ArenaService {
         userInterfaces.remove(userInterface);
     }
 
-    public void createArena(Hero hero)
+    private void createAndRegisterMap(Hero hero)
     {
         arena = ArenaFactory.createNewArena(hero);
     }
 
-    public boolean isGameInProgress()
+    private void updateUserInterfaces()
     {
-        return arena.getIsGameInProgress();
-    }
-
-    public boolean isHeroInArena()
-    {
-        return arena.getHero() != null;
+        for (UserInterface userInterface: userInterfaces) {
+            userInterface.update();
+        }
     }
 }

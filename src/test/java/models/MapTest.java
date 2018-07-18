@@ -23,7 +23,7 @@ class MapTest {
         Position position = new Position(0, 0);
         Position position2 = new Position(0, 0);
         Map map = map = MapFactory.createNewMap(1);
-        Player player = new Hero();
+        Player player = new Hero("Mushagi");
         assertEquals(true, map.addPlayer(position, player));
         Player actual = map.getGameMap().get(position2);
         assertEquals(player, actual);
@@ -33,16 +33,16 @@ class MapTest {
     void removePlayer() {
         Position position = new Position(0, 0);
         Map map = map = MapFactory.createNewMap(1);
-        Player player = new Hero();
+        Player player = new Hero("Mushagi");
 
         assertEquals(true, map.addPlayer(position, player));
-        Player player2 = new Hero();
+        Player player2 = new Hero("Mushagi");
         position.setX(1);
         assertEquals(true, map.addPlayer(position, player2));
-        Player player3 = new Hero();
+        Player player3 = new Hero("Mushagi");
         position.setX(2);
         assertEquals(true, map.addPlayer(position, player3));
-        Player player4 = new Hero();
+        Player player4 = new Hero("Mushagi");
         position.setX(3);
         assertEquals(true, map.addPlayer(position, player4));
 

@@ -27,9 +27,7 @@ class ArenaServiceTest {
     void registerUserInterface() {
     }
 
-    @Test
-    void unregisterUserInteface() {
-    }
+
 
     @Test
     void createArena() {
@@ -41,5 +39,33 @@ class ArenaServiceTest {
 
     @Test
     void isHeroInArena() {
+    }
+
+    @Test
+    void movePlayer1() {
+    }
+
+    @Test
+    void registerPlayer1() {
+    }
+
+    @Test
+    void fight1() {
+    }
+
+    @Test
+    void runAway1() {
+    }
+
+    @Test
+    void createArena1() {
+    }
+
+    @Test
+    void isGameInProgress1() {
+    }
+
+    @Test
+    void isHeroInArena1() {
     }
 }

@@ -1,6 +1,6 @@
 package controllers;
 
-import models.Direction;
+import models.players.Hero;
 import models.players.Player;
 import services.ArenaService;
 
@@ -34,8 +34,9 @@ public class CLIController implements GameController{
 
     }
 
-    public void createPlayer(Player hero) {
-        arenaService.registerPlayer(hero);
+    @Override
+    public void createHero(Hero hero) {
+        arenaService.registerHero(hero);
     }
 
     public void attack() {

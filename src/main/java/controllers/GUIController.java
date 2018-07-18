@@ -1,5 +1,6 @@
 package controllers;
 
+import models.players.Hero;
 import models.players.Player;
 
 public class GUIController implements GameController {
@@ -16,7 +17,9 @@ public class GUIController implements GameController {
     public void moveWest() {
     }
 
-    public void createPlayer(Player hero) {
+    @Override
+    public void createHero(Hero hero) {
+
     }
 
     public void attack() {

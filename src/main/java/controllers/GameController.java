@@ -1,5 +1,6 @@
 package controllers;
 
+import models.players.Hero;
 import models.players.Player;
 
 public interface GameController  {
@@ -7,7 +8,7 @@ public interface GameController  {
     void moveNorth();
     void moveEast();
     void moveWest();
-    void createPlayer(Player hero);
+    void createHero(Hero hero);
     void attack();
     void runAway();
 }

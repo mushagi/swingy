@@ -12,8 +12,8 @@ public class ArenaFactory {
     public static Arena createNewArena(Hero hero)
     {
         Map map = MapFactory.createNewMap(hero.getLevel());
-        ArrayList<Enemy> enemies = EnemyFactory.createRandomEnemies();
+        ArrayList<Enemy> enemies = EnemyFactory.createRandomEnemies(7);
         BattleResults battleResults = BattleResultsFactory.createResults();
-        return new Arena(hero, enemies, map, false, battleResults);
+        return new Arena(hero, enemies, map, true, battleResults);
     }
 }

@@ -1,12 +1,15 @@
 package models;
 
+import lombok.Getter;
+import models.players.Enemy;
 import models.players.Player;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Map {
 
+    @Getter
     private HashMap<Position, Player> gameMap;
 
     public Map(HashMap<Position, Player> gameMap) {
@@ -24,9 +27,6 @@ public class Map {
         return gameMap.values().remove(player);
     }
 
-    public HashMap<Position, Player> getGameMap() {
-        return gameMap;
-    }
 
     public int  getSize()
     {
@@ -41,5 +41,11 @@ public class Map {
                 numberOfPlayer++;
         }
         return numberOfPlayer;
+    }
+
+    public void addPlayers(ArrayList<Enemy> enemies) {
+        for (Player player : enemies) {
+            addPlayer(player.getPosition(), player);
+        }
     }
 }

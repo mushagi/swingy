@@ -1,12 +1,15 @@
 package models;
 
+import lombok.Getter;
+
+import lombok.Setter;
 import models.players.Enemy;
 import models.players.Hero;
 
 import java.util.ArrayList;
 
+@Getter @Setter
 public class Arena {
-
     Hero hero;
     ArrayList<Enemy> enemies;
     Map map;
@@ -19,13 +22,5 @@ public class Arena {
         this.map = map;
         this.isGameInProgress = isGameInProgress;
         this.lastBattleResults = lastBattleResults;
-    }
-
-    public boolean getIsGameInProgress() {
-        return isGameInProgress;
-    }
-
-    public Hero getHero() {
-        return hero;
     }
 }

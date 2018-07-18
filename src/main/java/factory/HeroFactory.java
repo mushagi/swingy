@@ -3,12 +3,12 @@ package factory;
 import models.Position;
 import models.artifacts.Artifact;
 import models.players.Enemy;
+import models.players.Hero;
 
 import java.util.ArrayList;
 
-public class EnemyFactory {
-
-    public static Enemy createEnemy(String type, String name,
+public class HeroFactory {
+    public static Hero createHero(String type, String name,
                                     int level,
                                     int experience,
                                     int attack,
@@ -16,11 +16,11 @@ public class EnemyFactory {
                                     int hitPoint,
                                     Artifact artifact,
                                     Position position) {
-        return new Enemy(name, level, experience, attack, defence, hitPoint, artifact, position);
+        return new Hero(name, level, experience, attack, defence, hitPoint, artifact, position);
     }
 
-    public static ArrayList<Enemy> createRandomEnemies(int mapSize) {
-        ArrayList<Enemy> enemies = new ArrayList<>();
-        return enemies;
+
+    public static Hero newHero(String name) {
+        return new Hero(name, 0, 0, 0, 0, 0, null, null);
     }
 }
