@@ -18,9 +18,10 @@ public class GUIController implements GameController {
     }
 
     @Override
-    public void createHero(Hero hero) {
+    public void createNewHero(String type, String name) {
 
     }
+
 
     public void attack() {
     }

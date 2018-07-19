@@ -1,11 +1,9 @@
 package factory;
 
-import models.Position;
+import models.players.BlackPanther;
+import models.utils.Position;
 import models.artifacts.Artifact;
-import models.players.Enemy;
 import models.players.Hero;
-
-import java.util.ArrayList;
 
 public class HeroFactory {
     public static Hero createHero(String type, String name,
@@ -20,7 +18,12 @@ public class HeroFactory {
     }
 
 
-    public static Hero newHero(String name) {
+    public static Hero newHero(String type, String name) {
+        switch (type)
+        {
+            case "BlackPanther" :
+                return new BlackPanther(name);
+        }
         return new Hero(name, 0, 0, 0, 0, 0, null, null);
     }
 }

@@ -1,8 +1,6 @@
 package models.players;
 
-import lombok.Getter;
-import lombok.Setter;
-import models.Position;
+import models.utils.Position;
 import models.artifacts.Artifact;
 
 public class Enemy extends Player{

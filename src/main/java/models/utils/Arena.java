@@ -1,8 +1,9 @@
-package models;
+package models.utils;
 
 import lombok.Getter;
 
 import lombok.Setter;
+import enums.Direction;
 import models.players.Enemy;
 import models.players.Hero;
 
@@ -14,13 +15,15 @@ public class Arena {
     ArrayList<Enemy> enemies;
     Map map;
     boolean isGameInProgress;
-    BattleResults lastBattleResults;
+    GameResults gameResults;
+    boolean isPlayerInABattle;
+    Direction lastPlayerDirection;
 
-    public Arena(Hero hero, ArrayList<Enemy> enemies, Map map, boolean isGameInProgress, BattleResults lastBattleResults) {
+    public Arena(Hero hero, ArrayList<Enemy> enemies, Map map, boolean isGameInProgress, GameResults gameResults, boolean isPlayerInABattle) {
         this.hero = hero;
         this.enemies = enemies;
         this.map = map;
         this.isGameInProgress = isGameInProgress;
-        this.lastBattleResults = lastBattleResults;
+        this.gameResults = gameResults;
     }
 }

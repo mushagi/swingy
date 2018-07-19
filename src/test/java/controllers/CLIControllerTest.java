@@ -1,39 +1,26 @@
-package views;
+package controllers;
 
-import controllers.CLIController;
 import factory.CLIControllerFactory;
 import org.junit.jupiter.api.Test;
 import services.ArenaService;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class ConsoleInterfaceTest {
+class CLIControllerTest {
 
     @Test
-    void run() {
-        String data = "";
+    void getInput() {
+
+        String data = "Hello, World!\r\n";
         InputStream stdin = System.in;
         try {
-            ConsoleInterface cliUi= new ConsoleInterface();
             System.setIn(new ByteArrayInputStream(data.getBytes()));
-            cliUi.run();
+            CLIController controller = CLIControllerFactory.newCLIController(ArenaService.getInstance());
+            controller.getInput();
         } finally {
             System.setIn(stdin);
         }
-    }
-
-    @Test
-    void loadHero() {
-    }
-
-    @Test
-    void gameLoop() {
-    }
-
-    @Test
-    void update() {
     }
 }

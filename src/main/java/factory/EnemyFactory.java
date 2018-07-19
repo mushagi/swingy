@@ -1,6 +1,6 @@
 package factory;
 
-import models.Position;
+import models.utils.Position;
 import models.artifacts.Artifact;
 import models.players.Enemy;
 

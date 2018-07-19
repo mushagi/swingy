@@ -1,5 +1,10 @@
 package services;
 
+import factory.HeroFactory;
+import models.utils.Arena;
+import enums.Direction;
+import models.utils.Position;
+import models.players.Hero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +13,25 @@ class ArenaServiceTest {
 
     @Test
     void movePlayer() {
+        ArenaService arenaService = new ArenaService();
+        arenaService.registerHero("BlackPanther", "Mushagi");
 
+        Arena arena = arenaService.getArena();
+        arena.getHero().getPosition().setY(1);
+        arenaService.movePlayer(Direction.NORTH);
+        assertEquals("Player won. Destination reached",
+                arena.getGameResults().getGameErrorMessage().getErrorMessage());
+    }
+
+    @Test
+    void movePlayerNorth() {
+        ArenaService arenaService = new ArenaService();
+        arenaService.registerHero("BlackPanther", "Mushagi");
+
+        Arena arena = arenaService.getArena();
+        arenaService.movePlayer(Direction.NORTH);
+        assertEquals(1, arena.getHero().getPosition().getY());
+        assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
     }
 
     @Test
@@ -68,4 +91,6 @@ class ArenaServiceTest {
     @Test
     void isHeroInArena1() {
     }
+
+
 }

@@ -1,4 +1,4 @@
-package models;
+package models.utils;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,13 @@ import lombok.Setter;
 import java.util.Objects;
 
 @Getter @Setter
-public class Position {
+public class Position implements Cloneable{
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
     private int x;
     private int y;
 
@@ -26,11 +32,8 @@ public class Position {
 
     @Override
     public int hashCode() {
-        return Objects.hash(y, x);
+        return Objects.hash(x, y);
     }
 
-    public void setValues(int y, int x) {
-        this.x = x;
-        this.y = y;
-    }
+
 }

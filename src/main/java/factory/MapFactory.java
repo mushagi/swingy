@@ -1,8 +1,8 @@
 package factory;
 
-import models.Position;
+import models.utils.Position;
 
-import models.Map;
+import models.utils.Map;
 import models.players.Player;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class MapFactory {
         Map map;
 
         HashMap<Position, Player> gameHashMap = createHashMap(level);
-        map = new Map(gameHashMap);
+        map = new Map(gameHashMap, getSquareSize(level));
         return map;
     }
 

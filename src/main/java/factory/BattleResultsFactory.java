@@ -1,10 +1,10 @@
 package factory;
 
-import models.BattleResults;
+import models.utils.GameResults;
 
 public class BattleResultsFactory {
 
-    public static BattleResults createResults() {
-        return new BattleResults();
+    public static GameResults createResults() {
+        return new GameResults();
     }
 }

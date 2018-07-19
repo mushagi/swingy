@@ -1,8 +1,8 @@
 package factory;
 
-import models.Arena;
-import models.BattleResults;
-import models.Map;
+import models.utils.Arena;
+import models.utils.GameResults;
+import models.utils.Map;
 import models.players.Enemy;
 import models.players.Hero;
 
@@ -13,7 +13,7 @@ public class ArenaFactory {
     {
         Map map = MapFactory.createNewMap(hero.getLevel());
         ArrayList<Enemy> enemies = EnemyFactory.createRandomEnemies(7);
-        BattleResults battleResults = BattleResultsFactory.createResults();
-        return new Arena(hero, enemies, map, true, battleResults);
+        GameResults gameResults = BattleResultsFactory.createResults();
+        return new Arena(hero, enemies, map, true, gameResults, false);
     }
 }

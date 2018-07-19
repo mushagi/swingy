@@ -1,4 +1,4 @@
-package models.artifacts;
+package enums;
 
 public enum ArtifactType {
 }

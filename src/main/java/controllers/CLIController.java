@@ -1,18 +1,16 @@
 package controllers;
 
-import models.players.Hero;
-import models.players.Player;
 import services.ArenaService;
-
-import static models.Direction.NORTH;
-import static models.Direction.SOUTH;
-import static models.Direction.EAST;
-import static models.Direction.WEST;
+import java.util.Scanner;
+import static enums.Direction.NORTH;
+import static enums.Direction.SOUTH;
+import static enums.Direction.EAST;
+import static enums.Direction.WEST;
 
 public class CLIController implements GameController{
 
     ArenaService arenaService;
-
+    Scanner  scanner = new Scanner(System.in);
     public CLIController(ArenaService arenaService) {
         this.arenaService = arenaService;
     }
@@ -35,8 +33,16 @@ public class CLIController implements GameController{
     }
 
     @Override
-    public void createHero(Hero hero) {
-        arenaService.registerHero(hero);
+    public void createNewHero(String type, String name) {
+
+        switch (type)
+        {
+            case "1" : type = "BlackPanther"; break;
+            case "2" : type = "BlackPanther"; break;
+            case "3" : type = "BlackPanther"; break;
+        }
+        arenaService.registerHero(type, name);
+
     }
 
     public void attack() {
@@ -45,5 +51,50 @@ public class CLIController implements GameController{
 
     public void runAway() {
         arenaService.runAway();
+    }
+
+    public void getInput() {
+
+            String input = getScannerInput();
+
+            switch (input) {
+                case "W":
+                    moveNorth();
+                    break;
+                case "A":
+                    moveWest();
+                    break;
+                case "S":
+                    moveSouth();
+                    break;
+                case "D":
+                    moveEast();
+                    break;
+                case "Q":
+                    attack();
+                    break;
+                case "E":
+                    runAway();
+                    break;
+                default:
+                    inValidInput();
+                    break;
+            }
+    }
+
+    public String getScannerInput()
+    {
+        String input = "";
+        if(scanner.hasNextLine()) {
+            input = scanner.nextLine();
+        }
+        else
+            System.exit(0);
+        return input;
+    }
+
+
+    private void inValidInput() {
+        arenaService.inValidInput();
     }
 }

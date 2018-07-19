@@ -1,68 +1,65 @@
 package views;
 
+import controllers.CLIController;
 import factory.CLIControllerFactory;
-import factory.HeroFactory;
-import models.Arena;
 import models.players.Hero;
 import services.ArenaService;
 
 public class ConsoleInterface extends UserInterface{
-    private Arena arena;
+
+
+    private CLIController controller;
 
     public void run() {
         ArenaService.getInstance().registerUserInterface(this);
-
-        gameController = CLIControllerFactory.newGuiController(ArenaService.getInstance());
-
+        controller = CLIControllerFactory.newCLIController(ArenaService.getInstance());
         loadHero();
-
         arena = ArenaService.getInstance().getArena();
-
         gameLoop();
     }
 
     private void loadHero() {
-        String input;
-        Hero hero;
+        String name;
 
-        boolean isNewHero = true;
-        System.out.println("Do you want to create a new player or load a player?/n1. New/2. Load");
-        input = "1";
-
-        hero = isNewHero ? createNewHero() : loadExistingHero();
-        gameController.createHero(hero);
+        System.out.print("Do you want to create a new player or load a player?\n1. New\n2. Load\n\nInput: ");
+        name = controller.getScannerInput();
+        if (name.equals("1"))
+            createNewHero(name);
     }
 
     private Hero loadExistingHero() {
         return null;
     }
 
-    private Hero createNewHero() {
-        Hero hero;
-        String heroName;
-
-
-        System.out.println("Enter your name: ");
-        heroName = "Scan hero name";
-
-        System.out.println("Choose a hero: ");
-
-        return HeroFactory.newHero(heroName);
+    private void createNewHero(String name) {
+        String type;
+        System.out.println("Select Hero \n1. Black Panther\n2. Dora Milaje\n3. Jabari\n\nInput : ");
+        type = controller.getScannerInput();
+        if (name.equals("1"))
+            controller.createNewHero(type, name);
     }
 
     private void gameLoop()
     {
+        displayOptions();
         while (arena.isGameInProgress()) {
-            getInput();
+            System.out.print("Input : ");
+            controller.getInput();
         }
     }
 
-    private void getInput() {
-
+    public void displayOptions()
+    {
+        System.out.println("W - NORTH        Q - FIGHT\nA - WEST         E - RUN\nS - SOUTH\nD - WEST         Z - Player Stats\n");
     }
 
     @Override
     public void update() {
-
+        if (arena.getGameResults().getGameErrorMessage().isHasError()) {
+            System.out.println(arena.getGameResults().getGameErrorMessage().getErrorMessage());
+        }
+        displayOptions();
     }
+
+
 }

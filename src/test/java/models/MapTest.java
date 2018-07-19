@@ -2,6 +2,8 @@ package models;
 
 import models.players.Hero;
 import models.players.Player;
+import models.utils.Map;
+import models.utils.Position;
 import org.junit.jupiter.api.Test;
 import factory.MapFactory;
 
@@ -13,7 +15,7 @@ class MapTest {
     void createAMapWithALevelOfSevenAndMakeAMapWith1521Squares()
     {
         Map map = map = MapFactory.createNewMap(7);
-        int expected = 39*39;
+        int expected = 39;
         int actual = map.getSize();
         assertEquals(expected, actual);
     }
@@ -46,10 +48,7 @@ class MapTest {
         position.setX(3);
         assertEquals(true, map.addPlayer(position, player4));
 
-        assertEquals(4, map.getNumberOfPlayers());
-        assertEquals(true, map.removePlayer(player2));
-        assertEquals(true, map.removePlayer(player3));
-        assertEquals(2, map.getNumberOfPlayers());
+
 
     }
 }
