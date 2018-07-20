@@ -45,29 +45,32 @@ public class ArenaService {
                     break;
                 case WEST:
                     if (isMoveWithinBounds(position.getX(), -1)) {
-                        position.setX(position.getX() - 1);
-                    }
-                    else playerReachedDestination();
-                    break;
-                case NORTH:
-                    if (isMoveWithinBounds(position.getY(), -1)) {
                         Position oldPosition = PositionFactory.clone(position);
                         position.setX(position.getX() - 1);
                         checkIfThereIsAnEnemy(position, oldPosition);
                     }
                     else playerReachedDestination();
                     break;
+                case NORTH:
+                    if (isMoveWithinBounds(position.getY(), -1)) {
+                        Position oldPosition = PositionFactory.clone(position);
+                        position.setY(position.getY() - 1);
+                        checkIfThereIsAnEnemy(position, oldPosition);
+                    }
+                    else playerReachedDestination();
+                    break;
                 case SOUTH:
                     if (isMoveWithinBounds(position.getY(), +1)) {
-                        position.setX(position.getX() + 1);
+                        Position oldPosition = PositionFactory.clone(position);
+                        position.setY(position.getY() + 1);
+                        checkIfThereIsAnEnemy(position, oldPosition);
                     }
                     else playerReachedDestination();
             }
             arena.setLastPlayerDirection(direction);
-        } else {
-
-            gameError("Cannot move while player is in a battle");
         }
+        else
+            gameError("Cannot move while player is in a battle");
         updateUserInterfaces();
     }
 
@@ -77,8 +80,7 @@ public class ArenaService {
             gameResults("You encountered an enemy");
         }
         else {
-            arena.getMap().addPlayer(arena.getHero());
-            arena.getMap().removePlayer(oldPosition);
+
         }
     }
 
@@ -96,6 +98,7 @@ public class ArenaService {
     }
 
     private void playerReachedDestination() {
+        arena.setGameInProgress(true);
         gameError("Player won. Destination reached");
     }
 
@@ -152,9 +155,8 @@ public class ArenaService {
 
     private void updateUserInterfaces()
     {
-        for (UserInterface userInterface: userInterfaces) {
+        for (UserInterface userInterface: userInterfaces)
             userInterface.update();
-        }
     }
 
     public void inValidInput() {

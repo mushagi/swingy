@@ -3,7 +3,6 @@ package models.utils;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Objects;
 
 @Getter @Setter
 public class Position implements Cloneable{
@@ -26,14 +25,21 @@ public class Position implements Cloneable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Position position = (Position) o;
-        return x == position.x &&
-                y == position.y;
+        return true;
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+
+        return x ^ 31 * y ;
     }
 
-
+    @Override
+    public String toString() {
+        return "Position{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

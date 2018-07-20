@@ -1,10 +1,7 @@
 package services;
 
-import factory.HeroFactory;
 import models.utils.Arena;
 import enums.Direction;
-import models.utils.Position;
-import models.players.Hero;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +14,8 @@ class ArenaServiceTest {
         arenaService.registerHero("BlackPanther", "Mushagi");
 
         Arena arena = arenaService.getArena();
-        arena.getHero().getPosition().setY(1);
+        arena.getHero().getPosition().setY(0);
+        arenaService.movePlayer(Direction.NORTH);
         arenaService.movePlayer(Direction.NORTH);
         assertEquals("Player won. Destination reached",
                 arena.getGameResults().getGameErrorMessage().getErrorMessage());
@@ -30,8 +28,50 @@ class ArenaServiceTest {
 
         Arena arena = arenaService.getArena();
         arenaService.movePlayer(Direction.NORTH);
+        arenaService.movePlayer(Direction.NORTH);
+        arenaService.movePlayer(Direction.NORTH);
+        arenaService.inValidInput();
         assertEquals(1, arena.getHero().getPosition().getY());
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
+    }
+
+    @Test
+    void movePlayerSouth() {
+        ArenaService arenaService = new ArenaService();
+        arenaService.registerHero("BlackPanther", "Mushagi");
+
+        Arena arena = arenaService.getArena();
+        arenaService.movePlayer(Direction.SOUTH);
+        arenaService.inValidInput();
+        assertEquals(3, arena.getHero().getPosition().getY());
+        assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
+    }
+
+    @Test
+    void movePlayerWest() {
+        ArenaService arenaService = new ArenaService();
+        arenaService.registerHero("BlackPanther", "Mushagi");
+
+        Arena arena = arenaService.getArena();
+        arenaService.movePlayer(Direction.WEST);
+        arenaService.inValidInput();
+        assertEquals(1, arena.getHero().getPosition().getX());
+        assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
+    }
+
+    @Test
+    void movePlayerEast() {
+        ArenaService arenaService = new ArenaService();
+        arenaService.registerHero("BlackPanther", "Mushagi");
+
+        Arena arena = arenaService.getArena();
+        arenaService.movePlayer(Direction.EAST);
+        arenaService.movePlayer(Direction.SOUTH);
+        arenaService.movePlayer(Direction.SOUTH);
+        arenaService.inValidInput();
+        assertEquals(3, arena.getHero().getPosition().getX());
+        assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
+        assertEquals(4, arena.getHero().getPosition().getY());
     }
 
     @Test

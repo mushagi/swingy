@@ -8,7 +8,6 @@ import models.players.Player;
 public class GameResults {
     Player playerWon;
     Player playerLost;
-
     String result;
     GameErrorMessage gameErrorMessage;
 

@@ -73,8 +73,23 @@ public class CLIController implements GameController{
                 case "Q":
                     attack();
                     break;
-                case "E":
+                case "e":
                     runAway();
+                    break;
+                case "w":
+                    moveNorth();
+                    break;
+                case "a":
+                    moveWest();
+                    break;
+                case "s":
+                    moveSouth();
+                    break;
+                case "d":
+                    moveEast();
+                    break;
+                case "q":
+                    attack();
                     break;
                 default:
                     inValidInput();

@@ -26,4 +26,6 @@ public abstract class Player {
         this.artifact = artifact;
         this.position = position;
     }
+
+
 }

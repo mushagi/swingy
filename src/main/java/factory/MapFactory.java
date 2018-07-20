@@ -10,23 +10,9 @@ import java.util.HashMap;
 public class MapFactory {
     public static Map createNewMap(int level) {
         Map map;
-
-        HashMap<Position, Player> gameHashMap = createHashMap(level);
+        HashMap<Position, Player> gameHashMap = new HashMap<>();
         map = new Map(gameHashMap, getSquareSize(level));
         return map;
-    }
-
-    private static HashMap<Position, Player> createHashMap(int level) {
-        HashMap<Position, Player> gameMap = new HashMap<>();
-        int squareSize = getSquareSize(level);
-
-        for (int y = 0; y < squareSize; y++) {
-            for (int x = 0; x < squareSize; x++) {
-                Position position = new Position(y, x);
-                gameMap.put(position, null);
-            }
-        }
-        return gameMap;
     }
 
     private static int getSquareSize(int level) {

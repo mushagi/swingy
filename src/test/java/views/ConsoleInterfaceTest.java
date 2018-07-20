@@ -2,6 +2,10 @@ package views;
 
 import controllers.CLIController;
 import factory.CLIControllerFactory;
+import factory.HeroFactory;
+import factory.MapFactory;
+import models.players.Hero;
+import models.utils.Map;
 import org.junit.jupiter.api.Test;
 import services.ArenaService;
 
@@ -35,5 +39,13 @@ class ConsoleInterfaceTest {
 
     @Test
     void update() {
+    }
+
+    @Test
+    void update1() {
+        ConsoleInterface  c =  new ConsoleInterface();
+        Hero hero = HeroFactory.newHero("BlackPanther", "Mushagi");
+        Map map = MapFactory.createNewMap(hero.getLevel());
+        c.printMap(map);
     }
 }
