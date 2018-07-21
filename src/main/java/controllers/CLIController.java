@@ -9,8 +9,8 @@ import static enums.Direction.WEST;
 
 public class CLIController implements GameController{
 
-    ArenaService arenaService;
-    Scanner  scanner = new Scanner(System.in);
+    private final ArenaService arenaService;
+    private final Scanner  scanner = new Scanner(System.in);
     public CLIController(ArenaService arenaService) {
         this.arenaService = arenaService;
     }
@@ -70,9 +70,6 @@ public class CLIController implements GameController{
                 case "D":
                     moveEast();
                     break;
-                case "Q":
-                    attack();
-                    break;
                 case "e":
                     runAway();
                     break;
@@ -88,13 +85,25 @@ public class CLIController implements GameController{
                 case "d":
                     moveEast();
                     break;
-                case "q":
+                case "f":
                     attack();
+                    break;
+                case "F":
+                    attack();
+                case "q":
+                    quitGame();
+                    break;
+                case "Q":
+                    quitGame();
                     break;
                 default:
                     inValidInput();
                     break;
             }
+    }
+
+    private void quitGame() {
+        System.exit(0);
     }
 
     public String getScannerInput()

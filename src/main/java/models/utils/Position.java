@@ -1,10 +1,5 @@
 package models.utils;
 
-import lombok.Getter;
-import lombok.Setter;
-
-
-@Getter @Setter
 public class Position implements Cloneable{
 
     @Override
@@ -12,8 +7,8 @@ public class Position implements Cloneable{
         return super.clone();
     }
 
-    private int x;
-    private int y;
+    public int x;
+    public int y;
 
     public Position(int y, int x) {
         this.y = y;

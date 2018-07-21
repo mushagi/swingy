@@ -1,4 +1,4 @@
 package models.artifacts;
 
-public class Shield {
+class Shield {
 }

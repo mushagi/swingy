@@ -1,6 +1,6 @@
 package controllers;
 
-public interface GameController  {
+interface GameController  {
     void moveSouth();
     void moveNorth();
     void moveEast();

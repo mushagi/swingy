@@ -2,9 +2,17 @@ package factory;
 
 import models.utils.Position;
 
+import java.util.Random;
+
 public class PositionFactory {
     public static Position clone(Position position) {
-        Position newPosition = new Position(position.getY(), position.getX());
-        return newPosition;
+        return new Position(position.y, position.x );
+    }
+
+    public static Position newRandomPosition(int mapSize) {
+        Random random = new Random();
+        int x = random.nextInt(mapSize);
+        int y = random.nextInt(mapSize);
+        return new Position(y, x);
     }
 }

@@ -2,7 +2,6 @@ package services;
 
 import factory.ArenaFactory;
 import factory.HeroFactory;
-import factory.PositionFactory;
 import lombok.Getter;
 import models.utils.Arena;
 import enums.Direction;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 public class ArenaService {
     private static ArenaService arenaService;
     @Getter private Arena arena;
-    private  ArrayList<UserInterface> userInterfaces;
+    private final ArrayList<UserInterface> userInterfaces;
 
     public static ArenaService getInstance() {
         if (arenaService == null)
@@ -36,34 +35,36 @@ public class ArenaService {
             Position position = arena.getHero().getPosition();
             switch (direction) {
                 case EAST:
-                    if (isMoveWithinBounds(position.getX(), 1)) {
-                        Position oldPosition = PositionFactory.clone(position);
-                        position.setX(position.getX() + 1);
-                        checkIfThereIsAnEnemy(position, oldPosition);
+                    if (isMoveWithinBounds(position.x + 1)) {
+                        arena.getMap().removePlayer(position);
+                        position.x += 1;
+                        checkIfThereIsAnEnemy(position);
 
                     } else playerReachedDestination();
                     break;
                 case WEST:
-                    if (isMoveWithinBounds(position.getX(), -1)) {
-                        Position oldPosition = PositionFactory.clone(position);
-                        position.setX(position.getX() - 1);
-                        checkIfThereIsAnEnemy(position, oldPosition);
+                    if (isMoveWithinBounds(position.x-1)) {
+                        arena.getMap().removePlayer(position);
+                        position.x -= 1;
+                        checkIfThereIsAnEnemy(position);
+
                     }
                     else playerReachedDestination();
                     break;
                 case NORTH:
-                    if (isMoveWithinBounds(position.getY(), -1)) {
-                        Position oldPosition = PositionFactory.clone(position);
-                        position.setY(position.getY() - 1);
-                        checkIfThereIsAnEnemy(position, oldPosition);
+                    if (isMoveWithinBounds(position.y-1)) {
+                        arena.getMap().removePlayer(position);
+                        position.y -= 1;
+                        checkIfThereIsAnEnemy(position);
+
                     }
                     else playerReachedDestination();
                     break;
                 case SOUTH:
-                    if (isMoveWithinBounds(position.getY(), +1)) {
-                        Position oldPosition = PositionFactory.clone(position);
-                        position.setY(position.getY() + 1);
-                        checkIfThereIsAnEnemy(position, oldPosition);
+                    if (isMoveWithinBounds(position.y+1)) {
+                        arena.getMap().removePlayer(position);
+                        position.y += 1;
+                        checkIfThereIsAnEnemy(position);
                     }
                     else playerReachedDestination();
             }
@@ -74,13 +75,13 @@ public class ArenaService {
         updateUserInterfaces();
     }
 
-    private void checkIfThereIsAnEnemy(Position position, Position oldPosition) {
+    private void checkIfThereIsAnEnemy(Position position) {
         if (arena.getMap().playerExists(position)) {
             arena.setPlayerInABattle(true);
             gameResults("You encountered an enemy");
         }
         else {
-
+            arena.getMap().addPlayer(arena.getHero());
         }
     }
 
@@ -102,17 +103,8 @@ public class ArenaService {
         gameError("Player won. Destination reached");
     }
 
-    private boolean isMoveWithinBounds(int value, int increment) {
-        int sum = value + increment;
-        boolean result = (sum >= 0) && (sum <= arena.getMap().getSize());
-        return result;
-    }
-
-
-    public void registerHero(Hero hero) {
-        createAndRegisterMap(hero);
-        arena.setHero(hero);
-        centerPlayer();
+    private boolean isMoveWithinBounds(int value) {
+        return value >= 0 && value <= arena.getMap().getSize();
     }
 
     public void fight() {
@@ -136,7 +128,7 @@ public class ArenaService {
         userInterfaces.add(userInterface);
     }
 
-    public void unregisterUserInteface(UserInterface userInterface)
+    public void unregisterUserInterface(UserInterface userInterface)
     {
         userInterfaces.remove(userInterface);
     }
@@ -149,8 +141,8 @@ public class ArenaService {
     private void centerPlayer() {
         Map map = arena.getMap();
         Position heroPos = arena.getHero().getPosition();
-        heroPos.setX(map.getSize() / 2);
-        heroPos.setY(map.getSize() / 2);
+        heroPos.x = map.getSize() / 2;
+        heroPos.y = map.getSize() / 2;
     }
 
     private void updateUserInterfaces()
@@ -171,5 +163,4 @@ public class ArenaService {
         centerPlayer();
         arena.getMap().addPlayer(hero);
     }
-
 }

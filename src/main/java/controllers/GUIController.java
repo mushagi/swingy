@@ -1,8 +1,5 @@
 package controllers;
 
-import models.players.Hero;
-import models.players.Player;
-
 public class GUIController implements GameController {
 
     public void moveSouth() {

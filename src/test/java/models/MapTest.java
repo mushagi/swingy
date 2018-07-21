@@ -72,7 +72,7 @@ class MapTest {
         assertEquals(player3, map.getPlayer(position2));
 
         boolean b= map.removePlayer(position);
-        assertEquals(true, b);
+        assertTrue(b);
     }
 
     @Test
@@ -83,7 +83,7 @@ class MapTest {
 
         assertTrue(map.addPlayer(position, player));
         assertTrue(map.playerExists(position));
-        position.setY(6);
+        position.y = (6);
         assertFalse(map.playerExists(position));
     }
 }

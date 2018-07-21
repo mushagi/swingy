@@ -14,7 +14,7 @@ class ArenaServiceTest {
         arenaService.registerHero("BlackPanther", "Mushagi");
 
         Arena arena = arenaService.getArena();
-        arena.getHero().getPosition().setY(0);
+        arena.getHero().getPosition().y = 0;
         arenaService.movePlayer(Direction.NORTH);
         arenaService.movePlayer(Direction.NORTH);
         assertEquals("Player won. Destination reached",
@@ -27,11 +27,11 @@ class ArenaServiceTest {
         arenaService.registerHero("BlackPanther", "Mushagi");
 
         Arena arena = arenaService.getArena();
-        arenaService.movePlayer(Direction.NORTH);
+        System.out.println(arena.getHero().getPosition());
         arenaService.movePlayer(Direction.NORTH);
         arenaService.movePlayer(Direction.NORTH);
         arenaService.inValidInput();
-        assertEquals(1, arena.getHero().getPosition().getY());
+        assertEquals(0, arena.getHero().getPosition().y);
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
     }
 
@@ -43,7 +43,7 @@ class ArenaServiceTest {
         Arena arena = arenaService.getArena();
         arenaService.movePlayer(Direction.SOUTH);
         arenaService.inValidInput();
-        assertEquals(3, arena.getHero().getPosition().getY());
+        assertEquals(3, arena.getHero().getPosition().y);
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
     }
 
@@ -55,7 +55,7 @@ class ArenaServiceTest {
         Arena arena = arenaService.getArena();
         arenaService.movePlayer(Direction.WEST);
         arenaService.inValidInput();
-        assertEquals(1, arena.getHero().getPosition().getX());
+        assertEquals(1, arena.getHero().getPosition().x);
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
     }
 
@@ -69,67 +69,9 @@ class ArenaServiceTest {
         arenaService.movePlayer(Direction.SOUTH);
         arenaService.movePlayer(Direction.SOUTH);
         arenaService.inValidInput();
-        assertEquals(3, arena.getHero().getPosition().getX());
+        assertEquals(3, arena.getHero().getPosition().x );
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
-        assertEquals(4, arena.getHero().getPosition().getY());
-    }
-
-    @Test
-    void registerPlayer() {
-    }
-
-    @Test
-    void fight() {
-    }
-
-    @Test
-    void runAway() {
-    }
-
-    @Test
-    void registerUserInterface() {
-    }
-
-
-
-    @Test
-    void createArena() {
-    }
-
-    @Test
-    void isGameInProgress() {
-    }
-
-    @Test
-    void isHeroInArena() {
-    }
-
-    @Test
-    void movePlayer1() {
-    }
-
-    @Test
-    void registerPlayer1() {
-    }
-
-    @Test
-    void fight1() {
-    }
-
-    @Test
-    void runAway1() {
-    }
-
-    @Test
-    void createArena1() {
-    }
-
-    @Test
-    void isGameInProgress1() {
-    }
-
-    @Test
-    void isHeroInArena1() {
+        assertEquals(4, arena.getHero().getPosition().y);
     }
 
 

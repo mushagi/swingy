@@ -2,7 +2,7 @@ package factory;
 
 import models.utils.GameResults;
 
-public class BattleResultsFactory {
+class BattleResultsFactory {
 
     public static GameResults createResults() {
         return new GameResults();

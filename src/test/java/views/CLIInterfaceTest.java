@@ -1,27 +1,25 @@
 package views;
 
-import controllers.CLIController;
-import factory.CLIControllerFactory;
+import factory.EnemyFactory;
 import factory.HeroFactory;
 import factory.MapFactory;
+import models.players.Enemy;
 import models.players.Hero;
 import models.utils.Map;
+import models.utils.Position;
 import org.junit.jupiter.api.Test;
-import services.ArenaService;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class ConsoleInterfaceTest {
+class CLIInterfaceTest {
 
     @Test
     void run() {
         String data = "";
         InputStream stdin = System.in;
         try {
-            ConsoleInterface cliUi= new ConsoleInterface();
+            CLIInterface cliUi= new CLIInterface();
             System.setIn(new ByteArrayInputStream(data.getBytes()));
             cliUi.run();
         } finally {
@@ -30,22 +28,22 @@ class ConsoleInterfaceTest {
     }
 
     @Test
-    void loadHero() {
-    }
-
-    @Test
-    void gameLoop() {
-    }
-
-    @Test
-    void update() {
-    }
-
-    @Test
     void update1() {
-        ConsoleInterface  c =  new ConsoleInterface();
+        CLIInterface c =  new CLIInterface();
+        Enemy enemy = EnemyFactory.newEnemy("sdf", "sdfs");
+        Position position = new Position(1, 0);
+        enemy.setPosition(position);
         Hero hero = HeroFactory.newHero("BlackPanther", "Mushagi");
         Map map = MapFactory.createNewMap(hero.getLevel());
+        map.addPlayer(hero);
+        map.addPlayer(enemy);
         c.printMap(map);
+    }
+
+
+    @Test
+    void displayOptions() {
+        CLIInterface cliInterface = new CLIInterface();
+        cliInterface.displayOptions();
     }
 }
