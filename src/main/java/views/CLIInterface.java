@@ -93,12 +93,12 @@ public class CLIInterface implements UserInterface {
     }
 
     void displayOptions() {
-        System.out.println("Directions       Actions        Game Options\nW - NORTH        F - FIGHT      Z - View Hero Stats\nA - WEST         E - RUN        Q - quit\nS - SOUTH                       X - Switch to GUI\nD - EAST");
+        System.out.println("Directions       Actions        Game Options\nW - NORTH        F - FIGHT      Z - View Hero Stats\nA - WEST         E - RUN AWAY   X - Switch to GUI\nS - SOUTH                       C - Back To Main Menu\nD - EAST                        Q - Quit Game");
     }
 
     @Override
     public void updateInterface() {
-        System.out.printf("\f");
+        clearScreen();
         System.out.println("The arena says : ");
         if (arena.getGameResults().getGameErrorMessage().isHasError()) {
             System.out.println(arena.getGameResults().getGameErrorMessage().getErrorMessage());
@@ -109,6 +109,19 @@ public class CLIInterface implements UserInterface {
         else
             showGameMapAndOptions();
 
+    }
+
+    private void clearScreen() {
+        try {
+            final String os = System.getProperty("os.name");
+            if (os.contains("Windows")) {
+                Runtime.getRuntime().exec("cls");
+            } else {
+                Runtime.getRuntime().exec("clear");
+            }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void showGameMapAndOptions() {
@@ -170,8 +183,7 @@ public class CLIInterface implements UserInterface {
     }
 
     private void gameLoop() {
-        printMap(arena.getMap());
-        displayOptions();
+        updateInterface();
         while (arena.isGameInProgress()) {
             System.out.print("Input : ");
             if (controller.getInput()) {

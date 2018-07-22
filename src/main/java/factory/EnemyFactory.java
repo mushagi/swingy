@@ -1,7 +1,6 @@
 package factory;
 
 import models.world.Position;
-import models.artifacts.Artifact;
 import models.players.Enemy;
 
 import java.util.ArrayList;
@@ -9,15 +8,8 @@ import java.util.Random;
 
 public class EnemyFactory {
 
-    private static Enemy createEnemy(String type, String name,
-                                     int level,
-                                     int experience,
-                                     int attack,
-                                     int defence,
-                                     int hitPoint,
-                                     Artifact artifact,
-                                     Position position) {
-        return new Enemy(name, level, experience, attack, defence, hitPoint, artifact, position);
+    private static Enemy createEnemy(String name) {
+        return new Enemy(name, 1, 1, 5, 6, 6, null, null);
     }
 
     public static ArrayList<Enemy> createRandomEnemies(int mapSize) {
@@ -40,9 +32,9 @@ public class EnemyFactory {
 
     private static ArrayList<Enemy> getListOfEnemies() {
         ArrayList<Enemy> enemies = new ArrayList<>();
-        enemies.add(createEnemy("Whatever", "whatever1", 1,1 ,5, 6, 6, null, null));
-        enemies.add(createEnemy("Whatever", "whatever2", 1,1 ,5, 6, 6, null, null));
-        enemies.add(createEnemy("Whatever", "whatever3", 1,1 ,5, 6, 6, null, null));
+        enemies.add(createEnemy("whatever1"));
+        enemies.add(createEnemy("whatever2"));
+        enemies.add(createEnemy("whatever3"));
         return enemies;
     }
 

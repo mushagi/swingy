@@ -6,35 +6,35 @@ import services.ArenaService;
 import static enums.Direction.*;
 
 abstract class ArenaController {
-    ArenaService arenaService;
+    final ArenaService arenaService;
 
-    public ArenaController(ArenaService arenaService) {
+    ArenaController(ArenaService arenaService) {
         this.arenaService = arenaService;
     }
 
     abstract void switchUI();
 
-    public void moveSouth() {
+    void moveSouth() {
         arenaService.movePlayer(SOUTH);
     }
 
-    public void moveNorth() {
+    void moveNorth() {
         arenaService.movePlayer(NORTH);
     }
 
-    public void moveEast() {
+    void moveEast() {
         arenaService.movePlayer(EAST);
     }
 
-    public void moveWest() {
+    void moveWest() {
         arenaService.movePlayer(WEST);
     }
 
-    public void attack() {
+    void attack() {
         arenaService.fight();
     }
 
-    public void runAway() {
+    void runAway() {
         arenaService.runAway();
     }
 

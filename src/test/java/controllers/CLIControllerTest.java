@@ -2,7 +2,6 @@ package controllers;
 
 import factory.CLIControllerFactory;
 import org.junit.jupiter.api.Test;
-import services.ArenaService;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

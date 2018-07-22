@@ -1,6 +1,6 @@
 package views;
 
-public interface UserInterface {
+interface UserInterface {
     void updateInterface();
     void show();
     void subscribeToAnArenaModel();

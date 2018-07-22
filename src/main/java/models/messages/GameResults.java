@@ -2,7 +2,6 @@ package models.messages;
 
 import lombok.Getter;
 import lombok.Setter;
-import models.players.Player;
 
 @Setter @Getter
 public class GameResults {

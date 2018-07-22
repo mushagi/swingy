@@ -30,7 +30,7 @@ class CLIInterfaceTest {
     @Test
     void update1() {
         CLIInterface c =  new CLIInterface();
-        Enemy enemy = EnemyFactory.newEnemy("sdf", "sdfs");
+        Enemy enemy = EnemyFactory.newEnemy("Black", "Panther");
         Position position = new Position(1, 0);
         enemy.setPosition(position);
         Hero hero = HeroFactory.newHero("BlackPanther", "Mushagi");
