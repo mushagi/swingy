@@ -1,6 +1,6 @@
 package factory;
 
-import models.utils.GameResults;
+import models.messages.GameResults;
 
 class BattleResultsFactory {
 

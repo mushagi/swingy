@@ -1,8 +1,8 @@
 package factory;
 
-import models.utils.Position;
+import models.world.Position;
 
-import models.utils.Map;
+import models.world.Map;
 import models.players.Player;
 
 import java.util.HashMap;

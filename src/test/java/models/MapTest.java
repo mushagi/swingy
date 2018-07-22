@@ -3,8 +3,8 @@ package models;
 import factory.PositionFactory;
 import models.players.Hero;
 import models.players.Player;
-import models.utils.Map;
-import models.utils.Position;
+import models.world.Map;
+import models.world.Position;
 import org.junit.jupiter.api.Test;
 import factory.MapFactory;
 

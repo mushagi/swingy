@@ -1,6 +1,6 @@
 package factory;
 
-import models.utils.GameErrorMessage;
+import models.messages.GameErrorMessage;
 
 class GameErrorMessageFactory {
 

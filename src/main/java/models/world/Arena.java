@@ -1,4 +1,4 @@
-package models.utils;
+package models.world;
 
 import lombok.Getter;
 
@@ -6,6 +6,7 @@ import lombok.Setter;
 import enums.Direction;
 import models.players.Enemy;
 import models.players.Hero;
+import models.messages.GameResults;
 
 import java.util.ArrayList;
 

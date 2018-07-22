@@ -16,7 +16,7 @@ class CLIControllerTest {
         InputStream stdin = System.in;
         try {
             System.setIn(new ByteArrayInputStream(data.getBytes()));
-            CLIController controller = CLIControllerFactory.newCLIController(ArenaService.getInstance());
+            CLIController controller = CLIControllerFactory.newCLIController();
             controller.getInput();
         } finally {
             System.setIn(stdin);

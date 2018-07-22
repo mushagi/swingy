@@ -1,6 +1,6 @@
 package models.players;
 
-import models.utils.Position;
+import models.world.Position;
 import models.artifacts.Artifact;
 
 public class Hero extends Player {

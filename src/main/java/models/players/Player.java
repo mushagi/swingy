@@ -2,7 +2,7 @@ package models.players;
 
 import lombok.Getter;
 import lombok.Setter;
-import models.utils.Position;
+import models.world.Position;
 import models.artifacts.Artifact;
 
 @Getter @Setter

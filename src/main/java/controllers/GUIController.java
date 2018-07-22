@@ -1,28 +1,21 @@
 package controllers;
 
-public class GUIController implements GameController {
+import models.world.Arena;
+import services.ArenaService;
 
-    public void moveSouth() {
-    }
+public class GUIController extends ArenaController {
 
-    public void moveNorth() {
-    }
-
-    public void moveEast() {
-    }
-
-    public void moveWest() {
+    public GUIController(ArenaService arenaService) {
+        super(arenaService);
     }
 
     @Override
-    public void createNewHero(String type, String name) {
+    void switchUI() {
 
     }
 
-
-    public void attack() {
-    }
-
-    public void runAway() {
+    @Override
+    public Arena getArena() {
+        return null;
     }
 }

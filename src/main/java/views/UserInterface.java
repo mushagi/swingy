@@ -1,8 +1,9 @@
 package views;
 
-import models.utils.Arena;
-
-public abstract class UserInterface {
-    Arena arena;
-    public abstract void update();
+public interface UserInterface {
+    void updateInterface();
+    void show();
+    void subscribeToAnArenaModel();
+    void registerController();
+    void close();
 }

@@ -1,4 +1,4 @@
-package models.utils;
+package models.world;
 
 public class Position implements Cloneable{
 

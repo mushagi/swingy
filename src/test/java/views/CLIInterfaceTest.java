@@ -5,8 +5,8 @@ import factory.HeroFactory;
 import factory.MapFactory;
 import models.players.Enemy;
 import models.players.Hero;
-import models.utils.Map;
-import models.utils.Position;
+import models.world.Map;
+import models.world.Position;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -21,7 +21,7 @@ class CLIInterfaceTest {
         try {
             CLIInterface cliUi= new CLIInterface();
             System.setIn(new ByteArrayInputStream(data.getBytes()));
-            cliUi.run();
+            cliUi.show();
         } finally {
             System.setIn(stdin);
         }

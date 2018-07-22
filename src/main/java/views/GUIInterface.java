@@ -1,9 +1,29 @@
 package views;
 
-public class GUIInterface extends UserInterface{
+public class GUIInterface implements UserInterface {
 
     @Override
-    public void update() {
+    public void updateInterface() {
+
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void subscribeToAnArenaModel() {
+
+    }
+
+    @Override
+    public void registerController() {
+
+    }
+
+    @Override
+    public void close() {
 
     }
 }

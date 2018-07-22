@@ -1,38 +1,18 @@
 package controllers;
 
+import models.players.Hero;
 import services.ArenaService;
+import views.GUIInterface;
+
 import java.util.Scanner;
-import static enums.Direction.NORTH;
-import static enums.Direction.SOUTH;
-import static enums.Direction.EAST;
-import static enums.Direction.WEST;
 
-public class CLIController implements GameController{
-
-    private final ArenaService arenaService;
+public class CLIController extends ArenaController {
     private final Scanner  scanner = new Scanner(System.in);
     public CLIController(ArenaService arenaService) {
-        this.arenaService = arenaService;
+        super(arenaService);
     }
 
-    public void moveSouth() {
-        arenaService.movePlayer(SOUTH);
-    }
 
-    public void moveNorth() {
-        arenaService.movePlayer(NORTH);
-    }
-
-    public void moveEast() {
-        arenaService.movePlayer(EAST);
-    }
-
-    public void moveWest() {
-        arenaService.movePlayer(WEST);
-
-    }
-
-    @Override
     public void createNewHero(String type, String name) {
 
         switch (type)
@@ -45,15 +25,7 @@ public class CLIController implements GameController{
 
     }
 
-    public void attack() {
-        arenaService.fight();
-    }
-
-    public void runAway() {
-        arenaService.runAway();
-    }
-
-    public void getInput() {
+    public boolean getInput() {
 
             String input = getScannerInput();
 
@@ -96,14 +68,23 @@ public class CLIController implements GameController{
                 case "Q":
                     quitGame();
                     break;
+                case "x":
+                    switchUI();
+                    return true;
+                case "X":
+                    switchUI();
+                    return true;
                 default:
                     inValidInput();
                     break;
             }
+            return false;
     }
 
-    private void quitGame() {
-        System.exit(0);
+    @Override
+    void switchUI() {
+        GUIInterface guiInterface = new GUIInterface();
+        guiInterface.show();
     }
 
     public String getScannerInput()
@@ -117,8 +98,12 @@ public class CLIController implements GameController{
         return input;
     }
 
-
     private void inValidInput() {
         arenaService.inValidInput();
+    }
+
+
+    public void createNewHero(Hero hero) {
+        arenaService.registerHero(hero);
     }
 }

@@ -1,6 +1,6 @@
 package services;
 
-import models.utils.Arena;
+import models.world.Arena;
 import enums.Direction;
 import org.junit.jupiter.api.Test;
 

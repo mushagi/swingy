@@ -1,7 +1,7 @@
 package factory;
 
 import models.players.BlackPanther;
-import models.utils.Position;
+import models.world.Position;
 import models.artifacts.Artifact;
 import models.players.Hero;
 

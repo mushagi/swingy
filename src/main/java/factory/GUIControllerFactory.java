@@ -1,10 +1,12 @@
 package factory;
 
 import controllers.GUIController;
+import services.ArenaService;
 
 class GUIControllerFactory {
     public static GUIController newGuiController()
     {
-        return new GUIController();
+        ArenaService arenaService = new ArenaService();
+        return new GUIController(arenaService);
     }
 }

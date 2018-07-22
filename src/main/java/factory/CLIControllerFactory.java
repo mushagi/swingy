@@ -5,8 +5,9 @@ import services.ArenaService;
 
 public class CLIControllerFactory {
 
-    public static CLIController newCLIController(ArenaService arenaService)
+    public static CLIController newCLIController()
     {
+        ArenaService arenaService = new ArenaService();
         return new CLIController(arenaService);
     }
 }

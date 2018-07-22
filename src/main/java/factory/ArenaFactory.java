@@ -1,8 +1,8 @@
 package factory;
 
-import models.utils.Arena;
-import models.utils.GameResults;
-import models.utils.Map;
+import models.world.Arena;
+import models.messages.GameResults;
+import models.world.Map;
 import models.players.Enemy;
 import models.players.Hero;
 

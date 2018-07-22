@@ -1,7 +1,7 @@
 package models.players;
 
 import models.artifacts.Artifact;
-import models.utils.Position;
+import models.world.Position;
 
 public class BlackPanther extends Hero {
     public BlackPanther(String name) {

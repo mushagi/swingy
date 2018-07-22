@@ -1,6 +1,6 @@
 package factory;
 
-import models.utils.Position;
+import models.world.Position;
 
 import java.util.Random;
 

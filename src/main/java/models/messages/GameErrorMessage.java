@@ -1,4 +1,4 @@
-package models.utils;
+package models.messages;
 
 import lombok.Getter;
 import lombok.Setter;
