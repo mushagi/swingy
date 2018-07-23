@@ -15,10 +15,10 @@ class ArenaServiceTest {
 
         Arena arena = arenaService.getArena();
         arena.getHero().getPosition().y = 0;
-        arenaService.movePlayer(Direction.NORTH);
-        arenaService.movePlayer(Direction.NORTH);
+        arenaService.moveHero(Direction.NORTH);
+        arenaService.moveHero(Direction.NORTH);
         assertEquals("Player won. Destination reached",
-                arena.getGameResults().getGameErrorMessage().getErrorMessage());
+                arena.getGameResults().getResult());
     }
 
     @Test
@@ -28,8 +28,8 @@ class ArenaServiceTest {
 
         Arena arena = arenaService.getArena();
         System.out.println(arena.getHero().getPosition());
-        arenaService.movePlayer(Direction.NORTH);
-        arenaService.movePlayer(Direction.NORTH);
+        arenaService.moveHero(Direction.NORTH);
+        arenaService.moveHero(Direction.NORTH);
         arenaService.inValidInput();
         assertEquals(0, arena.getHero().getPosition().y);
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
@@ -41,7 +41,7 @@ class ArenaServiceTest {
         arenaService.registerHero("BlackPanther", "Mushagi");
 
         Arena arena = arenaService.getArena();
-        arenaService.movePlayer(Direction.SOUTH);
+        arenaService.moveHero(Direction.SOUTH);
         arenaService.inValidInput();
         assertEquals(3, arena.getHero().getPosition().y);
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
@@ -53,7 +53,7 @@ class ArenaServiceTest {
         arenaService.registerHero("BlackPanther", "Mushagi");
 
         Arena arena = arenaService.getArena();
-        arenaService.movePlayer(Direction.WEST);
+        arenaService.moveHero(Direction.WEST);
         arenaService.inValidInput();
         assertEquals(1, arena.getHero().getPosition().x);
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
@@ -65,14 +65,20 @@ class ArenaServiceTest {
         arenaService.registerHero("BlackPanther", "Mushagi");
 
         Arena arena = arenaService.getArena();
-        arenaService.movePlayer(Direction.EAST);
-        arenaService.movePlayer(Direction.SOUTH);
-        arenaService.movePlayer(Direction.SOUTH);
+        arenaService.moveHero(Direction.EAST);
+        arenaService.moveHero(Direction.SOUTH);
+        arenaService.moveHero(Direction.SOUTH);
         arenaService.inValidInput();
         assertEquals(3, arena.getHero().getPosition().x );
         assertEquals(arena.getHero(), arena.getMap().getPlayer(arena.getHero().getPosition()));
         assertEquals(4, arena.getHero().getPosition().y);
     }
 
+    @Test
+     void getLevel() {
+        ArenaService arenaService = new ArenaService();
+        int level = arenaService.getLevel(9000, 0);
+        assertEquals(4, level);
+    }
 
 }

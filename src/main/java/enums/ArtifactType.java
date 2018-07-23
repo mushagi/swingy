@@ -1,4 +1,6 @@
 package enums;
 
-enum ArtifactType {
+public enum ArtifactType {
+    Weapon,
+    Armour
 }

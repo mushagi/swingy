@@ -3,22 +3,24 @@ package models.messages;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 @Setter @Getter
 public class GameResults {
-    String result;
+    ArrayList<String> result;
     boolean heroWon;
-    GameErrorMessage gameErrorMessage;
+    boolean isError;
 
-    public GameResults() {
-        gameErrorMessage = new GameErrorMessage();
-        result = "";
+    public GameResults(ArrayList<String>  result, boolean heroWon, boolean isError) {
+        this.result = result;
+        this.heroWon = heroWon;
+        this.isError = isError;
     }
 
     public void clear()
     {
-        result = "";
-        gameErrorMessage.setErrorMessage("");
-        gameErrorMessage.setHasError(false);
+        result.clear();
         heroWon = false;
+        isError = false;
     }
 }

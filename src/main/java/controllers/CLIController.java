@@ -42,7 +42,10 @@ public class CLIController extends ArenaController {
                 case "D":
                     moveEast();
                     break;
-                case "e":
+                case "r":
+                    runAway();
+                    break;
+                case "R":
                     runAway();
                     break;
                 case "w":

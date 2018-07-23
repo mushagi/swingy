@@ -7,130 +7,126 @@ import lombok.Getter;
 import models.players.Hero;
 import models.players.Player;
 import models.world.Arena;
-import models.world.Position;
+import models.world.Map;
 import state.GameData;
+import utils.Formulas;
+
+import java.util.Random;
 
 public class ArenaService {
     @Getter private Arena arena;
+    private final MapService mapService;
+    private final GameResultsService gameResultsService;
+    private final BattleService battleService;
 
-    public void movePlayer(Direction direction) {
-        clearError();
+
+    public ArenaService() {
+        this.mapService = new MapService();
+        this.gameResultsService = new GameResultsService();
+        this.battleService = new BattleService();
+    }
+
+    public void moveHero(Direction direction) {
+        gameResultsService.clearGameResults();
         if (!arena.isPlayerInABattle()) {
-            Position position = arena.getHero().getPosition();
-            switch (direction) {
-                case EAST:
-                    if (isMoveWithinBounds(position.x + 1)) {
-                        arena.getMap().removePlayer(position);
-                        position.x += 1;
-                        checkIfThereIsAnEnemy(position);
-
-                    } else playerReachedDestination();
-                    break;
-                case WEST:
-                    if (isMoveWithinBounds(position.x - 1)) {
-                        arena.getMap().removePlayer(position);
-                        position.x -= 1;
-                        checkIfThereIsAnEnemy(position);
-
-                    } else playerReachedDestination();
-                    break;
-                case NORTH:
-                    if (isMoveWithinBounds(position.y - 1)) {
-                        arena.getMap().removePlayer(position);
-                        position.y -= 1;
-                        checkIfThereIsAnEnemy(position);
-
-                    } else playerReachedDestination();
-                    break;
-                case SOUTH:
-                    if (isMoveWithinBounds(position.y + 1)) {
-                        arena.getMap().removePlayer(position);
-                        position.y += 1;
-                        checkIfThereIsAnEnemy(position);
-                    } else playerReachedDestination();
+            if (mapService.isMoveWithinBounds(direction)) {
+                if (!mapService.moveHeroInTheMap(direction))
+                    setHeroToBattle();
             }
-            arena.setLastPlayerDirection(direction);
+            else
+                playerReachedDestination();
+        }
+        else
+            gameResultsService.setGameError("Cannot move while player is in a battle");
+    }
+
+    public void fight() {
+        gameResultsService.clearGameResults();
+        if (arena.isPlayerInABattle()) {
+            Player enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
+            Player won = battleService.battle(arena.getHero(), enemy);
+            if (won == arena.getHero()) {
+                gameResultsService.addMessage("This guy " + won.getName() + " won");
+                arena.setPlayerInABattle(false);
+                arena.getMap().addPlayer(arena.getHero());
+                heroLevelUp();
+            }
+            else
+                gameOver(enemy);
         } else
-            gameError("Cannot move while player is in a battle");
+            gameResultsService.setGameError("Cannot attack while there is no enemy.");
     }
 
-    private void checkIfThereIsAnEnemy(Position position) {
-        if (arena.getMap().playerExists(position)) {
-            arena.setPlayerInABattle(true);
-            gameResults("You encountered an enemy");
-        } else
-            arena.getMap().addPlayer(arena.getHero());
+    private void heroLevelUp() {
+        int level = getLevel(arena.getHero().getExperience(), arena.getHero().getLevel());
+        arena.getHero().setLevel(level);
     }
 
-    private void gameResults(String message) {
-        arena.getGameResults().setResult(message);
+    int getLevel(int experience, int level) {
+        if (experience < Formulas.calculateRequiredLevelExperience(level + 1))
+            return level;
+        return getLevel(experience, ++level);
     }
 
-    private void clearError() {
-        arena.getGameResults().clear();
+
+    private void gameOver(Player enemy) {
+        gameResultsService.addMessage("Enemy " + enemy.getName()+" won");
+        gameResultsService.isGameWon(false);
+        arena.setGameInProgress(false);
     }
 
-    private void gameError(String message) {
-        arena.getGameResults().getGameErrorMessage().setErrorMessage(message);
-        arena.getGameResults().getGameErrorMessage().setHasError(true);
+    public void runAway() {
+        Random random = new Random();
+        boolean isRunningAwayAllowed = random.nextBoolean();
+        if (isRunningAwayAllowed && mapService.heroFoundARunAwayPosition())
+            gameResultsService.addMessage("Run away a success.");
+        else {
+            gameResultsService.addMessage("Run away was not possible. Fight to the death");
+            fight();
+        }
+        arena.setPlayerInABattle(false);
+    }
+
+    private void setHeroToBattle() {
+        arena.setPlayerInABattle(true);
+        gameResultsService.addMessage("You encountered an enemy");
     }
 
     private void playerReachedDestination() {
         arena.setGameInProgress(false);
-        gameResults("Player reached Destination. Mission accomplished");
-
+        gameResultsService.addMessage("Player reached Destination. Mission accomplished");
     }
 
-    private boolean isMoveWithinBounds(int value) {
-        return value >= 0 && value <= arena.getMap().getSize();
+    public void inValidInput() {
+        gameResultsService.setGameError("Invalid input");
     }
 
-    public void fight() {
-        clearError();
-        if (arena.isPlayerInABattle()) {
-            Player enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
-            Player won = BattleService.battle(arena.getHero(), enemy);
-            gameResults("This guy " + won.getName() +" won");
-            arena.setPlayerInABattle(false);
-            if (won == arena.getHero())
-                arena.getMap().addPlayer(arena.getHero());
-        } else
-            gameError("Cannot attack while there is no enemy.");
-    }
-
-    public void runAway() {
-    }
-
-    private void createAndRegisterMap(Hero hero) {
-        GameData.arena = ArenaFactory.createNewArena(hero);
+    private void registerArena(Hero hero, Map map)
+    {
+        GameData.arena = ArenaFactory.newArena(hero, map);
         arena = GameData.arena;
     }
 
-    private void centerHero(Hero hero) {
-        Position heroPos = hero.getPosition();
-        heroPos.x = arena.getMap().getSize() / 2;
-        heroPos.y = arena.getMap().getSize() / 2;
-    }
-
-
-
-    public void inValidInput() {
-        gameError("Invalid input");
+    private Map registerMap(Hero hero) {
+        return mapService.createMap(hero);
     }
 
     public void registerHero(String type, String name) {
         Hero hero = HeroFactory.newHero(type, name);
-        createMapAndRegisterHero(hero);
+        registerMapAndHero(hero);
+        registerGameResult();
+    }
+
+    public void registerGameResult() {
+        gameResultsService.registerGameResults(arena.getGameResults());
     }
 
     public void registerHero(Hero hero) {
-        createMapAndRegisterHero(hero);
+        registerMapAndHero(hero);
     }
 
-    private void createMapAndRegisterHero(Hero hero) {
-        createAndRegisterMap(hero);
-        centerHero(hero);
-        arena.setHero(hero);
-        arena.getMap().addPlayer(hero);
+    private void registerMapAndHero(Hero hero) {
+        Map map = registerMap(hero);
+        registerArena(hero, map);
     }
 }

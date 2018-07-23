@@ -15,7 +15,7 @@ class MapTest {
     @Test
     void createAMapWithALevelOfSevenAndMakeAMapWith1521Squares()
     {
-        Map map = map = MapFactory.createNewMap(7);
+        Map map = map = MapFactory.createNewMap(0);
         int expected = 39;
         int actual = map.getSize();
         assertEquals(expected, actual);

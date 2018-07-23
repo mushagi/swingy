@@ -15,19 +15,19 @@ abstract class ArenaController {
     abstract void switchUI();
 
     void moveSouth() {
-        arenaService.movePlayer(SOUTH);
+        arenaService.moveHero(SOUTH);
     }
 
     void moveNorth() {
-        arenaService.movePlayer(NORTH);
+        arenaService.moveHero(NORTH);
     }
 
     void moveEast() {
-        arenaService.movePlayer(EAST);
+        arenaService.moveHero(EAST);
     }
 
     void moveWest() {
-        arenaService.movePlayer(WEST);
+        arenaService.moveHero(WEST);
     }
 
     void attack() {

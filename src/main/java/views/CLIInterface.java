@@ -93,22 +93,18 @@ public class CLIInterface implements UserInterface {
     }
 
     void displayOptions() {
-        System.out.println("Directions       Actions        Game Options\nW - NORTH        F - FIGHT      Z - View Hero Stats\nA - WEST         E - RUN AWAY   X - Switch to GUI\nS - SOUTH                       C - Back To Main Menu\nD - EAST                        Q - Quit Game");
+        System.out.println("Directions       Actions        Game Options\nW - NORTH        F - FIGHT      Z - View Hero Stats\nA - WEST         R - RUN AWAY   X - Switch to GUI\nS - SOUTH                       C - Back To Main Menu\nD - EAST                        Q - Quit Game");
     }
 
     @Override
     public void updateInterface() {
         clearScreen();
         System.out.println("The arena says : ");
-        if (arena.getGameResults().getGameErrorMessage().isHasError()) {
-            System.out.println(arena.getGameResults().getGameErrorMessage().getErrorMessage());
-        } else
-            System.out.println(arena.getGameResults().getResult());
+        System.out.println(arena.getGameResults().getResult());
         if (!arena.isGameInProgress())
             promptNewGame();
         else
             showGameMapAndOptions();
-
     }
 
     private void clearScreen() {

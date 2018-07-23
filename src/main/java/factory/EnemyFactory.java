@@ -1,5 +1,6 @@
 package factory;
 
+import models.artifacts.Artifact;
 import models.world.Position;
 import models.players.Enemy;
 
@@ -9,7 +10,7 @@ import java.util.Random;
 public class EnemyFactory {
 
     private static Enemy createEnemy(String name) {
-        return new Enemy(name, 1, 1, 5, 6, 6, null, null);
+        return new Enemy(name, 1, 1, 5, 6, 6);
     }
 
     public static ArrayList<Enemy> createRandomEnemies(int mapSize) {
@@ -39,11 +40,14 @@ public class EnemyFactory {
     }
 
     public static Enemy newEnemy(String type, String name) {
-        switch (type)
-        {
-            case "BlackPanther" :
+
+
+        switch (type) {
+            case "BlackPanther"
+                    :
         }
-        return new Enemy(name, 0, 0, 0, 0, 0, null, null);
+
+        return new Enemy(name, 1, 10, 60, 30, 60);
     }
 
 }
