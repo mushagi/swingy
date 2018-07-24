@@ -1,6 +1,6 @@
 package factory;
 
-import models.artifacts.Artifact;
+import javafx.geometry.Pos;
 import models.world.Position;
 import models.players.Enemy;
 
@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class EnemyFactory {
 
-    private static Enemy createEnemy(String name) {
+    private  static Enemy createEnemy(String name) {
         return new Enemy(name, 1, 1, 5, 6, 6);
     }
 
@@ -17,8 +17,7 @@ public class EnemyFactory {
         ArrayList<Enemy> enemies = new ArrayList<>();
         for (int i = 0; i < mapSize; i++) {
             Enemy enemy = getRandomEnemy();
-            Position position = PositionFactory.newRandomPosition(mapSize);
-            enemy.setPosition(position);
+            randomisePositionValues(enemy.getPosition(), mapSize);
             enemies.add(enemy);
         }
         return enemies;
@@ -31,7 +30,7 @@ public class EnemyFactory {
         return enemies.get(randomNumber);
     }
 
-    private static ArrayList<Enemy> getListOfEnemies() {
+    private  static ArrayList<Enemy> getListOfEnemies() {
         ArrayList<Enemy> enemies = new ArrayList<>();
         enemies.add(createEnemy("whatever1"));
         enemies.add(createEnemy("whatever2"));
@@ -39,15 +38,18 @@ public class EnemyFactory {
         return enemies;
     }
 
-    public static Enemy newEnemy(String type, String name) {
-
-
+    public  static Enemy newEnemy(String type, String name) {
         switch (type) {
-            case "BlackPanther"
-                    :
+            case "BlackPanther":
         }
-
         return new Enemy(name, 1, 10, 60, 30, 60);
+    }
+
+    static void randomisePositionValues(Position position, int mapSize)
+    {
+        Random random = new Random();
+        position.y = random.nextInt(mapSize);
+        position.x = random.nextInt(mapSize);
     }
 
 }

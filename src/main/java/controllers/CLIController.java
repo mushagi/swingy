@@ -104,9 +104,4 @@ public class CLIController extends ArenaController {
     private void inValidInput() {
         arenaService.inValidInput();
     }
-
-
-    public void createNewHero(Hero hero) {
-        arenaService.registerHero(hero);
-    }
 }

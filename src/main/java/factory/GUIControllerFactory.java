@@ -6,7 +6,7 @@ import services.ArenaService;
 class GUIControllerFactory {
     public static GUIController newGuiController()
     {
-        ArenaService arenaService = new ArenaService();
+        ArenaService arenaService = ArenaServiceFactory.newArenaServiceFromGameData();
         return new GUIController(arenaService);
     }
 }

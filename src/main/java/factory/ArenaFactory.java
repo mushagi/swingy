@@ -3,17 +3,14 @@ package factory;
 import models.world.Arena;
 import models.messages.GameResults;
 import models.world.Map;
-import models.players.Enemy;
-import models.players.Hero;
 
 import java.util.ArrayList;
 
 public class ArenaFactory {
-    public static Arena newArena(Hero hero, Map map)
+    public static Arena newArena()
     {
-        GameResults gameResults = GameResultsFactory.newGameResults();
-        return new Arena(hero, map, true, gameResults, false);
+        GameResults gameResults = new GameResults(new ArrayList<String>(), false, false);
+        Map map = new Map();
+        return new Arena(null, map, true, gameResults, false);
     }
-
-
 }

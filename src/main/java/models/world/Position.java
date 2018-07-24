@@ -1,12 +1,8 @@
 package models.world;
 
-public class Position implements Cloneable{
+import java.util.Objects;
 
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-
+public class Position{
     public int x;
     public int y;
 
@@ -18,16 +14,15 @@ public class Position implements Cloneable{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Position)) return false;
         Position position = (Position) o;
-        return true;
+        return x == position.x &&
+                y == position.y;
     }
-
 
     @Override
     public int hashCode() {
-
-        return x ^ 31 * y ;
+        return Objects.hash(x, y);
     }
 
     @Override

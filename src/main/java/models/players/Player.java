@@ -8,7 +8,7 @@ import models.artifacts.Artifact;
 import java.util.ArrayList;
 
 @Getter @Setter
-public abstract class Player {
+public abstract class   Player {
     String name;
     String type;
     int level;

@@ -2,8 +2,13 @@ package services;
 
 import models.messages.GameResults;
 
+
 public class GameResultsService {
-    GameResults gameResults;
+    private GameResults gameResults;
+
+    public GameResultsService(GameResults gameResults) {
+        this.gameResults = gameResults;
+    }
 
     void addMessage(String message) {
         gameResults.getResult().add(message);
@@ -18,12 +23,7 @@ public class GameResultsService {
         gameResults.setError(true);
     }
 
-    void registerGameResults(GameResults gameResults)
-    {
-        this.gameResults = gameResults;
-    }
-
-    public void isGameWon(boolean isGameWon) {
+    void isGameWon(boolean isGameWon) {
         gameResults.setHeroWon(false);
     }
 }

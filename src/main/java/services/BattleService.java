@@ -5,12 +5,10 @@ import models.artifacts.Artifact;
 import models.players.Player;
 
 import java.util.Random;
-import java.util.logging.Logger;
 
-class
+public class
 BattleService {
-
-    Logger logger = Logger.getLogger(this.getClass().getName());
+    static Random random = new Random();
 
     Player battle(Player hero, Player enemy) {
         Player playerOne = getPlayerAttackingFirst(hero, enemy);
@@ -84,8 +82,6 @@ BattleService {
     }
 
     private static Player getPlayerAttackingFirst(Player hero, Player enemy) {
-        Random random = new Random();
-        boolean isHeroAttackingFirst = random.nextBoolean();
-        return isHeroAttackingFirst ? hero : enemy;
+        return random.nextBoolean() ? hero : enemy;
     }
 }

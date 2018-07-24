@@ -1,17 +1,16 @@
 package services;
 
 import enums.Direction;
-import factory.ArenaFactory;
 import factory.HeroFactory;
 import lombok.Getter;
 import models.players.Hero;
 import models.players.Player;
 import models.world.Arena;
-import models.world.Map;
-import state.GameData;
 import utils.Formulas;
 
 import java.util.Random;
+
+import static state.Messages.*;
 
 public class ArenaService {
     @Getter private Arena arena;
@@ -19,11 +18,11 @@ public class ArenaService {
     private final GameResultsService gameResultsService;
     private final BattleService battleService;
 
-
-    public ArenaService() {
-        this.mapService = new MapService();
-        this.gameResultsService = new GameResultsService();
-        this.battleService = new BattleService();
+    public ArenaService(Arena arena, MapService mapService, GameResultsService gameResultsService, BattleService battleService) {
+        this.arena = arena;
+        this.mapService = mapService;
+        this.gameResultsService = gameResultsService;
+        this.battleService = battleService;
     }
 
     public void moveHero(Direction direction) {
@@ -37,7 +36,7 @@ public class ArenaService {
                 playerReachedDestination();
         }
         else
-            gameResultsService.setGameError("Cannot move while player is in a battle");
+            gameResultsService.setGameError(ILLEGAL_MOVE_BATTLE_IN_PROGRESS);
     }
 
     public void fight() {
@@ -45,16 +44,19 @@ public class ArenaService {
         if (arena.isPlayerInABattle()) {
             Player enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
             Player won = battleService.battle(arena.getHero(), enemy);
-            if (won == arena.getHero()) {
-                gameResultsService.addMessage("This guy " + won.getName() + " won");
-                arena.setPlayerInABattle(false);
-                arena.getMap().addPlayer(arena.getHero());
-                heroLevelUp();
-            }
+            if (won == arena.getHero())
+                heroWon(won);
             else
                 gameOver(enemy);
-        } else
-            gameResultsService.setGameError("Cannot attack while there is no enemy.");
+        }
+        else
+            gameResultsService.setGameError(ILLEGAL_ATTACK_NO_ENEMY);
+    }
+
+    private void heroWon(Player won) {
+        gameResultsService.addMessage(getWinningMessage(getWinningMessage(won.getName())));
+        arena.setPlayerInABattle(false);
+        heroLevelUp();
     }
 
     private void heroLevelUp() {
@@ -68,65 +70,49 @@ public class ArenaService {
         return getLevel(experience, ++level);
     }
 
-
     private void gameOver(Player enemy) {
-        gameResultsService.addMessage("Enemy " + enemy.getName()+" won");
+        gameResultsService.addMessage(getWinningMessage(enemy.getName()));
         gameResultsService.isGameWon(false);
         arena.setGameInProgress(false);
     }
 
     public void runAway() {
-        Random random = new Random();
-        boolean isRunningAwayAllowed = random.nextBoolean();
-        if (isRunningAwayAllowed && mapService.heroFoundARunAwayPosition())
-            gameResultsService.addMessage("Run away a success.");
-        else {
-            gameResultsService.addMessage("Run away was not possible. Fight to the death");
-            fight();
+        if (arena.isPlayerInABattle()) {
+            Random random = new Random();
+            boolean isRunningAwayAllowed = random.nextBoolean();
+            if (isRunningAwayAllowed && mapService.heroFoundARunAwayPosition())
+                gameResultsService.addMessage(RUN_AWAY_SUCCESS_MESSAGE);
+            else {
+                gameResultsService.addMessage(RUN_AWAY_FAILURE_MESSAGE);
+                fight();
+            }
+            arena.setPlayerInABattle(false);
         }
-        arena.setPlayerInABattle(false);
+        else
+            gameResultsService.setGameError(ILLEGAL_MOVE_BATTLE_IN_PROGRESS);
     }
 
     private void setHeroToBattle() {
         arena.setPlayerInABattle(true);
-        gameResultsService.addMessage("You encountered an enemy");
+        gameResultsService.addMessage(ENEMY_COLLISION_MESSAGE);
     }
 
     private void playerReachedDestination() {
         arena.setGameInProgress(false);
-        gameResultsService.addMessage("Player reached Destination. Mission accomplished");
+        gameResultsService.addMessage(MISSION_ACCOMPLISHED_MESSAGE);
     }
 
     public void inValidInput() {
-        gameResultsService.setGameError("Invalid input");
-    }
-
-    private void registerArena(Hero hero, Map map)
-    {
-        GameData.arena = ArenaFactory.newArena(hero, map);
-        arena = GameData.arena;
-    }
-
-    private Map registerMap(Hero hero) {
-        return mapService.createMap(hero);
+        gameResultsService.setGameError(INVALID_ACTION);
     }
 
     public void registerHero(String type, String name) {
         Hero hero = HeroFactory.newHero(type, name);
-        registerMapAndHero(hero);
-        registerGameResult();
-    }
-
-    public void registerGameResult() {
-        gameResultsService.registerGameResults(arena.getGameResults());
+        registerHero(hero);
     }
 
     public void registerHero(Hero hero) {
-        registerMapAndHero(hero);
-    }
-
-    private void registerMapAndHero(Hero hero) {
-        Map map = registerMap(hero);
-        registerArena(hero, map);
+        arena.setHero(hero);
+        mapService.addMapValues(hero);
     }
 }

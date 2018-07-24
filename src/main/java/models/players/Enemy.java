@@ -9,6 +9,4 @@ public class Enemy extends Player{
     public Enemy(String name, int level, int experience, int attack, int defence, int hitPoint) {
         super("Enemy", name, level, experience, attack, defence, hitPoint);
     }
-
-
 }

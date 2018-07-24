@@ -1,5 +1,6 @@
 package controllers;
 
+import models.players.Hero;
 import models.world.Arena;
 import services.ArenaService;
 
@@ -44,5 +45,9 @@ abstract class ArenaController {
 
     public Arena getArena() {
         return arenaService.getArena();
+    }
+
+    public void createNewHero(Hero hero) {
+        arenaService.registerHero(hero);
     }
 }

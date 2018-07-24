@@ -6,6 +6,7 @@ import models.players.Player;
 import models.world.Arena;
 import models.world.Map;
 import models.world.Position;
+import services.MapService;
 
 public class CLIInterface implements UserInterface {
     private Arena arena;
@@ -13,6 +14,7 @@ public class CLIInterface implements UserInterface {
     private boolean isBackToMainMenu;
 
     private void loadHero() {
+        clearScreen();
         String input;
         boolean isPlayerLoaded = false;
         while (!isPlayerLoaded) {
@@ -43,6 +45,7 @@ public class CLIInterface implements UserInterface {
     }
 
     private boolean createNewHero(String name) {
+        clearScreen();
         String input;
         while (true) {
             System.out.println("Select Hero \n1. Black Panther\n2. Dick Milaje\n3. Pussy\n\n4. Back To Home\n\nInput : ");
@@ -68,6 +71,7 @@ public class CLIInterface implements UserInterface {
     }
 
     private void quitDialogue() {
+        clearScreen();
         while (true) {
             System.out.println("Are you sure you want to quit Game?\n1. Yep\n2. Nope");
             String input = controller.getScannerInput();
@@ -78,12 +82,13 @@ public class CLIInterface implements UserInterface {
         }
     }
 
-    void printMap(final Map map) {
+    private void printMap(final Map map) {
+        MapService mapService = new MapService(map);
         for (int y = 0; y <= map.getSize(); y++) {
             for (int x = 0; x <= map.getSize(); x++) {
                 Position position = new Position(y, x);
-                if (map.playerExists(position)) {
-                    Player player = map.getPlayer(position);
+                if (mapService.playerExists(position)) {
+                    Player player = mapService.getPlayer(position);
                     System.out.print(player.getType().equals("Hero") ? "|0| " : "|X| ");
                 } else
                     System.out.print("| | ");
@@ -108,16 +113,8 @@ public class CLIInterface implements UserInterface {
     }
 
     private void clearScreen() {
-        try {
-            final String os = System.getProperty("os.name");
-            if (os.contains("Windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     private void showGameMapAndOptions() {
@@ -187,6 +184,7 @@ public class CLIInterface implements UserInterface {
                 break;
             }
             updateInterface();
+
         }
     }
 
