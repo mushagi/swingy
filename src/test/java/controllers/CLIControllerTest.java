@@ -3,7 +3,7 @@ package controllers;
 import factory.ArenaServiceFactory;
 import factory.ControllerFactory;
 import org.junit.jupiter.api.Test;
-import services.ArenaService;
+import views.UserInterface;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -17,7 +17,18 @@ class CLIControllerTest {
         InputStream stdin = System.in;
         try {
             System.setIn(new ByteArrayInputStream(data.getBytes()));
-            CLIController controller = ControllerFactory.newCLIController(ArenaServiceFactory.newArenaServiceFromGameData());
+            CLIController controller = ControllerFactory.newCLIController(ArenaServiceFactory.newArenaServiceFromGameData(),
+                    new UserInterface() {
+                        @Override
+                        public void updateInterface() {
+
+                        }
+
+                        @Override
+                        public void show() {
+
+                        }
+                    });
             controller.getInput();
         } finally {
             System.setIn(stdin);

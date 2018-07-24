@@ -16,9 +16,8 @@ public class CLIInterface implements UserInterface {
     private boolean isBackToMainMenu;
 
     public CLIInterface(ArenaService arenaService) {
-        controller = ControllerFactory.newCLIController(arenaService);
+        controller = ControllerFactory.newCLIController(arenaService, this);
         arena = controller.getArena();
-        registerUserInterface();
     }
 
     private void loadHero() {
@@ -164,17 +163,7 @@ public class CLIInterface implements UserInterface {
 
     private void startNewGame() {
         controller.createNewHero(arena.getHero());
-    }
-
-
-    @Override
-    public void registerUserInterface() {
-        controller.registerUserInterface(this);
-    }
-
-    @Override
-    public void unRegisterUserInterface() {
-        controller.unRegisterUserInterface(this);
+        gameLoop();
     }
 
     private void gameLoop() {
@@ -193,7 +182,5 @@ public class CLIInterface implements UserInterface {
         gameLoop();
         if (isBackToMainMenu)
             show();
-        else
-            unRegisterUserInterface();
     }
 }

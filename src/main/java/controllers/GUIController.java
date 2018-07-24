@@ -1,21 +1,16 @@
 package controllers;
 
-import models.world.Arena;
 import services.ArenaService;
+import views.UserInterface;
 
 public class GUIController extends ArenaController {
 
-    public GUIController(ArenaService arenaService) {
-        super(arenaService);
+    public GUIController(ArenaService arenaService, UserInterface userInterface) {
+        super(arenaService, userInterface);
     }
 
     @Override
     void switchUI() {
 
-    }
-
-    @Override
-    public Arena getArena() {
-        return null;
     }
 }

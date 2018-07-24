@@ -2,18 +2,18 @@ package controllers;
 
 import services.ArenaService;
 import views.GUIInterface;
+import views.UserInterface;
 
 import java.util.Scanner;
 
 public class CLIController extends ArenaController {
     private final Scanner  scanner = new Scanner(System.in);
 
-    public CLIController(ArenaService arenaService) {
-        super(arenaService);
+    public CLIController(ArenaService arenaService, UserInterface userInterface) {
+        super(arenaService, userInterface);
     }
 
     public void createNewHero(String type, String name) {
-
         switch (type)
         {
             case "1" : type = "BlackPanther"; break;
@@ -21,7 +21,6 @@ public class CLIController extends ArenaController {
             case "3" : type = "BlackPanther"; break;
         }
         arenaService.registerHero(type, name);
-
     }
 
     public boolean getInput() {

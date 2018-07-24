@@ -10,7 +10,7 @@ public class GUIInterface implements UserInterface {
     private final Arena arena;
 
     public GUIInterface(ArenaService arenaService) {
-        this.controller = ControllerFactory.newGUIController(arenaService);
+        this.controller = ControllerFactory.newGUIController(arenaService, this);
         this.arena = controller.getArena();
     }
 
@@ -20,15 +20,5 @@ public class GUIInterface implements UserInterface {
 
     @Override
     public void show() {
-    }
-
-    @Override
-    public void onClose() {
-
-    }
-
-    @Override
-    public void registerUserInterface() {
-        controller.registerUserInterface(this);
     }
 }

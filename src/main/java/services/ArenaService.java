@@ -7,9 +7,7 @@ import models.players.Hero;
 import models.players.Player;
 import models.world.Arena;
 import utils.Formulas;
-import views.UserInterface;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import static state.Messages.*;
@@ -19,14 +17,12 @@ public class ArenaService {
     private final MapService mapService;
     private final GameResultsService gameResultsService;
     private final BattleService battleService;
-    private ArrayList<UserInterface> userInferfaces;
 
     public ArenaService(Arena arena, MapService mapService, GameResultsService gameResultsService, BattleService battleService) {
         this.arena = arena;
         this.mapService = mapService;
         this.gameResultsService = gameResultsService;
         this.battleService = battleService;
-        this.userInferfaces = new ArrayList<>();
     }
 
     public void moveHero(Direction direction) {
@@ -41,7 +37,6 @@ public class ArenaService {
         }
         else
             gameResultsService.setGameError(ILLEGAL_MOVE_BATTLE_IN_PROGRESS);
-        updateUserInterfaces();
     }
 
     public void fight() {
@@ -56,7 +51,6 @@ public class ArenaService {
         }
         else
             gameResultsService.setGameError(ILLEGAL_ATTACK_NO_ENEMY);
-        updateUserInterfaces();
     }
 
     private void heroWon(Player won) {
@@ -70,7 +64,7 @@ public class ArenaService {
         arena.getHero().setLevel(level);
     }
 
-    int getLevel(int experience, int level) {
+    private int getLevel(int experience, int level) {
         if (experience < Formulas.calculateRequiredLevelExperience(level + 1))
             return level;
         return getLevel(experience, ++level);
@@ -96,7 +90,6 @@ public class ArenaService {
         }
         else
             gameResultsService.setGameError(ILLEGAL_MOVE_BATTLE_IN_PROGRESS);
-        updateUserInterfaces();
     }
 
     private void setHeroToBattle() {
@@ -112,7 +105,6 @@ public class ArenaService {
     public void inValidInput() {
         gameResultsService.clearGameResults();
         gameResultsService.setGameError(INVALID_ACTION);
-        updateUserInterfaces();
     }
 
     public void registerHero(String type, String name) {
@@ -122,19 +114,9 @@ public class ArenaService {
 
     public void registerHero(Hero hero) {
         arena.setHero(hero);
+        arena.setPlayerInABattle(false);
+        arena.setGameInProgress(true);
+        gameResultsService.clearGameResults();
         mapService.addMapValues(hero);
-    }
-
-    public void registerUserInterface(UserInterface userInterface) {
-        userInferfaces.add(userInterface);
-    }
-
-    private void updateUserInterfaces() {
-        for (UserInterface userInterface: userInferfaces)
-            userInterface.updateInterface();
-    }
-
-    public void unRegisterUserInterface(UserInterface userInterface) {
-        userInferfaces.remove(userInterface);
     }
 }
