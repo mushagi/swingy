@@ -1,6 +1,13 @@
 package state;
 
-public class Messages {
+public class GameStrings {
+
+    public static final String APPLICATION_HEARDER = "Swingy in Wakanda";
+    public static final String APPLICATION_SLOGAN = "The battle for the vibranium";
+    public static final String START_DIVIDER = "**************************************" +
+            "******************************************" +
+            "********************";
+
     public static final String ILLEGAL_MOVE_BATTLE_IN_PROGRESS = "Cannot move while player is in a battle";
     public static final String ILLEGAL_ATTACK_NO_ENEMY = "Cannot attack while there is no enemy.";
     public static final String RUN_AWAY_SUCCESS_MESSAGE = "Run away a success.";

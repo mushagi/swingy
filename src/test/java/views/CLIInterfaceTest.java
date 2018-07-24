@@ -32,4 +32,10 @@ class CLIInterfaceTest {
         CLIInterface cliInterface = new CLIInterface(ArenaServiceFactory.newArenaServiceFromGameData());
         cliInterface.displayOptions();
     }
+
+    @Test
+    void printHeader() {
+        CLIInterface cliInterface = new CLIInterface(ArenaServiceFactory.newArenaServiceFromGameData());
+        cliInterface.printHeader();
+    }
 }

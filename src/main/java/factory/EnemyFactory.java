@@ -15,7 +15,7 @@ public class EnemyFactory {
 
     public static ArrayList<Enemy> createRandomEnemies(int mapSize) {
         ArrayList<Enemy> enemies = new ArrayList<>();
-        for (int i = 0; i < mapSize; i++) {
+        for (int i = 0; i < mapSize * 2; i++) {
             Enemy enemy = getRandomEnemy();
             randomisePositionValues(enemy.getPosition(), mapSize);
             enemies.add(enemy);

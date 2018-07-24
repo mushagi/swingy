@@ -40,6 +40,7 @@ public class MapService {
 
     void addMapValues(Hero hero) {
         this.hero = hero;
+        map.getGameMap().clear();
         map.setSize(Formulas.calculateMapSquares(hero.getLevel()));
         ArrayList<Enemy> enemies = EnemyFactory.createRandomEnemies(map.getSize());
         placeHeroInTheCenterOfTheMap(hero);
@@ -54,7 +55,7 @@ public class MapService {
     }
 
     private boolean isMoveWithinBounds(int value) {
-        return value >=0 && value <= map.getSize();
+        return value >=0 && value < map.getSize();
     }
 
     boolean isMoveWithinBounds(Direction direction) {
@@ -95,7 +96,7 @@ public class MapService {
                 && player.getPosition().equals(position);
     }
 
-    private void addPlayer(Player player) {
+    void addPlayer(Player player) {
         map.getGameMap().put(player.getPosition(), player);
         map.getGameMap().get(player.getPosition());
     }

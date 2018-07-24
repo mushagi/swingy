@@ -4,6 +4,7 @@ import services.ArenaService;
 import views.GUIInterface;
 import views.UserInterface;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CLIController extends ArenaController {
@@ -99,7 +100,17 @@ public class CLIController extends ArenaController {
         return input;
     }
 
+
+
     private void inValidInput() {
         arenaService.inValidInput();
+    }
+
+    public void waitForAnyKeyPress() {
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

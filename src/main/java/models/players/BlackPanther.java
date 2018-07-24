@@ -7,7 +7,7 @@ import models.world.Position;
 public class BlackPanther extends Hero {
     public BlackPanther(String name) {
         super(name);
-        level = 0;
+        level = 1;
         experience = 0;
         attack = 60;
         defence = 30;

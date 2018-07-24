@@ -10,7 +10,7 @@ import utils.Formulas;
 
 import java.util.Random;
 
-import static state.Messages.*;
+import static state.GameStrings.*;
 
 public class ArenaService {
     @Getter private Arena arena;
@@ -57,6 +57,7 @@ public class ArenaService {
         gameResultsService.addMessage(getWinningMessage(getWinningMessage(won.getName())));
         arena.setPlayerInABattle(false);
         heroLevelUp();
+        mapService.addPlayer(won);
     }
 
     private void heroLevelUp() {
