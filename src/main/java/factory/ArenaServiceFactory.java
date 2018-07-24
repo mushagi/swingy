@@ -8,7 +8,7 @@ import services.MapService;
 import state.GameData;
 
 public class ArenaServiceFactory {
-    static ArenaService newArenaServiceFromGameData() {
+    public static ArenaService newArenaServiceFromGameData() {
         MapService mapService = new MapService(GameData.getInstance().getArena().getMap());
         GameResultsService gameResultsService =
                 new GameResultsService(GameData.getInstance().getArena().getGameResults());

@@ -3,6 +3,7 @@ package controllers;
 import models.players.Hero;
 import models.world.Arena;
 import services.ArenaService;
+import views.UserInterface;
 
 import static enums.Direction.*;
 
@@ -37,6 +38,13 @@ abstract class ArenaController {
 
     void runAway() {
         arenaService.runAway();
+    }
+
+    public void registerUserInterface(UserInterface userInterface) {
+        arenaService.registerUserInterface(userInterface);
+    }
+    public void unRegisterUserInterface(UserInterface userInterface) {
+        arenaService.unRegisterUserInterface(userInterface);
     }
 
     void quitGame() {

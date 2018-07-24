@@ -1,9 +1,8 @@
 package views;
 
-interface UserInterface {
+public interface UserInterface {
     void updateInterface();
     void show();
-    void subscribeToAnArenaModel();
-    void registerController();
-    void close();
+    void registerUserInterface();
+    void unRegisterUserInterface();
 }

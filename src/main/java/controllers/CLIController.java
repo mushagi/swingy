@@ -1,6 +1,5 @@
 package controllers;
 
-import models.players.Hero;
 import services.ArenaService;
 import views.GUIInterface;
 
@@ -8,10 +7,10 @@ import java.util.Scanner;
 
 public class CLIController extends ArenaController {
     private final Scanner  scanner = new Scanner(System.in);
+
     public CLIController(ArenaService arenaService) {
         super(arenaService);
     }
-
 
     public void createNewHero(String type, String name) {
 
@@ -86,7 +85,7 @@ public class CLIController extends ArenaController {
 
     @Override
     void switchUI() {
-        GUIInterface guiInterface = new GUIInterface();
+        GUIInterface guiInterface = new GUIInterface(this.arenaService);
         guiInterface.show();
     }
 

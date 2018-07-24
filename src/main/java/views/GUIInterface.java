@@ -1,29 +1,34 @@
 package views;
 
+import controllers.GUIController;
+import factory.ControllerFactory;
+import models.world.Arena;
+import services.ArenaService;
+
 public class GUIInterface implements UserInterface {
+    private final GUIController controller;
+    private final Arena arena;
+
+    public GUIInterface(ArenaService arenaService) {
+        this.controller = ControllerFactory.newGUIController(arenaService);
+        this.arena = controller.getArena();
+    }
 
     @Override
     public void updateInterface() {
-
     }
 
     @Override
     public void show() {
+    }
+
+    @Override
+    public void onClose() {
 
     }
 
     @Override
-    public void subscribeToAnArenaModel() {
-
-    }
-
-    @Override
-    public void registerController() {
-
-    }
-
-    @Override
-    public void close() {
-
+    public void registerUserInterface() {
+        controller.registerUserInterface(this);
     }
 }

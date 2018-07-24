@@ -1,5 +1,6 @@
 package views;
 
+import factory.ArenaServiceFactory;
 import factory.EnemyFactory;
 import factory.HeroFactory;
 import models.players.Enemy;
@@ -18,7 +19,7 @@ class CLIInterfaceTest {
         String data = "";
         InputStream stdin = System.in;
         try {
-            CLIInterface cliUi= new CLIInterface();
+            CLIInterface cliUi= new CLIInterface(ArenaServiceFactory.newArenaServiceFromGameData());
             System.setIn(new ByteArrayInputStream(data.getBytes()));
             cliUi.show();
         } finally {
@@ -28,7 +29,7 @@ class CLIInterfaceTest {
 
     @Test
     void displayOptions() {
-        CLIInterface cliInterface = new CLIInterface();
+        CLIInterface cliInterface = new CLIInterface(ArenaServiceFactory.newArenaServiceFromGameData());
         cliInterface.displayOptions();
     }
 }

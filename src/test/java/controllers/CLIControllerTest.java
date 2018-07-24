@@ -1,7 +1,9 @@
 package controllers;
 
-import factory.CLIControllerFactory;
+import factory.ArenaServiceFactory;
+import factory.ControllerFactory;
 import org.junit.jupiter.api.Test;
+import services.ArenaService;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -15,7 +17,7 @@ class CLIControllerTest {
         InputStream stdin = System.in;
         try {
             System.setIn(new ByteArrayInputStream(data.getBytes()));
-            CLIController controller = CLIControllerFactory.newCLIController();
+            CLIController controller = ControllerFactory.newCLIController(ArenaServiceFactory.newArenaServiceFromGameData());
             controller.getInput();
         } finally {
             System.setIn(stdin);

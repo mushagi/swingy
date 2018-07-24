@@ -1,17 +1,25 @@
 package views;
 
 import controllers.CLIController;
-import factory.CLIControllerFactory;
+import factory.ControllerFactory;
 import models.players.Player;
 import models.world.Arena;
 import models.world.Map;
 import models.world.Position;
+import services.ArenaService;
 import services.MapService;
 
 public class CLIInterface implements UserInterface {
-    private Arena arena;
-    private CLIController controller;
+    private final Arena arena;
+    private final CLIController controller;
+
     private boolean isBackToMainMenu;
+
+    public CLIInterface(ArenaService arenaService) {
+        controller = ControllerFactory.newCLIController(arenaService);
+        arena = controller.getArena();
+        registerUserInterface();
+    }
 
     private void loadHero() {
         clearScreen();
@@ -106,10 +114,7 @@ public class CLIInterface implements UserInterface {
         clearScreen();
         System.out.println("The arena says : ");
         System.out.println(arena.getGameResults().getResult());
-        if (!arena.isGameInProgress())
-            promptNewGame();
-        else
-            showGameMapAndOptions();
+        showGameMapAndOptions();
     }
 
     private void clearScreen() {
@@ -122,11 +127,13 @@ public class CLIInterface implements UserInterface {
         printMap(arena.getMap());
         System.out.println();
         displayOptions();
+
     }
 
     private void promptNewGame() {
         String input;
         String request;
+
         if (arena.getGameResults().isHeroWon())
             request = "Do you want to start a new Game with the current Hero";
         else
@@ -157,44 +164,36 @@ public class CLIInterface implements UserInterface {
 
     private void startNewGame() {
         controller.createNewHero(arena.getHero());
-        subscribeToAnArenaModel();
     }
 
 
     @Override
-    public void subscribeToAnArenaModel() {
-        arena = controller.getArena();
+    public void registerUserInterface() {
+        controller.registerUserInterface(this);
     }
 
     @Override
-    public void registerController() {
-        controller = CLIControllerFactory.newCLIController();
-    }
-
-    @Override
-    public void close() {
+    public void unRegisterUserInterface() {
+        controller.unRegisterUserInterface(this);
     }
 
     private void gameLoop() {
         updateInterface();
         while (arena.isGameInProgress()) {
             System.out.print("Input : ");
-            if (controller.getInput()) {
-                close();
-                break;
-            }
-            updateInterface();
-
+            controller.getInput();
         }
+        promptNewGame();
     }
 
     @Override
     public void show() {
         isBackToMainMenu = false;
-        registerController();
         loadHero();
-        subscribeToAnArenaModel();
         gameLoop();
-        if (isBackToMainMenu) show();
+        if (isBackToMainMenu)
+            show();
+        else
+            unRegisterUserInterface();
     }
 }
