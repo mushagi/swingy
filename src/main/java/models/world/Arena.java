@@ -12,6 +12,8 @@ public class Arena {
     boolean isGameInProgress;
     GameResults gameResults;
     boolean isPlayerInABattle;
+    private String playerName;
+    private boolean isPLayerNameLoaded;
 
     public Arena(Hero hero, Map map, boolean isGameInProgress, GameResults gameResults, boolean isPlayerInABattle) {
         this.hero = hero;

@@ -2,9 +2,9 @@ package controllers;
 
 import enums.EDirection;
 import factory.EnemyFactory;
+import models.players.APlayer;
 import models.players.Enemy;
 import models.players.Hero;
-import models.players.Player;
 import models.world.Map;
 import models.world.Position;
 import utils.Formulas;
@@ -71,7 +71,7 @@ public class MapController {
     }
 
 
-    public boolean addPlayer(Position position, Player player) {
+    public boolean addPlayer(Position position, APlayer player) {
         map.getGameMap().put(position, player);
         return map.getGameMap().get(position)!= null;
     }
@@ -81,22 +81,22 @@ public class MapController {
     }
 
     private void addPlayers(ArrayList<Enemy> enemies) {
-        for (Player player : enemies)
+        for (APlayer player : enemies)
             addPlayer(player.getPosition(), player);
     }
 
-    public Player getPlayer(Position position) {
+    public APlayer getPlayer(Position position) {
         return map.getGameMap().get(position);
     }
 
     public boolean playerExists(Position position) {
-        Player player = map.getGameMap().get(position);
+        APlayer player = map.getGameMap().get(position);
         if (player == null) return false;
         return player.getPosition().hashCode() == position.hashCode()
                 && player.getPosition().equals(position);
     }
 
-    void addPlayer(Player player) {
+    void addPlayer(APlayer player) {
         map.getGameMap().put(player.getPosition(), player);
         map.getGameMap().get(player.getPosition());
     }

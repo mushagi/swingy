@@ -1,6 +1,5 @@
 package factory;
 
-import javafx.geometry.Pos;
 import models.world.Position;
 import models.players.Enemy;
 
@@ -45,8 +44,7 @@ public class EnemyFactory {
         return new Enemy(name, 1, 10, 60, 30, 60);
     }
 
-    static void randomisePositionValues(Position position, int mapSize)
-    {
+    private static void randomisePositionValues(Position position, int mapSize) {
         Random random = new Random();
         position.y = random.nextInt(mapSize);
         position.x = random.nextInt(mapSize);

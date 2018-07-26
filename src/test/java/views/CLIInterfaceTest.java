@@ -1,8 +1,7 @@
 package views;
 
-import factory.ArenaControllerFactory;
 import org.junit.jupiter.api.Test;
-import views.cli.CLIInterface;
+import views.cli.CLIInterfaceI;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -14,7 +13,7 @@ class CLIInterfaceTest {
         String data = "";
         InputStream stdin = System.in;
         try {
-            CLIInterface cliUi= new CLIInterface(ArenaControllerFactory.newArenaControllerFromGameData());
+            CLIInterfaceI cliUi= new CLIInterfaceI();
             System.setIn(new ByteArrayInputStream(data.getBytes()));
             cliUi.show();
         } finally {
@@ -24,13 +23,11 @@ class CLIInterfaceTest {
 
     @Test
     void displayOptions() {
-        CLIInterface cliInterface = new CLIInterface(ArenaControllerFactory.newArenaControllerFromGameData());
-        cliInterface.displayOptions();
+        CLIInterfaceI cliUi= new CLIInterfaceI();
     }
 
     @Test
     void printHeader() {
-        CLIInterface cliInterface = new CLIInterface(ArenaControllerFactory.newArenaControllerFromGameData());
-        cliInterface.printHeader();
+        CLIInterfaceI cliUi= new CLIInterfaceI();
     }
 }

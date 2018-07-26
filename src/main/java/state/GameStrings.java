@@ -13,7 +13,7 @@ public class GameStrings {
     public static final String RUN_AWAY_SUCCESS_MESSAGE = "Run away a success.";
     public static final String RUN_AWAY_FAILURE_MESSAGE = "Run away was not possible. Fight to the death";
     public static final String ENEMY_COLLISION_MESSAGE = "You encountered an enemy";
-    public static final String MISSION_ACCOMPLISHED_MESSAGE = "Player reached Destination. Mission accomplished";
+    public static final String MISSION_ACCOMPLISHED_MESSAGE = "APlayer reached Destination. Mission accomplished";
     public static final String INVALID_ACTION = "Invalid input";
 
     public static String getWinningMessage(String playerName)

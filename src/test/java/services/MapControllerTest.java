@@ -1,8 +1,8 @@
 package services;
 
 import controllers.MapController;
+import models.players.APlayer;
 import models.players.Hero;
-import models.players.Player;
 import models.world.Map;
 import models.world.Position;
 import org.junit.jupiter.api.Test;
@@ -34,9 +34,9 @@ class MapControllerTest {
 
         Position position = new Position(0, 0);
         Position position2 = new Position(0, 0);
-        Player player = new Hero("Mushagi");
+        APlayer player = new Hero("Mushagi");
         assertTrue(mapController.addPlayer(position, player));
-        Player actual = map.getGameMap().get(position2);
+        APlayer actual = map.getGameMap().get(position2);
         assertEquals(player, actual);
     }
 
@@ -48,8 +48,8 @@ class MapControllerTest {
         Position position = new Position(2, 1);
         Position position2 = new Position(2, 1);
 
-        Player player = new Hero("Mushagi");
-        Player player1 = new Hero("MushagiO");
+        APlayer player = new Hero("Mushagi");
+        APlayer player1 = new Hero("MushagiO");
         assertTrue(mapController.addPlayer(position, player));
         assertTrue(mapController.addPlayer(position2, player1));
         assertTrue(mapController.addPlayer(position, player));
@@ -60,7 +60,7 @@ class MapControllerTest {
         System.out.println(position.hashCode());
         System.out.println(position2.hashCode());
 
-        Player actual = map.getGameMap().get(position);
+        APlayer actual = map.getGameMap().get(position);
         assertEquals(player1, actual);
     }
 
@@ -72,13 +72,13 @@ class MapControllerTest {
         Position position = new Position(0, 0);
         Position position2 = new Position(0, 0);
 
-        Player player = new Hero("Mushagi");
+        APlayer player = new Hero("Mushagi");
 
         assertTrue(mapController.addPlayer(position, player));
-        Player player2 = new Hero("Mushagi");
+        APlayer player2 = new Hero("Mushagi");
 
         assertTrue(mapController.addPlayer(position, player2));
-        Player player3 = new Hero("Mushagi");
+        APlayer player3 = new Hero("Mushagi");
 
         assertTrue(mapController.addPlayer(position, player3));
         assertEquals(player3, mapController.getPlayer(position2));
@@ -93,7 +93,7 @@ class MapControllerTest {
         MapController mapController = new MapController(map);
 
         Position position = new Position(0, 0);
-        Player player = new Hero("Mushagi");
+        APlayer player = new Hero("Mushagi");
 
         assertTrue(mapController.addPlayer(position, player));
         assertTrue(mapController.playerExists(position));

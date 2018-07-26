@@ -1,13 +1,13 @@
 package controllers;
 
+import models.players.APlayer;
 import models.players.Hero;
-import models.players.Player;
 import utils.Formulas;
 
 public class HeroController {
     Hero hero;
 
-    void updateExperience(Player playerWonAgainst) {
+    void updateExperience(APlayer playerWonAgainst) {
         int experiencedGained = calculateExperience(playerWonAgainst);
         playerWonAgainst.setExperience(playerWonAgainst.getExperience() + experiencedGained);
     }
@@ -27,7 +27,7 @@ public class HeroController {
         this.hero = hero;
     }
 
-    private int calculateExperience(Player playerWonAgainst) {
+    private int calculateExperience(APlayer playerWonAgainst) {
         return 0;
     }
 }

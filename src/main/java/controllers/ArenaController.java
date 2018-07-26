@@ -3,8 +3,8 @@ package controllers;
 import enums.EDirection;
 import factory.HeroFactory;
 import lombok.Getter;
+import models.players.APlayer;
 import models.players.Hero;
-import models.players.Player;
 import models.world.Arena;
 import java.util.Random;
 
@@ -16,6 +16,7 @@ public class ArenaController {
     private final GameResultsController gameResultsController;
     private final BattleManager battleService;
     private final HeroController heroController;
+
 
     public ArenaController(Arena arena,
                            MapController mapController,
@@ -46,18 +47,18 @@ public class ArenaController {
     void fight() {
         gameResultsController.clearGameResults();
         if (arena.isPlayerInABattle()) {
-            Player enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
-            Player won = battleService.battle(arena.getHero(), enemy);
+            APlayer enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
+            APlayer won = battleService.battle(arena.getHero(), enemy);
             if (won == arena.getHero())
-                heroWon(won, enemy);
+                onHeroWon(won, enemy);
             else
-                gameOver(enemy);
+                onHeroLost(enemy);
         }
         else
             gameResultsController.setGameError(ILLEGAL_ATTACK_NO_ENEMY);
     }
 
-    private void heroWon(Player won, Player lost) {
+    private void onHeroWon(APlayer won, APlayer lost) {
         arena.setPlayerInABattle(false);
         gameResultsController.addMessage(getWinningMessage(getWinningMessage(won.getName())));
         heroController.updateExperience(lost);
@@ -65,7 +66,7 @@ public class ArenaController {
         mapController.addPlayer(won);
     }
 
-    private void gameOver(Player enemy) {
+    private void onHeroLost(APlayer enemy) {
         gameResultsController.addMessage(getWinningMessage(enemy.getName()));
         gameResultsController.isGameWon(false);
         arena.setGameInProgress(false);
@@ -97,23 +98,38 @@ public class ArenaController {
         gameResultsController.addMessage(MISSION_ACCOMPLISHED_MESSAGE);
     }
 
-    void inValidInput() {
-        gameResultsController.clearGameResults();
-        gameResultsController.setGameError(INVALID_ACTION);
-    }
-
-    void registerHero(String type, String name) {
-        Hero hero = HeroFactory.newHero(type, name);
+    void registerHero(String type) {
+        Hero hero = HeroFactory.newHero(type, arena.getPlayerName());
         registerHero(hero);
     }
 
     void registerHero(Hero hero) {
         arena.setHero(hero);
         arena.setGameInProgress(true);
+        arena.setPlayerInABattle(false);
         heroController.registerHero(hero);
         gameResultsController.clearGameResults();
         mapController.addMapValues(hero);
+    }
 
-        arena.setPlayerInABattle(false);
+    void loadPlayerName(String name) {
+        arena.setPlayerName(name);
+        arena.setPLayerNameLoaded(true);
+    }
+
+    boolean isGameInProgress() {
+        return arena.isGameInProgress();
+    }
+
+    boolean isPLayerNameLoaded() {
+        return arena.isPLayerNameLoaded();
+    }
+
+    boolean didHeroWin() {
+        return arena.getGameResults().isHeroWon();
+    }
+
+    public Hero getHero() {
+        return arena.getHero();
     }
 }

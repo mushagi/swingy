@@ -9,7 +9,7 @@ import models.artifacts.Artifact;
 import java.util.ArrayList;
 
 @Getter @Setter
-public abstract class   Player {
+public abstract class APlayer {
     String name;
     String type;
     int level;
@@ -20,7 +20,7 @@ public abstract class   Player {
     ArrayList<Artifact> artifact;
     Position position;
 
-    Player(String type, String name, int level, int experience, int attack, int defence, int hitPoint) {
+    APlayer(String type, String name, int level, int experience, int attack, int defence, int hitPoint) {
         this.name = name;
         this.type = type;
         this.level = level;
@@ -34,7 +34,7 @@ public abstract class   Player {
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "APlayer{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", level=" + level +

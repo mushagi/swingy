@@ -1,15 +1,26 @@
 package controllers;
 
-import views.UserInterface;
+import views.gui.GUIInterfaceI;
 
-public class GUIController extends UIController {
-
-    public GUIController(ArenaController arenaController, UserInterface userInterface) {
-        super(arenaController, userInterface);
+public class GUIController extends AUIController {
+    GUIInterfaceI guiInterface;
+    public GUIController(ArenaController arenaController, GUIInterfaceI guiInterface) {
+        super(arenaController);
+        this.guiInterface =guiInterface;
     }
 
     @Override
     void switchUI() {
+
+    }
+
+    @Override
+    void updateUserInterface() {
+
+    }
+
+    @Override
+    public void run() {
 
     }
 }

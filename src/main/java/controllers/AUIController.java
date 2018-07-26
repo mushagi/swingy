@@ -1,18 +1,14 @@
 package controllers;
 
 import models.players.Hero;
-import models.world.Arena;
-import views.UserInterface;
 
 import static enums.EDirection.*;
 
-abstract class UIController {
+abstract class AUIController {
     final ArenaController arenaController;
-    private final UserInterface userInterface;
 
-    UIController(ArenaController arenaController, UserInterface userInterface) {
+    AUIController(ArenaController arenaController ) {
         this.arenaController = arenaController;
-        this.userInterface = userInterface;
     }
 
     abstract void switchUI();
@@ -52,16 +48,21 @@ abstract class UIController {
         System.exit(0);
     }
 
-    void updateUserInterface(){
-        userInterface.updateUserInterface();
+    abstract void updateUserInterface();
+
+    void createNewHero(String type) {
+        arenaController.registerHero(type);
+        updateUserInterface();
     }
 
-    public Arena getArena() {
-        return arenaController.getArena();
-    }
-
-    public void createNewHero(Hero hero) {
+    void createNewHero(Hero hero) {
         arenaController.registerHero(hero);
         updateUserInterface();
     }
+
+    void loadPlayerNameToArena(String name) {
+        arenaController.loadPlayerName(name);
+    }
+
+    public abstract void run();
 }
