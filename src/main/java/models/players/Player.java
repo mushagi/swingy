@@ -1,5 +1,6 @@
 package models.players;
 
+import controllers.HeroController;
 import lombok.Getter;
 import lombok.Setter;
 import models.world.Position;

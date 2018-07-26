@@ -1,18 +1,16 @@
 package services;
 
+import controllers.BattleManager;
 import factory.EnemyFactory;
 import factory.HeroFactory;
-import models.players.Hero;
 import models.players.Player;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class BattleServiceTest {
+class BattleManagerTest {
 
     @Test
     void battle() {
-        BattleService battleService = new BattleService();
+        BattleManager battleManager = new BattleManager();
 
         Player player = HeroFactory.newHero("BlackPanther", "Mushagi");
         Player enemy = EnemyFactory.newEnemy("BlackW", "The guy");
@@ -20,7 +18,7 @@ class BattleServiceTest {
 
         System.out.println(player.toString());
         System.out.println(enemy.toString());
-        Player won = battleService.battle(player, enemy);
+        Player won = battleManager.battle(player, enemy);
         System.out.println(player.toString());
         System.out.println(enemy.toString());
 

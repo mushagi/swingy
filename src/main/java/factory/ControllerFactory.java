@@ -2,18 +2,17 @@ package factory;
 
 import controllers.CLIController;
 import controllers.GUIController;
-import services.ArenaService;
-import views.CLIInterface;
+import controllers.ArenaController;
 import views.UserInterface;
 
 public class ControllerFactory{
 
-    public static CLIController newCLIController(ArenaService arenaService, UserInterface userInterface)
+    public static CLIController newCLIController(ArenaController arenaController, UserInterface userInterface)
     {
-        return new CLIController(arenaService, userInterface );
+        return new CLIController(arenaController, userInterface );
     }
 
-    public static GUIController newGUIController(ArenaService arenaService,  UserInterface userInterface) {
-        return new GUIController(arenaService, userInterface);
+    public static GUIController newGUIController(ArenaController arenaController, UserInterface userInterface) {
+        return new GUIController(arenaController, userInterface);
     }
 }

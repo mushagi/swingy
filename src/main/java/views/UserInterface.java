@@ -1,6 +1,6 @@
 package views;
 
 public interface UserInterface {
-    void updateInterface();
+    void updateUserInterface();
     void show();
 }

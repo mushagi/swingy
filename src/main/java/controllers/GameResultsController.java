@@ -1,12 +1,12 @@
-package services;
+package controllers;
 
 import models.messages.GameResults;
 
 
-public class GameResultsService {
+public class GameResultsController {
     private GameResults gameResults;
 
-    public GameResultsService(GameResults gameResults) {
+    public GameResultsController(GameResults gameResults) {
         this.gameResults = gameResults;
     }
 

@@ -1,4 +1,4 @@
-package views;
+package views.cli;
 
 import controllers.CLIController;
 import factory.ControllerFactory;
@@ -6,8 +6,9 @@ import models.players.Player;
 import models.world.Arena;
 import models.world.Map;
 import models.world.Position;
-import services.ArenaService;
-import services.MapService;
+import controllers.ArenaController;
+import controllers.MapController;
+import views.UserInterface;
 
 import static state.GameStrings.APPLICATION_HEARDER;
 import static state.GameStrings.APPLICATION_SLOGAN;
@@ -16,11 +17,11 @@ import static state.GameStrings.START_DIVIDER;
 public class CLIInterface implements UserInterface {
     private final Arena arena;
     private final CLIController controller;
-    public final int WIDTH_CHARACTER_MAX = 100;
+    private final int WIDTH_CHARACTER_MAX = 100;
     private boolean isBackToMainMenu;
 
-    public CLIInterface(ArenaService arenaService) {
-        controller = ControllerFactory.newCLIController(arenaService, this);
+    public CLIInterface(ArenaController arenaController) {
+        controller = ControllerFactory.newCLIController(arenaController, this);
         arena = controller.getArena();
     }
 
@@ -94,14 +95,14 @@ public class CLIInterface implements UserInterface {
     }
 
     private void printMap(final Map map) {
-        MapService mapService = new MapService(map);
+        MapController mapController = new MapController(map);
         for (int y = 0; y < map.getSize(); y++) {
             for (int x = 0; x < map.getSize(); x++) {
                 Position position = new Position(y, x);
                 if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
                     System.out.print("|*");
-                else if (mapService.playerExists(position)) {
-                    Player player = mapService.getPlayer(position);
+                else if (mapController.playerExists(position)) {
+                    Player player = mapController.getPlayer(position);
                     System.out.print(player.getType().equals("Hero") ? "|0" : "|X");
                 } else
                     System.out.print("| ");
@@ -110,12 +111,12 @@ public class CLIInterface implements UserInterface {
         }
     }
 
-    void displayOptions() {
+    public void displayOptions() {
         System.out.println("Directions       Actions        Game Options\nW - NORTH        F - FIGHT      Z - View Hero Stats\nA - WEST         R - RUN AWAY   X - Switch to GUI\nS - SOUTH                       C - Back To Main Menu\nD - EAST                        Q - Quit Game");
     }
 
     @Override
-    public void updateInterface() {
+    public void updateUserInterface() {
         clearScreen();
         System.out.println("The arena says : ");
         System.out.println(arena.getGameResults().getResult());
@@ -128,7 +129,7 @@ public class CLIInterface implements UserInterface {
         printHeader();
     }
 
-     void printHeader() {
+     public void printHeader() {
         printToScreen(START_DIVIDER);
         printStringToCenter(APPLICATION_HEARDER);
         printStringToCenter(APPLICATION_SLOGAN);
@@ -198,7 +199,7 @@ public class CLIInterface implements UserInterface {
     }
 
     private void gameLoop() {
-        updateInterface();
+        updateUserInterface();
         while (arena.isGameInProgress()) {
             System.out.print("Input : ");
             controller.getInput();

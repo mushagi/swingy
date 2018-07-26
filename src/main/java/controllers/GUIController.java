@@ -1,12 +1,11 @@
 package controllers;
 
-import services.ArenaService;
 import views.UserInterface;
 
-public class GUIController extends ArenaController {
+public class GUIController extends UIController {
 
-    public GUIController(ArenaService arenaService, UserInterface userInterface) {
-        super(arenaService, userInterface);
+    public GUIController(ArenaController arenaController, UserInterface userInterface) {
+        super(arenaController, userInterface);
     }
 
     @Override

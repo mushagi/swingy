@@ -1,9 +1,9 @@
 package models.artifacts;
 
-import enums.ArtifactType;
+import enums.EArtifactType;
 
 class Shield extends Artifact {
     public Shield() {
-        super("Shield", 10, ArtifactType.Armour);
+        super("Shield", 10, enums.EArtifactType.Armour);
     }
 }

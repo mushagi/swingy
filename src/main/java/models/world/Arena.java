@@ -1,7 +1,6 @@
 package models.world;
 
 import lombok.Getter;
-
 import lombok.Setter;
 import models.players.Hero;
 import models.messages.GameResults;

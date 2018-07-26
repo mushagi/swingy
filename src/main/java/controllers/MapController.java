@@ -1,6 +1,6 @@
-package services;
+package controllers;
 
-import enums.Direction;
+import enums.EDirection;
 import factory.EnemyFactory;
 import models.players.Enemy;
 import models.players.Hero;
@@ -11,18 +11,18 @@ import utils.Formulas;
 
 import java.util.ArrayList;
 
-import static enums.Direction.EAST;
-import static enums.Direction.WEST;
+import static enums.EDirection.EAST;
+import static enums.EDirection.WEST;
 
-public class MapService {
+public class MapController {
     private Map map;
     private Hero hero;
 
-    public MapService(Map map) {
+    public MapController(Map map) {
         this.map = map;
     }
 
-    boolean moveHeroInTheMap(Direction direction) {
+    boolean moveHeroInTheMap(EDirection direction) {
         removePlayer(hero.getPosition());
         if (direction == EAST || direction == WEST)
             hero.getPosition().x += direction.getIncrement();
@@ -43,12 +43,12 @@ public class MapService {
         map.getGameMap().clear();
         map.setSize(Formulas.calculateMapSquares(hero.getLevel()));
         ArrayList<Enemy> enemies = EnemyFactory.createRandomEnemies(map.getSize());
-        placeHeroInTheCenterOfTheMap(hero);
+        changeThePositionOfTheHeroToBeInTheCenterOfTheMap(hero);
         addPlayers(enemies);
         addPlayer(hero);
     }
 
-    private void placeHeroInTheCenterOfTheMap(Hero hero) {
+    private void changeThePositionOfTheHeroToBeInTheCenterOfTheMap(Hero hero) {
         Position position = hero.getPosition();
         position.x = map.getSize() / 2;
         position.y = map.getSize() / 2;
@@ -58,14 +58,14 @@ public class MapService {
         return value >=0 && value < map.getSize();
     }
 
-    boolean isMoveWithinBounds(Direction direction) {
+    boolean isMoveWithinBounds(EDirection direction) {
         if (direction == EAST || direction == WEST)
             return isMoveWithinBounds(hero.getPosition().x + direction.getIncrement());
         else
             return isMoveWithinBounds(hero.getPosition().y + direction.getIncrement());
     }
 
-    public boolean heroFoundARunAwayPosition() {
+     boolean heroFoundARunAwayPosition() {
         addPlayer(hero);
         return true;
     }
@@ -80,7 +80,7 @@ public class MapService {
         return map.getGameMap().remove(position) != null;
     }
 
-    public void addPlayers(ArrayList<Enemy> enemies) {
+    private void addPlayers(ArrayList<Enemy> enemies) {
         for (Player player : enemies)
             addPlayer(player.getPosition(), player);
     }

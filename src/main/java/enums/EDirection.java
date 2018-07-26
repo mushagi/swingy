@@ -2,7 +2,7 @@ package enums;
 
 import lombok.Getter;
 
-public enum Direction {
+public enum EDirection {
     NORTH(-1),
     SOUTH(1),
     EAST(1),
@@ -10,7 +10,7 @@ public enum Direction {
 
     @Getter int increment;
 
-    Direction(int increment) {
+    EDirection(int increment) {
         this.increment = increment;
     }
 }

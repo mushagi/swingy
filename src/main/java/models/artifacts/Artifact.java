@@ -1,6 +1,6 @@
 package models.artifacts;
 
-import enums.ArtifactType;
+import enums.EArtifactType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,11 +8,11 @@ import lombok.Setter;
 public class Artifact {
     String name;
     int power;
-    ArtifactType artifactType;
+    EArtifactType EArtifactType;
 
-    public Artifact(String name, int power, ArtifactType artifactType) {
+    public Artifact(String name, int power, EArtifactType EArtifactType) {
         this.name = name;
         this.power = power;
-        this.artifactType = artifactType;
+        this.EArtifactType = EArtifactType;
     }
 }

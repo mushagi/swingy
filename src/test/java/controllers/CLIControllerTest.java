@@ -1,6 +1,6 @@
 package controllers;
 
-import factory.ArenaServiceFactory;
+import factory.ArenaControllerFactory;
 import factory.ControllerFactory;
 import org.junit.jupiter.api.Test;
 import views.UserInterface;
@@ -17,10 +17,10 @@ class CLIControllerTest {
         InputStream stdin = System.in;
         try {
             System.setIn(new ByteArrayInputStream(data.getBytes()));
-            CLIController controller = ControllerFactory.newCLIController(ArenaServiceFactory.newArenaServiceFromGameData(),
+            CLIController controller = ControllerFactory.newCLIController(ArenaControllerFactory.newArenaControllerFromGameData(),
                     new UserInterface() {
                         @Override
-                        public void updateInterface() {
+                        public void updateUserInterface() {
 
                         }
 

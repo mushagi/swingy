@@ -1,37 +1,14 @@
-package services;
+package controllers;
 
-import enums.ArtifactType;
+import enums.EArtifactType;
 import models.artifacts.Artifact;
 import models.players.Player;
 
 import java.util.Random;
 
 public class
-BattleService {
+BattleManager {
     static Random random = new Random();
-
-    Player battle(Player hero, Player enemy) {
-        Player playerOne = getPlayerAttackingFirst(hero, enemy);
-        Player playerTwo = playerOne == hero ? enemy : hero;
-
-        while (playerOne.getHitPoint() > 0 && playerTwo.getHitPoint() > 0)
-        {
-            attack(playerOne, playerTwo);
-            attack(playerTwo, playerOne);
-        }
-        return playerOne.getHitPoint() > playerTwo.getHitPoint() ? playerOne : playerTwo;
-    }
-
-    private  void attack(Player attacker, Player defender) {
-        for (int i = 0; i < getRandomNumberOfAttacks(); i++) {
-            int totalDamage = getTotalAttack(attacker) - getTotalDefence(defender);
-            takeDamage(defender, Math.abs(totalDamage));
-        }
-    }
-
-    private  void takeDamage(Player defender, int totalDamage) {
-        defender.setHitPoint(defender.getHitPoint() - totalDamage);
-    }
 
     private static int getTotalDefence(Player defender) {
         return defender.getDefence() + getArtifactsDefence(defender) + luckyBlock();
@@ -44,7 +21,7 @@ BattleService {
     private static int getArtifactsDefence(Player defender) {
         int totalArtifcatsDefence = 0;
         for (Artifact artificat: defender.getArtifact()) {
-            if (artificat.getArtifactType() == ArtifactType.Armour)
+            if (artificat.getEArtifactType() == EArtifactType.Armour)
                 totalArtifcatsDefence += artificat.getPower();
         }
         return totalArtifcatsDefence;
@@ -66,7 +43,7 @@ BattleService {
 
     private static Artifact getTheMostPowerfulArtificat(Player attacker, Artifact chosenArtifact) {
         for (Artifact artifact : attacker.getArtifact()) {
-            if (artifact.getArtifactType() == ArtifactType.Weapon) {
+            if (artifact.getEArtifactType() == EArtifactType.Weapon) {
                 if (chosenArtifact == null)
                     chosenArtifact = artifact;
                 else
@@ -83,5 +60,28 @@ BattleService {
 
     private static Player getPlayerAttackingFirst(Player hero, Player enemy) {
         return random.nextBoolean() ? hero : enemy;
+    }
+
+    public Player battle(Player hero, Player enemy) {
+        Player playerOne = getPlayerAttackingFirst(hero, enemy);
+        Player playerTwo = playerOne == hero ? enemy : hero;
+
+        while (playerOne.getHitPoint() > 0 && playerTwo.getHitPoint() > 0)
+        {
+            attack(playerOne, playerTwo);
+            attack(playerTwo, playerOne);
+        }
+        return playerOne.getHitPoint() > playerTwo.getHitPoint() ? playerOne : playerTwo;
+    }
+
+    private  void attack(Player attacker, Player defender) {
+        for (int i = 0; i < getRandomNumberOfAttacks(); i++) {
+            int totalDamage = getTotalAttack(attacker) - getTotalDefence(defender);
+            takeDamage(defender, Math.abs(totalDamage));
+        }
+    }
+
+    private  void takeDamage(Player defender, int totalDamage) {
+        defender.setHitPoint(defender.getHitPoint() - totalDamage);
     }
 }

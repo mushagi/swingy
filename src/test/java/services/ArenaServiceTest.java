@@ -1,6 +1,6 @@
 package services;
 
 
-class ArenaServiceTest {
+class arenaControllerTest {
 
 }

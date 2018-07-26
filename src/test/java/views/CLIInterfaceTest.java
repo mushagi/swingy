@@ -1,13 +1,8 @@
 package views;
 
-import factory.ArenaServiceFactory;
-import factory.EnemyFactory;
-import factory.HeroFactory;
-import models.players.Enemy;
-import models.players.Hero;
-import models.world.Map;
-import models.world.Position;
+import factory.ArenaControllerFactory;
 import org.junit.jupiter.api.Test;
+import views.cli.CLIInterface;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -19,7 +14,7 @@ class CLIInterfaceTest {
         String data = "";
         InputStream stdin = System.in;
         try {
-            CLIInterface cliUi= new CLIInterface(ArenaServiceFactory.newArenaServiceFromGameData());
+            CLIInterface cliUi= new CLIInterface(ArenaControllerFactory.newArenaControllerFromGameData());
             System.setIn(new ByteArrayInputStream(data.getBytes()));
             cliUi.show();
         } finally {
@@ -29,13 +24,13 @@ class CLIInterfaceTest {
 
     @Test
     void displayOptions() {
-        CLIInterface cliInterface = new CLIInterface(ArenaServiceFactory.newArenaServiceFromGameData());
+        CLIInterface cliInterface = new CLIInterface(ArenaControllerFactory.newArenaControllerFromGameData());
         cliInterface.displayOptions();
     }
 
     @Test
     void printHeader() {
-        CLIInterface cliInterface = new CLIInterface(ArenaServiceFactory.newArenaServiceFromGameData());
+        CLIInterface cliInterface = new CLIInterface(ArenaControllerFactory.newArenaControllerFromGameData());
         cliInterface.printHeader();
     }
 }
