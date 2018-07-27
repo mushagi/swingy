@@ -1,33 +1,38 @@
 package controllers;
 
+import database.IRepository;
 import enums.EDirection;
 import factory.HeroFactory;
 import lombok.Getter;
 import models.players.APlayer;
 import models.players.Hero;
 import models.world.Arena;
+
+import java.util.Collection;
 import java.util.Random;
 
 import static state.GameStrings.*;
 
 public class ArenaController {
+    private final IRepository<Hero> heroRepository;
     @Getter private Arena arena;
     private final MapController mapController;
     private final GameResultsController gameResultsController;
     private final BattleManager battleService;
     private final HeroController heroController;
 
-
     public ArenaController(Arena arena,
                            MapController mapController,
                            GameResultsController gameResultsController,
                            BattleManager battleManager,
-                           HeroController heroController) {
+                           HeroController heroController,
+                           IRepository<Hero> heroRepository) {
         this.arena = arena;
         this.mapController = mapController;
         this.gameResultsController = gameResultsController;
         this.battleService = battleManager;
         this.heroController = heroController;
+        this.heroRepository = heroRepository;
     }
 
     void moveHero(EDirection direction) {
@@ -63,6 +68,7 @@ public class ArenaController {
         gameResultsController.addMessage(getWinningMessage(getWinningMessage(won.getName())));
         heroController.updateExperience(lost);
         heroController.heroLevelUp();
+        heroRepository.update(getHero());
         mapController.addPlayer(won);
     }
 
@@ -98,12 +104,18 @@ public class ArenaController {
         gameResultsController.addMessage(MISSION_ACCOMPLISHED_MESSAGE);
     }
 
-    void registerHero(String type) {
-        Hero hero = HeroFactory.newHero(type, arena.getPlayerName());
-        registerHero(hero);
+    void createHero(String type) {
+        Hero hero;
+        hero = heroController.createHero(type, arena.getPlayerName());
+        heroRepository.create(hero);
+        initArena(hero);
     }
 
-    void registerHero(Hero hero) {
+    Collection<Hero> getAllHeroes() {
+        return heroRepository.getALL();
+    }
+
+    void initArena(Hero hero) {
         arena.setHero(hero);
         arena.setGameInProgress(true);
         arena.setPlayerInABattle(false);
@@ -131,5 +143,9 @@ public class ArenaController {
 
     public Hero getHero() {
         return arena.getHero();
+    }
+
+    public Hero getByID(int heroId) {
+        return heroRepository.getByID(heroId);
     }
 }

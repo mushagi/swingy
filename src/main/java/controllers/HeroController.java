@@ -1,5 +1,6 @@
 package controllers;
 
+import factory.HeroFactory;
 import models.players.APlayer;
 import models.players.Hero;
 import utils.Formulas;
@@ -29,5 +30,11 @@ public class HeroController {
 
     private int calculateExperience(APlayer playerWonAgainst) {
         return 0;
+    }
+
+    public Hero createHero(String type, String playerName) {
+        Hero hero = HeroFactory.newHero(type, playerName);
+        this.hero = hero;
+        return hero;
     }
 }

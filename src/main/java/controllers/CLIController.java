@@ -4,6 +4,7 @@ import views.cli.CLIInterfaceI;
 import views.gui.GUIInterfaceI;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class CLIController extends AUIController {
@@ -201,6 +202,27 @@ public class CLIController extends AUIController {
     }
 
     private void loadHeroFromDatabase() {
+        boolean isValidOption = false;
+        String choice;
+
+        while (!isValidOption) {
+            userInterface.displayHeroList(arenaController.getAllHeroes());
+
+            choice = getScannerInput();
+            try {
+                int heroId = (Integer.parseInt(choice)) - 1;
+                if (heroId <= 0 || heroId >= arenaController.getAllHeroes().size())
+                    userInterface.displayInvalidInput();
+                else {
+                    getPlayerName();
+                    createNewHero(arenaController.getByID(heroId));
+                    isValidOption = true;
+                }
+            }
+            catch (Exception e) {
+                userInterface.displayInvalidInput();
+            }
+        }
     }
 
      private String getScannerInput() {

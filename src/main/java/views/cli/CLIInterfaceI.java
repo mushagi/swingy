@@ -1,9 +1,12 @@
 package views.cli;
 
 import models.players.APlayer;
+import models.players.Hero;
 import models.world.Arena;
 import models.world.Position;
 import views.IUserInterface;
+
+import java.util.Collection;
 
 import static state.GameStrings.APPLICATION_HEARDER;
 import static state.GameStrings.APPLICATION_SLOGAN;
@@ -141,6 +144,16 @@ public class CLIInterfaceI implements IUserInterface {
                 "Are you sure you want to quit Game?\n" +
                 "1. Yep\n" +
                 "2. Nope\n");
+        displayPromptInput();
+    }
+
+    public void displayHeroList(Collection<Hero> allHeroes) {
+        printToScreen("Select an existing hero");
+        int count = 1;
+        for (Hero hero: allHeroes) {
+            printToScreen(count+++" "+hero.getName());
+        }
+        printToScreen("Q - quit");
         displayPromptInput();
     }
 }

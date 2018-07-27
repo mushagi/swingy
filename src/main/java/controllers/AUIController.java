@@ -2,6 +2,8 @@ package controllers;
 
 import models.players.Hero;
 
+import java.util.Collection;
+
 import static enums.EDirection.*;
 
 abstract class AUIController {
@@ -51,13 +53,17 @@ abstract class AUIController {
     abstract void updateUserInterface();
 
     void createNewHero(String type) {
-        arenaController.registerHero(type);
+        arenaController.createHero(type);
         updateUserInterface();
     }
 
     void createNewHero(Hero hero) {
-        arenaController.registerHero(hero);
+        arenaController.initArena(hero);
         updateUserInterface();
+    }
+
+    Collection<Hero> getAllHeroes() {
+        return arenaController.getAllHeroes();
     }
 
     void loadPlayerNameToArena(String name) {
