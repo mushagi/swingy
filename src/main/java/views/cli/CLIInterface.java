@@ -4,6 +4,7 @@ import models.players.APlayer;
 import models.players.Hero;
 import models.world.Arena;
 import models.world.Position;
+import views.ISplashScreen;
 import views.IUserInterface;
 
 import java.util.Collection;
@@ -12,7 +13,13 @@ import static state.GameStrings.APPLICATION_HEARDER;
 import static state.GameStrings.APPLICATION_SLOGAN;
 import static state.GameStrings.START_DIVIDER;
 
-public class CLIInterfaceI implements IUserInterface {
+public class CLIInterface implements IUserInterface {
+    private ISplashScreen splashScreen;
+
+    public CLIInterface() {
+        splashScreen = new SplashScreenCli();
+    }
+
     public void displayLoadCreateHeroPrompt() {
         clearScreen();
         System.out.print("" +
@@ -126,11 +133,15 @@ public class CLIInterfaceI implements IUserInterface {
     public void printResultsMessage(Arena arena) {
         clearScreen();
         printToScreen(arena.getGameResults().getResult().toString());
-        printToScreen("Press any key to continue...");
     }
 
     @Override
     public void show() {
+
+    }
+
+    @Override
+    public void showSplashScreen() {
 
     }
 
@@ -148,12 +159,27 @@ public class CLIInterfaceI implements IUserInterface {
     }
 
     public void displayHeroList(Collection<Hero> allHeroes) {
-        printToScreen("Select an existing hero");
+        clearScreen();
         int count = 1;
+        printStringToCenter("*************************************");
+        printStringToCenter("*     Heroes from the database      *");
+        printStringToCenter("*************************************");
+        System.out.format("%-20s%-20s%-20s%-20s%-20s\n", "Index", "Name", "Hero Class Type", "Level", "Xp");
+        System.out.format("_____________________________________________________________________________________\n");
+
         for (Hero hero: allHeroes) {
-            printToScreen(count+++" "+hero.getName());
+            System.out.format("%-20d%-20s%-20s%-20d%-20d\n", count++, hero.getName(), hero.getType(), hero.getLevel(), hero.getExperience());
         }
-        printToScreen("Q - quit");
-        displayPromptInput();
+        printToScreen("\nB . Back To Main Menu\n 2 q - Quit");
+        printToScreen("Choose an existing hero: ");
+    }
+
+    public void displaySplaceScreen() {
+        clearScreen();
+        splashScreen.show();
+    }
+
+    public void promptAnyKeyPress() {
+        printToScreen("Press any key to continue...");
     }
 }

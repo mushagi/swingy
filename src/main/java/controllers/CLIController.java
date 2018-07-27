@@ -1,17 +1,17 @@
 package controllers;
 
-import views.cli.CLIInterfaceI;
+import state.GameState;
+import views.cli.CLIInterface;
 import views.gui.GUIInterfaceI;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Scanner;
 
 public class CLIController extends AUIController {
     private final Scanner scanner = new Scanner(System.in);
-    private final CLIInterfaceI userInterface;
+    private final CLIInterface userInterface;
 
-    public CLIController(ArenaController arenaController, CLIInterfaceI userInterface) {
+    public CLIController(ArenaController arenaController, CLIInterface userInterface) {
         super(arenaController);
         this.userInterface = userInterface;
     }
@@ -25,8 +25,18 @@ public class CLIController extends AUIController {
 
     @Override
     public void run() {
-        loadHero();
+        showSplashScreen();
+        if(!arenaController.isPLayerNameLoaded())
+            loadHero();
         gameLoop();
+    }
+
+    private void showSplashScreen() {
+        if (GameState.getInstance().isShowSplashScreen()) {
+            userInterface.displaySplaceScreen();
+            GameState.getInstance().setShowSplashScreen(false);
+            waitForAnyKeyPress();
+        }
     }
 
     private void loadHero() {
@@ -235,6 +245,7 @@ public class CLIController extends AUIController {
     }
 
      private void waitForAnyKeyPress() {
+        userInterface.promptAnyKeyPress();
         try {
             System.in.read();
         } catch (IOException e) {

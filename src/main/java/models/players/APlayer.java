@@ -1,15 +1,24 @@
 package models.players;
 
-import controllers.HeroController;
+import com.sun.istack.internal.Nullable;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.Getter;
 import lombok.Setter;
 import models.world.Position;
 import models.artifacts.Artifact;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
+@Entity
 @Getter @Setter
 public abstract class APlayer {
+    @Id
+    @Column(updatable = false, nullable = false, length = 100)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     String name;
     String type;
     int level;
@@ -17,7 +26,12 @@ public abstract class APlayer {
     int attack;
     int defence;
     int hitPoint;
-    ArrayList<Artifact> artifact;
+
+    @Column(length = 100)
+    @OneToMany(cascade = CascadeType.ALL)
+    Collection<Artifact> artifact;
+
+    @OneToOne(cascade = CascadeType.ALL)
     Position position;
 
     APlayer(String type, String name, int level, int experience, int attack, int defence, int hitPoint) {
@@ -30,6 +44,9 @@ public abstract class APlayer {
         this.hitPoint = hitPoint;
         this.artifact = new ArrayList<>();
         this.position =  new Position(0, 0);
+    }
+
+    protected APlayer() {
     }
 
     @Override

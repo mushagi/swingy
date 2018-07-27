@@ -21,4 +21,9 @@ public class GUIInterfaceI implements IUserInterface {
     @Override
     public void show() {
     }
+
+    @Override
+    public void showSplashScreen() {
+
+    }
 }

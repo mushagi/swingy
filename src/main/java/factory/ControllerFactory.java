@@ -3,13 +3,13 @@ package factory;
 import controllers.CLIController;
 import controllers.GUIController;
 import controllers.ArenaController;
-import views.cli.CLIInterfaceI;
+import views.cli.CLIInterface;
 import views.gui.GUIInterfaceI;
 
 public class ControllerFactory{
 
     public static CLIController newCLIController(ArenaController arenaController) {
-        CLIInterfaceI cliInterface = new CLIInterfaceI();
+        CLIInterface cliInterface = new CLIInterface();
         return new CLIController(arenaController, cliInterface );
     }
 

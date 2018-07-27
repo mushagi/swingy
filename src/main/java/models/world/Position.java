@@ -1,14 +1,30 @@
 package models.world;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.Objects;
 
+
+@Entity
 public class Position{
+
+    @Id
+    @Column(updatable = false, nullable = false, length = 100)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     public int x;
     public int y;
+
 
     public Position(int y, int x) {
         this.y = y;
         this.x = x;
+    }
+
+    public Position() {
     }
 
     @Override
@@ -32,4 +48,5 @@ public class Position{
                 ", y=" + y +
                 '}';
     }
+
 }

@@ -1,7 +1,5 @@
 package controllers;
 
-import com.sun.media.jfxmedia.events.PlayerEvent;
-import database.IRepository;
 import enums.EInterfaceType;
 import factory.ArenaControllerFactory;
 import factory.ControllerFactory;
