@@ -1,17 +1,18 @@
 package controllers;
 
+import controllers.gui.GUIController;
+import factory.ControllerFactory;
 import state.GameState;
-import views.cli.CLIInterface;
-import views.gui.GUIInterfaceI;
+import views.cli.CLI;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class CLIController extends AUIController {
     private final Scanner scanner = new Scanner(System.in);
-    private final CLIInterface userInterface;
+    private final CLI userInterface;
 
-    public CLIController(ArenaController arenaController, CLIInterface userInterface) {
+    public CLIController(ArenaController arenaController, CLI userInterface) {
         super(arenaController);
         this.userInterface = userInterface;
     }
@@ -123,8 +124,10 @@ public class CLIController extends AUIController {
                 break;
             case "x":
                 switchUI();
+                break;
             case "X":
                 switchUI();
+                break;
             default:
                 userInterface.displayInvalidInput();
                 break;
@@ -132,13 +135,13 @@ public class CLIController extends AUIController {
     }
 
     @Override
-    void switchUI() {
-        GUIInterfaceI guiInterface = new GUIInterfaceI(this.arenaController);
-        guiInterface.show();
+    public void switchUI() {
+        GUIController controller = ControllerFactory.newGUIController(arenaController);
+        controller.run();
     }
 
     @Override
-    void updateUserInterface() {
+    protected void updateUserInterface() {
         userInterface.updateUserInterface(arenaController.getArena());
     }
 

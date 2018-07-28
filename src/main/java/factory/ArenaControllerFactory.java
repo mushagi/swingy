@@ -7,6 +7,8 @@ import models.players.Hero;
 import models.world.Arena;
 import state.GameState;
 
+import java.util.Collection;
+
 public class ArenaControllerFactory {
     public static ArenaController newArenaControllerFromGameData() {
 
@@ -21,7 +23,32 @@ public class ArenaControllerFactory {
 
         HeroController heroController = new HeroController();
 
-        IRepository<Hero> heroRepository = new RepositoryImpl();
+        IRepository<Hero> heroRepository = new IRepository<Hero>() {
+            @Override
+            public Collection<Hero> getALL() {
+                return null;
+            }
+
+            @Override
+            public Hero getByID(int id) {
+                return null;
+            }
+
+            @Override
+            public boolean create(Hero entity) {
+                return false;
+            }
+
+            @Override
+            public boolean delete(Hero entity) {
+                return false;
+            }
+
+            @Override
+            public boolean update(Hero entity) {
+                return false;
+            }
+        };
 
         return new ArenaController(
                 arena, mapController,

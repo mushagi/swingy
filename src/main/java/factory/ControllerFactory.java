@@ -1,20 +1,18 @@
 package factory;
 
 import controllers.CLIController;
-import controllers.GUIController;
+import controllers.gui.GUIController;
 import controllers.ArenaController;
-import views.cli.CLIInterface;
-import views.gui.GUIInterfaceI;
+import views.cli.CLI;
 
 public class ControllerFactory{
 
     public static CLIController newCLIController(ArenaController arenaController) {
-        CLIInterface cliInterface = new CLIInterface();
-        return new CLIController(arenaController, cliInterface );
+        CLI cli = new CLI();
+        return new CLIController(arenaController, cli);
     }
 
     public static GUIController newGUIController(ArenaController arenaController) {
-        GUIInterfaceI guiInterface = new GUIInterfaceI(arenaController);
-        return new GUIController(arenaController,guiInterface );
+        return new GUIController(arenaController );
     }
 }

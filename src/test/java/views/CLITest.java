@@ -1,21 +1,20 @@
 package views;
 
 import org.junit.jupiter.api.Test;
-import views.cli.CLIInterface;
+import views.cli.CLI;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-class CLIInterfaceTest {
+class CLITest {
 
     @Test
     void run() {
         String data = "";
         InputStream stdin = System.in;
         try {
-            CLIInterface cliUi= new CLIInterface();
+            CLI cliUi= new CLI();
             System.setIn(new ByteArrayInputStream(data.getBytes()));
-            cliUi.show();
         } finally {
             System.setIn(stdin);
         }
@@ -23,11 +22,11 @@ class CLIInterfaceTest {
 
     @Test
     void displayOptions() {
-        CLIInterface cliUi= new CLIInterface();
+        CLI cliUi= new CLI();
     }
 
     @Test
     void printHeader() {
-        CLIInterface cliUi= new CLIInterface();
+        CLI cliUi= new CLI();
     }
 }

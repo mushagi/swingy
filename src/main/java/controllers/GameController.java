@@ -1,5 +1,6 @@
 package controllers;
 
+import controllers.gui.GUIController;
 import enums.EInterfaceType;
 import factory.ArenaControllerFactory;
 import factory.ControllerFactory;

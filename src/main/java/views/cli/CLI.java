@@ -13,10 +13,10 @@ import static state.GameStrings.APPLICATION_HEARDER;
 import static state.GameStrings.APPLICATION_SLOGAN;
 import static state.GameStrings.START_DIVIDER;
 
-public class CLIInterface implements IUserInterface {
+public class CLI implements IUserInterface {
     private ISplashScreen splashScreen;
 
-    public CLIInterface() {
+    public CLI() {
         splashScreen = new SplashScreenCli();
     }
 
@@ -136,7 +136,7 @@ public class CLIInterface implements IUserInterface {
     }
 
     @Override
-    public void show() {
+    public void show(Arena arena) {
 
     }
 
@@ -156,6 +156,11 @@ public class CLIInterface implements IUserInterface {
                 "1. Yep\n" +
                 "2. Nope\n");
         displayPromptInput();
+    }
+
+    @Override
+    public void newGameDialogue() {
+
     }
 
     public void displayHeroList(Collection<Hero> allHeroes) {

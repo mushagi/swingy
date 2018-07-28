@@ -1,47 +1,48 @@
 package controllers;
 
 import models.players.Hero;
+import views.gui.Panels.ChooseHeroPanel;
 
 import java.util.Collection;
 
 import static enums.EDirection.*;
 
-abstract class AUIController {
-    final ArenaController arenaController;
+public abstract class AUIController {
+    protected final ArenaController arenaController;
 
-    AUIController(ArenaController arenaController ) {
+    public AUIController(ArenaController arenaController) {
         this.arenaController = arenaController;
     }
 
-    abstract void switchUI();
+    public abstract void switchUI();
 
-    void moveSouth() {
+    protected void moveSouth() {
         arenaController.moveHero(SOUTH);
         updateUserInterface();
     }
 
-    void moveNorth() {
+    protected void moveNorth() {
         arenaController.moveHero(NORTH);
         updateUserInterface();
 
     }
 
-    void moveEast() {
+    protected void moveEast() {
         arenaController.moveHero(EAST);
         updateUserInterface();
     }
 
-    void moveWest() {
+    protected void moveWest() {
         arenaController.moveHero(WEST);
         updateUserInterface();
     }
 
-    void attack() {
+    protected void attack() {
         arenaController.fight();
         updateUserInterface();
     }
 
-    void runAway() {
+    protected void runAway() {
         arenaController.runAway();
         updateUserInterface();
     }
@@ -50,7 +51,7 @@ abstract class AUIController {
         System.exit(0);
     }
 
-    abstract void updateUserInterface();
+    protected abstract void updateUserInterface();
 
     void createNewHero(String type) {
         arenaController.createHero(type);
@@ -59,7 +60,6 @@ abstract class AUIController {
 
     void createNewHero(Hero hero) {
         arenaController.initArena(hero);
-        updateUserInterface();
     }
 
     Collection<Hero> getAllHeroes() {

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-class CLIInterfaceTest {
+class CLITest {
 
     @Test
     void displayHeroList() {
@@ -15,7 +15,7 @@ class CLIInterfaceTest {
         heroes.add(blackPanther);
         heroes.add(blackPanther);
 
-        CLIInterface cliInterface = new CLIInterface();
-        cliInterface.displayHeroList(heroes);
+        CLI cli = new CLI();
+        cli.displayHeroList(heroes);
     }
 }

@@ -9,7 +9,7 @@ class Main {
         }
         EInterfaceType interfaceType = getStartingInferaceType(args[0]);
         GameController gameController = new GameController();
-        gameController.startGame(EInterfaceType.CLI);
+        gameController.startGame(interfaceType);
     }
 
     private static EInterfaceType getStartingInferaceType(String string) {

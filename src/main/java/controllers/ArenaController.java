@@ -133,7 +133,7 @@ public class ArenaController {
         return arena.isGameInProgress();
     }
 
-    boolean isPLayerNameLoaded() {
+    public boolean isPLayerNameLoaded() {
         return arena.isPLayerNameLoaded();
     }
 
