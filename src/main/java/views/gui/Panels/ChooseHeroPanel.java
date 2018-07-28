@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class ChooseHeroPanel extends JPanel {
 
-    JButton btnNext = new JButton("Next");
+    private final JButton btnNext = new JButton("Next");
 
     public ChooseHeroPanel(Collection<Hero> heroes) {
         JLabel  label = new JLabel("Choose a Wakandian: ");

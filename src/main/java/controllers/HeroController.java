@@ -6,7 +6,7 @@ import models.players.Hero;
 import utils.Formulas;
 
 public class HeroController {
-    Hero hero;
+    private Hero hero;
 
     void updateExperience(APlayer playerWonAgainst) {
         int experiencedGained = calculateExperience(playerWonAgainst);

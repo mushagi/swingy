@@ -1,7 +1,5 @@
 package models.artifacts;
 
-import enums.EArtifactType;
-
 class Knife extends Artifact{
 
     public Knife() {

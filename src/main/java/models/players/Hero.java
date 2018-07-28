@@ -2,8 +2,6 @@ package models.players;
 
 
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
 
 @Entity
 public class Hero extends APlayer {

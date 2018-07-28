@@ -7,7 +7,7 @@ import models.world.Position;
 import javax.swing.*;
 import java.awt.*;
 
-public class MapPanel extends JPanel {
+class MapPanel extends JPanel {
 
     public MapPanel() {
         this.setBackground(new java.awt.Color(1,3,4));
@@ -47,7 +47,7 @@ public class MapPanel extends JPanel {
 }
 
 class MapCell extends JPanel {
-    JLabel label = new JLabel();
+    private final JLabel label = new JLabel();
     public MapCell() {
         this.setBorder(BorderFactory.createEtchedBorder());
         this.setLayout(new GridLayout());

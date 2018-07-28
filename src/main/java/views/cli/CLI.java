@@ -14,7 +14,7 @@ import static state.GameStrings.APPLICATION_SLOGAN;
 import static state.GameStrings.START_DIVIDER;
 
 public class CLI implements IUserInterface {
-    private ISplashScreen splashScreen;
+    private final ISplashScreen splashScreen;
 
     public CLI() {
         splashScreen = new SplashScreenCli();

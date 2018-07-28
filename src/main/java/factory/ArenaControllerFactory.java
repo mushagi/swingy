@@ -2,7 +2,6 @@ package factory;
 
 import controllers.*;
 import database.IRepository;
-import database.RepositoryImpl;
 import models.players.Hero;
 import models.world.Arena;
 import state.GameState;
@@ -35,8 +34,7 @@ public class ArenaControllerFactory {
             }
 
             @Override
-            public boolean create(Hero entity) {
-                return false;
+            public void create(Hero entity) {
             }
 
             @Override
@@ -45,8 +43,7 @@ public class ArenaControllerFactory {
             }
 
             @Override
-            public boolean update(Hero entity) {
-                return false;
+            public void update(Hero entity) {
             }
         };
 

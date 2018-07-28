@@ -2,7 +2,6 @@ package controllers;
 
 import database.IRepository;
 import enums.EDirection;
-import factory.HeroFactory;
 import lombok.Getter;
 import models.players.APlayer;
 import models.players.Hero;
@@ -15,7 +14,7 @@ import static state.GameStrings.*;
 
 public class ArenaController {
     private final IRepository<Hero> heroRepository;
-    @Getter private Arena arena;
+    @Getter private final Arena arena;
     private final MapController mapController;
     private final GameResultsController gameResultsController;
     private final BattleManager battleService;
@@ -74,7 +73,7 @@ public class ArenaController {
 
     private void onHeroLost(APlayer enemy) {
         gameResultsController.addMessage(getWinningMessage(enemy.getName()));
-        gameResultsController.isGameWon(false);
+        gameResultsController.isGameWon();
         arena.setGameInProgress(false);
     }
 
@@ -134,7 +133,7 @@ public class ArenaController {
     }
 
     public boolean isPLayerNameLoaded() {
-        return arena.isPLayerNameLoaded();
+        return !arena.isPLayerNameLoaded();
     }
 
     boolean didHeroWin() {

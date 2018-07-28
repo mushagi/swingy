@@ -18,7 +18,7 @@ public class CLIController extends AUIController {
     }
 
     private void getPlayerName() {
-        if (!arenaController.isPLayerNameLoaded()) {
+        if (arenaController.isPLayerNameLoaded()) {
             userInterface.promptPlayerName();
             loadPlayerNameToArena(getScannerInput());
         }
@@ -27,7 +27,7 @@ public class CLIController extends AUIController {
     @Override
     public void run() {
         showSplashScreen();
-        if(!arenaController.isPLayerNameLoaded())
+        if(arenaController.isPLayerNameLoaded())
             loadHero();
         gameLoop();
     }

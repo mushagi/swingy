@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class ChooseHeroPanelController extends AUIController {
 
     private final GUIController guiController;
-    ChooseHeroPanel chooseHeroPanel;
+    private final ChooseHeroPanel chooseHeroPanel;
 
     public ChooseHeroPanelController(ArenaController arenaController , GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
         super(arenaController);
@@ -25,7 +25,7 @@ public class ChooseHeroPanelController extends AUIController {
         chooseHeroPanel.addOnNextActionListener(onNextActionListener);
     }
     
-    private ActionListener onNextActionListener = new ActionListener() {
+    private final ActionListener onNextActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             GamePanel gamePanel = new GamePanel(arenaController.getArena().getMap().getSize());

@@ -15,7 +15,7 @@ import static enums.EDirection.EAST;
 import static enums.EDirection.WEST;
 
 public class MapController {
-    private Map map;
+    private final Map map;
     private Hero hero;
 
     public MapController(Map map) {

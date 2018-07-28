@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GameState {
-    @Getter private  Arena arena;
+    @Getter private final Arena arena;
     @Getter@Setter
     boolean showSplashScreen;
 

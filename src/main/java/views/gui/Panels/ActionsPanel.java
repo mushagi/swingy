@@ -7,15 +7,15 @@ import java.awt.*;
 
 @Getter
 class ActionsPanel extends JPanel {
-    JButton north;
-    JButton south;
-    JButton east;
-    JButton west;
-    JButton attack;
-    JButton runAway;
-    JButton newGame;
-    JButton quit;
-    JButton backToMainMenu;
+    final JButton north;
+    final JButton south;
+    final JButton east;
+    final JButton west;
+    final JButton attack;
+    final JButton runAway;
+    final JButton newGame;
+    final JButton quit;
+    final JButton backToMainMenu;
 
     ActionsPanel() {
         this.setBackground(new java.awt.Color(100, 30, 4));

@@ -5,13 +5,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.Collection;
+import java.util.List;
 
 public class RepositoryImpl implements IRepository<Hero> {
-    Session session = HibernateUtil.getInstance().getSession();
+    private final Session session = HibernateUtil.getInstance().getSession();
 
     @Override
     public Collection<Hero> getALL() {
-        Collection<Hero> heroes = null;
+        List<Hero> heroes = null;
         try {
             Transaction transaction = session.beginTransaction();
             heroes = session.createCriteria(Hero.class).list();
@@ -38,7 +39,7 @@ public class RepositoryImpl implements IRepository<Hero> {
     }
 
     @Override
-    public boolean create(Hero entity) {
+    public void create(Hero entity) {
         try {
             Transaction transaction = session.beginTransaction();
             session.save(entity);
@@ -46,9 +47,7 @@ public class RepositoryImpl implements IRepository<Hero> {
         }
         catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
-        return true;
     }
 
     @Override
@@ -66,7 +65,7 @@ public class RepositoryImpl implements IRepository<Hero> {
     }
 
     @Override
-    public boolean update(Hero entity) {
+    public void update(Hero entity) {
         try {
             Transaction transaction = session.beginTransaction();
             session.update(entity);
@@ -74,8 +73,6 @@ public class RepositoryImpl implements IRepository<Hero> {
         }
         catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
-        return true;
     }
 }

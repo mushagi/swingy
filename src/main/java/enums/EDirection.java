@@ -8,7 +8,8 @@ public enum EDirection {
     EAST(1),
     WEST(-1);
 
-    @Getter int increment;
+    @Getter
+    final int increment;
 
     EDirection(int increment) {
         this.increment = increment;

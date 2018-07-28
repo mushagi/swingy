@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class
 BattleManager {
-    static Random random = new Random();
+    private static final Random random = new Random();
 
     private static int getTotalDefence(APlayer defender) {
         return defender.getDefence() + getArtifactsDefence(defender) + luckyBlock();

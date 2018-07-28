@@ -9,13 +9,11 @@ import java.awt.event.ActionListener;
 
 public class GamePanelController extends AUIController {
 
-    private final GUIController guiController;
-    GamePanel gamePanel;
+    private final GamePanel gamePanel;
     
     public GamePanelController(ArenaController arenaController , GUIController guiController, GamePanel gamePanel) {
         super(arenaController);
         this.gamePanel = gamePanel;
-        this.guiController = guiController;
         addAllListeners();
     }
 
@@ -32,7 +30,7 @@ public class GamePanelController extends AUIController {
         gamePanel.addOnNewGameListeners(onNewGame);
     }
     
-    ActionListener onNorthClicked = new ActionListener() {
+    private final ActionListener onNorthClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             moveNorth();
@@ -40,7 +38,7 @@ public class GamePanelController extends AUIController {
         }
     };
 
-    ActionListener onSouthClicked = new ActionListener() {
+    private final ActionListener onSouthClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             moveSouth();
@@ -49,7 +47,7 @@ public class GamePanelController extends AUIController {
         }
     };
 
-    ActionListener onEastClicked = new ActionListener() {
+    private final ActionListener onEastClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             moveEast();
@@ -57,7 +55,7 @@ public class GamePanelController extends AUIController {
         }
     };
 
-    ActionListener onWestClicked = new ActionListener() {
+    private final ActionListener onWestClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             moveWest();
@@ -65,7 +63,7 @@ public class GamePanelController extends AUIController {
         }
     };
 
-    ActionListener onFightClicked = new ActionListener() {
+    private final ActionListener onFightClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             attack();
@@ -73,7 +71,7 @@ public class GamePanelController extends AUIController {
         }
     };
 
-    ActionListener onRunawayClicked = new ActionListener() {
+    private final ActionListener onRunawayClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             runAway();
@@ -81,7 +79,7 @@ public class GamePanelController extends AUIController {
         }
     };
 
-    ActionListener onQuit = new ActionListener() {
+    private final ActionListener onQuit = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
             showQuitDialogue();
@@ -91,7 +89,7 @@ public class GamePanelController extends AUIController {
     };
 
 
-    ActionListener onBackToMainMenu = new ActionListener() {
+    private final ActionListener onBackToMainMenu = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
             showQuitDialogue();
@@ -99,7 +97,7 @@ public class GamePanelController extends AUIController {
         }
     };
 
-    ActionListener onNewGame = new ActionListener() {
+    private final ActionListener onNewGame = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
             newGameDialogue();

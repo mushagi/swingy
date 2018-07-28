@@ -4,7 +4,7 @@ import models.messages.GameResults;
 
 
 public class GameResultsController {
-    private GameResults gameResults;
+    private final GameResults gameResults;
 
     public GameResultsController(GameResults gameResults) {
         this.gameResults = gameResults;
@@ -23,7 +23,7 @@ public class GameResultsController {
         gameResults.setError(true);
     }
 
-    void isGameWon(boolean isGameWon) {
+    void isGameWon() {
         gameResults.setHeroWon(false);
     }
 }

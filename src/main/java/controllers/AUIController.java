@@ -1,7 +1,6 @@
 package controllers;
 
 import models.players.Hero;
-import views.gui.Panels.ChooseHeroPanel;
 
 import java.util.Collection;
 
@@ -10,7 +9,7 @@ import static enums.EDirection.*;
 public abstract class AUIController {
     protected final ArenaController arenaController;
 
-    public AUIController(ArenaController arenaController) {
+    protected AUIController(ArenaController arenaController) {
         this.arenaController = arenaController;
     }
 

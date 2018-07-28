@@ -7,9 +7,9 @@ import org.hibernate.cfg.Configuration;
 
 
 public class HibernateUtil {
-    private static HibernateUtil ourInstance = new HibernateUtil();
+    private static final HibernateUtil ourInstance = new HibernateUtil();
     @Getter
-    private SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+    private final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
     @Getter
     private Session session = sessionFactory.openSession();

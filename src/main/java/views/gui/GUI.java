@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public class GUI implements IUserInterface {
 
-    MainWindow mainWindow;
+    private final MainWindow mainWindow;
 
     public GUI() {
         mainWindow= new MainWindow();
@@ -61,7 +61,7 @@ public class GUI implements IUserInterface {
 
     public void addMainWindowContentPane(Container pane) {
         mainWindow.setContentPane(pane);
-        mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mainWindow.setVisible(true);
     }
 }

@@ -1,7 +1,5 @@
 package models.players;
 
-import com.sun.istack.internal.Nullable;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.Getter;
 import lombok.Setter;
 import models.world.Position;

@@ -1,10 +1,9 @@
 package views.gui.Panels;
 
 import javax.swing.*;
-import java.awt.*;
 
-public class MessagesPanel extends JScrollPane {
-    JTextArea textArea = new JTextArea();
+class MessagesPanel extends JScrollPane {
+    private final JTextArea textArea = new JTextArea();
     public MessagesPanel() {
         this.setBackground(new java.awt.Color(1,150,4));
         init();

@@ -1,4 +1,4 @@
 package models.artifacts;
 
-public class Helm {
+class Helm {
 }

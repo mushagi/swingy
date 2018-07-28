@@ -13,7 +13,7 @@ import java.util.Collection;
 
 public class NewLoadPlayerPanelController extends AUIController {
     private final GUIController guiController;
-    private NewLoadPlayerPanel loadPlayerPanel;
+    private final NewLoadPlayerPanel loadPlayerPanel;
 
     public NewLoadPlayerPanelController(ArenaController arenaController , GUIController guiController, NewLoadPlayerPanel loadPlayerPanel) {
         super(arenaController);
@@ -41,7 +41,7 @@ public class NewLoadPlayerPanelController extends AUIController {
     public void run() {
     }
 
-    private ActionListener onNewGameClickedActionListener = new ActionListener() {
+    private final ActionListener onNewGameClickedActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             Collection<Hero> heroes = GameState.getInstance().getAvailableHeroes();
@@ -53,7 +53,7 @@ public class NewLoadPlayerPanelController extends AUIController {
         }
     };
 
-    private ActionListener onLoadHeroClickedActionListener = new ActionListener() {
+    private final ActionListener onLoadHeroClickedActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
 
