@@ -15,7 +15,7 @@ public class NewLoadPlayerPanelController extends AUIController {
     private final GUIController guiController;
     private final NewLoadPlayerPanel loadPlayerPanel;
 
-    public NewLoadPlayerPanelController(ArenaController arenaController , GUIController guiController, NewLoadPlayerPanel loadPlayerPanel) {
+    NewLoadPlayerPanelController(ArenaController arenaController , GUIController guiController, NewLoadPlayerPanel loadPlayerPanel) {
         super(arenaController);
         this.loadPlayerPanel = loadPlayerPanel;
         this.guiController = guiController;

@@ -15,43 +15,53 @@ BattleManager {
     }
 
     private static int luckyBlock() {
+        int randomNumber = random.nextInt(5);
+        if(randomNumber == 4) {
+            return 10;
+        }
         return 0;
     }
 
     private static int getArtifactsDefence(APlayer defender) {
-        int totalArtifcatsDefence = 0;
-        for (Artifact artificat: defender.getArtifact()) {
-            if (artificat.getEArtifactType() == EArtifactType.Armour)
-                totalArtifcatsDefence += artificat.getPower();
+        int totalArtifactDefence = 0;
+        for (Artifact artifact: defender.getArtifact()) {
+            if (artifact.getEArtifactType() == EArtifactType.Armour)
+                totalArtifactDefence += artifact.getPower();
         }
-        return totalArtifcatsDefence;
+        return totalArtifactDefence;
     }
 
     private static int getTotalAttack(APlayer attacker) {
-        return attacker.getAttack() + getArtifactsAttack(attacker) + luckyShot();
+        return attacker.getAttack() + getArtifactsAttack(attacker) + luckyShot(attacker);
     }
 
-    private static int luckyShot() {
+    private static int luckyShot(APlayer player) {
+        if(player.getType().equals("Hero")) {
+            int randomNumber = random.nextInt(5);
+            if (randomNumber == 4) {
+                return 10;
+            }
+        }
         return 0;
     }
 
     private static int getArtifactsAttack(APlayer attacker) {
-        Artifact chosenArtifact = null;
-        chosenArtifact = getTheMostPowerfulArtificat(attacker, chosenArtifact);
+        Artifact chosenArtifact = getTheMostPowerfulArtifact(attacker);
         return chosenArtifact == null ? 0 : chosenArtifact.getPower();
     }
 
-    private static Artifact getTheMostPowerfulArtificat(APlayer attacker, Artifact chosenArtifact) {
+    private static Artifact getTheMostPowerfulArtifact(APlayer attacker) {
+        Artifact mostPowerfulArtifact = null;
         for (Artifact artifact : attacker.getArtifact()) {
             if (artifact.getEArtifactType() == EArtifactType.Weapon) {
-                if (chosenArtifact == null)
-                    chosenArtifact = artifact;
+                if (mostPowerfulArtifact == null)
+                    mostPowerfulArtifact = artifact;
                 else
-                    if (artifact.getPower() > chosenArtifact.getPower())
-                        chosenArtifact = artifact;
+                    if (artifact.getPower() > mostPowerfulArtifact.getPower())
+                        mostPowerfulArtifact = artifact;
             }
         }
-        return chosenArtifact;
+        return mostPowerfulArtifact;
     }
 
     private static int getRandomNumberOfAttacks() {

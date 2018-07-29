@@ -28,7 +28,7 @@ public class GUIController extends AUIController {
     public void run() {
         guiInterface = new GUI();
 
-        if (arenaController.isPLayerNameLoaded())
+        if (!arenaController.isPLayerNameLoaded())
             showCreateNewLoadPlayerWindow();
         else
             showGamePanel();

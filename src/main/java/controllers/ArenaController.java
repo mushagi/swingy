@@ -133,7 +133,7 @@ public class ArenaController {
     }
 
     public boolean isPLayerNameLoaded() {
-        return !arena.isPLayerNameLoaded();
+        return arena.isPLayerNameLoaded();
     }
 
     boolean didHeroWin() {
@@ -144,7 +144,7 @@ public class ArenaController {
         return arena.getHero();
     }
 
-    public Hero getByID(int heroId) {
+    Hero getByID(int heroId) {
         return heroRepository.getByID(heroId);
     }
 }

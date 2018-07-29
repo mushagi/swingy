@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 public class GamePanelController extends AUIController {
 
     private final GamePanel gamePanel;
-    
-    public GamePanelController(ArenaController arenaController , GUIController guiController, GamePanel gamePanel) {
+
+    GamePanelController(ArenaController arenaController , GUIController guiController, GamePanel gamePanel) {
         super(arenaController);
         this.gamePanel = gamePanel;
         addAllListeners();

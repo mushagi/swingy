@@ -52,7 +52,7 @@ public abstract class AUIController {
 
     protected abstract void updateUserInterface();
 
-    void createNewHero(String type) {
+    protected void createNewHero(String type) {
         arenaController.createHero(type);
         updateUserInterface();
     }
@@ -65,7 +65,7 @@ public abstract class AUIController {
         return arenaController.getAllHeroes();
     }
 
-    void loadPlayerNameToArena(String name) {
+    public void loadPlayerNameToArena(String name) {
         arenaController.loadPlayerName(name);
     }
 

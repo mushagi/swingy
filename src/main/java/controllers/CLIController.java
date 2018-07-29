@@ -251,7 +251,7 @@ public class CLIController extends AUIController {
         userInterface.promptAnyKeyPress();
         try {
             System.in.read();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
