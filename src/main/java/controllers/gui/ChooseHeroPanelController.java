@@ -42,7 +42,6 @@ public class ChooseHeroPanelController extends AUIController {
         chooseHeroPanel.addTextChangedListener(onTxtPlayerNameTextChanged);
         chooseHeroPanel.addOnHeroPanelSelectionListener(onHeroPanelSelection);
         chooseHeroPanel.addOnBtnBackListener(onBtnBackListener);
-
     }
 
     private final MouseListener onHeroPanelSelection = new MouseListener() {
@@ -72,7 +71,7 @@ public class ChooseHeroPanelController extends AUIController {
 
         }
     };
-    
+
     private final ActionListener onNextActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -90,6 +89,7 @@ public class ChooseHeroPanelController extends AUIController {
             guiController.switchMainWindowPanel(gamePanel);
         }
     };
+
 
     private final ActionListener onBtnBackListener = new ActionListener() {
         @Override

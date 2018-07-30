@@ -46,7 +46,7 @@ public abstract class AUIController {
         updateUserInterface();
     }
 
-    void quitGame() {
+    protected void quitGame() {
         System.exit(0);
     }
 

@@ -4,66 +4,110 @@ import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 @Getter
 class ActionsPanel extends JPanel {
-    final JButton north;
-    final JButton south;
-    final JButton east;
-    final JButton west;
-    final JButton attack;
-    final JButton runAway;
-    final JButton newGame;
-    final JButton quit;
-    final JButton backToMainMenu;
+    public final JButton north = new JButton("North");
+    final JButton south = new JButton("South");
+    final JButton east = new JButton("East");
+    final JButton west = new JButton("West");
+    final JButton attack = new JButton("Attack");
+    final JButton runAway = new JButton("Run Away");
+    final JButton newGame = new JButton("New Game");
+    final JButton quit = new JButton("Quit");
+    final JButton backToMainMenu = new JButton("Menu");
 
     ActionsPanel() {
-        this.setBackground(new java.awt.Color(100, 30, 4));
+        SpringLayout layout = new SpringLayout();
+        this.setLayout(layout);
 
-        north = new JButton("North");
-        south = new JButton("South");
-        east = new JButton("East");
-        west = new JButton("West");
-        attack = new JButton("Attack");
-        runAway = new JButton("Run Away");
-        newGame = new JButton("New Game");
-        quit = new JButton("Quit");
-        backToMainMenu = new JButton("Menu");
+        JPanel directionsPanel = getDirectionsPanel();
+        JPanel actionsPanel = getActionsPanel();
+        JPanel gameOptionsPanel = getGameOptionsPanel();
 
-        JSplitPane mainSplit = new JSplitPane();
-        mainSplit.setDividerSize(1);
-        mainSplit.setResizeWeight(0.3);
-        mainSplit.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+        add(directionsPanel);
+        add(actionsPanel);
+        add(gameOptionsPanel);
 
-        JSplitPane actionsOptionsSplit = new JSplitPane();
-        actionsOptionsSplit.setDividerSize(1);
-        actionsOptionsSplit.setResizeWeight(0.5);
-        actionsOptionsSplit.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+        layout.putConstraint(SpringLayout.NORTH, directionsPanel, 0, SpringLayout.NORTH, this);
+        layout.putConstraint(SpringLayout.NORTH, actionsPanel, 0, SpringLayout.NORTH, this);
+        layout.putConstraint(SpringLayout.WEST, actionsPanel, 10, SpringLayout.EAST, directionsPanel);
+        layout.putConstraint(SpringLayout.EAST, gameOptionsPanel, 0, SpringLayout.EAST, this);
+    }
 
+    private JPanel getGameOptionsPanel() {
+        SpringLayout layout = new SpringLayout();
+
+        JPanel gameOptionsPanel = new JPanel();
+        gameOptionsPanel.setLayout(layout);
+        gameOptionsPanel.setPreferredSize(new Dimension(200, 80));
+
+        gameOptionsPanel.add(newGame);
+        gameOptionsPanel.add(backToMainMenu);
+        gameOptionsPanel.add(quit);
+
+        layout.putConstraint(SpringLayout.NORTH, newGame, 5, SpringLayout.NORTH, gameOptionsPanel);
+        layout.putConstraint(SpringLayout.WEST, newGame, 5, SpringLayout.WEST, gameOptionsPanel);
+
+        layout.putConstraint(SpringLayout.NORTH, backToMainMenu, 5, SpringLayout.NORTH, gameOptionsPanel);
+        layout.putConstraint(SpringLayout.WEST, backToMainMenu, 5, SpringLayout.EAST, newGame);
+
+        layout.putConstraint(SpringLayout.NORTH, quit, 5, SpringLayout.SOUTH, backToMainMenu);
+        layout.putConstraint(SpringLayout.WEST, quit, 5, SpringLayout.WEST, backToMainMenu);
+
+        return gameOptionsPanel;
+    }
+
+    private JPanel getActionsPanel() {
+        SpringLayout layout = new SpringLayout();
+
+        JPanel actionsPanel = new JPanel();
+        actionsPanel.setPreferredSize(new Dimension(170, 80));
+
+        actionsPanel.setLayout(layout);
+        actionsPanel.add(attack);
+        actionsPanel.add(runAway);
+
+        layout.putConstraint(SpringLayout.NORTH, attack, 5, SpringLayout.NORTH, actionsPanel);
+        layout.putConstraint(SpringLayout.NORTH, runAway, 5, SpringLayout.NORTH, actionsPanel);
+        layout.putConstraint(SpringLayout.WEST, runAway, 5, SpringLayout.EAST, attack);
+        return actionsPanel;
+    }
+
+    private JPanel getDirectionsPanel() {
+        SpringLayout layout = new SpringLayout();
 
         JPanel directionsPanel = new JPanel();
-        directionsPanel.setLayout(new GridLayout(0, 2));
+        directionsPanel.setPreferredSize(new Dimension(210, 80));
+        directionsPanel.setLayout(layout);
         directionsPanel.add(north);
         directionsPanel.add(south);
         directionsPanel.add(east);
         directionsPanel.add(west);
 
-        JPanel actionsPanel = new JPanel();
-        actionsPanel.setLayout(new GridLayout(0, 2));
-        actionsPanel.add(attack);
-        actionsPanel.add(runAway);
+        layout.putConstraint(SpringLayout.WEST, west, 5, SpringLayout.WEST, directionsPanel);
+        layout.putConstraint(SpringLayout.WEST, north, 5, SpringLayout.EAST, west);
 
-        JPanel gameOptionsPanel = new JPanel();
-        gameOptionsPanel.setLayout(new GridLayout(0, 2));
-        gameOptionsPanel.add(newGame);
-        gameOptionsPanel.add(backToMainMenu);
-        gameOptionsPanel.add(quit);
+        layout.putConstraint(SpringLayout.NORTH, west, 5, SpringLayout.SOUTH, north);
 
-        actionsOptionsSplit.setTopComponent(actionsPanel);
-        actionsOptionsSplit.setBottomComponent(gameOptionsPanel);
+        layout.putConstraint(SpringLayout.NORTH, south, 5, SpringLayout.SOUTH, north);
+        layout.putConstraint(SpringLayout.WEST, south, 5, SpringLayout.EAST, west);
 
-        mainSplit.setTopComponent(directionsPanel);
-        mainSplit.setBottomComponent(actionsOptionsSplit);
-        this.add(mainSplit);
+        layout.putConstraint(SpringLayout.NORTH, east, 5, SpringLayout.SOUTH, north);
+        layout.putConstraint(SpringLayout.WEST, east, 5, SpringLayout.EAST, north);
+        return directionsPanel;
+    }
+
+    public void addOnBtnQuitListener(ActionListener onBtnQuitClicked) {
+        quit.addActionListener(onBtnQuitClicked);
+    }
+
+    public void addOnBackToMainMenuQuitListener(ActionListener onBtnBackToMainMenuListener) {
+        backToMainMenu.addActionListener(onBtnBackToMainMenuListener);
+    }
+
+    public void addOnNewGameListener(ActionListener onBtnNewGameListener) {
+        newGame.addActionListener(onBtnNewGameListener);
     }
 }

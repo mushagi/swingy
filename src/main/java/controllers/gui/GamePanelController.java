@@ -81,9 +81,8 @@ public class GamePanelController extends AUIController {
 
     private final ActionListener onQuit = new ActionListener() {
         @Override
-        public void actionPerformed(ActionEvent e) { 
-            showQuitDialogue();
-            updateUserInterface();
+        public void actionPerformed(ActionEvent e) {
+            quitGame();
         }
 
     };
@@ -91,9 +90,8 @@ public class GamePanelController extends AUIController {
 
     private final ActionListener onBackToMainMenu = new ActionListener() {
         @Override
-        public void actionPerformed(ActionEvent e) { 
-            showQuitDialogue();
-            updateUserInterface();
+        public void actionPerformed(ActionEvent e) {
+
         }
     };
 
@@ -101,7 +99,7 @@ public class GamePanelController extends AUIController {
         @Override
         public void actionPerformed(ActionEvent e) { 
             newGameDialogue();
-            updateUserInterface();
+
         }
     };
 
@@ -127,4 +125,6 @@ public class GamePanelController extends AUIController {
     public void run() {
 
     }
+
+
 }

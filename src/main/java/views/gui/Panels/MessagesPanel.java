@@ -2,20 +2,26 @@ package views.gui.Panels;
 
 import javax.swing.*;
 
-class MessagesPanel extends JScrollPane {
+public class MessagesPanel extends JPanel {
     private final JTextArea textArea = new JTextArea();
-    public MessagesPanel() {
-        this.setBackground(new java.awt.Color(1,150,4));
+    MessagesPanel() {
         init();
     }
 
     private void init() {
-        textArea.setColumns(20);
-        textArea.setRows(30);
+
+        textArea.setColumns(25);
+        textArea.setRows(29);
         textArea.setCursor(null);
+        textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
-        this.add(textArea);
+
+        JScrollPane scrollPane = new JScrollPane(textArea,
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        this.add(scrollPane);
     }
 
     public void add(String message) {

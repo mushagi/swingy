@@ -16,39 +16,46 @@ public class GamePanel extends JPanel {
     }
 
     private void init(int mapSize) {
-        JSplitPane mainSplitPane = new JSplitPane();
-        JSplitPane topSplitPane = new JSplitPane();
+        SpringLayout layout = new SpringLayout();
+        this.setLayout(layout);
         mapPanel.generateNewMap(mapSize);
-        topSplitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-        topSplitPane.setTopComponent(mapPanel);
-        topSplitPane.setBottomComponent(messagesPanel);
-        topSplitPane.setResizeWeight(0.7);
-        topSplitPane.setDividerSize(1);
+        mapPanel.setPreferredSize(new Dimension(600, 450));
+        messagesPanel.setPreferredSize(new Dimension(300, 450));
+        actionsPanel.setPreferredSize(new Dimension(950, 70));
 
-        mainSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-        mainSplitPane.setBottomComponent(actionsPanel);
-        mainSplitPane.setTopComponent(topSplitPane);
-        mainSplitPane.setResizeWeight(0.7);
-        mainSplitPane.setDividerSize(1);
+        this.add(mapPanel);
+        this.add(messagesPanel);
+        this.add(actionsPanel);
 
-        this.add(mainSplitPane);
+        layout.putConstraint(SpringLayout.NORTH, mapPanel, 10, SpringLayout.NORTH, this);
+        layout.putConstraint(SpringLayout.WEST, mapPanel, 10, SpringLayout.WEST, this);
+
+        layout.putConstraint(SpringLayout.NORTH, messagesPanel, 0, SpringLayout.NORTH, mapPanel);
+        layout.putConstraint(SpringLayout.WEST, messagesPanel, 50, SpringLayout.EAST, mapPanel);
+
+        layout.putConstraint(SpringLayout.NORTH, actionsPanel, 20, SpringLayout.SOUTH, mapPanel);
+        layout.putConstraint(SpringLayout.WEST, actionsPanel, 0, SpringLayout.WEST, mapPanel);
+
+
     }
 
     public void updateUserInterface(Arena arena) {
         mapPanel.updateMap(arena);
-        messagesPanel.add(arena.getGameResults().getResult().toString());
+        for (String message: arena.getGameResults().getResult()) {
+            messagesPanel.add(message);
+        }
     }
 
     public void addOnNewGameListeners(ActionListener onNewGame) {
-        actionsPanel.getNorth().addActionListener(onNewGame);
+        actionsPanel.addOnNewGameListener(onNewGame);
     }
 
     public void addOnBackToMainMenuListener(ActionListener onBackToMainMenu) {
-        actionsPanel.getBackToMainMenu().addActionListener(onBackToMainMenu);
+        actionsPanel.addOnBackToMainMenuQuitListener(onBackToMainMenu);
     }
 
     public void addOnQuitListener(ActionListener onQuit) {
-        actionsPanel.getBackToMainMenu().addActionListener(onQuit);
+        actionsPanel.addOnBtnQuitListener(onQuit);
     }
 
     public void addOnRunawayClickedListener(ActionListener onRunawayClicked) {
@@ -73,5 +80,17 @@ public class GamePanel extends JPanel {
 
     public void addOnNorthClickedListener(ActionListener onNorthClicked) {
         actionsPanel.getNorth().addActionListener(onNorthClicked);
+    }
+
+    public void addOnBtnQuitListener(ActionListener onBtnQuitClicked) {
+        actionsPanel.addOnBtnQuitListener(onBtnQuitClicked);
+    }
+
+    public void addOnBackToMainMenuQuitListener(ActionListener onBtnBackToMainMenuListener) {
+        actionsPanel.addOnNewGameListener(onBtnBackToMainMenuListener);
+    }
+
+    public void addOnNewGameListener(ActionListener onBtnNewGameListener) {
+        actionsPanel.addOnNewGameListener(onBtnNewGameListener);
     }
 }

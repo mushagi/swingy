@@ -10,7 +10,6 @@ import java.awt.*;
 class MapPanel extends JPanel {
 
     public MapPanel() {
-        this.setBackground(new java.awt.Color(1,3,4));
 
     }
 
@@ -50,7 +49,6 @@ class MapCell extends JPanel {
     private final JLabel label = new JLabel();
     public MapCell() {
         this.setBorder(BorderFactory.createEtchedBorder());
-        this.setLayout(new GridLayout());
         this.add(label);
     }
 

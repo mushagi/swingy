@@ -17,12 +17,11 @@ ChooseHeroPanel extends JPanel {
     private final JTextField txtPlayerName = new JTextField(13);
     private HeroListPanel heroListPanel;
     private HeroCell currentlySelected;
-    private JLabel lblPlayerName =  new JLabel("Your name");
 
-    Button btnBack = new Button("Back");
-    Button btnQuit = new Button("Quit");
+    private Button btnBack = new Button("Back");
+    private Button btnQuit = new Button("Quit");
 
-    HeroStatisticsPanel heroStatisticsPanel = new HeroStatisticsPanel();
+    private HeroStatisticsPanel heroStatisticsPanel;
     private ArrayList<Hero> heroes;
 
     public ChooseHeroPanel(Collection<Hero> heroes) {
@@ -36,11 +35,13 @@ ChooseHeroPanel extends JPanel {
         heroListPanel = new HeroListPanel(heroes);
 
 
+        JLabel lblPlayerName = new JLabel("Your name");
         add(lblPlayerName);
         add(lblChoose);
         add(txtPlayerName);
         add(heroListPanel);
 
+        heroStatisticsPanel = new HeroStatisticsPanel();
         add(heroStatisticsPanel);
         add(btnNext);
         add(btnBack);
@@ -99,11 +100,15 @@ ChooseHeroPanel extends JPanel {
     public void addOnBtnBackListener(ActionListener onBtnBackListener) {
         btnBack.addActionListener(onBtnBackListener);
     }
+
+    public void addOnBackToMainMenuQuitListener(ActionListener onBtnBackToMainMenuListener) {
+        btnBack.addActionListener(onBtnBackToMainMenuListener);
+    }
+
 }
 
 class HeroListPanel extends JPanel {
-    JScrollPane scroll;
-    ArrayList<HeroCell> components = new ArrayList<>();
+    private ArrayList<HeroCell> components = new ArrayList<>();
 
     HeroListPanel(Collection<Hero> heroes) {
         int tag = 0;
@@ -113,19 +118,18 @@ class HeroListPanel extends JPanel {
         mainPanel.setPreferredSize(new Dimension(500,heroes.size() * 53));
         mainPanel.setLayout(new FlowLayout());
 
-
         for (Hero hero: heroes){
             HeroCell heroCell = new HeroCell(hero, tag++);
             mainPanel.add(heroCell);
             components.add(heroCell);
         }
 
-        scroll = new JScrollPane(mainPanel,
+        JScrollPane scroll = new JScrollPane(mainPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setBorder(null);
-       // scroll.setMinimumSize(new Dimension(160, 500));
         scroll.setPreferredSize(new Dimension(600, 500));
+
         this.add(scroll);
     }
 
