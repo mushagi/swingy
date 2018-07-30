@@ -15,8 +15,8 @@ public class HeroCell extends JPanel {
         this.add(textField);
         this.tag = tag;
         this.setBackground(Color.CYAN);
-        this.setPreferredSize(new Dimension(10,10));
-        this.setMaximumSize(new Dimension(10, 10));
+        this.setPreferredSize(new Dimension(150,150));
+        this.setMaximumSize(new Dimension(150, 150));
     }
 
     void selected() {

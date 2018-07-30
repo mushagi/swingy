@@ -33,10 +33,7 @@ public class GameState {
         heroes.add(new BlackPanther("Nameless"));
         heroes.add(new BlackPanther("Nameless"));
         heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
+
         return heroes;
     }
 }

@@ -47,7 +47,7 @@ public class NewLoadPlayerPanelController extends AUIController {
             Collection<Hero> heroes = GameState.getInstance().getAvailableHeroes();
             ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
             ChooseHeroPanelController controller =
-                    new ChooseHeroPanelController(arenaController, guiController, chooseHeroPanel);
+                    new ChooseHeroPanelController(arenaController, guiController, chooseHeroPanel, loadPlayerPanel);
             controller.updateUserInterface();
             guiController.switchMainWindowPanel(chooseHeroPanel);
         }

@@ -27,7 +27,7 @@ public class CLIController extends AUIController {
     @Override
     public void run() {
         showSplashScreen();
-        if(arenaController.isPLayerNameLoaded())
+        if(!arenaController.isPLayerNameLoaded())
             loadHero();
         gameLoop();
     }

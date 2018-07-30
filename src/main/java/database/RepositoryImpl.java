@@ -32,7 +32,7 @@ public class RepositoryImpl implements IRepository<Hero> {
             hero = session.get(Hero.class, id);
             transaction.commit();
         }
-        catch (Exception e) {
+           catch (Exception e) {
             e.printStackTrace();
         }
         return hero;

@@ -9,6 +9,7 @@ import views.gui.Panels.ChooseHeroPanel;
 import views.gui.Panels.GamePanel;
 import views.gui.Panels.HeroCell;
 
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
@@ -20,14 +21,18 @@ public class ChooseHeroPanelController extends AUIController {
 
     private final GUIController guiController;
     private final ChooseHeroPanel chooseHeroPanel;
+    private final JPanel previousPanel;
+
     @Setter(AccessLevel.PRIVATE)
     private String playerName = "";
     private int heroType;
 
-    ChooseHeroPanelController(ArenaController arenaController, GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
+    ChooseHeroPanelController(ArenaController arenaController, GUIController guiController,
+                              ChooseHeroPanel chooseHeroPanel, JPanel previousPanel) {
         super(arenaController);
         this.chooseHeroPanel = chooseHeroPanel;
         this.guiController = guiController;
+        this.previousPanel = previousPanel;
         addAllListeners();
     }
 
@@ -36,12 +41,14 @@ public class ChooseHeroPanelController extends AUIController {
         chooseHeroPanel.addOnNextActionListener(onNextActionListener);
         chooseHeroPanel.addTextChangedListener(onTxtPlayerNameTextChanged);
         chooseHeroPanel.addOnHeroPanelSelectionListener(onHeroPanelSelection);
+        chooseHeroPanel.addOnBtnBackListener(onBtnBackListener);
+
     }
 
     private final MouseListener onHeroPanelSelection = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
-
+            chooseHeroPanel.updatePlayerStatistics();
         }
 
         @Override
@@ -71,6 +78,7 @@ public class ChooseHeroPanelController extends AUIController {
         public void actionPerformed(ActionEvent e) {
             loadPlayerNameToArena(playerName);
             String heroTypeName = GameState.getInstance().getAvailableHeroes().get(heroType).getType();
+
             createNewHero(heroTypeName);
 
             GamePanel gamePanel =
@@ -83,6 +91,13 @@ public class ChooseHeroPanelController extends AUIController {
         }
     };
 
+    private final ActionListener onBtnBackListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            guiController.switchMainWindowPanel(previousPanel);
+        }
+    };
+
     private DocumentListener onTxtPlayerNameTextChanged = new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
@@ -92,7 +107,6 @@ public class ChooseHeroPanelController extends AUIController {
         @Override
         public void removeUpdate(DocumentEvent e) {
             setPlayerName(e.getDocument().toString());
-
         }
 
         @Override
