@@ -5,7 +5,6 @@ import factory.ControllerFactory;
 import state.GameState;
 import views.cli.CLI;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class CLIController extends AUIController {

@@ -2,6 +2,7 @@ package factory;
 
 import controllers.*;
 import database.IRepository;
+import database.RepositoryImpl;
 import models.players.Hero;
 import models.world.Arena;
 import state.GameState;
@@ -22,30 +23,7 @@ public class ArenaControllerFactory {
 
         HeroController heroController = new HeroController();
 
-        IRepository<Hero> heroRepository = new IRepository<Hero>() {
-            @Override
-            public Collection<Hero> getALL() {
-                return null;
-            }
-
-            @Override
-            public Hero getByID(int id) {
-                return null;
-            }
-
-            @Override
-            public void create(Hero entity) {
-            }
-
-            @Override
-            public boolean delete(Hero entity) {
-                return false;
-            }
-
-            @Override
-            public void update(Hero entity) {
-            }
-        };
+        IRepository<Hero> heroRepository = new RepositoryImpl();
 
         return new ArenaController(
                 arena, mapController,

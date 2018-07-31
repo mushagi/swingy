@@ -30,10 +30,8 @@ ChooseHeroPanel extends JPanel {
         this.setLayout(layout);
         JLabel lblChoose = new JLabel("Choose a Wakandian: ");
         lblChoose.setLabelFor(txtPlayerName);
-        //add(label, BorderLayout.SOUTH);
 
         heroListPanel = new HeroListPanel(heroes);
-
 
         JLabel lblPlayerName = new JLabel("Your name");
         add(lblPlayerName);
@@ -42,6 +40,7 @@ ChooseHeroPanel extends JPanel {
         add(heroListPanel);
 
         heroStatisticsPanel = new HeroStatisticsPanel();
+
         add(heroStatisticsPanel);
         add(btnNext);
         add(btnBack);
