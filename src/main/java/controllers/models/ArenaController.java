@@ -8,7 +8,7 @@ import models.players.APlayer;
 import models.players.Hero;
 import models.world.Arena;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Random;
 
 import static state.GameStrings.*;
@@ -111,7 +111,7 @@ public class ArenaController {
         initArena(hero);
     }
 
-    public Collection<Hero> getAllHeroes() {
+    public ArrayList<Hero> getAllHeroes() {
         return heroRepository.getALL();
     }
 

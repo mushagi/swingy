@@ -7,6 +7,8 @@ import models.world.Position;
 import views.ISplashScreen;
 import views.IUserInterface;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import static state.GameStrings.APPLICATION_HEARDER;
@@ -15,25 +17,14 @@ import static state.GameStrings.START_DIVIDER;
 
 public class CLI implements IUserInterface {
 
-    public void displayLoadCreateHeroPrompt() {
+    public void displayLoadCreateHeroPrompt(boolean isInvalidInput) {
         clearScreen();
         System.out.print("" +
                 "Do you want to create a new player or load a player?\n" +
                 "1. New\n" +
                 "2. Load\n" +
-                "3. Quit\n" +
-                "\nInput: ");
-    }
-
-    public void displayHeroTypePrompt() {
-        clearScreen();
-        System.out.print("" +
-                "Select Hero \n" +
-                "1. Black Panther\n" +
-                "2. Dick Milaje\n" +
-                "3. Pussy\n\n" +
-                "4. Back To Home\n" +
-                "\nInput : ");
+                "3. Quit\n");
+        displayPromptInput(isInvalidInput);
     }
 
     public void promptPlayerName() {
@@ -45,20 +36,35 @@ public class CLI implements IUserInterface {
         System.out.println("Invalid input bro");
     }
 
-    private void printMap(final Arena arena) {
-        for (int y = 0; y < arena.getMap().getSize(); y++) {
-            for (int x = 0; x < arena.getMap().getSize(); x++) {
-                Position position = new Position(y, x);
-                if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
-                    System.out.print("|*");
-                else if (arena.getMap().getGameMap().containsKey(position)) {
-                    APlayer player = arena.getMap().getGameMap().get(position);
-                    System.out.print(player.getType().equals("Hero") ? "|0" : "|X");
-                } else
-                    System.out.print("| ");
+    void printMap(final Arena arena, ArrayList<String> sideString) {
+        int max = Math.max(arena.getMap().getSize(), sideString.size());
+        int y = 0;
+        StringBuilder mapLine = new StringBuilder();
+        String sideStringLine;
+
+        for (int i = 0; i < max; i++) {
+            mapLine.setLength(0);
+            if (y < arena.getMap().getSize())
+            {
+                for (int x = 0; x < arena.getMap().getSize(); x++) {
+                    Position position = new Position(y, x);
+                    if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
+                        mapLine.append("|*");
+                    else if (arena.getMap().getGameMap().containsKey(position)) {
+                        APlayer player = arena.getMap().getGameMap().get(position);
+                        mapLine.append(player.getType().equals("Hero") ? "|0" : "|X");
+                    }
+                    else
+                        mapLine.append("| ");
+                }
+                mapLine.append("| ");
+                y++;
             }
-            System.out.print("|\n");
+            sideStringLine = i < sideString.size() ? sideString.get(i) : "";
+            System.out.format("%s\t\t%s\n", mapLine, sideStringLine);
+
         }
+
     }
 
     private void displayOptions() {
@@ -73,9 +79,13 @@ public class CLI implements IUserInterface {
     @Override
     public void updateUserInterface(Arena arena) {
         clearScreen();
-        System.out.println("The arena says : ");
-        System.out.println(arena.getGameResults().getResult());
-        showGameMapAndOptions(arena);
+        showGameMapAndOptions(arena, false);
+    }
+
+
+    public void updateUserInterfaceWithInvalidInput(Arena arena) {
+        clearScreen();
+        showGameMapAndOptions(arena, true);
     }
 
     private void clearScreen() {
@@ -106,21 +116,22 @@ public class CLI implements IUserInterface {
          return (padSize / 2) + stringLength;
      }
 
-    private void showGameMapAndOptions(Arena arena) {
+    private void showGameMapAndOptions(Arena arena, boolean isWithInvalidInput) {
         System.out.println();
-        printMap(arena);
+        printMap(arena, arena.getGameResults().getResult());
         System.out.println();
         displayOptions();
+        displayPromptInput(isWithInvalidInput);
     }
 
-    public void promptNewGame(boolean heroWon) {
+    public void promptNewGame(boolean heroWon, boolean isWithInvalidInput) {
         String request = heroWon? "Start a new game" : "try again";
         System.out.print("" +
                 "Do you want to "+request + " with the same hero?" +
                 "\n1. Yes" +
                 "\n2. Back to Main Menu" +
-                "\n3. Quit\n");
-        displayPromptInput();
+                "\n3. Quit");
+        displayPromptInput(isWithInvalidInput);
     }
 
     public void printResultsMessage(Arena arena) {
@@ -135,25 +146,38 @@ public class CLI implements IUserInterface {
         splashScreen.showSplashScreen();
     }
 
-    public void displayPromptInput() {
-        System.out.print("\nInput : ");
-    }
-
+    @Override
     public void showQuitDialogue() {
         clearScreen();
         System.out.print("" +
                 "Are you sure you want to quit Game?\n" +
                 "1. Yep\n" +
                 "2. Nope\n");
-        displayPromptInput();
+    }
+
+    public void displayPromptInput(boolean isWithInvalidInput) {
+        System.out.println();
+        if (isWithInvalidInput)
+            printToScreen("Invalid Input bro, look at the options and try again.");
+        System.out.print("Input : ");
+    }
+
+    public void showQuitDialogueCLI(boolean isWithInvalidInput) {
+        showQuitDialogue();
+        displayPromptInput(isWithInvalidInput);
     }
 
 
-    public void displayHeroList(Collection<Hero> allHeroes) {
+    public void displayHeroList(Collection<Hero> allHeroes, boolean isDatabaseSource, boolean isWithValidOption) {
         clearScreen();
         int count = 1;
         printStringToCenter("*************************************");
-        printStringToCenter("*     Heroes from the database      *");
+
+        if (isDatabaseSource)
+            printStringToCenter("*     Heroes from the database      *");
+        else
+            printStringToCenter("*     Create a new Hero      *");
+
         printStringToCenter("*************************************");
         System.out.format("%-20s%-20s%-20s%-20s%-20s\n", "Index", "Name", "Hero Class Type", "Level", "Xp");
         System.out.format("_____________________________________________________________________________________\n");
@@ -161,11 +185,20 @@ public class CLI implements IUserInterface {
         for (Hero hero: allHeroes) {
             System.out.format("%-20d%-20s%-20s%-20d%-20d\n", count++, hero.getName(), hero.getType(), hero.getLevel(), hero.getExperience());
         }
-        printToScreen("\nB . Back To Main Menu\n 2 q - Quit");
-        printToScreen("Choose an existing hero: ");
+        printToScreen("\nB . Back To Main Menu\nQ - Quit\n");
+        displayPromptInput(isWithValidOption);
     }
 
     public void promptAnyKeyPress() {
         printToScreen("Press any key to continue...");
+    }
+
+    public void updateUserInterfaceWithPlayerStatistics(Arena arena) {
+        System.out.println();
+        ArrayList<String> sideString = new ArrayList<String>(Arrays.asList(arena.getHero().toString().split("\n")));
+        printMap(arena, sideString);
+        System.out.println();
+        displayOptions();
+        displayPromptInput(false);
     }
 }

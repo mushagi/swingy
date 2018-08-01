@@ -18,7 +18,7 @@ class ChooseHeroPanelController extends APanelController {
 
     @Setter(AccessLevel.PRIVATE)
     private String playerName = "";
-    private int heroType;
+    private int selectedPlayer;
 
     ChooseHeroPanelController(GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
         super(guiController);
@@ -28,13 +28,13 @@ class ChooseHeroPanelController extends APanelController {
     private final MouseListener onHeroPanelSelection = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            chooseHeroPanel.updatePlayerStatistics();
+            updatePanel();
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
             HeroCell heroCell = (HeroCell) e.getSource();
-            heroType = heroCell.getTag();
+            selectedPlayer = heroCell.getTag();
         }
 
         @Override
@@ -57,7 +57,7 @@ class ChooseHeroPanelController extends APanelController {
         public void actionPerformed(ActionEvent e) {
             guiController.loadPlayerNameToArena(playerName);
 
-            String heroTypeName = GameState.getInstance().getAvailableHeroes().get(heroType).getType();
+            String heroTypeName = GameState.getInstance().getAvailableHeroes().get(selectedPlayer).getType();
             guiController.createNewHero(heroTypeName);
 
             guiController.showGamePanel();
@@ -98,5 +98,6 @@ class ChooseHeroPanelController extends APanelController {
 
     @Override
     void updatePanel() {
+        chooseHeroPanel.updatePlayerStatistics();
     }
 }

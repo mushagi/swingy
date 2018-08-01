@@ -10,6 +10,7 @@ import models.players.Hero;
 import models.world.Arena;
 import state.GameState;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class ArenaControllerFactory {
@@ -27,7 +28,7 @@ public class ArenaControllerFactory {
 
         IRepository<Hero> heroRepository = new IRepository<Hero>() {
             @Override
-            public Collection<Hero> getALL() {
+            public ArrayList<Hero> getALL() {
                 return null;
             }
 

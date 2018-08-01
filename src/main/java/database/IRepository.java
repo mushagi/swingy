@@ -1,9 +1,9 @@
 package database;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 public interface IRepository<T> {
-    Collection<T> getALL();
+    ArrayList<T> getALL();
     T getByID(int id);
     void create(T entity);
     boolean delete(T entity);

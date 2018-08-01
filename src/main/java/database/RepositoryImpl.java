@@ -4,6 +4,7 @@ import models.players.Hero;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class RepositoryImpl implements IRepository<Hero> {
     private final Session session = HibernateUtil.getInstance().getSession();
 
     @Override
-    public Collection<Hero> getALL() {
+    public ArrayList<Hero> getALL() {
         List<Hero> heroes = null;
         try {
             Transaction transaction = session.beginTransaction();
@@ -21,7 +22,7 @@ public class RepositoryImpl implements IRepository<Hero> {
         catch (Exception e) {
             e.printStackTrace();
         }
-        return heroes;
+        return (ArrayList<Hero>) heroes;
     }
 
     @Override

@@ -23,6 +23,7 @@ class NewLoadPlayerPanelController extends APanelController {
     private final ActionListener onLoadHeroClickedActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+
         }
     };
 

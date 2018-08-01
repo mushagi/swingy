@@ -76,5 +76,4 @@ public abstract class AUIController {
     public  Arena getArena() {
         return arenaController.getArena();
     }
-
 }

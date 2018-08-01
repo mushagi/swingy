@@ -49,16 +49,15 @@ public abstract class APlayer {
 
     @Override
     public String toString() {
-        return "APlayer{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", level=" + level +
-                ", experience=" + experience +
-                ", attack=" + attack +
-                ", defence=" + defence +
-                ", hitPoint=" + hitPoint +
-                ", artifact=" + artifact +
-                ", position=" + position +
-                '}';
+        return "Player statistics\n" +
+                "Name = " + name + "\n" +
+                "Type = " + type + "\n" +
+                "Level = " + level +"\n"+
+                "Experience =" + experience + "\n"+
+                "Attack = " + attack + "\n"+
+                "Defence = " + defence + "\n" +
+                "HitPoint = " + hitPoint + "\n"+
+                "Artifact = " + artifact +"\n"+
+                "Position= " + position;
     }
 }

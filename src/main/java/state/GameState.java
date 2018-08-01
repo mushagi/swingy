@@ -20,8 +20,7 @@ public class GameState {
         showSplashScreen = true;
     }
 
-    public static GameState getInstance()
-    {
+    public static GameState getInstance() {
         if (gameState == null)
             gameState = new GameState();
         return gameState;
@@ -32,7 +31,6 @@ public class GameState {
         heroes.add(new BlackPanther("Nameless"));
         heroes.add(new BlackPanther("Nameless"));
         heroes.add(new BlackPanther("Nameless"));
-
         return heroes;
     }
 }

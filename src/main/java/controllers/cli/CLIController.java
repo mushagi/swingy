@@ -4,14 +4,18 @@ import controllers.AUIController;
 import controllers.models.ArenaController;
 import controllers.gui.GUIController;
 import factory.ControllerFactory;
+import models.players.Hero;
 import state.GameState;
 import views.cli.CLI;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class CLIController extends AUIController {
     private final Scanner scanner = new Scanner(System.in);
     private final CLI userInterface;
+    private boolean IsBackToMainMenu = false;
 
     public CLIController(ArenaController arenaController, CLI userInterface) {
         super(arenaController);
@@ -27,7 +31,7 @@ public class CLIController extends AUIController {
     }
 
     private void getPlayerName() {
-        if (arenaController.isPLayerNameLoaded()) {
+        if (!arenaController.isPLayerNameLoaded()) {
             userInterface.promptPlayerName();
             loadPlayerNameToArena(getScannerInput());
         }
@@ -37,24 +41,26 @@ public class CLIController extends AUIController {
         if (GameState.getInstance().isShowSplashScreen()) {
             userInterface.showSplashScreen();
             GameState.getInstance().setShowSplashScreen(false);
-            waitForAnyKeyPress();
+         //   waitForAnyKeyPress();
         }
     }
 
     private void loadHero() {
         String choice;
         boolean isValidInput = false;
-        while (!isValidInput) {
-            userInterface.displayLoadCreateHeroPrompt();
 
+        IsBackToMainMenu = false;
+        userInterface.displayLoadCreateHeroPrompt(false);
+
+        while (!isValidInput) {
             choice = getScannerInput();
             switch (choice) {
                 case "1":
-                    selectHeroType();
+                    getHeroFromAList(GameState.getInstance().getAvailableHeroes(), false);
                     isValidInput = true;
                     break;
                 case "2":
-                    loadHeroFromDatabase();
+                    getHeroFromAList(arenaController.getAllHeroes(), true);
                     isValidInput = true;
                     break;
                 case "3":
@@ -62,78 +68,70 @@ public class CLIController extends AUIController {
                     isValidInput  = true;
                     break;
                 default:
-                    userInterface.displayInvalidInput();
+                    userInterface.displayLoadCreateHeroPrompt(true);
             }
 
         }
+        if (IsBackToMainMenu)
+            loadHero();
     }
 
     private void gameLoop() {
-        while (arenaController.isGameInProgress()) {
+        updateUserInterface();
+        while (arenaController.isGameInProgress())
             getGameInProgressInput();
-        }
         userInterface.printResultsMessage(arenaController.getArena());
         waitForAnyKeyPress();
         promptNewGame();
     }
 
     private void getGameInProgressInput() {
-        userInterface.displayPromptInput();
 
         String input = getScannerInput();
-
         switch (input) {
             case "W":
-                moveNorth();
-                break;
-            case "A":
-                moveWest();
-                break;
-            case "S":
-                moveSouth();
-                break;
-            case "D":
-                moveEast();
-                break;
-            case "r":
-                runAway();
-                break;
-            case "R":
-                runAway();
-                break;
             case "w":
                 moveNorth();
                 break;
+            case "A":
             case "a":
                 moveWest();
                 break;
+            case "S":
             case "s":
                 moveSouth();
                 break;
+            case "D":
             case "d":
                 moveEast();
                 break;
+            case "R":
+            case "r":
+                runAway();
+                break;
+            case "F":
             case "f":
                 attack();
                 break;
-            case "F":
-                attack();
+            case "Q":
             case "q":
                 quitGame();
                 break;
-            case "Q":
-                quitGame();
-                break;
+            case "X":
             case "x":
                 switchUI();
-                break;
-            case "X":
-                switchUI();
+            case "Z":
+            case "z":
+                viewHeroStats();
                 break;
             default:
-                userInterface.displayInvalidInput();
+                userInterface.updateUserInterfaceWithInvalidInput(arenaController.getArena());
                 break;
         }
+    }
+
+    private void viewHeroStats() {
+        userInterface.updateUserInterfaceWithPlayerStatistics(arenaController.getArena());
     }
 
     @Override
@@ -152,8 +150,9 @@ public class CLIController extends AUIController {
         boolean isValidOption = false;
         boolean isNewGame = false;
 
+        userInterface.promptNewGame(arenaController.didHeroWin(), false);
+
         while (!isValidOption) {
-            userInterface.promptNewGame(arenaController.didHeroWin());
             input = getScannerInput();
             switch (input) {
                 case "1":
@@ -168,14 +167,13 @@ public class CLIController extends AUIController {
                     quitCliGame();
                     break;
                 default:
-                    userInterface.displayInvalidInput();
+                    userInterface.promptNewGame(arenaController.didHeroWin(), true);
             }
         }
         if (isNewGame)
             createNewHero(arenaController.getHero());
         else
             loadHero();
-        updateUserInterface();
         gameLoop();
     }
 
@@ -199,47 +197,45 @@ public class CLIController extends AUIController {
         }
     }
 
-    private void selectHeroType() {
-        boolean isValidOption = false;
-        String type;
-        getPlayerName();
-        while (!isValidOption) {
-            userInterface.displayHeroTypePrompt();
-
-            type = getScannerInput();
-            switch (type) {
-                case "1" :
-                    createNewHero(type);
-                    isValidOption = true;
-                    break;
-                default:
-                    userInterface.displayInvalidInput();
-            }
-        }
-    }
-
-    private void loadHeroFromDatabase() {
+    private void getHeroFromAList(ArrayList<Hero> heroes, boolean isDatabaseSource) {
         boolean isValidOption = false;
         String choice;
 
+        userInterface.displayHeroList(heroes, isDatabaseSource, false);
         while (!isValidOption) {
-            userInterface.displayHeroList(arenaController.getAllHeroes());
 
             choice = getScannerInput();
-            try {
-                int heroId = (Integer.parseInt(choice)) - 1;
-                if (heroId <= 0 || heroId >= arenaController.getAllHeroes().size())
-                    userInterface.displayInvalidInput();
-                else {
-                    getPlayerName();
-                    createNewHero(arenaController.getByID(heroId));
+
+            switch (choice) {
+                case "q":
+                case "Q":
+                    quitCliGame();
+                    break;
+                case "b":
+                case "B":
                     isValidOption = true;
-                }
-            }
-            catch (Exception e) {
-                userInterface.displayInvalidInput();
+                    IsBackToMainMenu = true;
+                    break;
+                default:
+                    int heroId;
+
+                    try {
+                        heroId = (Integer.parseInt(choice));
+                        if (heroId < 1 || heroId > heroes.size())
+                            throw new Exception("Invalid input");
+                    } catch (Exception e) {
+                        userInterface.displayHeroList(heroes, isDatabaseSource, true);
+                        continue;
+                    }
+
+                    getPlayerName();
+                    createNewHero(heroes.get(heroId - 1));
+                    isValidOption = true;
+                    break;
             }
         }
+        if (IsBackToMainMenu)
+            loadHero();
     }
 
      private String getScannerInput() {

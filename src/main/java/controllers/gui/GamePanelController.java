@@ -26,7 +26,6 @@ class GamePanelController extends APanelController {
         public void actionPerformed(ActionEvent e) {
             guiController.moveSouth();
             updateUserInterface();
-
         }
     };
 
