@@ -1,8 +1,8 @@
 package factory;
 
-import controllers.CLIController;
+import controllers.cli.CLIController;
 import controllers.gui.GUIController;
-import controllers.ArenaController;
+import controllers.models.ArenaController;
 import views.cli.CLI;
 
 public class ControllerFactory{

@@ -14,11 +14,6 @@ import static state.GameStrings.APPLICATION_SLOGAN;
 import static state.GameStrings.START_DIVIDER;
 
 public class CLI implements IUserInterface {
-    private final ISplashScreen splashScreen;
-
-    public CLI() {
-        splashScreen = new SplashScreenCli();
-    }
 
     public void displayLoadCreateHeroPrompt() {
         clearScreen();
@@ -29,6 +24,7 @@ public class CLI implements IUserInterface {
                 "3. Quit\n" +
                 "\nInput: ");
     }
+
     public void displayHeroTypePrompt() {
         clearScreen();
         System.out.print("" +
@@ -48,7 +44,6 @@ public class CLI implements IUserInterface {
     public void displayInvalidInput() {
         System.out.println("Invalid input bro");
     }
-
 
     private void printMap(final Arena arena) {
         for (int y = 0; y < arena.getMap().getSize(); y++) {
@@ -89,7 +84,7 @@ public class CLI implements IUserInterface {
         printHeader();
     }
 
-     private void printHeader() {
+    private void printHeader() {
         printToScreen(START_DIVIDER);
         printStringToCenter(APPLICATION_HEARDER);
         printStringToCenter(APPLICATION_SLOGAN);
@@ -106,8 +101,7 @@ public class CLI implements IUserInterface {
         System.out.format("%"+centerPaddingSpace +"s\n", string);
     }
 
-     private int getPaddingCenterAdjust(int stringLength)
-     {
+     private int getPaddingCenterAdjust(int stringLength) {
          int padSize = 100 - stringLength;
          return (padSize / 2) + stringLength;
      }
@@ -117,7 +111,6 @@ public class CLI implements IUserInterface {
         printMap(arena);
         System.out.println();
         displayOptions();
-
     }
 
     public void promptNewGame(boolean heroWon) {
@@ -136,13 +129,10 @@ public class CLI implements IUserInterface {
     }
 
     @Override
-    public void show(Arena arena) {
-
-    }
-
-    @Override
     public void showSplashScreen() {
-
+        clearScreen();
+        ISplashScreen splashScreen = new SplashScreenCli();
+        splashScreen.showSplashScreen();
     }
 
     public void displayPromptInput() {
@@ -158,10 +148,6 @@ public class CLI implements IUserInterface {
         displayPromptInput();
     }
 
-    @Override
-    public void newGameDialogue() {
-
-    }
 
     public void displayHeroList(Collection<Hero> allHeroes) {
         clearScreen();
@@ -179,10 +165,6 @@ public class CLI implements IUserInterface {
         printToScreen("Choose an existing hero: ");
     }
 
-    public void displaySplaceScreen() {
-        clearScreen();
-        splashScreen.show();
-    }
 
     public void promptAnyKeyPress() {
         printToScreen("Press any key to continue...");

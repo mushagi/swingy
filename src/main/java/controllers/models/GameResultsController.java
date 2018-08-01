@@ -1,4 +1,4 @@
-package controllers;
+package controllers.models;
 
 import models.messages.GameResults;
 

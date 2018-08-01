@@ -1,39 +1,22 @@
 package controllers.gui;
 
-import controllers.AUIController;
-import controllers.ArenaController;
 import views.gui.Panels.GamePanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GamePanelController extends AUIController {
+public class GamePanelController extends APanelController {
+    GamePanel gamePanel;
 
-    private final GamePanel gamePanel;
-
-    GamePanelController(ArenaController arenaController , GUIController guiController, GamePanel gamePanel) {
-        super(arenaController);
+    GamePanelController(GUIController guiController, GamePanel gamePanel) {
+        super(guiController);
         this.gamePanel = gamePanel;
-        addAllListeners();
     }
 
-
-    private void addAllListeners() {
-        gamePanel.addOnNorthClickedListener(onNorthClicked);
-        gamePanel.addOnSouthClickedListener(onSouthClicked);
-        gamePanel.addOnEastClickedListener(onEastClicked);
-        gamePanel.addOnWestClickedListener(onWestClicked);
-        gamePanel.addOnFightClickedListener(onFightClicked);
-        gamePanel.addOnRunawayClickedListener(onRunawayClicked);
-        gamePanel.addOnQuitListener(onQuit);
-        gamePanel.addOnBackToMainMenuListener(onBackToMainMenu);
-        gamePanel.addOnNewGameListeners(onNewGame);
-    }
-    
     private final ActionListener onNorthClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            moveNorth();
+            guiController.moveNorth();
             updateUserInterface();
         }
     };
@@ -41,7 +24,7 @@ public class GamePanelController extends AUIController {
     private final ActionListener onSouthClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            moveSouth();
+            guiController.moveSouth();
             updateUserInterface();
 
         }
@@ -50,7 +33,7 @@ public class GamePanelController extends AUIController {
     private final ActionListener onEastClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            moveEast();
+            guiController.moveEast();
             updateUserInterface();
         }
     };
@@ -58,7 +41,7 @@ public class GamePanelController extends AUIController {
     private final ActionListener onWestClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            moveWest();
+            guiController.moveWest();
             updateUserInterface();
         }
     };
@@ -66,7 +49,7 @@ public class GamePanelController extends AUIController {
     private final ActionListener onFightClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            attack();
+            guiController.attack();
             updateUserInterface();
         }
     };
@@ -74,7 +57,7 @@ public class GamePanelController extends AUIController {
     private final ActionListener onRunawayClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            runAway();
+            guiController.runAway();
             updateUserInterface();
         }
     };
@@ -82,7 +65,7 @@ public class GamePanelController extends AUIController {
     private final ActionListener onQuit = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            quitGame();
+            guiController.quitGame();
         }
 
     };
@@ -107,22 +90,25 @@ public class GamePanelController extends AUIController {
 
     }
 
-    @Override
-    public void switchUI() {
-        
-    }
-
-    @Override
     protected void updateUserInterface() {
-        gamePanel.updateUserInterface(arenaController.getArena());
-    }
-
-
-    private void showQuitDialogue() {
+        gamePanel.updateUserInterface(guiController.getArena());
     }
 
     @Override
-    public void run() {
+    void addAllListeners() {
+        gamePanel.addOnNorthClickedListener(onNorthClicked);
+        gamePanel.addOnSouthClickedListener(onSouthClicked);
+        gamePanel.addOnEastClickedListener(onEastClicked);
+        gamePanel.addOnWestClickedListener(onWestClicked);
+        gamePanel.addOnFightClickedListener(onFightClicked);
+        gamePanel.addOnRunawayClickedListener(onRunawayClicked);
+        gamePanel.addOnQuitListener(onQuit);
+        gamePanel.addOnBackToMainMenuListener(onBackToMainMenu);
+        gamePanel.addOnNewGameListeners(onNewGame);
+    }
+
+    @Override
+    void updatePanel() {
 
     }
 

@@ -1,15 +1,11 @@
 package controllers.gui;
 
-import controllers.AUIController;
-import controllers.ArenaController;
 import lombok.AccessLevel;
 import lombok.Setter;
 import state.GameState;
 import views.gui.Panels.ChooseHeroPanel;
-import views.gui.Panels.GamePanel;
 import views.gui.Panels.HeroCell;
 
-import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
@@ -17,31 +13,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ChooseHeroPanelController extends AUIController {
-
-    private final GUIController guiController;
+class ChooseHeroPanelController extends APanelController {
     private final ChooseHeroPanel chooseHeroPanel;
-    private final JPanel previousPanel;
 
     @Setter(AccessLevel.PRIVATE)
     private String playerName = "";
     private int heroType;
 
-    ChooseHeroPanelController(ArenaController arenaController, GUIController guiController,
-                              ChooseHeroPanel chooseHeroPanel, JPanel previousPanel) {
-        super(arenaController);
+    ChooseHeroPanelController(GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
+        super(guiController);
         this.chooseHeroPanel = chooseHeroPanel;
-        this.guiController = guiController;
-        this.previousPanel = previousPanel;
         addAllListeners();
-    }
-
-
-    private void addAllListeners() {
-        chooseHeroPanel.addOnNextActionListener(onNextActionListener);
-        chooseHeroPanel.addTextChangedListener(onTxtPlayerNameTextChanged);
-        chooseHeroPanel.addOnHeroPanelSelectionListener(onHeroPanelSelection);
-        chooseHeroPanel.addOnBtnBackListener(onBtnBackListener);
     }
 
     private final MouseListener onHeroPanelSelection = new MouseListener() {
@@ -75,26 +57,19 @@ public class ChooseHeroPanelController extends AUIController {
     private final ActionListener onNextActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            loadPlayerNameToArena(playerName);
+            guiController.loadPlayerNameToArena(playerName);
+
             String heroTypeName = GameState.getInstance().getAvailableHeroes().get(heroType).getType();
+            guiController.createNewHero(heroTypeName);
 
-            createNewHero(heroTypeName);
-
-            GamePanel gamePanel =
-                    new GamePanel(arenaController.getArena().getMap().getSize());
-            GamePanelController controller =
-                    new GamePanelController(arenaController, guiController, gamePanel);
-            controller.updateUserInterface();
-
-            guiController.switchMainWindowPanel(gamePanel);
+            guiController.showGamePanel();
         }
     };
-
 
     private final ActionListener onBtnBackListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            guiController.switchMainWindowPanel(previousPanel);
+            guiController.switchToPreviousPanel();
         }
     };
 
@@ -115,20 +90,16 @@ public class ChooseHeroPanelController extends AUIController {
         }
     };
 
-
     @Override
-    public void switchUI() {
-        
+    void addAllListeners() {
+        chooseHeroPanel.addOnNextActionListener(onNextActionListener);
+        chooseHeroPanel.addTextChangedListener(onTxtPlayerNameTextChanged);
+        chooseHeroPanel.addOnHeroPanelSelectionListener(onHeroPanelSelection);
+        chooseHeroPanel.addOnBtnBackListener(onBtnBackListener);
     }
 
     @Override
-    protected void updateUserInterface() {
-        guiController.updateUserInterface();
-    }
-
-
-    @Override
-    public void run() {
+    void updatePanel() {
 
     }
 }

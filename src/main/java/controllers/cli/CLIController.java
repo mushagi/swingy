@@ -1,5 +1,7 @@
-package controllers;
+package controllers.cli;
 
+import controllers.AUIController;
+import controllers.models.ArenaController;
 import controllers.gui.GUIController;
 import factory.ControllerFactory;
 import state.GameState;
@@ -16,13 +18,6 @@ public class CLIController extends AUIController {
         this.userInterface = userInterface;
     }
 
-    private void getPlayerName() {
-        if (arenaController.isPLayerNameLoaded()) {
-            userInterface.promptPlayerName();
-            loadPlayerNameToArena(getScannerInput());
-        }
-    }
-
     @Override
     public void run() {
         showSplashScreen();
@@ -31,9 +26,16 @@ public class CLIController extends AUIController {
         gameLoop();
     }
 
+    private void getPlayerName() {
+        if (arenaController.isPLayerNameLoaded()) {
+            userInterface.promptPlayerName();
+            loadPlayerNameToArena(getScannerInput());
+        }
+    }
+
     private void showSplashScreen() {
         if (GameState.getInstance().isShowSplashScreen()) {
-            userInterface.displaySplaceScreen();
+            userInterface.showSplashScreen();
             GameState.getInstance().setShowSplashScreen(false);
             waitForAnyKeyPress();
         }
@@ -67,8 +69,9 @@ public class CLIController extends AUIController {
     }
 
     private void gameLoop() {
-        while (arenaController.isGameInProgress())
+        while (arenaController.isGameInProgress()) {
             getGameInProgressInput();
+        }
         userInterface.printResultsMessage(arenaController.getArena());
         waitForAnyKeyPress();
         promptNewGame();

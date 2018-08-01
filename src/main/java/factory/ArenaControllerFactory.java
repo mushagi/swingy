@@ -1,17 +1,18 @@
 package factory;
 
 import controllers.*;
+import controllers.models.ArenaController;
+import controllers.models.GameResultsController;
+import controllers.models.HeroController;
+import controllers.models.MapController;
 import database.IRepository;
 import database.RepositoryImpl;
 import models.players.Hero;
 import models.world.Arena;
 import state.GameState;
 
-import java.util.Collection;
-
 public class ArenaControllerFactory {
     public static ArenaController newArenaControllerFromGameData() {
-
         MapController mapController = new MapController(GameState.getInstance().getArena().getMap());
 
         GameResultsController gameResultsController =

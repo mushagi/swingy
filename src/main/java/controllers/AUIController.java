@@ -1,6 +1,8 @@
 package controllers;
 
+import controllers.models.ArenaController;
 import models.players.Hero;
+import models.world.Arena;
 
 import java.util.Collection;
 
@@ -15,53 +17,53 @@ public abstract class AUIController {
 
     public abstract void switchUI();
 
-    protected void moveSouth() {
+    public void moveSouth() {
         arenaController.moveHero(SOUTH);
         updateUserInterface();
     }
 
-    protected void moveNorth() {
+    public void moveNorth() {
         arenaController.moveHero(NORTH);
         updateUserInterface();
 
     }
 
-    protected void moveEast() {
+    public void moveEast() {
         arenaController.moveHero(EAST);
         updateUserInterface();
     }
 
-    protected void moveWest() {
+    public void moveWest() {
         arenaController.moveHero(WEST);
         updateUserInterface();
     }
 
-    protected void attack() {
+    public void attack() {
         arenaController.fight();
         updateUserInterface();
     }
 
-    protected void runAway() {
+    public void runAway() {
         arenaController.runAway();
         updateUserInterface();
     }
 
-    protected void quitGame() {
+    public void quitGame() {
         System.exit(0);
     }
 
     protected abstract void updateUserInterface();
 
-    protected void createNewHero(String type) {
+    public void createNewHero(String type) {
         arenaController.createHero(type);
         updateUserInterface();
     }
 
-    void createNewHero(Hero hero) {
+    protected void createNewHero(Hero hero) {
         arenaController.initArena(hero);
     }
 
-    Collection<Hero> getAllHeroes() {
+    protected Collection<Hero> getAllHeroes() {
         return arenaController.getAllHeroes();
     }
 
@@ -71,5 +73,8 @@ public abstract class AUIController {
 
     public abstract void run();
 
+    public  Arena getArena() {
+        return arenaController.getArena();
+    }
 
 }

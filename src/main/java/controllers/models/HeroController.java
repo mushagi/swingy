@@ -1,4 +1,4 @@
-package controllers;
+package controllers.models;
 
 import factory.HeroFactory;
 import models.players.APlayer;
@@ -32,7 +32,7 @@ public class HeroController {
         return 0;
     }
 
-    public Hero createHero(String type, String playerName) {
+    Hero createHero(String type, String playerName) {
         Hero hero = HeroFactory.newHero(type, playerName);
         this.hero = hero;
         return hero;

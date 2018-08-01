@@ -1,6 +1,6 @@
 package services;
 
-import controllers.MapController;
+import controllers.models.MapController;
 import models.players.APlayer;
 import models.players.Hero;
 import models.world.Map;

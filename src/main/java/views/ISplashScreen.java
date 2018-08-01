@@ -1,5 +1,5 @@
 package views;
 
 public interface ISplashScreen {
-    void show();
+    void showSplashScreen();
 }

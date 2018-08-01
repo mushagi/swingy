@@ -4,7 +4,7 @@ import views.ISplashScreen;
 
 public class SplashScreenCli implements ISplashScreen {
     @Override
-    public void show() {
+    public void showSplashScreen() {
         String splashScreen = "" +
                 "                 :~-._                                                 _.-~:\n" +
                 "                  : :.~^o._        ________---------________        _.o^~.:.:\n"               +

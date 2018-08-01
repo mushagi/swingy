@@ -12,7 +12,7 @@
         <property name="hibernate.connection.password">password</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MariaDB10Dialect</property>
 
-        <!-- show mysql queries output in console -->
+        <!-- showSplashScreen mysql queries output in console -->
         <property name="hibernate.show_sql">true</property>
         <property name="h">all</property>
 

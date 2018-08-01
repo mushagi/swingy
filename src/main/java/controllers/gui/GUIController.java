@@ -1,15 +1,21 @@
 package controllers.gui;
 
 import controllers.AUIController;
-import controllers.ArenaController;
+import controllers.models.ArenaController;
+import models.players.Hero;
+import state.GameState;
 import views.gui.GUI;
+import views.gui.Panels.ChooseHeroPanel;
 import views.gui.Panels.GamePanel;
 import views.gui.Panels.NewLoadPlayerPanel;
 
+import javax.swing.*;
 import java.awt.*;
+import java.util.Collection;
 
 public class GUIController extends AUIController {
     private GUI guiInterface;
+    private JPanel previousPanel;
 
     public GUIController(ArenaController arenaController) {
         super(arenaController);
@@ -34,11 +40,11 @@ public class GUIController extends AUIController {
             showGamePanel();
     }
 
-    private void showGamePanel() {
+    void showGamePanel() {
         GamePanel gamePanel = new GamePanel(arenaController.getArena().getMap().getSize());
 
         GamePanelController controller = new
-                GamePanelController(arenaController, this, gamePanel);
+                GamePanelController(this, gamePanel);
         controller.updateUserInterface();
 
         switchMainWindowPanel(gamePanel);
@@ -48,12 +54,27 @@ public class GUIController extends AUIController {
         NewLoadPlayerPanel newLoadPlayerPanel = new NewLoadPlayerPanel();
 
         NewLoadPlayerPanelController controller = new
-                NewLoadPlayerPanelController(arenaController, this, newLoadPlayerPanel);
-        controller.updateUserInterface();
-
+                NewLoadPlayerPanelController( this, newLoadPlayerPanel);
+        controller.updatePanel();
         switchMainWindowPanel(newLoadPlayerPanel);
     }
-    void switchMainWindowPanel(Container panel) {
+
+    void showChooseHeroPanel() {
+        Collection<Hero> heroes = GameState.getInstance().getAvailableHeroes();
+        
+        ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
+        ChooseHeroPanelController controller =
+                new ChooseHeroPanelController(this, chooseHeroPanel);
+        controller.updatePanel();
+
+        switchMainWindowPanel(chooseHeroPanel);
+    }
+
+    private void switchMainWindowPanel(Container panel) {
         guiInterface.addMainWindowContentPane(panel);
+    }
+
+    void switchToPreviousPanel() {
+        switchMainWindowPanel(previousPanel);
     }
 }

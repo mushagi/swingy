@@ -1,4 +1,4 @@
-package controllers;
+package controllers.models;
 
 import enums.EDirection;
 import factory.EnemyFactory;

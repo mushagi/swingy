@@ -1,5 +1,6 @@
-package controllers;
+package controllers.models;
 
+import controllers.BattleManager;
 import database.IRepository;
 import enums.EDirection;
 import lombok.Getter;
@@ -34,7 +35,7 @@ public class ArenaController {
         this.heroRepository = heroRepository;
     }
 
-    void moveHero(EDirection direction) {
+    public void moveHero(EDirection direction) {
         gameResultsController.clearGameResults();
         if (!arena.isPlayerInABattle()) {
             if (mapController.isMoveWithinBounds(direction)) {
@@ -48,7 +49,7 @@ public class ArenaController {
             gameResultsController.setGameError(ILLEGAL_MOVE_BATTLE_IN_PROGRESS);
     }
 
-    void fight() {
+    public void fight() {
         gameResultsController.clearGameResults();
         if (arena.isPlayerInABattle()) {
             APlayer enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
@@ -77,7 +78,7 @@ public class ArenaController {
         arena.setGameInProgress(false);
     }
 
-    void runAway() {
+    public void runAway() {
         if (arena.isPlayerInABattle()) {
             Random random = new Random();
             boolean isRunningAwayAllowed = random.nextBoolean();
@@ -103,18 +104,18 @@ public class ArenaController {
         gameResultsController.addMessage(MISSION_ACCOMPLISHED_MESSAGE);
     }
 
-    void createHero(String type) {
+    public void createHero(String type) {
         Hero hero;
         hero = heroController.createHero(type, arena.getPlayerName());
         heroRepository.create(hero);
         initArena(hero);
     }
 
-    Collection<Hero> getAllHeroes() {
+    public Collection<Hero> getAllHeroes() {
         return heroRepository.getALL();
     }
 
-    void initArena(Hero hero) {
+    public void initArena(Hero hero) {
         arena.setHero(hero);
         arena.setGameInProgress(true);
         arena.setPlayerInABattle(false);
@@ -123,12 +124,12 @@ public class ArenaController {
         mapController.addMapValues(hero);
     }
 
-    void loadPlayerName(String name) {
+    public void loadPlayerName(String name) {
         arena.setPlayerName(name);
         arena.setPLayerNameLoaded(true);
     }
 
-    boolean isGameInProgress() {
+    public boolean isGameInProgress() {
         return arena.isGameInProgress();
     }
 
@@ -136,7 +137,7 @@ public class ArenaController {
         return arena.isPLayerNameLoaded();
     }
 
-    boolean didHeroWin() {
+    public boolean didHeroWin() {
         return arena.getGameResults().isHeroWon();
     }
 
@@ -144,7 +145,7 @@ public class ArenaController {
         return arena.getHero();
     }
 
-    Hero getByID(int heroId) {
+    public Hero getByID(int heroId) {
         return heroRepository.getByID(heroId);
     }
 }

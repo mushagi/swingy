@@ -1,13 +1,11 @@
 package views.gui;
 
-import models.players.Hero;
 import models.world.Arena;
+import views.ISplashScreen;
 import views.IUserInterface;
-import views.gui.Panels.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Collection;
 
 public class GUI implements IUserInterface {
 
@@ -24,38 +22,13 @@ public class GUI implements IUserInterface {
     }
 
     @Override
-    public void show(Arena arena) {
-
-    }
-
-    @Override
     public void showSplashScreen() {
-
+        ISplashScreen splashScreen = new SplashScreenGUI();
+        splashScreen.showSplashScreen();
     }
 
     @Override
     public void showQuitDialogue() {
-
-    }
-
-    @Override
-    public void newGameDialogue() {
-
-    }
-
-
-
-    public void showHeroSelection() {
-        NewLoadPlayerPanel createNewPlayerPanel = new NewLoadPlayerPanel();
-        mainWindow.setContentPane(createNewPlayerPanel);
-    }
-
-    public void ShowHeroListPanel(Collection<Hero> heroes) {
-        ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
-        mainWindow.setContentPane(chooseHeroPanel);
-    }
-
-    public void addOnCreateLoadPlayerPanelBtnNewClickedListener() {
 
     }
 
