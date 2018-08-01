@@ -8,7 +8,6 @@ import models.players.Hero;
 import models.world.Arena;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class GameState {
     @Getter private final Arena arena;

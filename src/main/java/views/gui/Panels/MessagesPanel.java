@@ -2,7 +2,7 @@ package views.gui.Panels;
 
 import javax.swing.*;
 
-public class MessagesPanel extends JPanel {
+class MessagesPanel extends JPanel {
     private final JTextArea textArea = new JTextArea();
     MessagesPanel() {
         init();

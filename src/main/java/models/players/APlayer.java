@@ -44,7 +44,7 @@ public abstract class APlayer {
         this.position =  new Position(0, 0);
     }
 
-    protected APlayer() {
+    APlayer() {
     }
 
     @Override

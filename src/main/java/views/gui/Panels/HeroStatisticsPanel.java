@@ -4,18 +4,17 @@ import models.players.Hero;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Collection;
 
-public class HeroStatisticsPanel extends JPanel {
-    JLabel lblPlayerStats = new JLabel("Player statistics");
+class HeroStatisticsPanel extends JPanel {
+    private final JLabel lblPlayerStats = new JLabel("Player statistics");
 
-    JLabel lblPlayerName = new JLabel("sfd");
-    JLabel lblPlayerType = new JLabel("sdf");
-    JLabel lblPlayerExperience = new JLabel("sdfsasdasdasd");
-    JLabel lblLevel = new JLabel("sfd");
-    JLabel lblAttack = new JLabel("sdf");
-    JLabel lblDefence = new JLabel("sdfsasdasdasd");
-    JLabel lblHitPoint = new JLabel("sdfsasdasdasd");
+    private final JLabel lblPlayerName = new JLabel("sfd");
+    private final JLabel lblPlayerType = new JLabel("sdf");
+    private final JLabel lblPlayerExperience = new JLabel("sdfsasdasdasd");
+    private final JLabel lblLevel = new JLabel("sfd");
+    private final JLabel lblAttack = new JLabel("sdf");
+    private final JLabel lblDefence = new JLabel("sdfsasdasdasd");
+    private final JLabel lblHitPoint = new JLabel("sdfsasdasdasd");
 
     public HeroStatisticsPanel() {
         this.setLayout(new GridLayout(8, 0));

@@ -1,17 +1,11 @@
 package controllers.gui;
 
-import controllers.AUIController;
-import controllers.models.ArenaController;
-import models.players.Hero;
-import state.GameState;
-import views.gui.Panels.ChooseHeroPanel;
 import views.gui.Panels.NewLoadPlayerPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collection;
 
-public class NewLoadPlayerPanelController extends APanelController {
+class NewLoadPlayerPanelController extends APanelController {
     private final NewLoadPlayerPanel loadPlayerPanel;
 
     NewLoadPlayerPanelController(GUIController guiController, NewLoadPlayerPanel loadPlayerPanel) {

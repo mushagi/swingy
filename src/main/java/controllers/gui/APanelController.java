@@ -1,7 +1,7 @@
 package controllers.gui;
 
 abstract class APanelController {
-    GUIController guiController;
+    final GUIController guiController;
 
     APanelController(GUIController guiController) {
         this.guiController = guiController;

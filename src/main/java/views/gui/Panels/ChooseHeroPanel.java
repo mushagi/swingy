@@ -15,14 +15,14 @@ ChooseHeroPanel extends JPanel {
 
     private final JButton btnNext = new JButton("Next");
     private final JTextField txtPlayerName = new JTextField(13);
-    private HeroListPanel heroListPanel;
+    private final HeroListPanel heroListPanel;
     private HeroCell currentlySelected;
 
-    private Button btnBack = new Button("Back");
-    private Button btnQuit = new Button("Quit");
+    private final Button btnBack = new Button("Back");
+    private final Button btnQuit = new Button("Quit");
 
-    private HeroStatisticsPanel heroStatisticsPanel;
-    private ArrayList<Hero> heroes;
+    private final HeroStatisticsPanel heroStatisticsPanel;
+    private final ArrayList<Hero> heroes;
 
     public ChooseHeroPanel(Collection<Hero> heroes) {
         SpringLayout layout = new SpringLayout();
@@ -107,7 +107,7 @@ ChooseHeroPanel extends JPanel {
 }
 
 class HeroListPanel extends JPanel {
-    private ArrayList<HeroCell> components = new ArrayList<>();
+    private final ArrayList<HeroCell> components = new ArrayList<>();
 
     HeroListPanel(Collection<Hero> heroes) {
         int tag = 0;

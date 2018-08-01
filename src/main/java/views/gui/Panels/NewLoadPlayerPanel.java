@@ -1,7 +1,5 @@
 package views.gui.Panels;
 
-import views.gui.MainWindow;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;

@@ -71,7 +71,7 @@ class ChooseHeroPanelController extends APanelController {
         }
     };
 
-    private DocumentListener onTxtPlayerNameTextChanged = new DocumentListener() {
+    private final DocumentListener onTxtPlayerNameTextChanged = new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
             setPlayerName(e.getDocument().toString());

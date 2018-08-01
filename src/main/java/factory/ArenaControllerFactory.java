@@ -6,7 +6,6 @@ import controllers.models.GameResultsController;
 import controllers.models.HeroController;
 import controllers.models.MapController;
 import database.IRepository;
-import database.RepositoryImpl;
 import models.players.Hero;
 import models.world.Arena;
 import state.GameState;

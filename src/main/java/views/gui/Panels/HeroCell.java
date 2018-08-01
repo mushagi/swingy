@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class HeroCell extends JPanel {
     @Getter
-    private int tag ;
+    private final int tag ;
 
     HeroCell(Hero hero, int tag) {
         JLabel textField = new JLabel(hero.getName());

@@ -5,8 +5,8 @@ import views.gui.Panels.GamePanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GamePanelController extends APanelController {
-    GamePanel gamePanel;
+class GamePanelController extends APanelController {
+    private final GamePanel gamePanel;
 
     GamePanelController(GUIController guiController, GamePanel gamePanel) {
         super(guiController);
@@ -90,7 +90,7 @@ public class GamePanelController extends APanelController {
 
     }
 
-    protected void updateUserInterface() {
+    void updateUserInterface() {
         gamePanel.updateUserInterface(guiController.getArena());
     }
 
