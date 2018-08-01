@@ -6,8 +6,11 @@ import javax.swing.*;
 
 class SplashScreenGUI  extends JPanel implements ISplashScreen {
 
+    public SplashScreenGUI() {
+
+    }
+
     @Override
     public void showSplashScreen() {
-
     }
 }

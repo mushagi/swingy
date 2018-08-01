@@ -23,7 +23,6 @@ class ChooseHeroPanelController extends APanelController {
     ChooseHeroPanelController(GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
         super(guiController);
         this.chooseHeroPanel = chooseHeroPanel;
-        addAllListeners();
     }
 
     private final MouseListener onHeroPanelSelection = new MouseListener() {
@@ -40,7 +39,6 @@ class ChooseHeroPanelController extends APanelController {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-
         }
 
         @Override
@@ -100,6 +98,5 @@ class ChooseHeroPanelController extends APanelController {
 
     @Override
     void updatePanel() {
-
     }
 }

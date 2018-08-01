@@ -1,6 +1,6 @@
 package controllers.gui;
 
-public abstract class APanelController {
+abstract class APanelController {
     GUIController guiController;
 
     APanelController(GUIController guiController) {

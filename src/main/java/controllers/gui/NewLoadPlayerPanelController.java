@@ -17,7 +17,6 @@ public class NewLoadPlayerPanelController extends APanelController {
     NewLoadPlayerPanelController(GUIController guiController, NewLoadPlayerPanel loadPlayerPanel) {
         super(guiController);
         this.loadPlayerPanel = loadPlayerPanel;
-        addAllListeners();
     }
 
     private final ActionListener onNewGameClickedActionListener = new ActionListener() {
@@ -37,5 +36,10 @@ public class NewLoadPlayerPanelController extends APanelController {
     void addAllListeners() {
         loadPlayerPanel.addOnBtnNewListener(onNewGameClickedActionListener);
         loadPlayerPanel.addOnBtnLoadHeroListener(onLoadHeroClickedActionListener);
+    }
+
+    @Override
+    void updatePanel() {
+
     }
 }

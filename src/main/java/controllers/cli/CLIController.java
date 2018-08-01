@@ -162,6 +162,7 @@ public class CLIController extends AUIController {
                     break;
                 case "2":
                     isValidOption = true;
+                    isNewGame = false;
                     break;
                 case "3":
                     quitCliGame();
@@ -174,6 +175,7 @@ public class CLIController extends AUIController {
             createNewHero(arenaController.getHero());
         else
             loadHero();
+        updateUserInterface();
         gameLoop();
     }
 

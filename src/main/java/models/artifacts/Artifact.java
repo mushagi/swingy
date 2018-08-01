@@ -25,7 +25,4 @@ public class Artifact {
         this.power = power;
         this.EArtifactType = EArtifactType;
     }
-
-    public Artifact() {
-    }
 }

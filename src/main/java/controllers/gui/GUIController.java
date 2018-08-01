@@ -2,6 +2,7 @@ package controllers.gui;
 
 import controllers.AUIController;
 import controllers.models.ArenaController;
+import factory.ControllerFactory;
 import models.players.Hero;
 import state.GameState;
 import views.gui.GUI;
@@ -10,12 +11,12 @@ import views.gui.Panels.GamePanel;
 import views.gui.Panels.NewLoadPlayerPanel;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.Collection;
 
 public class GUIController extends AUIController {
     private GUI guiInterface;
     private JPanel previousPanel;
+    private JPanel currentPanel;
 
     public GUIController(ArenaController arenaController) {
         super(arenaController);
@@ -23,6 +24,8 @@ public class GUIController extends AUIController {
 
     @Override
     public void switchUI() {
+        AUIController controller = ControllerFactory.newCLIController(arenaController);
+        controller.run();
     }
 
     @Override
@@ -61,8 +64,9 @@ public class GUIController extends AUIController {
 
     void showChooseHeroPanel() {
         Collection<Hero> heroes = GameState.getInstance().getAvailableHeroes();
-        
         ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
+
+
         ChooseHeroPanelController controller =
                 new ChooseHeroPanelController(this, chooseHeroPanel);
         controller.updatePanel();
@@ -70,7 +74,9 @@ public class GUIController extends AUIController {
         switchMainWindowPanel(chooseHeroPanel);
     }
 
-    private void switchMainWindowPanel(Container panel) {
+    private void switchMainWindowPanel(JPanel panel) {
+        previousPanel = currentPanel;
+        currentPanel = panel;
         guiInterface.addMainWindowContentPane(panel);
     }
 

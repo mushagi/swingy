@@ -165,7 +165,6 @@ public class CLI implements IUserInterface {
         printToScreen("Choose an existing hero: ");
     }
 
-
     public void promptAnyKeyPress() {
         printToScreen("Press any key to continue...");
     }

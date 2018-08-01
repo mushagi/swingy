@@ -109,7 +109,6 @@ public class GamePanelController extends APanelController {
 
     @Override
     void updatePanel() {
-
     }
 
 

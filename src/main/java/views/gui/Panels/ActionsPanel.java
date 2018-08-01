@@ -104,15 +104,15 @@ class ActionsPanel extends JPanel {
         return directionsPanel;
     }
 
-    public void addOnBtnQuitListener(ActionListener onBtnQuitClicked) {
+    void addOnBtnQuitListener(ActionListener onBtnQuitClicked) {
         quit.addActionListener(onBtnQuitClicked);
     }
 
-    public void addOnBackToMainMenuQuitListener(ActionListener onBtnBackToMainMenuListener) {
+    void addOnBackToMainMenuQuitListener(ActionListener onBtnBackToMainMenuListener) {
         backToMainMenu.addActionListener(onBtnBackToMainMenuListener);
     }
 
-    public void addOnNewGameListener(ActionListener onBtnNewGameListener) {
+    void addOnNewGameListener(ActionListener onBtnNewGameListener) {
         newGame.addActionListener(onBtnNewGameListener);
     }
 }
