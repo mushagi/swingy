@@ -23,6 +23,7 @@ public class CLIController extends AUIController {
 
     @Override
     public void run() {
+        IsBackToMainMenu = false;
         showSplashScreen();
         if(!arenaController.isPLayerNameLoaded())
             loadHero();
@@ -49,6 +50,7 @@ public class CLIController extends AUIController {
         boolean isValidInput = false;
 
         IsBackToMainMenu = false;
+
         userInterface.displayLoadCreateHeroPrompt(false);
 
         while (!isValidInput) {
@@ -79,9 +81,14 @@ public class CLIController extends AUIController {
         updateUserInterface();
         while (arenaController.isGameInProgress())
             getGameInProgressInput();
-        userInterface.printResultsMessage(arenaController.getArena());
-        waitForAnyKeyPress(true);
-        promptNewGame();
+        if (IsBackToMainMenu)
+            run();
+        else {
+            userInterface.printResultsMessage(arenaController.getArena());
+            waitForAnyKeyPress(true);
+            promptNewGame();
+        }
+
     }
 
     private void getGameInProgressInput() {
@@ -123,6 +130,11 @@ public class CLIController extends AUIController {
             case "Z":
             case "z":
                 viewHeroStats();
+                break;
+            case "B":
+            case "b":
+                IsBackToMainMenu = true;
+                arenaController.setGameInProgress(false);
                 break;
             default:
                 userInterface.updateUserInterfaceWithInvalidInput(arenaController.getArena());

@@ -20,7 +20,7 @@ public class ArenaControllerFactory {
         GameResultsController gameResultsController =
                 new GameResultsController(GameState.getInstance().getArena().getGameResults());
 
-        BattleManager battleManager = new BattleManager();
+        BattleManager battleManager = new BattleManager(gameResultsController);
 
         Arena arena = GameState.getInstance().getArena();
 

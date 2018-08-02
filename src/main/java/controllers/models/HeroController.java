@@ -10,7 +10,7 @@ public class HeroController {
 
     void updateExperience(APlayer playerWonAgainst) {
         int experiencedGained = calculateExperience(playerWonAgainst);
-        playerWonAgainst.setExperience(playerWonAgainst.getExperience() + experiencedGained);
+        hero.setExperience(hero.getExperience() + experiencedGained);
     }
 
     void heroLevelUp() {
@@ -26,10 +26,15 @@ public class HeroController {
 
     void registerHero(Hero hero) {
         this.hero = hero;
+        resetHeroHitPoints();
+    }
+
+    private void resetHeroHitPoints() {
+        hero.setHitPoint(100);
     }
 
     private int calculateExperience(APlayer playerWonAgainst) {
-        return 0;
+        return 100 + playerWonAgainst.getExperience();
     }
 
     Hero createHero(String type, String playerName) {

@@ -73,7 +73,7 @@ public class CLI implements IUserInterface {
                 "Directions       Actions        Game Options\n" +
                 "W - NORTH        F - FIGHT      Z - View Hero Stats\n" +
                 "A - WEST         R - RUN AWAY   X - Switch to GUI\n" +
-                "S - SOUTH                       C - Back To Main Menu\n" +
+                "S - SOUTH                       B - Back To Main Menu\n" +
                 "D - EAST                        Q - Quit Game");
     }
 
@@ -139,16 +139,61 @@ public class CLI implements IUserInterface {
     public void printResultsMessage(Arena arena) {
         clearScreen();
         printToScreen("\n\n");;
-        for (int i = 0; i < arena.getGameResults().getResult().size(); i++)
-            printStringToCenter(arena.getGameResults().getResult().get(i));
-        printToScreen("\n");
-        printStringToCenter("Player statistics : ");
+        if (arena.getGameResults().isHeroWon())
+            printGameWonResults(arena);
+        else
+            printGameLostMessage(arena);
+        printGainedValues(arena.getHero());
+    }
 
-        printStringToCenter("Xp = " +  arena.getHero().getExperience());
-        printStringToCenter("Level = " +  arena.getHero().getLevel());
-        printStringToCenter("Artificats : " + arena.getHero().getArtifact().size());
+    private void printGainedValues(Hero hero) {
+        printToScreen("Player stats\n");
+        printToScreen("Level = " + hero.getLevel());
+        printToScreen("Xp = " + hero.getExperience());
         printToScreen("");
 
+    }
+
+    private void printGameLostMessage(Arena arena) {
+        printToScreen("" +
+                "                              ███████▄▄███████████▄\n" +
+                "                              ▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n" +
+                "                              ▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n" +
+                "                              ▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n" +
+                "                              ▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n" +
+                "                              ▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n" +
+                "                              ▓▓▓▓▓▓███░░░░░░░░░░░░█\n" +
+                "                              ██████▀░░█░░░░██████▀\n" +
+                "                              ░░░░░░░░░█░░░░█\n" +
+                "                              ░░░░░░░░░░█░░░█\n" +
+                "                              ░░░░░░░░░░░█░░█\n" +
+                "                              ░░░░░░░░░░░█░░█\n" +
+                "                              ░░░░░░░░░░░░▀▀ ");
+
+        printToScreen("\n\n\nYou lost!!!\n");
+        printToScreen("The enemy says : " + arena.getGameResults().getEnemyWon().getWinningSpeech() + "\n");
+
+    }
+
+    private void printGameWonResults(Arena arena) {
+
+        printToScreen("" +
+                "                                              nnnmmm\n" +
+                "                               \\||\\       ;;;;%%%@@@@@@       \\ //,\n" +
+                "                                V|/     %;;%%%%%@@@@@@@@@@  ===Y//\n" +
+                "                                68=== ;;;;%%%%%%@@@@@@@@@@@@    @Y\n" +
+                "                                ;Y   ;;%;%%%%%%@@@@@@@@@@@@@@    Y\n" +
+                "                                ;Y  ;;;+;%%%%%%@@@@@@@@@@@@@@@    Y\n" +
+                "                                ;Y__;;;+;%%%%%%@@@@@@@@@@@@@@i;;__Y\n" +
+                "                               iiY\"\";;   \"uu%@@@@@@@@@@uu\"   @\"\";;;>\n" +
+                "                                      Y     \"UUUUUUUUU\"     @@\n" +
+                "                                      `;       ___ _       @\n" +
+                "                                        `;.  ,====\\\\=.  .;'\n" +
+                "                                          ``\"\"\"\"`==\\\\=='\n" +
+                "                                                 `;=====\n" +
+                "                                                   ===   \n");
+
+        printToScreen("Yata, you won!\n");
     }
 
     @Override

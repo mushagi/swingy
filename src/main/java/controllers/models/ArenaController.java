@@ -51,6 +51,8 @@ public class ArenaController {
 
     public void fight() {
         gameResultsController.clearGameResults();
+        gameResultsController.addMessage("Battle Report");
+
         if (arena.isPlayerInABattle()) {
             APlayer enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
             APlayer won = battleService.battle(arena.getHero(), enemy);
@@ -63,18 +65,20 @@ public class ArenaController {
             gameResultsController.setGameError(ILLEGAL_ATTACK_NO_ENEMY);
     }
 
-    private void onHeroWon(APlayer won, APlayer lost) {
+    private void onHeroWon(APlayer won, APlayer playerWonAgainst) {
         arena.setPlayerInABattle(false);
         gameResultsController.addWinningMessage(arena.getHero());
-        heroController.updateExperience(lost);
+        gameResultsController.isGameWon(false);
+        heroController.updateExperience(playerWonAgainst);
         heroController.heroLevelUp();
         heroRepository.update(getHero());
         mapController.addPlayer(won);
     }
 
     private void onHeroLost(APlayer enemy) {
-        gameResultsController.addMessage(getWinningMessage(enemy.getName()));
-        gameResultsController.isGameWon();
+        gameResultsController.addMessage(enemy.getWinningSpeech());
+        gameResultsController.isGameWon(false);
+        gameResultsController.setEnemyWon(enemy);
         arena.setGameInProgress(false);
     }
 
@@ -102,6 +106,7 @@ public class ArenaController {
     private void playerReachedDestination() {
         arena.setGameInProgress(false);
         gameResultsController.addMessage(MISSION_ACCOMPLISHED_MESSAGE);
+        gameResultsController.isGameWon(true);
     }
 
     public void createHero(String type) {
@@ -147,5 +152,9 @@ public class ArenaController {
 
     public Hero getByID(int heroId) {
         return heroRepository.getByID(heroId);
+    }
+
+    public void setGameInProgress(boolean isGameInProgress) {
+        arena.setGameInProgress(isGameInProgress);
     }
 }

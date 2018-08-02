@@ -1,6 +1,8 @@
 package controllers.models;
 
 import models.messages.GameResults;
+import models.players.APlayer;
+import models.players.Enemy;
 import models.players.Hero;
 
 
@@ -11,7 +13,7 @@ public class GameResultsController {
         this.gameResults = gameResults;
     }
 
-    void addMessage(String message) {
+    public void addMessage(String message) {
         gameResults.getResult().add(message);
     }
 
@@ -24,11 +26,16 @@ public class GameResultsController {
         gameResults.setError(true);
     }
 
-    void isGameWon() {
-        gameResults.setHeroWon(false);
+    void isGameWon(boolean isGameWon) {
+        gameResults.setHeroWon(isGameWon);
     }
 
     public void addWinningMessage(Hero hero) {
+        addMessage("You won!");
+        addMessage("Hero says " + hero.getWinningSpeech());
+    }
 
+    public void setEnemyWon(APlayer enemyWon){
+        gameResults.setEnemyWon(enemyWon);
     }
 }
