@@ -15,5 +15,7 @@ public class BlackPanther extends Hero {
         artifact.add(new Artifact("M", 12, EArtifactType.Armour));
         artifact.add(new Artifact("M", 30, EArtifactType.Armour));
         position = new Position(0, 0);
+        winningSpeech = "I never freeze";
+        losingSpeech = "";
     }
 }

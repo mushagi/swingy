@@ -60,8 +60,9 @@ public class CLI implements IUserInterface {
                 mapLine.append("| ");
                 y++;
             }
+
             sideStringLine = i < sideString.size() ? sideString.get(i) : "";
-            System.out.format("%s\t\t%s\n", mapLine, sideStringLine);
+            System.out.format("%-"+arena.getMap().getSize() * 3+"s%s\n", mapLine, sideStringLine);
 
         }
 
@@ -125,6 +126,7 @@ public class CLI implements IUserInterface {
     }
 
     public void promptNewGame(boolean heroWon, boolean isWithInvalidInput) {
+        clearScreen();
         String request = heroWon? "Start a new game" : "try again";
         System.out.print("" +
                 "Do you want to "+request + " with the same hero?" +
@@ -136,7 +138,17 @@ public class CLI implements IUserInterface {
 
     public void printResultsMessage(Arena arena) {
         clearScreen();
-        printToScreen(arena.getGameResults().getResult().toString());
+        printToScreen("\n\n");;
+        for (int i = 0; i < arena.getGameResults().getResult().size(); i++)
+            printStringToCenter(arena.getGameResults().getResult().get(i));
+        printToScreen("\n");
+        printStringToCenter("Player statistics : ");
+
+        printStringToCenter("Xp = " +  arena.getHero().getExperience());
+        printStringToCenter("Level = " +  arena.getHero().getLevel());
+        printStringToCenter("Artificats : " + arena.getHero().getArtifact().size());
+        printToScreen("");
+
     }
 
     @Override
@@ -176,7 +188,7 @@ public class CLI implements IUserInterface {
         if (isDatabaseSource)
             printStringToCenter("*     Heroes from the database      *");
         else
-            printStringToCenter("*     Create a new Hero      *");
+            printStringToCenter("*       Create a new Hero           *");
 
         printStringToCenter("*************************************");
         System.out.format("%-20s%-20s%-20s%-20s%-20s\n", "Index", "Name", "Hero Class Type", "Level", "Xp");
@@ -189,13 +201,18 @@ public class CLI implements IUserInterface {
         displayPromptInput(isWithValidOption);
     }
 
-    public void promptAnyKeyPress() {
-        printToScreen("Press any key to continue...");
+    public void promptAnyKeyPress(boolean isCentered) {
+        String promptString = "Press any key to continue...";
+        if (isCentered)
+            printStringToCenter(promptString);
+        else
+            printToScreen(promptString);
     }
 
     public void updateUserInterfaceWithPlayerStatistics(Arena arena) {
+        clearScreen();
         System.out.println();
-        ArrayList<String> sideString = new ArrayList<String>(Arrays.asList(arena.getHero().toString().split("\n")));
+        ArrayList<String> sideString = new ArrayList<>(Arrays.asList(arena.getHero().toString().split("\n")));
         printMap(arena, sideString);
         System.out.println();
         displayOptions();

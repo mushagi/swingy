@@ -9,6 +9,6 @@ public class HeroFactory {
             case "BlackPanther":
                 return new BlackPanther(name);
         }
-        return new Hero(name, 0, 0, 0, 0, 0);
+        return new Hero(name, 0, 0, 0, 0, 0 , "", "");
     }
 }

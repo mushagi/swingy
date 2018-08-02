@@ -9,7 +9,6 @@ import state.GameState;
 import views.cli.CLI;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Scanner;
 
 public class CLIController extends AUIController {
@@ -41,7 +40,7 @@ public class CLIController extends AUIController {
         if (GameState.getInstance().isShowSplashScreen()) {
             userInterface.showSplashScreen();
             GameState.getInstance().setShowSplashScreen(false);
-         //   waitForAnyKeyPress();
+            waitForAnyKeyPress(true);
         }
     }
 
@@ -81,7 +80,7 @@ public class CLIController extends AUIController {
         while (arenaController.isGameInProgress())
             getGameInProgressInput();
         userInterface.printResultsMessage(arenaController.getArena());
-        waitForAnyKeyPress();
+        waitForAnyKeyPress(true);
         promptNewGame();
     }
 
@@ -115,7 +114,8 @@ public class CLIController extends AUIController {
                 break;
             case "Q":
             case "q":
-                quitGame();
+                quitCliGame();
+                updateUserInterface();
                 break;
             case "X":
             case "x":
@@ -188,6 +188,7 @@ public class CLIController extends AUIController {
             switch (input) {
                 case "1":
                     quitGame();
+                    break;
                 case "2":
                     isValidOption = true;
                     break;
@@ -247,8 +248,8 @@ public class CLIController extends AUIController {
         return input;
     }
 
-     private void waitForAnyKeyPress() {
-        userInterface.promptAnyKeyPress();
+     private void waitForAnyKeyPress(boolean isCentered) {
+        userInterface.promptAnyKeyPress(isCentered);
         try {
             System.in.read();
         } catch (Exception e) {

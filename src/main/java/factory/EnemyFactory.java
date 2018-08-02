@@ -9,7 +9,8 @@ import java.util.Random;
 public class EnemyFactory {
 
     private  static Enemy createEnemy(String name) {
-        return new Enemy(name, 1, 1, 5, 6, 6);
+        return new Enemy(name, 1, 1, 5,
+                6, 6, "", "");
     }
 
     public static ArrayList<Enemy> createRandomEnemies(int mapSize) {
@@ -41,7 +42,8 @@ public class EnemyFactory {
         switch (type) {
             case "BlackPanther":
         }
-        return new Enemy(name, 1, 10, 60, 30, 60);
+        return new Enemy(name, 1, 10, 60,
+                30, 60,  "", "");
     }
 
     private static void randomisePositionValues(Position position, int mapSize) {

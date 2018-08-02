@@ -1,6 +1,7 @@
 package controllers.models;
 
 import models.messages.GameResults;
+import models.players.Hero;
 
 
 public class GameResultsController {
@@ -25,5 +26,9 @@ public class GameResultsController {
 
     void isGameWon() {
         gameResults.setHeroWon(false);
+    }
+
+    public void addWinningMessage(Hero hero) {
+
     }
 }

@@ -65,7 +65,7 @@ public class ArenaController {
 
     private void onHeroWon(APlayer won, APlayer lost) {
         arena.setPlayerInABattle(false);
-        gameResultsController.addMessage(getWinningMessage(getWinningMessage(won.getName())));
+        gameResultsController.addWinningMessage(arena.getHero());
         heroController.updateExperience(lost);
         heroController.heroLevelUp();
         heroRepository.update(getHero());

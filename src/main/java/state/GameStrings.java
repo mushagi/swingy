@@ -1,5 +1,7 @@
 package state;
 
+import models.players.APlayer;
+
 public class GameStrings {
 
     public static final String APPLICATION_HEARDER = "Swingy in Wakanda";
@@ -16,8 +18,8 @@ public class GameStrings {
     public static final String MISSION_ACCOMPLISHED_MESSAGE = "APlayer reached Destination. Mission accomplished";
     public static final String INVALID_ACTION = "Invalid input";
 
-    public static String getWinningMessage(String playerName)
+    public static String getWinningMessage(String   player)
     {
-        return "Winning player =  " + playerName;
+        return "    " +0 ;
     }
 }

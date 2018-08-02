@@ -24,6 +24,8 @@ public abstract class APlayer {
     int attack;
     int defence;
     int hitPoint;
+    String winningSpeech;
+    String losingSpeech;
 
     @Column(length = 100)
     @OneToMany(cascade = CascadeType.ALL)
@@ -32,7 +34,8 @@ public abstract class APlayer {
     @OneToOne(cascade = CascadeType.ALL)
     Position position;
 
-    APlayer(String type, String name, int level, int experience, int attack, int defence, int hitPoint) {
+    APlayer(String type, String name, int level, int experience, int attack,
+            int defence, int hitPoint, String winningSpeech, String losingSpeech) {
         this.name = name;
         this.type = type;
         this.level = level;
@@ -42,6 +45,8 @@ public abstract class APlayer {
         this.hitPoint = hitPoint;
         this.artifact = new ArrayList<>();
         this.position =  new Position(0, 0);
+        this.winningSpeech = winningSpeech;
+        this.losingSpeech = losingSpeech;
     }
 
     APlayer() {

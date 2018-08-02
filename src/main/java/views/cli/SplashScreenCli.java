@@ -32,7 +32,7 @@ public class SplashScreenCli implements ISplashScreen {
                 "                         __              ___                           \n"               +
                 "                        (_     o._  _     | ._  \\    /_.|  _.._  _| _. \n"               +
                 "                        __)\\/\\/|| |(_|\\/ _|_| |  \\/\\/(_||<(_|| |(_|(_| \n"               +
-                "                                    _|/                                "              ;
+                "                                    _|/                                \n\n"              ;
         System.out.println(splashScreen);
 
     }
