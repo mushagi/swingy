@@ -19,13 +19,22 @@ public class NewLoadPlayerPanel extends JPanel {
         JPanel bottomPanel = new JPanel();
 
         headerPanel.setSize(this.getSize().width, 10);
-        JLabel lblWelcome = new JLabel("Welcome to Swingy in Wakanda");
+        SpringLayout springLayout = new SpringLayout();
+        headerPanel.setLayout(springLayout);
+        JLabel lblWelcome = new JLabel("Swingy in Wakanda");
+        lblWelcome.setFont(new Font("SansSerif", Font.ITALIC, 30));
+        lblWelcome.setForeground(Color.WHITE);
+
         headerPanel.add(lblWelcome);
         headerPanel.setBorder(BorderFactory.createEtchedBorder());
+        headerPanel.setBackground(Color.gray);
+        springLayout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblWelcome, 0, SpringLayout.HORIZONTAL_CENTER, headerPanel);
+        springLayout.putConstraint(SpringLayout.VERTICAL_CENTER, lblWelcome, 0, SpringLayout.VERTICAL_CENTER, headerPanel);
 
         optionsPanel.setLayout(layout);
         optionsPanel.add(btnNewHero);
         optionsPanel.add(btnLoadHero);
+        optionsPanel.setBackground(new Color(40, 48, 72));
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
@@ -36,9 +45,13 @@ public class NewLoadPlayerPanel extends JPanel {
         gbc.insets = new Insets(0, 10, 0, 10);
         optionsPanel.add(btnLoadHero, gbc);
 
-        JLabel lblAuthor = new JLabel("by mmayibo | WeThinkCode_");
+        JLabel lblAuthor = new JLabel("mmayibo | WeThinkCode_ | 2018");
+        lblAuthor.setFont(new Font("SansSerif", Font.ITALIC, 12));
+        lblAuthor.setForeground(Color.WHITE);
 
         bottomPanel.add(lblAuthor);
+        bottomPanel.setBackground(Color.gray);
+        bottomPanel.setBorder(BorderFactory.createEtchedBorder());
 
         add(headerPanel);
         add(optionsPanel);

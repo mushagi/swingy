@@ -11,6 +11,7 @@ class NewLoadPlayerPanelController extends APanelController {
     NewLoadPlayerPanelController(GUIController guiController, NewLoadPlayerPanel loadPlayerPanel) {
         super(guiController);
         this.loadPlayerPanel = loadPlayerPanel;
+        addAllListeners();
     }
 
     private final ActionListener onNewGameClickedActionListener = new ActionListener() {

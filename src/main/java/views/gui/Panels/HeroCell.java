@@ -17,6 +17,7 @@ public class HeroCell extends JPanel {
         this.setBackground(Color.CYAN);
         this.setPreferredSize(new Dimension(150,150));
         this.setMaximumSize(new Dimension(150, 150));
+
     }
 
     void selected() {

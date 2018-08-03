@@ -11,6 +11,7 @@ class GamePanelController extends APanelController {
     GamePanelController(GUIController guiController, GamePanel gamePanel) {
         super(guiController);
         this.gamePanel = gamePanel;
+        addAllListeners();
     }
 
     private final ActionListener onNorthClicked = new ActionListener() {

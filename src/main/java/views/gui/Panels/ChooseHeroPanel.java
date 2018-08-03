@@ -1,6 +1,7 @@
 package views.gui.Panels;
 
 import models.players.Hero;
+import org.hibernate.metamodel.model.convert.spi.JpaAttributeConverter;
 
 import javax.swing.*;
 import javax.swing.event.DocumentListener;
@@ -15,60 +16,59 @@ ChooseHeroPanel extends JPanel {
 
     private final JButton btnNext = new JButton("Next");
     private final JTextField txtPlayerName = new JTextField(13);
-    private final HeroListPanel heroListPanel;
+    public final HeroListPanel heroListPanel;
     private HeroCell currentlySelected;
 
     private final Button btnBack = new Button("Back");
     private final Button btnQuit = new Button("Quit");
 
-    private final HeroStatisticsPanel heroStatisticsPanel;
+    public final HeroStatisticsPanel heroStatisticsPanel;
     private final ArrayList<Hero> heroes;
 
     public ChooseHeroPanel(Collection<Hero> heroes) {
-        SpringLayout layout = new SpringLayout();
+        Font font = new Font("SansSerif", Font.PLAIN, 15);
+
+        BorderLayout layout = new BorderLayout();
         this.heroes = (ArrayList<Hero>) heroes;
         this.setLayout(layout);
+        this.setBackground(Color.gray);
         JLabel lblChoose = new JLabel("Choose a Wakandian: ");
         lblChoose.setLabelFor(txtPlayerName);
+        lblChoose.setFont(font);
+        lblChoose.setForeground(Color.WHITE);
 
+        JPanel centerPanel = new JPanel();
         heroListPanel = new HeroListPanel(heroes);
-
+        heroListPanel.setBackground(Color.gray);
         JLabel lblPlayerName = new JLabel("Your name");
-        add(lblPlayerName);
-        add(lblChoose);
-        add(txtPlayerName);
-        add(heroListPanel);
+        lblPlayerName.setFont(font);
+        lblPlayerName.setForeground(Color.WHITE);
+        centerPanel.add(txtPlayerName);
+        centerPanel.add(lblChoose);
+        centerPanel.add(heroListPanel);
+        add(centerPanel, BorderLayout.CENTER);
 
         heroStatisticsPanel = new HeroStatisticsPanel();
+        heroStatisticsPanel.setBackground(new Color(18, 18, 18));
+        add(heroStatisticsPanel, BorderLayout.EAST);
 
-        add(heroStatisticsPanel);
-        add(btnNext);
-        add(btnBack);
-        add(btnQuit);
+        JPanel optionsPanel = new JPanel();
+        optionsPanel.setPreferredSize(new Dimension(1000, 40));
+        optionsPanel.setBackground(new Color(40, 40, 40));
+        optionsPanel.add(btnNext);
+        optionsPanel.add(btnBack);
+        optionsPanel.add(btnQuit);
 
-        layout.putConstraint(SpringLayout.NORTH, lblPlayerName, 10, SpringLayout.NORTH, this);
-        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblPlayerName, 0, SpringLayout.HORIZONTAL_CENTER, this);
+        add(optionsPanel, BorderLayout.SOUTH);
 
-        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, txtPlayerName, 0, SpringLayout.HORIZONTAL_CENTER, this);
-        layout.putConstraint(SpringLayout.NORTH, txtPlayerName, 0, SpringLayout.SOUTH, lblPlayerName);
-
-        layout.putConstraint(SpringLayout.NORTH, lblChoose, 50, SpringLayout.NORTH, txtPlayerName);
-        layout.putConstraint(SpringLayout.WEST, lblChoose, 10, SpringLayout.WEST, this);
-
-
-        layout.putConstraint(SpringLayout.NORTH, heroListPanel, 30, SpringLayout.NORTH, lblChoose);
-
-        layout.putConstraint(SpringLayout.NORTH, heroStatisticsPanel, 0, SpringLayout.NORTH, heroListPanel);
-        layout.putConstraint(SpringLayout.WEST, heroStatisticsPanel, 100, SpringLayout.EAST, heroListPanel);
-
-        layout.putConstraint(SpringLayout.SOUTH, btnNext, 0, SpringLayout.SOUTH, this);
+/*        layout.putConstraint(SpringLayout.SOUTH, btnNext, 0, SpringLayout.SOUTH, this);
         layout.putConstraint(SpringLayout.EAST, btnNext, 0, SpringLayout.EAST, this);
 
         layout.putConstraint(SpringLayout.EAST, btnBack, 0, SpringLayout.WEST, btnNext);
         layout.putConstraint(SpringLayout.SOUTH, btnBack, 0, SpringLayout.SOUTH, this);
 
         layout.putConstraint(SpringLayout.EAST, btnQuit, 0, SpringLayout.WEST, btnBack);
-        layout.putConstraint(SpringLayout.SOUTH, btnQuit, 0, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.SOUTH, btnQuit, 0, SpringLayout.SOUTH, this);*/
 
     }
 
@@ -127,8 +127,8 @@ class HeroListPanel extends JPanel {
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setBorder(null);
-        scroll.setPreferredSize(new Dimension(600, 500));
-
+        mainPanel.setBackground(new Color(0,0,0, 0));
+        scroll.setPreferredSize(new Dimension(600, 300));
         this.add(scroll);
     }
 

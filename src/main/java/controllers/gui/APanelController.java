@@ -5,7 +5,6 @@ abstract class APanelController {
 
     APanelController(GUIController guiController) {
         this.guiController = guiController;
-        addAllListeners();
     }
 
     abstract void addAllListeners();

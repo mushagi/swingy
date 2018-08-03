@@ -23,6 +23,7 @@ class ChooseHeroPanelController extends APanelController {
     ChooseHeroPanelController(GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
         super(guiController);
         this.chooseHeroPanel = chooseHeroPanel;
+        addAllListeners();
     }
 
     private final MouseListener onHeroPanelSelection = new MouseListener() {

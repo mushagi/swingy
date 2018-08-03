@@ -48,8 +48,6 @@ public class GUIController extends AUIController {
 
         GamePanelController controller = new
                 GamePanelController(this, gamePanel);
-        controller.updateUserInterface();
-
         switchMainWindowPanel(gamePanel);
     }
 
@@ -58,7 +56,6 @@ public class GUIController extends AUIController {
 
         NewLoadPlayerPanelController controller = new
                 NewLoadPlayerPanelController( this, newLoadPlayerPanel);
-        controller.updatePanel();
         switchMainWindowPanel(newLoadPlayerPanel);
     }
 
@@ -69,7 +66,6 @@ public class GUIController extends AUIController {
 
         ChooseHeroPanelController controller =
                 new ChooseHeroPanelController(this, chooseHeroPanel);
-        controller.updatePanel();
 
         switchMainWindowPanel(chooseHeroPanel);
     }

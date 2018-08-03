@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 @Getter
-class ActionsPanel extends JPanel {
+    class ActionsPanel extends JPanel {
     public final JButton north = new JButton("North");
     final JButton south = new JButton("South");
     final JButton east = new JButton("East");
@@ -21,7 +21,7 @@ class ActionsPanel extends JPanel {
     ActionsPanel() {
         SpringLayout layout = new SpringLayout();
         this.setLayout(layout);
-
+        this.setBackground(new Color(0,0,0,0));
         JPanel directionsPanel = getDirectionsPanel();
         JPanel actionsPanel = getActionsPanel();
         JPanel gameOptionsPanel = getGameOptionsPanel();

@@ -132,7 +132,7 @@ public class CLI implements IUserInterface {
                 "Do you want to "+request + " with the same hero?" +
                 "\n1. Yes" +
                 "\n2. Back to Main Menu" +
-                "\n3. Quit");
+                "\n3. Quit\n");
         displayPromptInput(isWithInvalidInput);
     }
 
