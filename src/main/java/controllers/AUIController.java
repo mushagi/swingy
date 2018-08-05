@@ -76,4 +76,8 @@ public abstract class AUIController {
     public  Arena getArena() {
         return arenaController.getArena();
     }
+    
+    public void createNewGameExistingHero() {
+        arenaController.initArena(arenaController.getHero());
+    }
 }

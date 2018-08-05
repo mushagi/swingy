@@ -8,6 +8,7 @@ import views.gui.Panels.HeroCell;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.text.BadLocationException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -57,8 +58,8 @@ class ChooseHeroPanelController extends APanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.loadPlayerNameToArena(playerName);
-
-            String heroTypeName = GameState.getInstance().getAvailableHeroes().get(selectedPlayer).getType();
+            
+            String heroTypeName = GameState.getInstance().getAvailableHeroes().get(selectedPlayer).getHeroClass();
             guiController.createNewHero(heroTypeName);
 
             guiController.showGamePanel();
@@ -75,26 +76,47 @@ class ChooseHeroPanelController extends APanelController {
     private final DocumentListener onTxtPlayerNameTextChanged = new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-            setPlayerName(e.getDocument().toString());
+	        try {
+		        setPlayerName(e.getDocument().getText(0, e.getLength()));
+	        } catch (BadLocationException e1) {
+		        e1.printStackTrace();
+	        }
         }
 
         @Override
         public void removeUpdate(DocumentEvent e) {
-            setPlayerName(e.getDocument().toString());
+	        try {
+		        setPlayerName(e.getDocument().getText(0, e.getLength()));
+	        } catch (BadLocationException e1) {
+		        e1.printStackTrace();
+	        }
         }
 
         @Override
         public void changedUpdate(DocumentEvent e) {
-            setPlayerName(e.getDocument().toString());
+	        try {
+		        setPlayerName(e.getDocument().getText(0, e.getLength()));
+	        } catch (BadLocationException e1) {
+		        e1.printStackTrace();
+	        }
         }
     };
-
+    
+    private ActionListener onBtnQuitListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            guiController.quitGame();
+        }
+    };
+    
+    
     @Override
     void addAllListeners() {
         chooseHeroPanel.addOnNextActionListener(onNextActionListener);
         chooseHeroPanel.addTextChangedListener(onTxtPlayerNameTextChanged);
         chooseHeroPanel.addOnHeroPanelSelectionListener(onHeroPanelSelection);
         chooseHeroPanel.addOnBtnBackListener(onBtnBackListener);
+        chooseHeroPanel.addOnBtnQuitListener(onBtnQuitListener);
     }
 
     @Override

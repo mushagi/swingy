@@ -29,8 +29,6 @@ public class GameState {
     public ArrayList<Hero> getAvailableHeroes() {
         ArrayList<Hero> heroes = new ArrayList<>();
         heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
         return heroes;
     }
 }

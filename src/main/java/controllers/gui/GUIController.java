@@ -7,6 +7,7 @@ import models.players.Hero;
 import state.GameState;
 import views.gui.GUI;
 import views.gui.Panels.ChooseHeroPanel;
+import views.gui.Panels.GameEndedPanel;
 import views.gui.Panels.GamePanel;
 import views.gui.Panels.NewLoadPlayerPanel;
 
@@ -51,7 +52,7 @@ public class GUIController extends AUIController {
         switchMainWindowPanel(gamePanel);
     }
 
-    private void showCreateNewLoadPlayerWindow() {
+    public void showCreateNewLoadPlayerWindow() {
         NewLoadPlayerPanel newLoadPlayerPanel = new NewLoadPlayerPanel();
 
         NewLoadPlayerPanelController controller = new
@@ -62,11 +63,10 @@ public class GUIController extends AUIController {
     void showChooseHeroPanel() {
         Collection<Hero> heroes = GameState.getInstance().getAvailableHeroes();
         ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
-
-
+        
         ChooseHeroPanelController controller =
                 new ChooseHeroPanelController(this, chooseHeroPanel);
-
+        
         switchMainWindowPanel(chooseHeroPanel);
     }
 
@@ -79,4 +79,27 @@ public class GUIController extends AUIController {
     void switchToPreviousPanel() {
         switchMainWindowPanel(previousPanel);
     }
+    
+    public void showChooseHeroPanelFromDatabase() {
+        Collection<Hero> heroes = arenaController.getAllHeroes();
+        ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
+    
+    
+        ChooseHeroPanelController controller =
+                new ChooseHeroPanelController(this, chooseHeroPanel);
+    
+        switchMainWindowPanel(chooseHeroPanel);
+    }
+    
+    public void showGameEndedPanel() {
+        GameEndedPanel gameEndedPanel = new GameEndedPanel(getArena());
+    
+    
+        GameEndedPanelController controller =
+                new GameEndedPanelController(this, gameEndedPanel);
+    
+        switchMainWindowPanel(gameEndedPanel);
+    }
+	
+
 }

@@ -36,5 +36,7 @@ public class GUI implements IUserInterface {
         mainWindow.setContentPane(pane);
         mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mainWindow.setVisible(true);
+        pane.setFocusable(true);
+        pane.requestFocusInWindow();
     }
 }

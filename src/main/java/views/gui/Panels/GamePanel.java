@@ -1,49 +1,92 @@
 package views.gui.Panels;
 
+import models.players.APlayer;
+import models.players.Hero;
 import models.world.Arena;
+import state.GameColors;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 public class GamePanel extends JPanel {
     private final MapPanel mapPanel = new MapPanel();
     private final ActionsPanel actionsPanel = new ActionsPanel();
-    private final MessagesPanel messagesPanel = new MessagesPanel();
+    private  JScrollPane messagesPanel;
+    private final JTextArea textArea = new JTextArea();
+    JPanel sidePanel = new JPanel();
 
     public GamePanel(int mapSize) throws HeadlessException {
         init(mapSize);
     }
 
     private void init(int mapSize) {
-        SpringLayout layout = new SpringLayout();
-        this.setLayout(layout);
+        this.setLayout(new BorderLayout());
+        
         mapPanel.generateNewMap(mapSize);
         mapPanel.setPreferredSize(new Dimension(600, 450));
-        messagesPanel.setPreferredSize(new Dimension(300, 450));
         actionsPanel.setPreferredSize(new Dimension(950, 70));
-
-        this.add(mapPanel);
-        this.add(messagesPanel);
-        this.add(actionsPanel);
-
-        layout.putConstraint(SpringLayout.NORTH, mapPanel, 10, SpringLayout.NORTH, this);
-        layout.putConstraint(SpringLayout.WEST, mapPanel, 10, SpringLayout.WEST, this);
-
-        layout.putConstraint(SpringLayout.NORTH, messagesPanel, 0, SpringLayout.NORTH, mapPanel);
-        layout.putConstraint(SpringLayout.WEST, messagesPanel, 50, SpringLayout.EAST, mapPanel);
-
-        layout.putConstraint(SpringLayout.NORTH, actionsPanel, 20, SpringLayout.SOUTH, mapPanel);
-        layout.putConstraint(SpringLayout.WEST, actionsPanel, 0, SpringLayout.WEST, mapPanel);
+        sidePanel.setPreferredSize(new Dimension(350, 490));
+        sidePanel.setBackground(GameColors.DARKEST_GRAY);
+        initMessagesPanel();
+        sidePanel.add(messagesPanel);
+        
+        this.add(mapPanel, BorderLayout.CENTER);
+        this.add(sidePanel, BorderLayout.EAST);
+        this.add(actionsPanel, BorderLayout.SOUTH);
 
 
     }
-
+    
+    private void initMessagesPanel() {
+        textArea.setCursor(null);
+        textArea.setEditable(false);
+        textArea.setBackground(GameColors.DARKEST_GRAY);
+        textArea.setForeground(GameColors.DEFAULT_FONT);
+        messagesPanel = new JScrollPane(textArea,
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        messagesPanel.setPreferredSize(sidePanel.getPreferredSize());
+	    messagesPanel.setBackground(GameColors.TRANSPARENT);
+	    messagesPanel.setBorder(BorderFactory.createEmptyBorder());
+	
+    }
+    
     public void updateUserInterface(Arena arena) {
         mapPanel.updateMap(arena);
         for (String message: arena.getGameResults().getResult()) {
-            messagesPanel.add(message);
+            textArea.append(message+ "\n");
         }
+    }
+    
+    public void showHeroStats(Hero hero) {
+    	if (sidePanel.getComponent(0) instanceof HeroStatisticsPanel) {
+		    sidePanel.remove(0);
+		    initMessagesPanel();
+		    sidePanel.add(messagesPanel);
+		    sidePanel.revalidate();
+		    messagesPanel.revalidate();
+		    textArea.revalidate();
+	    }
+	    
+	    else
+	    {
+		    HeroStatisticsPanel heroStatisticsPanel = new HeroStatisticsPanel();
+		    heroStatisticsPanel.updateWithHero(hero);
+		    heroStatisticsPanel.setSize(sidePanel.getSize());
+		    sidePanel.remove(0);
+		    sidePanel.add(heroStatisticsPanel);
+		    sidePanel.revalidate();
+		    heroStatisticsPanel.revalidate();
+		
+	    }
+ 
+    }
+    
+    public void showMessagesPanel() {
+        sidePanel.removeAll();
+        sidePanel.add(messagesPanel);
     }
 
     public void addOnNewGameListeners(ActionListener onNewGame) {
@@ -93,4 +136,23 @@ public class GamePanel extends JPanel {
     public void addOnNewGameListener(ActionListener onBtnNewGameListener) {
         actionsPanel.addOnNewGameListener(onBtnNewGameListener);
     }
+	
+	public void addOnNorthKeyPress(KeyListener onNorthPressed) {
+		actionsPanel.addOnNorthKeyPress(onNorthPressed);
+	}
+	public void addOnSouthKeyPress(KeyListener onSouthPressed) {
+		actionsPanel.addOnSouthKeyPress(onSouthPressed);
+	}
+	public void addOnWestKeyPress(KeyListener onWestPressed) {
+		actionsPanel.addOnWestKeyPress(onWestPressed);
+	}
+	public void addOnEastKeyPress(KeyListener onEastPressed) {
+		actionsPanel.addOnEastKeyPress(onEastPressed);
+	}
+	
+	public void addOnShowHeroStatisticsListener(ActionListener onShowHeroStatistics) {
+		actionsPanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
+	}
+	
+	
 }

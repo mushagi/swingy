@@ -17,5 +17,6 @@ public class BlackPanther extends Hero {
         position = new Position(0, 0);
         winningSpeech = "I never freeze";
         losingSpeech = "";
+        heroClass = "BlackPanther";
     }
 }

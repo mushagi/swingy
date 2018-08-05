@@ -2,21 +2,27 @@ package controllers.gui;
 
 import views.gui.Panels.GamePanel;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 class GamePanelController extends APanelController {
     private final GamePanel gamePanel;
 
+    
     GamePanelController(GUIController guiController, GamePanel gamePanel) {
         super(guiController);
         this.gamePanel = gamePanel;
         addAllListeners();
+        updateUserInterface();
     }
 
     private final ActionListener onNorthClicked = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            
             guiController.moveNorth();
             updateUserInterface();
         }
@@ -74,10 +80,80 @@ class GamePanelController extends APanelController {
     private final ActionListener onBackToMainMenu = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+        
         }
     };
+    
+    private KeyListener onEastPressed = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+        
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_D)
+            {
+                guiController.moveEast();
+                updateUserInterface();
+            }
 
+        }
+        
+        @Override
+        public void keyReleased(KeyEvent e) {
+        
+        }
+    };
+    
+    private KeyListener onNorthPressed = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+        
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_W)
+                guiController.moveNorth();
+        }
+        
+        @Override
+        public void keyReleased(KeyEvent e) {
+        
+        }
+    };
+    private KeyListener onWestPressed = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+        
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_A)
+                guiController.moveWest();
+        }
+        
+        @Override
+        public void keyReleased(KeyEvent e) {
+        
+        }
+    };
+    private KeyListener onSouthPressed = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+        
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_S)
+                guiController.moveSouth();
+        }
+        
+        @Override
+        public void keyReleased(KeyEvent e) {
+        
+        }
+    };
+    
     private final ActionListener onNewGame = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) { 
@@ -85,13 +161,29 @@ class GamePanelController extends APanelController {
 
         }
     };
-
+	
+	private final ActionListener onShowHeroStatistics = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			SwingUtilities.invokeLater(new Runnable() {
+				@Override
+				public void run() {
+					gamePanel.showHeroStats(guiController.getArena().getHero());
+				}
+			});
+		}
+	};
+    
     private void newGameDialogue() {
-
     }
 
-    void updateUserInterface() {
-        gamePanel.updateUserInterface(guiController.getArena());
+    private void updateUserInterface() {
+        if (!guiController.getArena().isGameInProgress()) {
+            guiController.showGameEndedPanel();
+        }
+        else
+            gamePanel.updateUserInterface(guiController.getArena());
+
     }
 
     @Override
@@ -105,6 +197,11 @@ class GamePanelController extends APanelController {
         gamePanel.addOnQuitListener(onQuit);
         gamePanel.addOnBackToMainMenuListener(onBackToMainMenu);
         gamePanel.addOnNewGameListeners(onNewGame);
+        gamePanel.addOnEastKeyPress(onEastPressed);
+        gamePanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
+ //       gamePanel.addOnWestKeyPress(onWestPressed);
+//        gamePanel.addOnSouthKeyPress(onSouthPressed);
+     //   gamePanel.addOnNorthKeyPress(onNorthPressed);
     }
 
     @Override

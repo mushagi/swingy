@@ -1,61 +1,64 @@
 package views.gui.Panels;
 
 import lombok.Getter;
+import state.GameColors;
+import views.gui.ButtonRounded;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 @Getter
     class ActionsPanel extends JPanel {
-    public final JButton north = new JButton("North");
-    final JButton south = new JButton("South");
-    final JButton east = new JButton("East");
-    final JButton west = new JButton("West");
-    final JButton attack = new JButton("Attack");
-    final JButton runAway = new JButton("Run Away");
-    final JButton newGame = new JButton("New Game");
-    final JButton quit = new JButton("Quit");
-    final JButton backToMainMenu = new JButton("Menu");
+    
+    public final ButtonRounded north = new ButtonRounded("North");
+    final ButtonRounded south = new ButtonRounded("South");
+    final ButtonRounded east = new ButtonRounded("East");
+    final ButtonRounded west = new ButtonRounded("West");
+    final ButtonRounded attack = new ButtonRounded("Attack");
+    final ButtonRounded runAway = new ButtonRounded("Run Away");
+    final ButtonRounded newGame = new ButtonRounded("New Game");
+    final ButtonRounded quit = new ButtonRounded("Quit");
+    final ButtonRounded backToMainMenu = new ButtonRounded("Menu");
+    final ButtonRounded btnShowHeroStatistics = new ButtonRounded("Show Hero Stats");
 
     ActionsPanel() {
-        SpringLayout layout = new SpringLayout();
-        this.setLayout(layout);
-        this.setBackground(new Color(0,0,0,0));
+        this.setLayout(new BorderLayout());
+        this.setBackground(GameColors.LIGHTERST__GRAY);
+    
         JPanel directionsPanel = getDirectionsPanel();
         JPanel actionsPanel = getActionsPanel();
         JPanel gameOptionsPanel = getGameOptionsPanel();
 
-        add(directionsPanel);
-        add(actionsPanel);
-        add(gameOptionsPanel);
+        add(directionsPanel, BorderLayout.WEST);
+        add(actionsPanel, BorderLayout.CENTER);
+        add(gameOptionsPanel, BorderLayout.EAST);
 
-        layout.putConstraint(SpringLayout.NORTH, directionsPanel, 0, SpringLayout.NORTH, this);
-        layout.putConstraint(SpringLayout.NORTH, actionsPanel, 0, SpringLayout.NORTH, this);
-        layout.putConstraint(SpringLayout.WEST, actionsPanel, 0, SpringLayout.EAST, directionsPanel);
-        layout.putConstraint(SpringLayout.EAST, gameOptionsPanel, 0, SpringLayout.EAST, this);
     }
 
     private JPanel getGameOptionsPanel() {
         SpringLayout layout = new SpringLayout();
-
         JPanel gameOptionsPanel = new JPanel();
+        
         gameOptionsPanel.setLayout(layout);
-        gameOptionsPanel.setPreferredSize(new Dimension(250, 80));
-
+        gameOptionsPanel.setPreferredSize(new Dimension(200, 80));
+        gameOptionsPanel.setBackground(GameColors.TRANSPARENT);
+        
         gameOptionsPanel.add(newGame);
         gameOptionsPanel.add(backToMainMenu);
         gameOptionsPanel.add(quit);
-
-        layout.putConstraint(SpringLayout.NORTH, newGame, 0, SpringLayout.NORTH, gameOptionsPanel);
-        layout.putConstraint(SpringLayout.WEST, newGame, 0, SpringLayout.WEST, gameOptionsPanel);
-
-        layout.putConstraint(SpringLayout.NORTH, backToMainMenu, 0, SpringLayout.NORTH, gameOptionsPanel);
-        layout.putConstraint(SpringLayout.WEST, backToMainMenu, 0, SpringLayout.EAST, newGame);
-
-        layout.putConstraint(SpringLayout.NORTH, quit, 0, SpringLayout.SOUTH, backToMainMenu);
-        layout.putConstraint(SpringLayout.WEST, quit, 0, SpringLayout.WEST, backToMainMenu);
-
+    
+        layout.putConstraint(SpringLayout.EAST, backToMainMenu, -10, SpringLayout.EAST, gameOptionsPanel);
+        layout.putConstraint(SpringLayout.NORTH, backToMainMenu, 5, SpringLayout.NORTH, gameOptionsPanel);
+        
+        layout.putConstraint(SpringLayout.NORTH, newGame, 5, SpringLayout.NORTH, gameOptionsPanel);
+        layout.putConstraint(SpringLayout.EAST, newGame, -10, SpringLayout.WEST, backToMainMenu);
+    
+    
+        layout.putConstraint(SpringLayout.NORTH, quit, 5, SpringLayout.SOUTH, backToMainMenu);
+        layout.putConstraint(SpringLayout.EAST, quit, -10, SpringLayout.EAST, gameOptionsPanel);
+        
         return gameOptionsPanel;
     }
 
@@ -63,18 +66,23 @@ import java.awt.event.ActionListener;
         SpringLayout layout = new SpringLayout();
 
         JPanel actionsPanel = new JPanel();
-        actionsPanel.setPreferredSize(new Dimension(200, 70));
-
+        actionsPanel.setBackground(GameColors.TRANSPARENT);
+    
+        actionsPanel.setPreferredSize(new Dimension(150, 70));
+        
         actionsPanel.setLayout(layout);
-
-
-        actionsPanel.setLayout(layout);
+        
         actionsPanel.add(attack);
         actionsPanel.add(runAway);
-
+        actionsPanel.add(btnShowHeroStatistics);
+        
         layout.putConstraint(SpringLayout.NORTH, attack, 5, SpringLayout.NORTH, actionsPanel);
         layout.putConstraint(SpringLayout.NORTH, runAway, 5, SpringLayout.NORTH, actionsPanel);
         layout.putConstraint(SpringLayout.WEST, runAway, 5, SpringLayout.EAST, attack);
+        
+        layout.putConstraint(SpringLayout.NORTH, btnShowHeroStatistics, 5, SpringLayout.SOUTH, attack);
+        layout.putConstraint(SpringLayout.WEST, btnShowHeroStatistics, 0, SpringLayout.WEST, attack);
+    
         return actionsPanel;
     }
 
@@ -82,6 +90,7 @@ import java.awt.event.ActionListener;
         SpringLayout layout = new SpringLayout();
 
         JPanel directionsPanel = new JPanel();
+        directionsPanel.setBackground(GameColors.TRANSPARENT);
 
         directionsPanel.setPreferredSize(new Dimension(240, 70));
         directionsPanel.setLayout(layout);
@@ -90,17 +99,19 @@ import java.awt.event.ActionListener;
         directionsPanel.add(south);
         directionsPanel.add(east);
         directionsPanel.add(west);
+        
+        layout.putConstraint(SpringLayout.NORTH, north, 5, SpringLayout.NORTH, directionsPanel);
+        layout.putConstraint(SpringLayout.WEST, west, 5, SpringLayout.WEST, directionsPanel);
+        
+        layout.putConstraint(SpringLayout.WEST, north, 5, SpringLayout.EAST, west);
 
-        layout.putConstraint(SpringLayout.WEST, west, 0, SpringLayout.WEST, directionsPanel);
-        layout.putConstraint(SpringLayout.WEST, north, 0, SpringLayout.EAST, west);
+        layout.putConstraint(SpringLayout.NORTH, west, 5, SpringLayout.SOUTH, north);
 
-        layout.putConstraint(SpringLayout.NORTH, west, 0, SpringLayout.SOUTH, north);
+        layout.putConstraint(SpringLayout.NORTH, south, 5, SpringLayout.SOUTH, north);
+        layout.putConstraint(SpringLayout.WEST, south, 5, SpringLayout.EAST, west);
 
-        layout.putConstraint(SpringLayout.NORTH, south, 0, SpringLayout.SOUTH, north);
-        layout.putConstraint(SpringLayout.WEST, south, 0, SpringLayout.EAST, west);
-
-        layout.putConstraint(SpringLayout.NORTH, east, 0, SpringLayout.SOUTH, north);
-        layout.putConstraint(SpringLayout.WEST, east, 0 , SpringLayout.EAST, north);
+        layout.putConstraint(SpringLayout.NORTH, east, 5, SpringLayout.SOUTH, north);
+        layout.putConstraint(SpringLayout.WEST, east, 5 , SpringLayout.EAST, north);
         return directionsPanel;
     }
 
@@ -114,5 +125,26 @@ import java.awt.event.ActionListener;
 
     void addOnNewGameListener(ActionListener onBtnNewGameListener) {
         newGame.addActionListener(onBtnNewGameListener);
+    }
+    
+    void addOnShowHeroStatisticsListener(ActionListener onShowHeroStatistics) {
+        btnShowHeroStatistics.addActionListener(onShowHeroStatistics);
+    }
+    
+    
+    public void addOnNorthKeyPress(KeyListener onNorthPressed) {
+        addKeyListener(onNorthPressed);
+    }
+    
+    public void addOnSouthKeyPress(KeyListener onSouthPressed) {
+        addKeyListener(onSouthPressed);
+    }
+    
+    public void addOnWestKeyPress(KeyListener onWestPressed) {
+        addKeyListener(onWestPressed);
+    }
+    
+    public void addOnEastKeyPress(KeyListener onEastPressed) {
+        addKeyListener(onEastPressed);
     }
 }

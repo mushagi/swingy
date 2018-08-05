@@ -3,6 +3,7 @@ package views.gui.Panels;
 import models.players.APlayer;
 import models.world.Arena;
 import models.world.Position;
+import state.GameColors;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,14 +11,14 @@ import java.awt.*;
 class MapPanel extends JPanel {
 
     public MapPanel() {
-
+        setBackground(GameColors.LIGHTER_GRAY);
     }
 
     public void generateNewMap(int mapSize) {
         this.setLayout(new GridLayout(0, mapSize));
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
-                MapCell mapCell = new MapCell();
+                MapCell mapCell = new MapCell(mapSize);
                 this.add(mapCell);
             }
         }
@@ -47,11 +48,19 @@ class MapPanel extends JPanel {
 
 class MapCell extends JPanel {
     private final JLabel label = new JLabel();
-    public MapCell() {
-        this.setBorder(BorderFactory.createEtchedBorder());
+    MapCell(int mapSize) {
+    	GridBagLayout layout = new GridBagLayout();
+    	setLayout(layout);
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.CENTER;
+        layout.setConstraints(label, constraints);
+    	this.setBackground(GameColors.LIGHTER_GRAY);
+        label.setForeground(GameColors.DEFAULT_FONT);
+	    this.setBorder(BorderFactory.createEtchedBorder(GameColors.LIGHTER_BLUE, GameColors.DARKEST_GRAY));
+	    Font font = new Font("monospaced", Font.BOLD, mapSize*5);
+	    this.label.setFont(font);
         this.add(label);
     }
-
     void setValues(String text) {
         label.setText(text);
 }
