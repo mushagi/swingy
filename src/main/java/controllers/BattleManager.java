@@ -10,7 +10,7 @@ import java.util.Random;
 public class
 BattleManager {
     private GameResultsController gameResultsController;
-    private StringBuilder battleReport = new StringBuilder();
+    private StringBuilder attackSimulation = new StringBuilder();
 
     private int getTotalDefence(APlayer defender) {
         return defender.getDefence() + getArtifactsDefence(defender) + luckyBlock();
@@ -24,27 +24,29 @@ BattleManager {
         APlayer playerOne = getPlayerAttackingFirst(hero, enemy);
         APlayer playerTwo = playerOne == hero ? enemy : hero;
 
-        gameResultsController.addMessage("First attacker is " + playerOne.getName() + "("+playerOne.getType()+")");
+        gameResultsController.isHeroFirstAttacker(playerOne == hero);
         while (playerOne.getHitPoint() > 0 && playerTwo.getHitPoint() > 0)
         {
             attack(playerOne, playerTwo);
             attack(playerTwo, playerOne);
         }
-
-        return playerOne.getHitPoint() > playerTwo.getHitPoint() ? playerOne : playerTwo;
+        
+        APlayer winner = playerOne.getHitPoint() > playerTwo.getHitPoint() ? playerOne : playerTwo;
+	    APlayer loser = winner == playerOne ? playerTwo : playerOne;
+	    gameResultsController.setWinnerLoser(winner, loser);
+	
+	    return winner;
     }
 
     private  void attack(APlayer attacker, APlayer defender) {
         for (int i = 0; i < getRandomNumberOfAttacks(); i++) {
-            battleReport.setLength(0);
-            battleReport.append(attacker.getName()).append(" attacks ").append(defender.getName()).append(". ");
+            attackSimulation.setLength(0);
+            attackSimulation.append(attacker.getName()).append(" attacks ").append(defender.getName()).append(".\n");
             int totalAttack = getTotalAttack(attacker);
-            gameResultsController.addMessage(battleReport.toString());
-
-            battleReport.setLength(0);
-            battleReport.append(defender.getName() + " defends. ");
+            
+            attackSimulation.append(defender.getName() + " defends.\n");
             int totalDefence = getTotalDefence(defender);
-            gameResultsController.addMessage(battleReport.toString());
+            gameResultsController.addAnAttackSimulation(attackSimulation.toString());
 
             int totalDamage = totalAttack - totalDefence;
             takeDamage(defender, Math.abs(totalDamage));
@@ -55,7 +57,7 @@ BattleManager {
         Random random = new Random();
         int randomNumber = random.nextInt(5);
         if(randomNumber == 4) {
-            battleReport.append("Lucky block");
+            attackSimulation.append("Lucky block\n");
             return 10;
         }
         return 0;
@@ -68,7 +70,7 @@ BattleManager {
                 totalArtifactDefence += artifact.getPower();
             }
         }
-        battleReport.append("Armour defence is ").append(totalArtifactDefence).append(". ");
+        attackSimulation.append("Armour defence is ").append(totalArtifactDefence).append(".\n");
         return totalArtifactDefence;
     }
 
@@ -81,7 +83,7 @@ BattleManager {
             Random random = new Random();
             int randomNumber = random.nextInt(5);
             if (randomNumber == 4) {
-                battleReport.append("Lucky shot to the defender");
+                attackSimulation.append("Lucky shot to the defender\n");
                 return 10;
             }
         }
@@ -91,7 +93,7 @@ BattleManager {
     private  int getArtifactsAttack(APlayer attacker) {
         Artifact chosenArtifact = getTheMostPowerfulArtifact(attacker);
         if (chosenArtifact != null)
-            battleReport.append("A " + chosenArtifact.getPower() + " is being used. ");
+            attackSimulation.append("A ").append(chosenArtifact.getPower()).append(" is being used. ");
         return chosenArtifact == null ? 0 : chosenArtifact.getPower();
     }
 

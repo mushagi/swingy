@@ -38,4 +38,21 @@ public class GameResultsController {
     public void setEnemyWon(APlayer enemyWon){
         gameResults.setEnemyWon(enemyWon);
     }
+    
+    public void addAnAttackSimulation(String attackSimulation) {
+        gameResults.getBattleReport().getBattleSimulation().add(attackSimulation);
+    }
+    
+    public void isHeroFirstAttacker(boolean isHeroFirstAttacker) {
+        gameResults.getBattleReport().setHeroIsFirstAttacker(isHeroFirstAttacker);
+    }
+	
+	public void setWinnerLoser(APlayer winner, APlayer loser) {
+		gameResults.getBattleReport().setWinner(winner);
+		gameResults.getBattleReport().setLoser(loser);
+	}
+	
+	public void setWasPlayerInBattle() {
+    	gameResults.setWasBattle(true);
+	}
 }

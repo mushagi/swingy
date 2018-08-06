@@ -51,15 +51,17 @@ public class ArenaController {
 
     public void fight() {
         gameResultsController.clearGameResults();
-        gameResultsController.addMessage("Battle Report");
 
         if (arena.isPlayerInABattle()) {
+            gameResultsController.addMessage("Battle Report");
+            
             APlayer enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
             APlayer won = battleService.battle(arena.getHero(), enemy);
             if (won == arena.getHero())
                 onHeroWon(won, enemy);
             else
                 onHeroLost(enemy);
+	        gameResultsController.setWasPlayerInBattle();
         }
         else
             gameResultsController.setGameError(ILLEGAL_ATTACK_NO_ENEMY);
@@ -83,7 +85,9 @@ public class ArenaController {
     }
 
     public void runAway() {
-        if (arena.isPlayerInABattle()) {
+	    gameResultsController.clearGameResults();
+	
+	    if (arena.isPlayerInABattle()) {
             Random random = new Random();
             boolean isRunningAwayAllowed = random.nextBoolean();
             if (isRunningAwayAllowed && mapController.heroFoundARunAwayPosition())

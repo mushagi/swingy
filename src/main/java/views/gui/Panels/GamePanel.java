@@ -1,5 +1,6 @@
 package views.gui.Panels;
 
+import controllers.models.BattleReport;
 import models.players.APlayer;
 import models.players.Hero;
 import models.world.Arena;
@@ -14,8 +15,10 @@ public class GamePanel extends JPanel {
     private final MapPanel mapPanel = new MapPanel();
     private final ActionsPanel actionsPanel = new ActionsPanel();
     private  JScrollPane messagesPanel;
-    private final JTextArea textArea = new JTextArea();
-    JPanel sidePanel = new JPanel();
+    private final JPanel innerMessagePanel = new JPanel();
+	JLabel label = new JLabel();
+	
+	JPanel sidePanel = new JPanel();
 
     public GamePanel(int mapSize) throws HeadlessException {
         init(mapSize);
@@ -40,34 +43,53 @@ public class GamePanel extends JPanel {
     }
     
     private void initMessagesPanel() {
-        textArea.setCursor(null);
-        textArea.setEditable(false);
-        textArea.setBackground(GameColors.DARKEST_GRAY);
-        textArea.setForeground(GameColors.DEFAULT_FONT);
-        messagesPanel = new JScrollPane(textArea,
+	    SpringLayout layout = new SpringLayout();
+	    
+	    innerMessagePanel.setLayout(layout);
+	    innerMessagePanel.setBackground(GameColors.DARKEST_GRAY);
+	    label.setForeground(GameColors.DEFAULT_FONT);
+	    innerMessagePanel.add(label);
+	    
+	    layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, label, 0, SpringLayout.HORIZONTAL_CENTER, innerMessagePanel);
+	    layout.putConstraint(SpringLayout.VERTICAL_CENTER, label, 0, SpringLayout.VERTICAL_CENTER, innerMessagePanel);
+	
+	    messagesPanel = new JScrollPane(innerMessagePanel,
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        
         messagesPanel.setPreferredSize(sidePanel.getPreferredSize());
 	    messagesPanel.setBackground(GameColors.TRANSPARENT);
 	    messagesPanel.setBorder(BorderFactory.createEmptyBorder());
-	
     }
     
     public void updateUserInterface(Arena arena) {
         mapPanel.updateMap(arena);
-        for (String message: arena.getGameResults().getResult()) {
-            textArea.append(message+ "\n");
+	    StringBuilder stringBuilder  = new StringBuilder();
+	
+	    if (arena.getGameResults().isWasBattle())
+        {
+	        BattleReport battleReport = arena.getGameResults().getBattleReport();
+	        for (String battleSimulation: battleReport.getBattleSimulation()) {
+	        	stringBuilder.append(battleSimulation).append("\n ").append("--------------\n");
+	        }
+	        
         }
+        else{
+		    for (String message: arena.getGameResults().getResult()) {
+			    stringBuilder.append(message + "\n");
+		    }
+	    }
+
+        label.setText(stringBuilder.toString());
     }
     
     public void showHeroStats(Hero hero) {
-    	if (sidePanel.getComponent(0) instanceof HeroStatisticsPanel) {
+    	if ( sidePanel.getComponent(0) instanceof HeroStatisticsPanel) {
 		    sidePanel.remove(0);
 		    initMessagesPanel();
 		    sidePanel.add(messagesPanel);
 		    sidePanel.revalidate();
 		    messagesPanel.revalidate();
-		    textArea.revalidate();
 	    }
 	    
 	    else

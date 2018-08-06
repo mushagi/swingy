@@ -14,6 +14,6 @@ public class GameStrings {
     public static final String ILLEGAL_ATTACK_NO_ENEMY = "Cannot attack while there is no enemy.";
     public static final String RUN_AWAY_SUCCESS_MESSAGE = "Run away a success.";
     public static final String RUN_AWAY_FAILURE_MESSAGE = "Run away was not possible. Fight to the death";
-    public static final String ENEMY_COLLISION_MESSAGE = "You encountered an enemy";
-    public static final String MISSION_ACCOMPLISHED_MESSAGE = "APlayer reached Destination. Mission accomplished";
+    public static final String ENEMY_COLLISION_MESSAGE = "You encountered an enemy. \nFight or run away";
+    public static final String MISSION_ACCOMPLISHED_MESSAGE = "Hero reached Destination. Mission accomplished";
 }
