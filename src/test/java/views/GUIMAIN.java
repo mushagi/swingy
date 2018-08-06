@@ -1,11 +1,5 @@
 package views;
 
-import state.GameState;
-import views.gui.GUI;
-import views.gui.Panels.ChooseHeroPanel;
-import views.gui.Panels.GamePanel;
-import views.gui.Panels.HeroListPanel;
-
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
