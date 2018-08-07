@@ -8,6 +8,8 @@ import state.GameColors;
 import javax.swing.*;
 import java.awt.*;
 
+import static state.GameConstants.MAX_RENDERING_MAPSIZE;
+
 class MapPanel extends JPanel {
 
     public MapPanel() {
@@ -15,30 +17,42 @@ class MapPanel extends JPanel {
     }
 
     public void generateNewMap(int mapSize) {
-        this.setLayout(new GridLayout(0, mapSize));
-        for (int y = 0; y < mapSize; y++) {
-            for (int x = 0; x < mapSize; x++) {
-                MapCell mapCell = new MapCell(mapSize);
+        int maxMapSize = Math.min(mapSize, MAX_RENDERING_MAPSIZE);
+    
+        this.setLayout(new GridLayout(maxMapSize, maxMapSize));
+        for (int y = 0; y < maxMapSize; y++) {
+            for (int x = 0; x < maxMapSize; x++) {
+                MapCell mapCell = new MapCell(maxMapSize);
                 this.add(mapCell);
             }
         }
     }
 
     public void updateMap(Arena arena) {
+        
+        int maxMapSize = Math.min(arena.getMap().getSize(), MAX_RENDERING_MAPSIZE);
+    
+        int xPossibleStartingPosLeft = arena.getHero().getPosition().x - (maxMapSize / 2);
+        int xStartPos = xPossibleStartingPosLeft < 0? 0: xPossibleStartingPosLeft;
+        
+        int xPossibleStartingPosRight = arena.getHero().getPosition().x - (maxMapSize / 2);
+        int xEndPos = xPossibleStartingPosLeft > arena.getMap().getSize() ? maxMapSize: xPossibleStartingPosLeft;
+    
+    
         int count = 0;
-        for (int y = 0; y < arena.getMap().getSize(); y++) {
-            for (int x = 0; x < arena.getMap().getSize(); x++) {
+        for (int y = 0; y < maxMapSize; y++) {
+            for (int x = xStartPos; x < xEndPos; x++) {
                 if (this.getComponentCount() > 0) {
                     Position position = new Position(y, x);
                     MapCell mapCell = (MapCell) this.getComponent(count++);
                     if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
-                        mapCell.setValues("*");
+                        mapCell.setValues("*"+ position.toString());
                     else if (arena.getMap().getGameMap().containsKey(position)) {
                         APlayer player = arena.getMap().getGameMap().get(position);
-                        mapCell.setValues(player.getType().equals("Hero") ? "0" : "X");
+                        mapCell.setValues(player.getType().equals("Hero") ? "0" : "X" + " " + position.toString());
                     }
                     else
-                        mapCell.setValues("");
+                        mapCell.setValues(""+ position.toString());
 
                 }
             }

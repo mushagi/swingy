@@ -11,7 +11,7 @@ import models.world.Arena;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static state.GameStrings.*;
+import static state.GameConstants.*;
 
 public class ArenaController {
     private final IRepository<Hero> heroRepository;

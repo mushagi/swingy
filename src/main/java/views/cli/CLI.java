@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static state.GameStrings.APPLICATION_HEARDER;
-import static state.GameStrings.APPLICATION_SLOGAN;
-import static state.GameStrings.START_DIVIDER;
+import static state.GameConstants.APPLICATION_HEARDER;
+import static state.GameConstants.APPLICATION_SLOGAN;
+import static state.GameConstants.START_DIVIDER;
 
 public class CLI implements IUserInterface {
 

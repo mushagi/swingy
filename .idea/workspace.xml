@@ -6,17 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d7d537a-5d79-45d6-9a44-38e1ea9a3d9e" name="Default" comment="whatever">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/models/BattleReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/views/gui/Panels/BattleReportBubblePanel.java" afterDir="false" />
+    <list default="true" id="7d7d537a-5d79-45d6-9a44-38e1ea9a3d9e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/BattleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/BattleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/models/ArenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/models/ArenaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/models/GameResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/models/GameResultsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/messages/GameResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/messages/GameResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/state/GameStrings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/state/GameStrings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/Panels/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/Panels/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/views/GUIMAIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/views/GUIMAIN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/state/GameStrings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/state/GameConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/cli/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/cli/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -31,6 +26,7 @@
     <SUITE FILE_PATH="coverage/swingy$CLITest_displayHeroList.ic" NAME="CLITest.displayHeroList Coverage Results" MODIFIED="1533146485607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>views.cli.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/swingy$Main.ic" NAME="Main Coverage Results" MODIFIED="1533670993033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -48,24 +44,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="66" />
+            <state relative-caret-position="345">
+              <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="37" column="37" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="37" />
               <folding>
-                <element signature="e#2579#2580#0" expanded="true" />
-                <element signature="e#2639#2640#0" expanded="true" />
-                <element signature="e#2857#2858#0" expanded="true" />
-                <element signature="e#2914#2915#0" expanded="true" />
-                <element signature="e#4334#4335#0" expanded="true" />
-                <element signature="e#4388#4389#0" expanded="true" />
-                <element signature="e#4450#4451#0" expanded="true" />
-                <element signature="e#4504#4505#0" expanded="true" />
-                <element signature="e#4564#4565#0" expanded="true" />
-                <element signature="e#4616#4617#0" expanded="true" />
-                <element signature="e#4676#4677#0" expanded="true" />
-                <element signature="e#4728#4729#0" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
+                <element signature="e#350#351#0" expanded="true" />
+                <element signature="e#2250#2251#0" expanded="true" />
+                <element signature="e#2281#2282#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Position.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/world/Position.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-331">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/state/GameConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Formulas.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/Formulas.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="54" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="54" />
+              <folding>
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#278#279#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageRender.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/ImageRender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,45 +114,8 @@
       <file leaf-file-name="ArenaController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/models/ArenaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-234">
+            <state relative-caret-position="780">
               <caret line="63" column="32" selection-start-line="63" selection-end-line="64" />
-              <folding>
-                <element signature="e#4292#4293#0" expanded="true" />
-                <element signature="e#4338#4339#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameStrings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/state/GameStrings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="84" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GUIMAIN.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/views/GUIMAIN.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BattleReport.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/models/BattleReport.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -120,8 +123,8 @@
       <file leaf-file-name="BattleReportBubblePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/BattleReportBubblePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            <state relative-caret-position="30">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,8 +135,8 @@
       <file leaf-file-name="RoundedBorders.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/RoundedBorders.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="6" column="45" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="45" />
+            <state relative-caret-position="-15">
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#225#226#0" expanded="true" />
@@ -146,32 +149,8 @@
       <file leaf-file-name="BattleManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/BattleManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameResultsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/models/GameResultsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-              <folding>
-                <element signature="e#900#901#0" expanded="true" />
-                <element signature="e#949#950#0" expanded="true" />
-                <element signature="e#1475#1476#0" expanded="true" />
-                <element signature="e#1509#1510#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameResults.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/messages/GameResults.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            <state relative-caret-position="180">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -207,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/views/ISplashScreen.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/artifacts/Artifact.java" />
         <option value="$PROJECT_DIR$/src/main/java/views/gui/SplashScreenGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/database/IRepository.java" />
@@ -238,7 +216,6 @@
         <option value="$PROJECT_DIR$/src/main/java/views/gui/Panels/MessagesPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/gui/ChooseHeroPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/players/BlackPanther.java" />
-        <option value="$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/views/gui/Panels/HeroCell.java" />
         <option value="$PROJECT_DIR$/src/main/java/views/gui/GUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/views/gui/Panels/GameEndedPanel.java" />
@@ -258,6 +235,8 @@
         <option value="$PROJECT_DIR$/src/main/java/views/gui/Panels/BattleReportBubblePanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/BattleManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/views/gui/Panels/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/state/GameConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java" />
       </list>
     </option>
   </component>
@@ -289,6 +268,12 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="swingy" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="jar" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="swingy" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
@@ -311,6 +296,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -453,6 +439,17 @@
               <item name="swingy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="Panels" type="462c0819:PsiDirectoryNode" />
+              <item name="MapPanel.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="swingy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -509,7 +506,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -752,7 +748,8 @@
       <workItem from="1533215018502" duration="108000" />
       <workItem from="1533281121492" duration="12802000" />
       <workItem from="1533370798008" duration="49600000" />
-      <workItem from="1533485710174" duration="25616000" />
+      <workItem from="1533485710174" duration="26596000" />
+      <workItem from="1533654015546" duration="18052000" />
     </task>
     <task id="LOCAL-00001" summary="done with a map and collisions">
       <created>1532206247084</created>
@@ -838,7 +835,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533564879568</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="whatever">
+      <created>1533582789815</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1533582789815</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -874,7 +878,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372205000" />
+    <option name="totallyTimeSpent" value="391237000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -891,15 +895,15 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5035868" side_tool="true" weight="0.3283582" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.31133428" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.31133428" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Database" order="8" weight="0.32954547" />
       <window_info anchor="bottom" id="Structure" order="13" side_tool="true" weight="0.38127545" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.16068867" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.4987775" weight="0.16068867" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" x="64" y="176" width="1376" height="723" id="Debug" order="5" sideWeight="0.49930555" weight="0.41791046" />
+      <window_info active="true" anchor="bottom" x="1440" y="126" width="1366" height="735" id="Debug" order="5" sideWeight="0.49930555" type="WINDOWED" visible="true" weight="0.41791046" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32928312" />
       <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.4964132" weight="0.32157394" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -907,10 +911,11 @@
       <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.3283582" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32969216" />
-      <window_info active="true" anchor="bottom" x="849" y="460" width="491" height="169" id="Run" order="4" sideWeight="0.49791667" visible="true" weight="0.4450475" />
+      <window_info anchor="bottom" x="849" y="460" width="491" height="169" id="Run" order="4" sideWeight="0.49791667" visible="true" weight="0.4450475" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.5012225" side_tool="true" visible="true" weight="0.16068867" />
       <window_info anchor="bottom" x="923" y="519" width="596" height="197" id="Terminal" order="10" weight="0.75576663" />
       <window_info id="Persistence" order="0" side_tool="true" />
-      <window_info anchor="bottom" content_ui="combo" id="Project" order="15" sideWeight="0.4964132" weight="0.40162823" />
+      <window_info anchor="bottom" content_ui="combo" id="Project" order="16" sideWeight="0.4964132" weight="0.40162823" />
       <window_info anchor="right" id="Bean Validation" order="10" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="4" side_tool="true" />
@@ -919,7 +924,6 @@
       <window_info anchor="bottom" id="Find" order="3" weight="0.32969216" />
       <window_info anchor="bottom" id="Duplicates" order="0" weight="0.32971507" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32998565" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24964131" />
       <window_info active="true" anchor="bottom" id="Inspection Results" order="14" visible="true" weight="0.32971507" />
@@ -929,34 +933,36 @@
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Duplicates" order="0" weight="0.32971507" />
+      <window_info anchor="bottom" x="849" y="460" width="491" height="169" id="Run" order="4" sideWeight="0.49791667" weight="0.4450475" />
       <window_info id="Image Layers" order="1" />
-      <window_info active="true" anchor="bottom" x="849" y="460" width="491" height="169" id="Run" order="4" sideWeight="0.49791667" visible="true" weight="0.4471446" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32969216" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.16068867" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" x="923" y="519" width="596" height="197" id="Terminal" order="10" weight="0.3574975" />
+      <window_info anchor="bottom" x="923" y="519" width="596" height="197" id="Terminal" order="10" weight="0.75576663" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info active="true" anchor="bottom" id="Inspection Results" order="14" visible="true" weight="0.32971507" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5035868" side_tool="true" weight="0.3283582" />
-      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.4964132" weight="0.32428765" />
+      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.4964132" weight="0.32157394" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24964131" />
-      <window_info anchor="bottom" id="Java Enterprise" order="15" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.3283582" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32971507" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.31203407" />
-      <window_info anchor="bottom" content_ui="combo" id="Project" order="16" sideWeight="0.4964132" weight="0.4021871" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32969216" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.31133428" />
+      <window_info anchor="bottom" content_ui="combo" id="Project" order="16" sideWeight="0.4964132" visible="true" weight="0.40162823" />
       <window_info anchor="right" id="Database" order="8" weight="0.32954547" />
       <window_info anchor="bottom" id="Message" order="2" />
-      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.32928312" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="bottom" id="Structure" order="13" side_tool="true" weight="0.38127545" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.32969216" />
-      <window_info anchor="bottom" x="1440" y="126" width="1366" height="735" id="Debug" order="5" sideWeight="0.49930555" type="WINDOWED" visible="true" weight="0.4" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32998565" />
+      <window_info anchor="bottom" x="64" y="176" width="1376" height="723" id="Debug" order="5" sideWeight="0.49930555" weight="0.41791046" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1002,7 +1008,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="245" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="278" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="285" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="286" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1010,20 +1030,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/src.zip!/javax/swing/JEditorPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="188" column="36" lean-forward="true" selection-start-line="188" selection-start-column="36" selection-end-line="188" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/src.zip!/java/awt/geom/RoundRectangle2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="337" column="48" selection-start-line="337" selection-start-column="42" selection-end-line="337" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/src.zip!/javax/swing/JTextPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-70">
@@ -1035,10 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2775">
           <caret line="228" selection-start-line="228" selection-end-line="228" />
-          <folding>
-            <element signature="e#6701#6702#0" expanded="true" />
-            <element signature="e#6758#6759#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1104,16 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/ImageRender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/state/GameColors.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1139,9 +1131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="26" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1191,26 +1180,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
-          <folding>
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#2198#2199#0" expanded="true" />
-            <element signature="e#2229#2230#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/cli/CLIController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1218,14 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="143" column="67" lean-forward="true" selection-start-line="143" selection-start-column="67" selection-end-line="143" selection-end-column="67" />
-          <folding>
-            <element signature="e#4791#4792#0" expanded="true" />
-            <element signature="e#4881#4882#0" expanded="true" />
-            <element signature="e#4955#4956#0" expanded="true" />
-            <element signature="e#5015#5016#0" expanded="true" />
-            <element signature="e#5084#5085#0" expanded="true" />
-            <element signature="e#5132#5133#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1261,11 +1226,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="69" column="26" lean-forward="true" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2216#2217#0" expanded="true" />
-            <element signature="e#2223#2224#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1273,21 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1123#1124#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#1443#1444#0" expanded="true" />
-            <element signature="e#1496#1497#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1716#1717#0" expanded="true" />
-            <element signature="e#1767#1768#0" expanded="true" />
-            <element signature="e#1801#1802#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1295,15 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="4" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#703#823#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#877#999#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1061#1203#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1375,13 +1311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1389,33 +1318,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="17" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/views/GUIMAIN.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="225">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/state/GameStrings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="84" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/models/BattleReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
+          <caret column="27" selection-start-column="27" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1424,46 +1343,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/messages/GameResults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
+        <state relative-caret-position="150">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/models/GameResultsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        <state relative-caret-position="615">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
           <folding>
             <element signature="e#900#901#0" expanded="true" />
             <element signature="e#949#950#0" expanded="true" />
             <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="e#1515#1516#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/models/ArenaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
+        <state relative-caret-position="780">
           <caret line="63" column="32" selection-start-line="63" selection-end-line="64" />
-          <folding>
-            <element signature="e#4292#4293#0" expanded="true" />
-            <element signature="e#4338#4339#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/BattleManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="180">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/BattleReportBubblePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/ImageRender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Formulas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="54" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="54" />
+          <folding>
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#278#279#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/RoundedBorders.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="45" />
+        <state relative-caret-position="-15">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#225#226#0" expanded="true" />
@@ -1472,33 +1425,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/BattleReportBubblePanel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/state/GameConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/GamePanel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/world/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="66" />
+        <state relative-caret-position="-331">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/Panels/MapPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="37" />
           <folding>
-            <element signature="e#2579#2580#0" expanded="true" />
-            <element signature="e#2639#2640#0" expanded="true" />
-            <element signature="e#2857#2858#0" expanded="true" />
-            <element signature="e#2914#2915#0" expanded="true" />
-            <element signature="e#4334#4335#0" expanded="true" />
-            <element signature="e#4388#4389#0" expanded="true" />
-            <element signature="e#4450#4451#0" expanded="true" />
-            <element signature="e#4504#4505#0" expanded="true" />
-            <element signature="e#4564#4565#0" expanded="true" />
-            <element signature="e#4616#4617#0" expanded="true" />
-            <element signature="e#4676#4677#0" expanded="true" />
-            <element signature="e#4728#4729#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#2250#2251#0" expanded="true" />
+            <element signature="e#2281#2282#0" expanded="true" />
           </folding>
         </state>
       </provider>
