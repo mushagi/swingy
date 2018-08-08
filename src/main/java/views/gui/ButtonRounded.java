@@ -10,6 +10,7 @@ public class ButtonRounded extends JButton {
 		super(text);
 		setBackground(GameColors.DARKEST_GRAY);
 		setForeground(GameColors.DEFAULT_FONT);
+		setOpaque(true);
 		setFocusPainted(false);
 		setFocusable(false);
 	}
