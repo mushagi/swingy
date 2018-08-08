@@ -18,7 +18,7 @@ class MapPanel extends JPanel {
 
     public void generateNewMap(int mapSize) {
         int maxMapSize = Math.min(mapSize, MAX_RENDERING_MAPSIZE);
-
+    
         this.setLayout(new GridLayout(maxMapSize, maxMapSize));
         for (int y = 0; y < maxMapSize; y++) {
             for (int x = 0; x < maxMapSize; x++) {
@@ -28,37 +28,58 @@ class MapPanel extends JPanel {
         }
     }
 
-    public void updateMap(Arena arena) {
-
-        int maxRenderMapSize = Math.min(arena.getMap().getSize(), MAX_RENDERING_MAPSIZE);
-
-        int xPossibleRenderLeft = arena.getHero().getPosition().x - (maxRenderMapSize / 2);
-        int xRenderStartPos = xPossibleRenderLeft < 0 ? 0: xPossibleRenderLeft;
-
-        int xRenderEndPos = xRenderStartPos + maxRenderMapSize;
-        xRenderEndPos = arena.getMap().getSize();
-
+    void updateMap(Arena arena) {
+        
+        int renderMaxMapSize = Math.min(arena.getMap().getSize(), MAX_RENDERING_MAPSIZE);
+        
+        int xStartRenderingPos = getStartingRenderingPositionValue(arena.getHero().getPosition().x, arena.getMap().getSize(), renderMaxMapSize);
+        int xEndRenderingPos = getEndingRenderingPositionValue(xStartRenderingPos, arena.getMap().getSize(), renderMaxMapSize);
+        
+        int yStartRenderingPos = getStartingRenderingPositionValue(arena.getHero().getPosition().y, arena.getMap().getSize(), renderMaxMapSize);
+        int yEndRenderingPos = getEndingRenderingPositionValue(yStartRenderingPos, arena.getMap().getSize(), renderMaxMapSize);
+        
         int count = 0;
-
-        for (int y = 0; y < arena.getMap().getSize(); y++) {
-            for (int x = xRenderStartPos; x < xRenderEndPos; x++) {
+        for (int y = yStartRenderingPos; y < yEndRenderingPos; y++) {
+            for (int x = xStartRenderingPos; x < xEndRenderingPos; x++) {
                 if (this.getComponentCount() > 0) {
                     Position position = new Position(y, x);
                     MapCell mapCell = (MapCell) this.getComponent(count++);
                     if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
-                        mapCell.setValues("*" + position.toString());
+                        mapCell.setValues("*");
                     else if (arena.getMap().getGameMap().containsKey(position)) {
                         APlayer player = arena.getMap().getGameMap().get(position);
-                        mapCell.setValues(player.getType().equals("Hero") ? "0" : "X" +  position.toString());
+                        mapCell.setValues(player.getType().equals("Hero") ? "0" : "X");
                     }
                     else
-                        mapCell.setValues("" +  position.toString());
+                        mapCell.setValues("");
 
                 }
             }
         }
     }
+    
+    private int getStartingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize)
+    {
+        int startingRenderingPosition = positionValue - (renderMapSize / 2);
+        startingRenderingPosition = startingRenderingPosition < 0 ? 0 : startingRenderingPosition;
+        
+        if (startingRenderingPosition + renderMapSize > realMapSize)
+            startingRenderingPosition = realMapSize - renderMapSize;
+        
+        return startingRenderingPosition;
+    }
+    
+    private int getEndingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize)
+    {
+        int endingRenderingPosition = positionValue + renderMapSize;
+        
+        if (endingRenderingPosition > realMapSize)
+            endingRenderingPosition = realMapSize;
+        return endingRenderingPosition;
+    }
+
 }
+
 
 class MapCell extends JPanel {
     private final JLabel label = new JLabel();
@@ -71,11 +92,10 @@ class MapCell extends JPanel {
     	this.setBackground(GameColors.LIGHTER_GRAY);
         label.setForeground(GameColors.DEFAULT_FONT);
 	    this.setBorder(BorderFactory.createEtchedBorder(GameColors.LIGHTER_BLUE, GameColors.DARKEST_GRAY));
-	    Font font = new Font("monospaced", Font.BOLD, 8);
+	    Font font = new Font("monospaced", Font.BOLD, mapSize*5);
 	    this.label.setFont(font);
         this.add(label);
     }
-
     void setValues(String text) {
         label.setText(text);
 }

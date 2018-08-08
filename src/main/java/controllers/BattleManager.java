@@ -13,6 +13,8 @@ BattleManager {
     private StringBuilder attackSimulation = new StringBuilder();
 
     private int getTotalDefence(APlayer defender) {
+        attackSimulation.append("Basic defence : " + defender.getDefence()+ ". ");
+    
         return defender.getDefence() + getArtifactsDefence(defender) + luckyBlock();
     }
 
@@ -44,7 +46,7 @@ BattleManager {
             attackSimulation.append(attacker.getName()).append(" attacks ").append(defender.getName()).append(".\n");
             int totalAttack = getTotalAttack(attacker);
             
-            attackSimulation.append(defender.getName() + " defends.\n");
+            attackSimulation.append(defender.getName() + " defends. ");
             int totalDefence = getTotalDefence(defender);
             gameResultsController.addAnAttackSimulation(attackSimulation.toString());
 
@@ -57,7 +59,7 @@ BattleManager {
         Random random = new Random();
         int randomNumber = random.nextInt(5);
         if(randomNumber == 4) {
-            attackSimulation.append("Lucky block\n");
+            attackSimulation.append("Lucky block of 10. \n");
             return 10;
         }
         return 0;
@@ -70,7 +72,7 @@ BattleManager {
                 totalArtifactDefence += artifact.getPower();
             }
         }
-        attackSimulation.append("Armour defence is ").append(totalArtifactDefence).append(".\n");
+        attackSimulation.append("Armour defence is ").append(totalArtifactDefence).append(". ");
         return totalArtifactDefence;
     }
 
@@ -83,7 +85,7 @@ BattleManager {
             Random random = new Random();
             int randomNumber = random.nextInt(5);
             if (randomNumber == 4) {
-                attackSimulation.append("Lucky shot to the defender\n");
+                attackSimulation.append("Lucky shot to the defender. ");
                 return 10;
             }
         }

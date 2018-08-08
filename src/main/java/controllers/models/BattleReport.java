@@ -11,10 +11,12 @@ public class BattleReport {
 	boolean heroIsFirstAttacker;
 	APlayer winner;
 	APlayer loser;
+	boolean isHeroWinner;
 	
 	ArrayList<String> battleSimulation;
 	public BattleReport() {
 		battleSimulation = new ArrayList<>();
 		this.heroIsFirstAttacker = false;
+		this.isHeroWinner = false;
 	}
 }

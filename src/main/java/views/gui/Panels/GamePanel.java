@@ -1,7 +1,6 @@
 package views.gui.Panels;
 
 import controllers.models.BattleReport;
-import models.players.APlayer;
 import models.players.Hero;
 import models.world.Arena;
 import state.GameColors;
@@ -33,7 +32,6 @@ public class GamePanel extends JPanel {
         sidePanel.setPreferredSize(new Dimension(350, 490));
         sidePanel.setBackground(GameColors.DARKEST_GRAY);
         initMessagesPanel();
-        sidePanel.add(messagesPanel);
         
         this.add(mapPanel, BorderLayout.CENTER);
         this.add(sidePanel, BorderLayout.EAST);
@@ -60,27 +58,44 @@ public class GamePanel extends JPanel {
         messagesPanel.setPreferredSize(sidePanel.getPreferredSize());
 	    messagesPanel.setBackground(GameColors.TRANSPARENT);
 	    messagesPanel.setBorder(BorderFactory.createEmptyBorder());
+	    sidePanel.add(messagesPanel);
+	
     }
     
     public void updateUserInterface(Arena arena) {
         mapPanel.updateMap(arena);
-	    StringBuilder stringBuilder  = new StringBuilder();
 	
 	    if (arena.getGameResults().isWasBattle())
         {
 	        BattleReport battleReport = arena.getGameResults().getBattleReport();
-	        for (String battleSimulation: battleReport.getBattleSimulation()) {
-	        	stringBuilder.append(battleSimulation).append("\n ").append("--------------\n");
-	        }
+	        BattleReportTextArea battleReportTextArea = new BattleReportTextArea(battleReport);
+	
+	        messagesPanel = new JScrollPane(battleReportTextArea,
+			        JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+			        JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	        
+	        sidePanel.remove(0);
+	        messagesPanel.setPreferredSize(sidePanel.getPreferredSize());
+	        messagesPanel.setBackground(GameColors.TRANSPARENT);
+	        messagesPanel.setBorder(BorderFactory.createEmptyBorder());
+	        
+	        sidePanel.add(messagesPanel);
+	
         }
         else{
-		    for (String message: arena.getGameResults().getResult()) {
+		    StringBuilder stringBuilder  = new StringBuilder();
+		
+		    if (sidePanel.getComponent(0) != null)
+	    		sidePanel.remove(0);
+		    initMessagesPanel();
+		    for (String message: arena.getGameResults().getResult())
 			    stringBuilder.append(message + "\n");
-		    }
-	    }
+		    label.setText(stringBuilder.toString());
 
-        label.setText(stringBuilder.toString());
+	    }
+	    sidePanel.repaint();
+	    sidePanel.revalidate();
+
     }
     
     public void showHeroStats(Hero hero) {
@@ -110,7 +125,8 @@ public class GamePanel extends JPanel {
         sidePanel.removeAll();
         sidePanel.add(messagesPanel);
     }
-
+    
+    
     public void addOnNewGameListeners(ActionListener onNewGame) {
         actionsPanel.addOnNewGameListener(onNewGame);
     }
@@ -171,10 +187,8 @@ public class GamePanel extends JPanel {
 	public void addOnEastKeyPress(KeyListener onEastPressed) {
 		actionsPanel.addOnEastKeyPress(onEastPressed);
 	}
-	
 	public void addOnShowHeroStatisticsListener(ActionListener onShowHeroStatistics) {
 		actionsPanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
 	}
-	
 	
 }

@@ -28,6 +28,7 @@ public class GameResultsController {
 
     void isGameWon(boolean isGameWon) {
         gameResults.setHeroWon(isGameWon);
+        gameResults.getBattleReport().setHeroWinner(isGameWon);
     }
 
     public void addWinningMessage(Hero hero) {

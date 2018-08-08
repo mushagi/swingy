@@ -3,7 +3,7 @@ package state;
 import models.players.APlayer;
 
 public class GameConstants {
-	public static final int MAX_RENDERING_MAPSIZE = 6;
+	public static final int MAX_RENDERING_MAPSIZE = 9;
     public static final String APPLICATION_HEARDER = "Swingy in Wakanda";
     public static final String APPLICATION_SLOGAN = "The battle for the vibranium";
     public static final String START_DIVIDER = "**************************************" +
