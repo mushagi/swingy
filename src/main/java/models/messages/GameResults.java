@@ -4,7 +4,6 @@ import controllers.models.BattleReport;
 import lombok.Getter;
 import lombok.Setter;
 import models.players.APlayer;
-import models.players.Enemy;
 
 import java.util.ArrayList;
 

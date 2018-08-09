@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 
 @Getter
-    class ActionsPanel extends JPanel {
+    class ButtonsPanel extends JPanel {
     
     public final ButtonRounded north = new ButtonRounded("North");
     final ButtonRounded south = new ButtonRounded("South");
@@ -23,7 +23,7 @@ import java.awt.event.KeyListener;
     final ButtonRounded backToMainMenu = new ButtonRounded("Menu");
     final ButtonRounded btnShowHeroStatistics = new ButtonRounded("Show Hero Stats");
 
-    ActionsPanel() {
+    ButtonsPanel() {
         this.setLayout(new BorderLayout());
         this.setBackground(GameColors.LIGHTERST__GRAY);
     
