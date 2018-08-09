@@ -1,7 +1,6 @@
 package views.gui.Panels;
 
 import models.players.Hero;
-import state.GameColors;
 import views.gui.ButtonRounded;
 import views.gui.RoundedBorders;
 
@@ -12,7 +11,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class
 ChooseHeroPanel extends JPanel {
@@ -27,7 +25,7 @@ ChooseHeroPanel extends JPanel {
     private final ButtonRounded btnBack = new ButtonRounded("Back");
     private final ButtonRounded btnQuit = new ButtonRounded("Quit");
 
-    public final HeroStatisticsPanel   heroStatisticsPanel = new HeroStatisticsPanel();
+    public final HeroStatisticsTextArea heroStatisticsTextArea = new HeroStatisticsTextArea();
     private final ArrayList<Hero> heroes;
 
     public ChooseHeroPanel(Collection<Hero> heroes) {
@@ -39,7 +37,7 @@ ChooseHeroPanel extends JPanel {
         this.setBackground(Color.gray);
 
         JPanel centerPanel = getCenterPanel();
-        JPanel sidePanel = getSidePanel();
+        JComponent sidePanel = getSidePanel();
         JPanel optionsPanel = getOptionsPanel();
 
         this.add(centerPanel, BorderLayout.CENTER);
@@ -59,10 +57,10 @@ ChooseHeroPanel extends JPanel {
         return optionsPanel;
     }
 
-    private JPanel getSidePanel() {
-        heroStatisticsPanel.setBackground(new Color(18, 18, 18));
-        heroStatisticsPanel.setPreferredSize(new Dimension(320,400));
-        return heroStatisticsPanel;
+    private JComponent getSidePanel() {
+        heroStatisticsTextArea.setBackground(new Color(18, 18, 18));
+        heroStatisticsTextArea.setPreferredSize(new Dimension(320,400));
+        return heroStatisticsTextArea;
     }
 
     private JPanel getCenterPanel() {
@@ -134,7 +132,7 @@ ChooseHeroPanel extends JPanel {
     }
 
     public void updatePlayerStatistics() {
-        heroStatisticsPanel.updateWithHero(heroes.get(currentlySelected.getTag()));
+        heroStatisticsTextArea.updateWithHero(heroes.get(currentlySelected.getTag()));
     }
 
     public void addOnBtnBackListener(ActionListener onBtnBackListener) {

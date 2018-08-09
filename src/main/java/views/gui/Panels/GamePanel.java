@@ -16,23 +16,21 @@ public class GamePanel extends JPanel {
 
     public GamePanel(int mapSize) throws HeadlessException {
         this.setLayout(new BorderLayout());
-
+        
         mapPanel.generateNewMap(mapSize);
-
+        
         mapPanel.setPreferredSize(new Dimension(600, 450));
         buttonsPanel.setPreferredSize(new Dimension(950, 70));
-        sidePanel.setPreferredSize(new Dimension(350, 490));
-
+        sidePanel.setPreferredSize(new Dimension(350, 450));
+        
         add(mapPanel, BorderLayout.CENTER);
         add(sidePanel, BorderLayout.EAST);
         add(buttonsPanel, BorderLayout.SOUTH);
-
     }
-
+    
     public void updateUserInterface(Arena arena) {
-        mapPanel.updateMap(arena);
-
-	    if (arena.getGameResults().isWasBattle())
+    	mapPanel.updateMap(arena);
+    	if (arena.getGameResults().isWasBattle())
 	        sidePanel.showBattleReport(arena.getGameResults().getBattleReport());
         else
             sidePanel.showMessage(arena.getGameResults().getResult());
@@ -41,7 +39,7 @@ public class GamePanel extends JPanel {
     public void showHeroStats(Hero hero) {
         sidePanel.toggleHeroStats(hero);
     }
-
+    
     public void addOnNewGameListeners(ActionListener onNewGame) {
         buttonsPanel.addOnNewGameListener(onNewGame);
     }
@@ -93,17 +91,20 @@ public class GamePanel extends JPanel {
 	public void addOnNorthKeyPress(KeyListener onNorthPressed) {
 		buttonsPanel.addOnNorthKeyPress(onNorthPressed);
 	}
+	
 	public void addOnSouthKeyPress(KeyListener onSouthPressed) {
 		buttonsPanel.addOnSouthKeyPress(onSouthPressed);
 	}
+	
 	public void addOnWestKeyPress(KeyListener onWestPressed) {
 		buttonsPanel.addOnWestKeyPress(onWestPressed);
 	}
+	
 	public void addOnEastKeyPress(KeyListener onEastPressed) {
 		buttonsPanel.addOnEastKeyPress(onEastPressed);
 	}
+	
 	public void addOnShowHeroStatisticsListener(ActionListener onShowHeroStatistics) {
 		buttonsPanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
 	}
-	
 }

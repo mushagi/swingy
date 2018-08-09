@@ -6,9 +6,9 @@ import state.GameColors;
 import javax.swing.*;
 import java.awt.*;
 
-public class BattleReportTextArea extends JTextArea {
+class BattleReportTextArea extends JTextArea {
 	
-	public BattleReportTextArea(BattleReport battleReport) {
+	BattleReportTextArea(BattleReport battleReport) {
 		
 		Font monoFont = new Font("Monospaced", Font.PLAIN, 14);
 		setFont(monoFont);
@@ -26,24 +26,24 @@ public class BattleReportTextArea extends JTextArea {
 		this.addText(battleReport.isHeroIsFirstAttacker() ? "Hero" : "Enemy" + " is attacking first");
 		
 		
-		boolean switchAllignment = false;
-		for (String attakSimulations: battleReport.getBattleSimulation())
+		boolean switchJustification = false;
+		for (String attackSimulations: battleReport.getBattleSimulation())
 		{
-			String[] attackSimulations = attakSimulations.split("\n");
+			String[] strings = attackSimulations.split("\n");
 			
-			for (String attackSim : attackSimulations){
-				if (!switchAllignment){
+			for (String attackSim : strings){
+				if (!switchJustification){
 					this.addText(attackSim);
 				}
 				else
 					this.addTextRight(attackSim);
 			}
-			if (!switchAllignment){
+			if (!switchJustification){
 				this.addText(("-----------------------"));
 			}
 			else
 				this.addTextRight(("-----------------------"));
-			switchAllignment = !switchAllignment;
+			switchJustification = !switchJustification;
 		}
 		this.addText("_________________________________________");
 		this.addText(battleReport.getWinner().getType() + " Wins!!");
@@ -51,12 +51,12 @@ public class BattleReportTextArea extends JTextArea {
 		this.addText(battleReport.getWinner().getType() +" says: "+battleReport.getWinner().getWinningSpeech());
 	}
 	
-	void addText(String text) {
+	private void addText(String text) {
 		String format = "%s\n";
 		this.append(String.format(format, text));
 	}
 	
-	void addTextRight(String text) {
+	private void addTextRight(String text) {
 		String format = "%42s\n";
 		this.append(String.format(format, text));
 	}

@@ -6,10 +6,10 @@ import state.GameColors;
 import javax.swing.*;
 import java.awt.*;
 
-public class HeroStatisticsPanel extends JPanel {
+public class HeroStatisticsTextArea extends JTextArea {
 	private JTextArea textArea= new JTextArea();
 	
-	HeroStatisticsPanel() {
+	HeroStatisticsTextArea() {
         this.setBackground(new Color(0,0,0,0));
 	    Font monoFont = new Font("Monospaced", Font.PLAIN, 14);
 	    textArea.setFont(monoFont);
