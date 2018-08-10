@@ -6,30 +6,28 @@ import state.GameColors;
 import javax.swing.*;
 import java.awt.*;
 
-public class HeroStatisticsTextArea extends JTextArea {
-	private JTextArea textArea= new JTextArea();
-	
+class HeroStatisticsTextArea extends JTextArea {
+
 	HeroStatisticsTextArea() {
         this.setBackground(new Color(0,0,0,0));
 	    Font monoFont = new Font("Monospaced", Font.PLAIN, 14);
-	    textArea.setFont(monoFont);
-	    textArea.setEditable(false);
-	    textArea.setCursor(null);
-	    textArea.setHighlighter(null);
-	    textArea.setBackground(GameColors.TRANSPARENT);
-	    textArea.setForeground(GameColors.DEFAULT_FONT);
-	    add(textArea);
+	    setFont(monoFont);
+	    setEditable(false);
+	    setCursor(null);
+	    setHighlighter(null);
+	    setBackground(GameColors.DARKEST_GRAY);
+	    setForeground(GameColors.DEFAULT_FONT);
     }
-    
-    public void updateWithHero(Hero hero) {
-		textArea.setText(null);
+
+    void updateWithHero(Hero hero) {
+		setText(null);
 	    String format = "%-20s%-20s\n";
-	    textArea.append("Statistics\n\n");
-	    textArea.append(String.format(format, "Hero Class", hero.getHeroClass()));
-	    textArea.append(String.format(format, "Experience", hero.getExperience()));
-	    textArea.append(String.format(format, "Level", hero.getLevel()));
-	    textArea.append(String.format(format, "Type", hero.getType()));
-	    textArea.append(String.format(format, "Attack", hero.getAttack()));
-	    textArea.append(String.format(format, "Defence", hero.getDefence()));
+	    append("Statistics\n\n");
+	    append(String.format(format, "Hero Class", hero.getHeroClass()));
+	    append(String.format(format, "Experience", hero.getExperience()));
+	    append(String.format(format, "Level", hero.getLevel()));
+	    append(String.format(format, "Type", hero.getType()));
+	    append(String.format(format, "Attack", hero.getAttack()));
+	    append(String.format(format, "Defence", hero.getDefence()));
     }
 }

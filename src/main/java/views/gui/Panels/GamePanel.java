@@ -13,7 +13,7 @@ public class GamePanel extends JPanel {
     private final MapPanel mapPanel = new MapPanel();
     private final ButtonsPanel buttonsPanel = new ButtonsPanel();
     private final SidePanel sidePanel = new SidePanel();
-
+ 
     public GamePanel(int mapSize) throws HeadlessException {
         this.setLayout(new BorderLayout());
         

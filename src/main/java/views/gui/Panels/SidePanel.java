@@ -19,47 +19,43 @@ class SidePanel extends JPanel{
 
     SidePanel() {
     	setLayout(new BorderLayout());
-	    label.setForeground(GameColors.DEFAULT_FONT);
-	    
-	    messagePanel.setLayout(new BorderLayout());
-	    messagePanel.add(label, BorderLayout.CENTER);
-	    messagePanel.setBackground(GameColors.DARKEST_GRAY);
-	    
-	    
-	    scroll.setBackground(GameColors.TRANSPARENT);
+    	setUpMessagePanel();
 	    this.add(scroll, BorderLayout.CENTER);
     }
 
-    void showMessage(ArrayList<String> results) {
+	private void setUpMessagePanel() {
+    	label.setForeground(GameColors.DEFAULT_FONT);
+        messagePanel.setLayout(new GridBagLayout());
+		messagePanel.add(label);
+		messagePanel.setBackground(GameColors.DARKEST_GRAY);
+	}
+
+	void showMessage(ArrayList<String> results) {
 	    isShowingHeroStatistics = false;
 	    label.setText("");
+
 	    StringBuilder stringBuilder  = new StringBuilder();
-        
         for (String message: results)
             stringBuilder.append(message).append("\n");
-        
         label.setText(stringBuilder.toString());
-        
+
 	    showMessagePanel();
     }
 
     private void showMessagePanel() {
     	showViewComponentInScroll(messagePanel);
     }
-    
+
     private void showHeroStatistics(Hero hero){
 	    HeroStatisticsTextArea heroStatisticsTextArea = new HeroStatisticsTextArea();
 	    heroStatisticsTextArea.updateWithHero(hero);
-	    heroStatisticsTextArea.setMinimumSize(getPreferredSize());
 	    showViewComponentInScroll(heroStatisticsTextArea);
-	    
     }
     
     void showBattleReport(BattleReport battleReport) {
         BattleReportTextArea battleReportTextArea =
 		        new BattleReportTextArea(battleReport);
         showViewComponentInScroll(battleReportTextArea);
-	
     }
     
     void toggleHeroStats(Hero hero) {
@@ -72,9 +68,7 @@ class SidePanel extends JPanel{
      
      private void showViewComponentInScroll(JComponent component) {
 	     scroll.setViewportView(component);
-	     scroll.getViewport().revalidate();
-	     scroll.getViewport().invalidate();
-	     scroll.getViewport().repaint();
-	     
+         scroll.setOpaque(false);
+         scroll.getViewport().setOpaque(false);
      }
 }

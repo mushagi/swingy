@@ -12,11 +12,11 @@ import static state.GameConstants.MAX_RENDERING_MAPSIZE;
 
 class MapPanel extends JPanel {
 
-    public MapPanel() {
+    MapPanel() {
         setBackground(GameColors.LIGHTER_GRAY);
     }
 
-    public void generateNewMap(int mapSize) {
+    void generateNewMap(int mapSize) {
         int maxMapSize = Math.min(mapSize, MAX_RENDERING_MAPSIZE);
     
         this.setLayout(new GridLayout(maxMapSize, maxMapSize));
