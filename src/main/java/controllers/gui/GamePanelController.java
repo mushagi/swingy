@@ -4,9 +4,6 @@ import views.gui.Panels.GamePanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 class GamePanelController extends APanelController {
     private final GamePanel gamePanel;
@@ -19,16 +16,15 @@ class GamePanelController extends APanelController {
         updateUserInterface();
     }
 
-    private final ActionListener onNorthClicked = new ActionListener() {
+    private final AbstractAction onNorthClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            
             guiController.moveNorth();
             updateUserInterface();
         }
     };
 
-    private final ActionListener onSouthClicked = new ActionListener() {
+    private final AbstractAction onSouthClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveSouth();
@@ -36,7 +32,7 @@ class GamePanelController extends APanelController {
         }
     };
 
-    private final ActionListener onEastClicked = new ActionListener() {
+    private final AbstractAction onEastClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveEast();
@@ -44,7 +40,7 @@ class GamePanelController extends APanelController {
         }
     };
 
-    private final ActionListener onWestClicked = new ActionListener() {
+    private final AbstractAction onWestClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveWest();
@@ -52,7 +48,7 @@ class GamePanelController extends APanelController {
         }
     };
 
-    private final ActionListener onFightClicked = new ActionListener() {
+    private final AbstractAction onFightClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.attack();
@@ -60,7 +56,7 @@ class GamePanelController extends APanelController {
         }
     };
 
-    private final ActionListener onRunawayClicked = new ActionListener() {
+    private final AbstractAction onRunawayClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.runAway();
@@ -68,7 +64,7 @@ class GamePanelController extends APanelController {
         }
     };
 
-    private final ActionListener onQuit = new ActionListener() {
+    private final AbstractAction onQuit = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.quitGame();
@@ -77,84 +73,15 @@ class GamePanelController extends APanelController {
     };
 
 
-    private final ActionListener onBackToMainMenu = new ActionListener() {
+    private final AbstractAction onBackToMainMenu = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
         
         }
     };
     
-    private KeyListener onEastPressed = new KeyListener() {
-        @Override
-        public void keyTyped(KeyEvent e) {
-        }
-        
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_D)
-            {
-                guiController.moveEast();
-                updateUserInterface();
-            }
-
-        }
-        
-        @Override
-        public void keyReleased(KeyEvent e) {
-        
-        }
-    };
-    
-    private KeyListener onNorthPressed = new KeyListener() {
-        @Override
-        public void keyTyped(KeyEvent e) {
-        }
-        
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_W)
-                guiController.moveNorth();
-        }
-        
-        @Override
-        public void keyReleased(KeyEvent e) {
-        
-        }
-    };
-    private KeyListener onWestPressed = new KeyListener() {
-        @Override
-        public void keyTyped(KeyEvent e) {
-        }
-        
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_A)
-                guiController.moveWest();
-        }
-        
-        @Override
-        public void keyReleased(KeyEvent e) {
-        
-        }
-    };
-    private KeyListener onSouthPressed = new KeyListener() {
-        @Override
-        public void keyTyped(KeyEvent e) {
-        }
-        
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_S)
-                guiController.moveSouth();
-        }
-        
-        @Override
-        public void keyReleased(KeyEvent e) {
-        
-        }
-    };
-    
-    private final ActionListener onNewGame = new ActionListener() {
+  
+    private final AbstractAction onNewGame = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) { 
             newGameDialogue();
@@ -162,7 +89,7 @@ class GamePanelController extends APanelController {
         }
     };
 	
-	private final ActionListener onShowHeroStatistics = new ActionListener() {
+	private final AbstractAction onShowHeroStatistics = new AbstractAction() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			SwingUtilities.invokeLater(new Runnable() {
@@ -173,7 +100,7 @@ class GamePanelController extends APanelController {
 			});
 		}
 	};
-    
+	
     private void newGameDialogue() {
     }
 
@@ -197,16 +124,10 @@ class GamePanelController extends APanelController {
         gamePanel.addOnQuitListener(onQuit);
         gamePanel.addOnBackToMainMenuListener(onBackToMainMenu);
         gamePanel.addOnNewGameListeners(onNewGame);
-        gamePanel.addOnEastKeyPress(onEastPressed);
         gamePanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
- //       gamePanel.addOnWestKeyPress(onWestPressed);
-//        gamePanel.addOnSouthKeyPress(onSouthPressed);
-     //   gamePanel.addOnNorthKeyPress(onNorthPressed);
     }
-
+    
     @Override
     void updatePanel() {
     }
-
-
 }

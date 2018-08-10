@@ -2,16 +2,15 @@ package views.gui.Panels;
 
 import controllers.models.BattleReport;
 import state.GameColors;
+import state.GameConstants;
 
 import javax.swing.*;
-import java.awt.*;
 
 class BattleReportTextArea extends JTextArea {
 	
 	BattleReportTextArea(BattleReport battleReport) {
 		
-		Font monoFont = new Font("Monospaced", Font.PLAIN, 14);
-		setFont(monoFont);
+		setFont(GameConstants.MONO_FONT);
 		setEditable(false);
 		setCursor(null);
 		setHighlighter(null);

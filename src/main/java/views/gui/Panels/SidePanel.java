@@ -5,6 +5,7 @@ import models.players.Hero;
 import state.GameColors;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -14,15 +15,19 @@ class SidePanel extends JPanel{
 		    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     private final JPanel messagePanel = new JPanel();
     private final JLabel label = new JLabel();
-    
-    private boolean isShowingHeroStatistics = false;
+	private final BottomStatisticsPanel bottomStats = new BottomStatisticsPanel();
+	
+	private boolean isShowingHeroStatistics = false;
 
     SidePanel() {
     	setLayout(new BorderLayout());
-    	setUpMessagePanel();
+	
+    	scroll.setBorder(BorderFactory.createEmptyBorder());
 	    this.add(scroll, BorderLayout.CENTER);
+	    this.add(bottomStats, BorderLayout.SOUTH);
+    	setUpMessagePanel();
     }
-
+	
 	private void setUpMessagePanel() {
     	label.setForeground(GameColors.DEFAULT_FONT);
         messagePanel.setLayout(new GridBagLayout());
@@ -32,16 +37,17 @@ class SidePanel extends JPanel{
 
 	void showMessage(ArrayList<String> results) {
 	    isShowingHeroStatistics = false;
-	    label.setText("");
-
+	    
 	    StringBuilder stringBuilder  = new StringBuilder();
         for (String message: results)
             stringBuilder.append(message).append("\n");
         label.setText(stringBuilder.toString());
-
 	    showMessagePanel();
     }
-
+    
+    void updateBottomStatistics(Hero hero) {
+    	bottomStats.update(hero);
+    }
     private void showMessagePanel() {
     	showViewComponentInScroll(messagePanel);
     }

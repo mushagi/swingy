@@ -77,7 +77,7 @@ class ChooseHeroPanelController extends APanelController {
         @Override
         public void insertUpdate(DocumentEvent e) {
 	        try {
-		        setPlayerName(e.getDocument().getText(0, e.getLength()));
+      		        setPlayerName(e.getDocument().getText(0, e.getDocument().getLength()));
 	        } catch (BadLocationException e1) {
 		        e1.printStackTrace();
 	        }
@@ -85,8 +85,7 @@ class ChooseHeroPanelController extends APanelController {
 
         @Override
         public void removeUpdate(DocumentEvent e) {
-	        try {
-		        setPlayerName(e.getDocument().getText(0, e.getLength()));
+	        try { setPlayerName(e.getDocument().getText(0, e.getLength()));
 	        } catch (BadLocationException e1) {
 		        e1.printStackTrace();
 	        }
