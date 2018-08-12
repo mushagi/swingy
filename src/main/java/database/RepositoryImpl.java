@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class RepositoryImpl implements IRepository<Hero> {

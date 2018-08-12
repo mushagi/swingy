@@ -3,6 +3,7 @@ package controllers.models;
 import controllers.BattleManager;
 import database.IRepository;
 import enums.EDirection;
+import enums.HeroType;
 import lombok.Getter;
 import models.players.APlayer;
 import models.players.Hero;
@@ -113,9 +114,9 @@ public class ArenaController {
         gameResultsController.isGameWon(true);
     }
 
-    public void createHero(String type) {
+    public void createHero(HeroType type) {
         Hero hero;
-        hero = heroController.createHero(type, arena.getPlayerName());
+        hero = heroController.createHero(type);
         heroRepository.create(hero);
         initArena(hero);
     }

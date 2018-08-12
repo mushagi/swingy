@@ -9,11 +9,11 @@ import java.util.Random;
 
 public class
 BattleManager {
-    private GameResultsController gameResultsController;
-    private StringBuilder attackSimulation = new StringBuilder();
+    private final GameResultsController gameResultsController;
+    private final StringBuilder attackSimulation = new StringBuilder();
 
     private int getTotalDefence(APlayer defender) {
-        attackSimulation.append("Basic defence : " + defender.getDefence()+ ". ");
+        attackSimulation.append("Basic defence : ").append(defender.getDefence()).append(". ");
     
         return defender.getDefence() + getArtifactsDefence(defender) + luckyBlock();
     }
@@ -45,8 +45,8 @@ BattleManager {
             attackSimulation.setLength(0);
             attackSimulation.append(attacker.getName()).append(" attacks ").append(defender.getName()).append(".\n");
             int totalAttack = getTotalAttack(attacker);
-            
-            attackSimulation.append(defender.getName() + " defends. ");
+    
+            attackSimulation.append(defender.getName()).append(" defends. ");
             int totalDefence = getTotalDefence(defender);
             gameResultsController.addAnAttackSimulation(attackSimulation.toString());
 

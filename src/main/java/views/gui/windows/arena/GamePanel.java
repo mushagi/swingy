@@ -1,11 +1,10 @@
-package views.gui.Panels;
+package views.gui.windows.arena;
 
 import models.players.Hero;
 import models.world.Arena;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class GamePanel extends JPanel {
 

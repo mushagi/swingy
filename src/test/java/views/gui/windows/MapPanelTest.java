@@ -1,4 +1,4 @@
-package views.gui.Panels;
+package views.gui.windows;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,5 @@ class MapPanelTest {
     void mapPanel() {
         JFrame jFrame = new JFrame();
         jFrame.setVisible(true);
-        MapPanel mapPanel = new MapPanel();
-        mapPanel.setVisible(true);
     }
 }

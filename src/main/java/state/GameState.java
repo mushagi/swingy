@@ -1,9 +1,10 @@
 package state;
 
+import enums.HeroType;
 import factory.ArenaFactory;
+import factory.HeroFactory;
 import lombok.Getter;
 import lombok.Setter;
-import models.players.BlackPanther;
 import models.players.Hero;
 import models.world.Arena;
 
@@ -28,16 +29,8 @@ public class GameState {
 
     public ArrayList<Hero> getAvailableHeroes() {
         ArrayList<Hero> heroes = new ArrayList<>();
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-        heroes.add(new BlackPanther("Nameless"));
-
-
+        for (HeroType type : HeroType.values())
+            heroes.add(HeroFactory.newHero(type));
         return heroes;
     }
 }

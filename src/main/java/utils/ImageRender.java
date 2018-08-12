@@ -7,10 +7,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-;
-
 public class ImageRender {
-	public static Image getScaledImage(String imageUrl, JLabel component) {
+	private static Image getScaledImage(String imageUrl, JLabel component) {
 		Image image = null;
 		try {
 			BufferedImage bufferedImage  = ImageIO.read(new File(imageUrl));

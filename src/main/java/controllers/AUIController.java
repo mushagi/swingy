@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.models.ArenaController;
+import enums.HeroType;
 import models.players.Hero;
 import models.world.Arena;
 
@@ -53,14 +54,11 @@ public abstract class AUIController {
     }
 
     protected abstract void updateUserInterface();
-
-    public void createNewHero(String type) {
-        arenaController.createHero(type);
-        updateUserInterface();
-    }
-
-    protected void createNewHero(Hero hero) {
+    
+    public void createNewHero(Hero hero) {
         arenaController.initArena(hero);
+        updateUserInterface();
+    
     }
 
     protected Collection<Hero> getAllHeroes() {

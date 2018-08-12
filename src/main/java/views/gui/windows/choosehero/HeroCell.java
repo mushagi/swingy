@@ -1,8 +1,8 @@
-package views.gui.Panels;
+package views.gui.windows.choosehero;
 
 import lombok.Getter;
 import models.players.Hero;
-import state.GameColors;
+import state.GameConstants;
 import utils.ImageRender;
 
 import javax.swing.*;
@@ -12,17 +12,19 @@ import java.util.List;
 public class HeroCell extends JPanel {
     @Getter
     private final int tag ;
-    JLabel lblImage =new JLabel();
+    private final JLabel lblImage = new JLabel();
 
     HeroCell(Hero hero, int tag) {
-        JLabel lblType = new JLabel(hero.getHeroClass());
+        JLabel lblType = new JLabel(hero.getName());
         lblType.setForeground(Color.WHITE);
         lblImage.setPreferredSize(new Dimension(140,100));
         swingWorker.execute();
+        
         add(lblImage);
         add(lblType);
+        
         this.tag = tag;
-        this.setBackground(GameColors.LIGHTERST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTERST__GRAY);
     
         this.setPreferredSize(new Dimension(150,150));
         this.setMaximumSize(new Dimension(150, 150));
@@ -30,15 +32,15 @@ public class HeroCell extends JPanel {
     }
 
     void onHover() {
-        this.setBackground(GameColors.LIGHTER_BLUE);
+        this.setBackground(GameConstants.Colors.LIGHTER_BLUE);
     }
     void unSelected() {
-        this.setBackground(GameColors.LIGHTERST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTERST__GRAY);
     }
     
-    SwingWorker<Integer, ImageIcon> swingWorker = new SwingWorker<Integer, ImageIcon>() {
+    private final SwingWorker<Integer, ImageIcon> swingWorker = new SwingWorker<Integer, ImageIcon>() {
         @Override
-        protected Integer doInBackground() throws Exception {
+        protected Integer doInBackground() {
             ImageIcon imageIcon = ImageRender.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage);
             
             publish(imageIcon);
@@ -52,8 +54,5 @@ public class HeroCell extends JPanel {
             }
         }
     };
-	
-	public void setValues(String hero) {
-	
-	}
+    
 }

@@ -1,6 +1,6 @@
 package factory;
 
-import controllers.*;
+import controllers.BattleManager;
 import controllers.models.ArenaController;
 import controllers.models.GameResultsController;
 import controllers.models.HeroController;
@@ -11,7 +11,6 @@ import models.world.Arena;
 import state.GameState;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class ArenaControllerFactory {
     public static ArenaController newArenaControllerFromGameData() {

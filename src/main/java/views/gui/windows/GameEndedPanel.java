@@ -1,20 +1,20 @@
-package views.gui.Panels;
+package views.gui.windows;
 
 import models.messages.GameResults;
 import models.world.Arena;
-import state.GameColors;
-import views.gui.ButtonRounded;
+import state.GameConstants;
+import views.gui.custom.ButtonRounded;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class GameEndedPanel extends JPanel {
-	Arena arena;
-	GameResults gameResults;
+	private final Arena arena;
+	private final GameResults gameResults;
 	
-	ButtonRounded btnNewGame = new ButtonRounded("");
-	ButtonRounded btnBackToMenu = new ButtonRounded("Main Menu");
-	ButtonRounded btnQuit = new ButtonRounded("Quit");
+	private final ButtonRounded btnNewGame = new ButtonRounded("");
+	private final ButtonRounded btnBackToMenu = new ButtonRounded("Main Menu");
+	private final ButtonRounded btnQuit = new ButtonRounded("Quit");
 	
 	public GameEndedPanel(Arena arena) {
 		this.arena = arena;
@@ -24,7 +24,7 @@ public class GameEndedPanel extends JPanel {
 		this.setLayout(layout);
 		btnNewGame.setText(gameResults.isHeroWon()? "New Game" : "Try again");
 		
-		this.setBackground(GameColors.DARKEST_GRAY);
+		this.setBackground(GameConstants.Colors.DARKEST_GRAY);
 
 		
 		JPanel messagePanel = getMessagePanel();
@@ -56,9 +56,10 @@ public class GameEndedPanel extends JPanel {
 		
 		for (String string : arena.getGameResults().getResult())
 			stringBuilder.append(string).append("\n");
+		
 		label.setText(stringBuilder.toString());
-		label.setForeground(GameColors.DEFAULT_FONT);
-		messagePanel.setBackground(GameColors.TRANSPARENT);
+		label.setForeground(GameConstants.Colors.DEFAULT_FONT);
+		messagePanel.setBackground(GameConstants.Colors.TRANSPARENT);
 		messagePanel.add(label);
 		return messagePanel;
 	}

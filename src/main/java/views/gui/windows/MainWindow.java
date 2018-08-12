@@ -1,9 +1,9 @@
-package views.gui;
+package views.gui.windows;
 
 import javax.swing.*;
 import java.awt.*;
 
-class MainWindow extends JFrame {
+public class MainWindow extends JFrame {
     public MainWindow() throws HeadlessException {
         this.setBackground(new java.awt.Color(30,30,100));
         this.setSize(new Dimension(1000, 600));

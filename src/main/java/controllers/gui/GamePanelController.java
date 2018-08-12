@@ -1,6 +1,6 @@
 package controllers.gui;
 
-import views.gui.Panels.GamePanel;
+import views.gui.windows.arena.GamePanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -84,7 +84,6 @@ class GamePanelController extends APanelController {
     private final AbstractAction onNewGame = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) { 
-            newGameDialogue();
 
         }
     };
@@ -100,10 +99,7 @@ class GamePanelController extends APanelController {
 			});
 		}
 	};
-	
-    private void newGameDialogue() {
-    }
-
+    
     private void updateUserInterface() {
         if (!guiController.getArena().isGameInProgress()) {
             guiController.showGameEndedPanel();

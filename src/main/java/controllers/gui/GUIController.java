@@ -6,10 +6,10 @@ import factory.ControllerFactory;
 import models.players.Hero;
 import state.GameState;
 import views.gui.GUI;
-import views.gui.Panels.ChooseHeroPanel;
-import views.gui.Panels.GameEndedPanel;
-import views.gui.Panels.GamePanel;
-import views.gui.Panels.NewLoadPlayerPanel;
+import views.gui.windows.choosehero.ChooseHeroPanel;
+import views.gui.windows.GameEndedPanel;
+import views.gui.windows.arena.GamePanel;
+import views.gui.windows.NewLoadPlayerPanel;
 
 import javax.swing.*;
 import java.util.Collection;

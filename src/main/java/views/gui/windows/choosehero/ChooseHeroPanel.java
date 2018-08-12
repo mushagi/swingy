@@ -1,8 +1,9 @@
-package views.gui.Panels;
+package views.gui.windows.choosehero;
 
 import models.players.Hero;
-import views.gui.ButtonRounded;
-import views.gui.RoundedBorders;
+import views.gui.custom.ButtonRounded;
+import views.gui.custom.RoundedBorders;
+import views.gui.custom.HeroStatisticsTextArea;
 
 import javax.swing.*;
 import javax.swing.event.DocumentListener;
@@ -17,15 +18,14 @@ ChooseHeroPanel extends JPanel {
 
     private final ButtonRounded btnNext = new ButtonRounded("Next");
     private final JTextField txtPlayerName = new JTextField(13);
-    public  HeroListPanel heroListPanel;
+    private final JLabel lblChoose = new JLabel("Choose a Wakandian: ");
     private HeroCell currentlySelected;
-    private JLabel lblChoose = new JLabel("Choose a Wakandian: ");
-    private JLabel lblPlayerName = new JLabel("Your name");
+    private final JLabel lblPlayerName = new JLabel("Your name");
+    private final HeroStatisticsTextArea heroStatisticsTextArea = new HeroStatisticsTextArea();
 
     private final ButtonRounded btnBack = new ButtonRounded("Back");
     private final ButtonRounded btnQuit = new ButtonRounded("Quit");
-
-    public final HeroStatisticsTextArea heroStatisticsTextArea = new HeroStatisticsTextArea();
+    private HeroListPanel heroListPanel;
     private final ArrayList<Hero> heroes;
 
     public ChooseHeroPanel(Collection<Hero> heroes) {

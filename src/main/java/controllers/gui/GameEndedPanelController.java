@@ -1,13 +1,13 @@
 package controllers.gui;
 
-import views.gui.Panels.GameEndedPanel;
+import views.gui.windows.GameEndedPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameEndedPanelController extends APanelController{
+class GameEndedPanelController extends APanelController {
 	
-	GameEndedPanel gameEndedPanel;
+	private final GameEndedPanel gameEndedPanel;
 	public GameEndedPanelController(GUIController guiController, GameEndedPanel gameEndedPanel) {
 		super(guiController);
 		this.gameEndedPanel = gameEndedPanel;

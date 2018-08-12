@@ -1,8 +1,8 @@
 package controllers.cli;
 
 import controllers.AUIController;
-import controllers.models.ArenaController;
 import controllers.gui.GUIController;
+import controllers.models.ArenaController;
 import factory.ControllerFactory;
 import models.players.Hero;
 import state.GameState;
@@ -41,7 +41,7 @@ public class CLIController extends AUIController {
         if (GameState.getInstance().isShowSplashScreen()) {
             userInterface.showSplashScreen();
             GameState.getInstance().setShowSplashScreen(false);
-            waitForAnyKeyPress(true);
+            waitForAnyKeyPress();
         }
     }
 
@@ -85,7 +85,7 @@ public class CLIController extends AUIController {
             run();
         else {
             userInterface.printResultsMessage(arenaController.getArena());
-            waitForAnyKeyPress(true);
+            waitForAnyKeyPress();
             promptNewGame();
         }
 
@@ -259,9 +259,9 @@ public class CLIController extends AUIController {
             System.exit(0);
         return input;
     }
-
-     private void waitForAnyKeyPress(boolean isCentered) {
-        userInterface.promptAnyKeyPress(isCentered);
+    
+    private void waitForAnyKeyPress() {
+        userInterface.promptAnyKeyPress(true);
         try {
             System.in.read();
         } catch (Exception e) {

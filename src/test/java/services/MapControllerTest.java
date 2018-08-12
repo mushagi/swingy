@@ -10,25 +10,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MapControllerTest {
-
-    @Test
-    void moveHeroInTheMap() {
-    }
-
-    @Test
-    void addMapValues() {
-    }
-
-    @Test
-    void isMoveWithinBounds() {
-    }
-
-    @Test
-    void heroFoundARunAwayPosition() {
-    }
-    @Test
+	
+	@Test
     void addPlayerToAMap() {
-        Map map = map = new Map();
+        Map map = new Map();
 
         MapController mapController = new MapController(map);
 

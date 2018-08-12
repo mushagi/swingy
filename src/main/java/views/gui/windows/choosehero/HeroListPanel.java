@@ -1,7 +1,6 @@
-package views.gui.Panels;
+package views.gui.windows.choosehero;
 
 import models.players.Hero;
-import state.GameColors;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +8,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class HeroListPanel extends JPanel {
+class HeroListPanel extends JPanel {
 	private final ArrayList<HeroCell> components = new ArrayList<>();
 	
 	public HeroListPanel(Collection<Hero> heroes) {

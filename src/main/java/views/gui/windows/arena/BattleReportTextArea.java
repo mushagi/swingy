@@ -1,7 +1,6 @@
-package views.gui.Panels;
+package views.gui.windows.arena;
 
 import controllers.models.BattleReport;
-import state.GameColors;
 import state.GameConstants;
 
 import javax.swing.*;
@@ -16,8 +15,8 @@ class BattleReportTextArea extends JTextArea {
 		setHighlighter(null);
 		setLineWrap(true);
 		setWrapStyleWord(true);
-		setForeground(GameColors.DEFAULT_FONT);
-		setBackground(GameColors.DARKEST_GRAY);
+		setForeground(GameConstants.Colors.DEFAULT_FONT);
+		setBackground(GameConstants.Colors.DARKEST_GRAY);
 		setText(null);
 		
 		this.addText("Battle Report");

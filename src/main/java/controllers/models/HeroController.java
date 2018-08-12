@@ -1,5 +1,6 @@
 package controllers.models;
 
+import enums.HeroType;
 import factory.HeroFactory;
 import models.players.APlayer;
 import models.players.Hero;
@@ -37,8 +38,8 @@ public class HeroController {
         return 100 + playerWonAgainst.getExperience();
     }
 
-    Hero createHero(String type, String playerName) {
-        Hero hero = HeroFactory.newHero(type, playerName);
+    Hero createHero(HeroType type) {
+        Hero hero = HeroFactory.newHero(type);
         this.hero = hero;
         return hero;
     }

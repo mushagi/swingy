@@ -1,8 +1,8 @@
-package views.gui.Panels;
+package views.gui.windows.arena;
 
 import lombok.Getter;
-import state.GameColors;
-import views.gui.ButtonRounded;
+import state.GameConstants;
+import views.gui.custom.ButtonRounded;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +25,7 @@ import java.awt.event.KeyListener;
 
     ButtonsPanel() {
         this.setLayout(new BorderLayout());
-        this.setBackground(GameColors.LIGHTERST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTERST__GRAY);
     
         JPanel directionsPanel = getDirectionsPanel();
         JPanel actionsPanel = getActionsPanel();
@@ -43,7 +43,7 @@ import java.awt.event.KeyListener;
         
         gameOptionsPanel.setLayout(layout);
         gameOptionsPanel.setPreferredSize(new Dimension(200, 80));
-        gameOptionsPanel.setBackground(GameColors.TRANSPARENT);
+        gameOptionsPanel.setBackground(GameConstants.Colors.TRANSPARENT);
         
         gameOptionsPanel.add(newGame);
         gameOptionsPanel.add(backToMainMenu);
@@ -66,7 +66,7 @@ import java.awt.event.KeyListener;
         SpringLayout layout = new SpringLayout();
 
         JPanel actionsPanel = new JPanel();
-        actionsPanel.setBackground(GameColors.TRANSPARENT);
+        actionsPanel.setBackground(GameConstants.Colors.TRANSPARENT);
     
         actionsPanel.setPreferredSize(new Dimension(150, 70));
         
@@ -90,7 +90,7 @@ import java.awt.event.KeyListener;
         SpringLayout layout = new SpringLayout();
 
         JPanel directionsPanel = new JPanel();
-        directionsPanel.setBackground(GameColors.TRANSPARENT);
+        directionsPanel.setBackground(GameConstants.Colors.TRANSPARENT);
 
         directionsPanel.setPreferredSize(new Dimension(240, 70));
         directionsPanel.setLayout(layout);

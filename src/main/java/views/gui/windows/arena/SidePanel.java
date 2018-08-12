@@ -1,11 +1,11 @@
-package views.gui.Panels;
+package views.gui.windows.arena;
 
 import controllers.models.BattleReport;
 import models.players.Hero;
-import state.GameColors;
+import state.GameConstants;
+import views.gui.custom.HeroStatisticsTextArea;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -29,10 +29,10 @@ class SidePanel extends JPanel{
     }
 	
 	private void setUpMessagePanel() {
-    	label.setForeground(GameColors.DEFAULT_FONT);
+    	label.setForeground(GameConstants.Colors.DEFAULT_FONT);
         messagePanel.setLayout(new GridBagLayout());
 		messagePanel.add(label);
-		messagePanel.setBackground(GameColors.DARKEST_GRAY);
+		messagePanel.setBackground(GameConstants.Colors.DARKEST_GRAY);
 	}
 
 	void showMessage(ArrayList<String> results) {

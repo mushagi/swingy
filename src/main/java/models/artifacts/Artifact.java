@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-
 @Entity
 @Getter @Setter
 public class Artifact {
@@ -15,8 +14,8 @@ public class Artifact {
     @Column(updatable = false, nullable = false, length = 100)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    String name;
+	
+	String name;
     int power;
     EArtifactType EArtifactType;
 
@@ -25,4 +24,7 @@ public class Artifact {
         this.power = power;
         this.EArtifactType = EArtifactType;
     }
+	
+	public Artifact() {
+	}
 }

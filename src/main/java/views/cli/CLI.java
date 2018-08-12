@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static state.GameConstants.APPLICATION_HEARDER;
-import static state.GameConstants.APPLICATION_SLOGAN;
-import static state.GameConstants.START_DIVIDER;
+import static state.GameConstants.*;
 
 public class CLI implements IUserInterface {
 
@@ -138,8 +136,8 @@ public class CLI implements IUserInterface {
 
     public void printResultsMessage(Arena arena) {
         clearScreen();
-        printToScreen("\n\n");;
-        if (arena.getGameResults().isHeroWon())
+        printToScreen("\n\n");
+        if ( arena.getGameResults().isHeroWon() )
             printGameWonResults(arena);
         else
             printGameLostMessage(arena);
@@ -211,8 +209,8 @@ public class CLI implements IUserInterface {
                 "1. Yep\n" +
                 "2. Nope\n");
     }
-
-    public void displayPromptInput(boolean isWithInvalidInput) {
+    
+    private void displayPromptInput(boolean isWithInvalidInput) {
         System.out.println();
         if (isWithInvalidInput)
             printToScreen("Invalid Input bro, look at the options and try again.");

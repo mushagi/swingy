@@ -1,9 +1,9 @@
-package views.gui.Panels;
+package views.gui.windows.arena;
 
 import models.players.APlayer;
 import models.world.Arena;
 import models.world.Position;
-import state.GameColors;
+import state.GameConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ import static state.GameConstants.MAX_RENDERING_MAPSIZE;
 class MapPanel extends JPanel {
 
     MapPanel() {
-        setBackground(GameColors.LIGHTER_GRAY);
+        setBackground(GameConstants.Colors.LIGHTER_GRAY);
     }
 
     void generateNewMap(int mapSize) {
@@ -89,9 +89,9 @@ class MapCell extends JPanel {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = GridBagConstraints.CENTER;
         layout.setConstraints(label, constraints);
-    	this.setBackground(GameColors.LIGHTER_GRAY);
-        label.setForeground(GameColors.DEFAULT_FONT);
-	    this.setBorder(BorderFactory.createEtchedBorder(GameColors.LIGHTER_BLUE, GameColors.DARKEST_GRAY));
+    	this.setBackground(GameConstants.Colors.LIGHTER_GRAY);
+        label.setForeground(GameConstants.Colors.DEFAULT_FONT);
+	    this.setBorder(BorderFactory.createEtchedBorder(GameConstants.Colors.LIGHTER_BLUE, GameConstants.Colors.DARKEST_GRAY));
 	    Font font = new Font("monospaced", Font.BOLD, mapSize*5);
 	    this.label.setFont(font);
         this.add(label);

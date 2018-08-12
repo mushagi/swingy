@@ -3,6 +3,7 @@ package views.gui;
 import models.world.Arena;
 import views.ISplashScreen;
 import views.IUserInterface;
+import views.gui.windows.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,9 +17,7 @@ public class GUI implements IUserInterface {
         mainWindow.setVisible(true);
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
+        } catch (ClassNotFoundException | InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();

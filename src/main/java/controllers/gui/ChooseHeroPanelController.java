@@ -1,10 +1,12 @@
 package controllers.gui;
 
+import enums.HeroType;
 import lombok.AccessLevel;
 import lombok.Setter;
+import models.players.Hero;
 import state.GameState;
-import views.gui.Panels.ChooseHeroPanel;
-import views.gui.Panels.HeroCell;
+import views.gui.windows.choosehero.ChooseHeroPanel;
+import views.gui.windows.choosehero.HeroCell;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -59,9 +61,8 @@ class ChooseHeroPanelController extends APanelController {
         public void actionPerformed(ActionEvent e) {
             guiController.loadPlayerNameToArena(playerName);
             
-            String heroTypeName = GameState.getInstance().getAvailableHeroes().get(selectedPlayer).getHeroClass();
-            guiController.createNewHero(heroTypeName);
-
+            Hero hero = GameState.getInstance().getAvailableHeroes().get(selectedPlayer);
+            guiController.createNewHero(hero);
             guiController.showGamePanel();
         }
     };
@@ -100,8 +101,8 @@ class ChooseHeroPanelController extends APanelController {
 	        }
         }
     };
-    
-    private ActionListener onBtnQuitListener = new ActionListener() {
+	
+	private final ActionListener onBtnQuitListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.quitGame();

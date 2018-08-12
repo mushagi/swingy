@@ -1,18 +1,18 @@
-package views.gui;
+package views.gui.custom;
 
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 
 public class RoundedBorders implements Border {
-
-    private int radius;
+    
+    private final int radius;
 
     public RoundedBorders(int radius) {
         this.radius = radius;
     }
-
-    public int getRadius() {
+    
+    private int getRadius() {
         return radius;
     }
 

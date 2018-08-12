@@ -1,29 +1,29 @@
-package views.gui.Panels;
+package views.gui.custom;
 
 import models.players.Hero;
-import state.GameColors;
+import state.GameConstants;
 
 import javax.swing.*;
 import java.awt.*;
 
-class HeroStatisticsTextArea extends JTextArea {
+public class HeroStatisticsTextArea extends JTextArea {
 
-	HeroStatisticsTextArea() {
+	public HeroStatisticsTextArea() {
         this.setBackground(new Color(0,0,0,0));
 	    Font monoFont = new Font("Monospaced", Font.PLAIN, 14);
 	    setFont(monoFont);
 	    setEditable(false);
 	    setCursor(null);
 	    setHighlighter(null);
-	    setBackground(GameColors.DARKEST_GRAY);
-	    setForeground(GameColors.DEFAULT_FONT);
+	    setBackground(GameConstants.Colors.DARKEST_GRAY);
+	    setForeground(GameConstants.Colors.DEFAULT_FONT);
     }
 
-    void updateWithHero(Hero hero) {
+    public void updateWithHero(Hero hero) {
 		setText(null);
 	    String format = "%-20s%-20s\n";
 	    append("Statistics\n\n");
-	    append(String.format(format, "Hero Class", hero.getHeroClass()));
+	    append(String.format(format, "Name ", hero.getName()));
 	    append(String.format(format, "Experience", hero.getExperience()));
 	    append(String.format(format, "Level", hero.getLevel()));
 	    append(String.format(format, "Type", hero.getType()));

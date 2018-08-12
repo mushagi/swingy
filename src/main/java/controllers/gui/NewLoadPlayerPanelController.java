@@ -1,6 +1,6 @@
 package controllers.gui;
 
-import views.gui.Panels.NewLoadPlayerPanel;
+import views.gui.windows.NewLoadPlayerPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

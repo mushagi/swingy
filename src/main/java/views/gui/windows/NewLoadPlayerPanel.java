@@ -1,7 +1,7 @@
-package views.gui.Panels;
+package views.gui.windows;
 
-import state.GameColors;
-import views.gui.ButtonRounded;
+import state.GameConstants;
+import views.gui.custom.ButtonRounded;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,14 +29,14 @@ public class NewLoadPlayerPanel extends JPanel {
         lblWelcome.setForeground(Color.WHITE);
 
         headerPanel.add(lblWelcome);
-        headerPanel.setBackground(GameColors.LIGHTER_GRAY);
+        headerPanel.setBackground(GameConstants.Colors.LIGHTER_GRAY);
         springLayout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lblWelcome, 0, SpringLayout.HORIZONTAL_CENTER, headerPanel);
         springLayout.putConstraint(SpringLayout.VERTICAL_CENTER, lblWelcome, 0, SpringLayout.VERTICAL_CENTER, headerPanel);
 
         optionsPanel.setLayout(layout);
         optionsPanel.add(btnNewHero);
         optionsPanel.add(btnLoadHero);
-        optionsPanel.setBackground(GameColors.LIGHTER_BLUE);
+        optionsPanel.setBackground(GameConstants.Colors.LIGHTER_BLUE);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
@@ -52,7 +52,7 @@ public class NewLoadPlayerPanel extends JPanel {
         lblAuthor.setForeground(Color.WHITE);
 
         bottomPanel.add(lblAuthor);
-        bottomPanel.setBackground(GameColors.LIGHTER_GRAY);
+        bottomPanel.setBackground(GameConstants.Colors.LIGHTER_GRAY);
 
         add(headerPanel);
         add(optionsPanel);

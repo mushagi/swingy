@@ -2,11 +2,10 @@ package models.players;
 
 import lombok.Getter;
 import lombok.Setter;
-import models.world.Position;
 import models.artifacts.Artifact;
+import models.world.Position;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -25,16 +24,16 @@ public abstract class APlayer {
 
     @NotNull
     String type;
-
-    @Size(min = 0, max = 11)
+    
+    @Size(max = 11)
     int level;
 
     int experience;
 
     int attack;
     int defence;
-
-    @Size(min = 0, max = 120)
+    
+    @Size(max = 120)
     int hitPoint;
 
     @NotNull
