@@ -13,7 +13,7 @@ public class Hero extends APlayer {
     public Hero(String name, int level, int experience,
                 int attack, int defence, String winningSpeech, String losingSpeech) {
         super("Hero", name, level, experience, attack, defence, 0, winningSpeech, losingSpeech);
-        heroClass ="";
+        heroClass = "";
     }
 
     public Hero(String name) {

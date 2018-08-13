@@ -16,10 +16,10 @@ public class HeroFactory {
     
     private static Hero newBlackPanther() {
         String name = "Black Panther";
-        int level = 12;
-        int experience = 12;
-        int attack = 12;
-        int defence = 13;
+        int level = 7;
+        int experience = 0;
+        int attack = 70;
+        int defence = 50;
         String winningSpeech = "I never freeze";
         String losingSpeech = "We don't do that here";
         return new Hero(name, level, experience, attack, defence, winningSpeech, losingSpeech);

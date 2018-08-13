@@ -25,7 +25,7 @@ import java.awt.event.KeyListener;
 
     ButtonsPanel() {
         this.setLayout(new BorderLayout());
-        this.setBackground(GameConstants.Colors.LIGHTERST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTEST__GRAY);
     
         JPanel directionsPanel = getDirectionsPanel();
         JPanel actionsPanel = getActionsPanel();

@@ -24,7 +24,7 @@ public class HeroCell extends JPanel {
         add(lblType);
         
         this.tag = tag;
-        this.setBackground(GameConstants.Colors.LIGHTERST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTEST__GRAY);
     
         this.setPreferredSize(new Dimension(150,150));
         this.setMaximumSize(new Dimension(150, 150));
@@ -35,7 +35,7 @@ public class HeroCell extends JPanel {
         this.setBackground(GameConstants.Colors.LIGHTER_BLUE);
     }
     void unSelected() {
-        this.setBackground(GameConstants.Colors.LIGHTERST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTEST__GRAY);
     }
     
     private final SwingWorker<Integer, ImageIcon> swingWorker = new SwingWorker<Integer, ImageIcon>() {

@@ -29,7 +29,8 @@ class MapPanel extends JPanel {
     }
 
     void updateMap(Arena arena) {
-        
+
+        int mapSize = arena.getMap().getSize();
         int renderMaxMapSize = Math.min(arena.getMap().getSize(), MAX_RENDERING_MAPSIZE);
         
         int xStartRenderingPos = getStartingRenderingPositionValue(arena.getHero().getPosition().x, arena.getMap().getSize(), renderMaxMapSize);
@@ -45,19 +46,21 @@ class MapPanel extends JPanel {
                     Position position = new Position(y, x);
                     MapCell mapCell = (MapCell) this.getComponent(count++);
                     if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
-                        mapCell.setValues("*");
+                        mapCell.setValues("*", position, mapSize);
                     else if (arena.getMap().getGameMap().containsKey(position)) {
                         APlayer player = arena.getMap().getGameMap().get(position);
-                        mapCell.setValues(player.getType().equals("Hero") ? "0" : "X");
+                        mapCell.setValues(player.getType().equals("Hero") ? "0" : "X", position, mapSize);
                     }
                     else
-                        mapCell.setValues("");
+                        mapCell.setValues("", position, mapSize);
 
                 }
             }
         }
     }
-    
+
+
+
     private int getStartingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize)
     {
         int startingRenderingPosition = positionValue - (renderMapSize / 2);
@@ -91,12 +94,85 @@ class MapCell extends JPanel {
         layout.setConstraints(label, constraints);
     	this.setBackground(GameConstants.Colors.LIGHTER_GRAY);
         label.setForeground(GameConstants.Colors.DEFAULT_FONT);
-	    this.setBorder(BorderFactory.createEtchedBorder(GameConstants.Colors.LIGHTER_BLUE, GameConstants.Colors.DARKEST_GRAY));
-	    Font font = new Font("monospaced", Font.BOLD, mapSize*5);
+	    Font font = new Font("monospaced", Font.BOLD, 9);
 	    this.label.setFont(font);
         this.add(label);
     }
-    void setValues(String text) {
-        label.setText(text);
+
+
+
+    void setValues(String text, Position position, int mapSize) {
+        EBORDER borderType = getBorderType(mapSize, position);
+        createBorder(borderType);
+        label.setText(text + " ");
+    }
+
+    private EBORDER getBorderType(int size, Position position) {
+        size--;
+        if (position.x == 0 && position.y == 0)
+            return EBORDER.LEFTTOP;
+        else if (position.x == size && position.y == 0)
+            return EBORDER.RIGHTTOP;
+        else if (position.x == 0 && position.y == size)
+            return EBORDER.LEFTBOTTOM;
+        else if (position.x == size && position.y == size)
+            return EBORDER.RIGHTBOTTOM;
+        else if (position.x == 0)
+            return EBORDER.LEFT;
+        else if (position.x == size)
+            return EBORDER.RIGHT;
+        else if (position.y == size)
+            return EBORDER.BOTTOM;
+        else if (position.y == 0)
+            return EBORDER.TOP;
+        return EBORDER.NONE;
+    }
+
+    enum EBORDER {
+        NONE,
+        LEFT,
+        RIGHT,
+        BOTTOM,
+        TOP,
+        LEFTTOP,
+        RIGHTTOP,
+        LEFTBOTTOM,
+        RIGHTBOTTOM
+    }
+
+    void createBorder(EBORDER eborder) {
+        switch (eborder)
+        {
+            case TOP:
+                setBorder(BorderFactory.createMatteBorder(10,0,0,0, Color.RED));
+                break;
+            case RIGHTTOP:
+                setBorder(BorderFactory.createMatteBorder(10,0,0,10, Color.RED));
+                break;
+            case LEFT:
+                setBorder(BorderFactory.createMatteBorder(0,10,0,0, Color.RED));
+                break;
+            case RIGHT:
+                setBorder(BorderFactory.createMatteBorder(0,0,0,10, Color.RED));
+                break;
+            case BOTTOM:
+                setBorder(BorderFactory.createMatteBorder(0,0,10,0, Color.RED));
+                break;
+            case LEFTBOTTOM:
+                setBorder(BorderFactory.createMatteBorder(0,10,10,0, Color.RED));
+                break;
+            case LEFTTOP:
+                setBorder(BorderFactory.createMatteBorder(10,10,0,0, Color.RED));
+                break;
+            case RIGHTBOTTOM:
+                setBorder(BorderFactory.createMatteBorder(0,0,10,10, Color.RED));
+                break;
+            case NONE:
+                setBorder(BorderFactory.createEtchedBorder(GameConstants.Colors.LIGHTER_BLUE, GameConstants.Colors.DARKEST_GRAY));
+                break;
+        }
+    }
 }
-}
+
+
+

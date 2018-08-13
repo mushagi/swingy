@@ -26,6 +26,6 @@ public class GameConstants {
 		public static Color BLUE = new Color(0, 0, 255);
 		public static final Color DARKEST_GRAY = new Color(18, 18, 18);
 		public static final Color LIGHTER_GRAY = new Color(29, 29, 29);
-		public static final Color LIGHTERST__GRAY = new Color(40, 40, 40);
+		public static final Color LIGHTEST__GRAY = new Color(40, 40, 40);
 	}
 }

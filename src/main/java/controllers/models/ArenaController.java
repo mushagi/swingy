@@ -132,6 +132,7 @@ public class ArenaController {
         heroController.registerHero(hero);
         gameResultsController.clearGameResults();
         mapController.addMapValues(hero);
+        heroRepository.create(hero);
     }
 
     public void loadPlayerName(String name) {

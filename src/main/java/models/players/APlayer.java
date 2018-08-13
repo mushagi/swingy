@@ -66,7 +66,7 @@ public abstract class APlayer {
 
     APlayer() {
     }
-
+    
     @Override
     public String toString() {
         return "Player statistics\n" +

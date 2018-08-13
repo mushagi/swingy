@@ -9,7 +9,8 @@ public class GameManager {
     public void startGame(EInterfaceType type) {
         ArenaController arenaController = ArenaControllerFactory.newArenaControllerFromGameData();
 
-        AUIController uiController = type == EInterfaceType.CLI ?
+        AUIController uiController = type ==
+                EInterfaceType.CLI ?
                 ControllerFactory.newCLIController(arenaController):
                 ControllerFactory.newGUIController(arenaController);
 
