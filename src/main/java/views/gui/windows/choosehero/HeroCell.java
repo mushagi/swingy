@@ -3,7 +3,7 @@ package views.gui.windows.choosehero;
 import lombok.Getter;
 import models.players.Hero;
 import state.GameConstants;
-import utils.ImageRender;
+import utils.ImageRepositoryImp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,7 +41,7 @@ public class HeroCell extends JPanel {
     private final SwingWorker<Integer, ImageIcon> swingWorker = new SwingWorker<Integer, ImageIcon>() {
         @Override
         protected Integer doInBackground() {
-            ImageIcon imageIcon = ImageRender.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage);
+            ImageIcon imageIcon = ImageRepositoryImp.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage.getPreferredSize());
             
             publish(imageIcon);
             return 0;

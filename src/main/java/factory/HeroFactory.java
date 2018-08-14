@@ -16,7 +16,7 @@ public class HeroFactory {
     
     private static Hero newBlackPanther() {
         String name = "Black Panther";
-        int level = 7;
+        int level = 0;
         int experience = 0;
         int attack = 70;
         int defence = 50;
@@ -26,7 +26,7 @@ public class HeroFactory {
     }
     
     private static Hero newDickMalajie() {
-        String name = "Dick Panther";
+        String name = "Dick Mal";
         int level = 15;
         int experience = 12;
         int attack = 14;

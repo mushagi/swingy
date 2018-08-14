@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import models.players.Hero;
 import models.world.Arena;
+import utils.ImageRepositoryImp;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,18 @@ public class GameState {
     }
 
     public static GameState getInstance() {
-        if (gameState == null)
+        if (gameState == null){
             gameState = new GameState();
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    ImageRepositoryImp.loadCache();
+    
+                }
+            };
+            Thread thread = new Thread(runnable);
+            thread.start();
+        }
         return gameState;
     }
 

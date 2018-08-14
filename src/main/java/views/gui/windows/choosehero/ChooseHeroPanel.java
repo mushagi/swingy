@@ -27,7 +27,10 @@ ChooseHeroPanel extends JPanel {
     private final ButtonRounded btnQuit = new ButtonRounded("Quit");
     private HeroListPanel heroListPanel;
     private final ArrayList<Hero> heroes;
-
+    
+    private final JLabel lblImage = new JLabel();
+    
+    
     public ChooseHeroPanel(Collection<Hero> heroes) {
         BorderLayout layout = new BorderLayout();
 
