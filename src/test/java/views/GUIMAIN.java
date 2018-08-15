@@ -8,7 +8,7 @@ class GUIMAIN {
     public static void main(String args[]) {
     	
     	GUI gui = new GUI();
-    	MapCell mePanel = new MapCell();
+    	MapCell mePanel = new MapCell(10);
 	
 	    gui.addMainWindowContentPane(mePanel);
 	

@@ -14,10 +14,10 @@ public class MapCell extends JPanel {
     private final JLabel label = new JLabel();
 	private final JLabel lblImage = new JLabel();
 	
-	public MapCell() {
+	public MapCell(int mapSize) {
     	GridBagLayout layout = new GridBagLayout();
     	setLayout(layout);
-    	
+
     	this.setBackground(GameConstants.Colors.LIGHTER_GRAY);
         label.setForeground(GameConstants.Colors.DEFAULT_FONT);
         
@@ -29,20 +29,17 @@ public class MapCell extends JPanel {
 		constraints.fill = GridBagConstraints.CENTER;
 		layout.setConstraints(lblImage, constraints);
 		add(lblImage);
-		
+        lblImage.setPreferredSize(mapSize < 9 ? new Dimension(85,85) : new Dimension(45,45));
 	}
 	
 	public void setValues(String text, Position position, int mapSize, APlayer player) {
 		if (player != null) {
-			lblImage.setPreferredSize(mapSize < 9 ? new Dimension(85,85) : new Dimension(45,45));
-			swingWorker.execute();
-			lblImage.setVisible(true);
+            ImageIcon imageIcon = ImageRepositoryImp.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage.getPreferredSize());
+            lblImage.setIcon(imageIcon);
 		}
 		else
 		{
-			lblImage.setVisible(false);
-			revalidate();
-			repaint();
+			lblImage.setIcon(null);
 		}
 
 		EBORDER borderType = getBorderType(mapSize, position);
@@ -142,9 +139,7 @@ public class MapCell extends JPanel {
 	private final SwingWorker<Integer, ImageIcon> swingWorker = new SwingWorker<Integer, ImageIcon>() {
 		@Override
 		protected Integer doInBackground() {
-			
 			ImageIcon imageIcon = ImageRepositoryImp.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage.getPreferredSize());
-			
 			publish(imageIcon);
 			return 0;
 		}
@@ -153,14 +148,12 @@ public class MapCell extends JPanel {
 		protected void process(List<ImageIcon> chunks) {
 			for (ImageIcon imageIcon: chunks) {
 				lblImage.setIcon(imageIcon);
-				
 			}
 		}
 		
 		@Override
 		protected void done() {
-			revalidate();
-			repaint();
+
 		}
 	};
 	

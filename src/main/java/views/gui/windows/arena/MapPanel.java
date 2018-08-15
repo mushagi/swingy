@@ -19,7 +19,7 @@ class MapPanel extends JPanel {
         this.setLayout(new GridLayout(maxMapSize, maxMapSize));
         for (int y = 0; y < maxMapSize; y++) {
             for (int x = 0; x < maxMapSize; x++) {
-                MapCell mapCell = new MapCell();
+                MapCell mapCell = new MapCell(mapSize);
                 this.add(mapCell);
             }
         }
