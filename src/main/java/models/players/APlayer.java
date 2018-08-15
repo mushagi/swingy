@@ -41,7 +41,9 @@ public abstract class APlayer {
 
     @NotNull
     String losingSpeech;
-
+    
+    String picture;
+    
     @Column(length = 100)
     @OneToMany(cascade = CascadeType.ALL)
     Collection<Artifact> artifact;
@@ -50,7 +52,7 @@ public abstract class APlayer {
     Position position;
 
     APlayer(String type, String name, int level, int experience, int attack,
-            int defence, int hitPoint, String winningSpeech, String losingSpeech) {
+            int defence, int hitPoint, String winningSpeech, String losingSpeech, String picture) {
         this.name = name;
         this.type = type;
         this.level = level;
@@ -62,6 +64,8 @@ public abstract class APlayer {
         this.position =  new Position(0, 0);
         this.winningSpeech = winningSpeech;
         this.losingSpeech = losingSpeech;
+        this.picture = picture;
+        
     }
 
     APlayer() {

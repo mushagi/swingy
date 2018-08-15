@@ -5,6 +5,7 @@ import controllers.models.ArenaController;
 import factory.ControllerFactory;
 import models.players.Hero;
 import state.GameState;
+import utils.ImageRepositoryImp;
 import views.gui.GUI;
 import views.gui.windows.choosehero.ChooseHeroPanel;
 import views.gui.windows.GameEndedPanel;
@@ -36,12 +37,16 @@ public class GUIController extends AUIController {
 
     @Override
     public void run() {
-        guiInterface = new GUI();
-
-        if (!arenaController.isPLayerNameLoaded())
-            showCreateNewLoadPlayerWindow();
-        else
-            showGamePanel();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                guiInterface = new GUI();
+                if (!arenaController.isPLayerNameLoaded())
+                    showCreateNewLoadPlayerWindow();
+                else
+                    showGamePanel();
+            }
+        });
     }
 
     void showGamePanel() {

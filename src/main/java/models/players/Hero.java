@@ -10,17 +10,19 @@ import javax.persistence.Entity;
 public class Hero extends APlayer {
     @Getter @Setter
     String heroClass;
-    public Hero(String name, int level, int experience,
-                int attack, int defence, String winningSpeech, String losingSpeech) {
-        super("Hero", name, level, experience, attack, defence, 0, winningSpeech, losingSpeech);
+    
+    public Hero(String name,
+                int level,
+                int experience,
+                int attack,
+                int defence,
+                String winningSpeech,
+                String losingSpeech,
+                String picture) {
+        super("Hero", name, level, experience, attack, defence, 0, winningSpeech, losingSpeech, picture);
         heroClass = "";
     }
-
-    public Hero(String name) {
-        super("Hero", name, 0, 0, 0, 0, 0, "", "");
-    }
-
-
+    
     public Hero() {
     }
 }

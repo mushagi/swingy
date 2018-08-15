@@ -23,8 +23,6 @@ class MapPanel extends JPanel {
                 this.add(mapCell);
             }
         }
-	
-	    maxMapSize = 1;
     }
 
     void updateMap(Arena arena) {
@@ -36,22 +34,17 @@ class MapPanel extends JPanel {
         int yEndRenderingPos = getEndingRenderingPositionValue(yStartRenderingPos, mapSize, renderMapSize);
         
         int count = 0;
+        Position position = new Position();
         for (int y = yStartRenderingPos; y < yEndRenderingPos; y++) {
             for (int x = xStartRenderingPos; x < xEndRenderingPos; x++) {
-                if (this.getComponentCount() > 0) {
-                    Position position = new Position(y, x);
-	                APlayer player = arena.getMap().getGameMap().get(position);
-	                MapCell mapCell = (MapCell) this.getComponent(count++);
-                    if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
-                        mapCell.setValues("*", position, mapSize, player);
-                    else if (arena.getMap().getGameMap().containsKey(position)) {
-                        mapCell.setValues(player.getType().equals("Hero") ? "0" : "X", position, mapSize, player);
-                    }
-                    else
-                        mapCell.setValues("", position, mapSize, player);
-                }
+                position.x = x;
+                position.y = y;
+                APlayer player = arena.getMap().getGameMap().get(position);
+                MapCell mapCell = (MapCell) this.getComponent(count++);
+                mapCell.setValues(position, mapSize, player);
             }
         }
+        repaint();
     }
     
     private int getStartingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize)

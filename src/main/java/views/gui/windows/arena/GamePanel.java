@@ -47,6 +47,7 @@ public class GamePanel extends JPanel {
         else
             sidePanel.showMessage(arena.getGameResults().getResult());
         sidePanel.updateBottomStatistics(arena.getHero());
+        repaint();
     }
 
     public void showHeroStats(Hero hero) {

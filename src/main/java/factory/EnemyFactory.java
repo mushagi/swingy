@@ -10,7 +10,7 @@ public class EnemyFactory {
 
     private  static Enemy createEnemy(String name) {
         return new Enemy(name, 1, 1, 5,
-                6, 6, "", "");
+                6, 6, "", "", "");
     }
 
     public static ArrayList<Enemy> createRandomEnemies(int mapSize) {
@@ -43,7 +43,7 @@ public class EnemyFactory {
             case "BlackPanther":
         }
         return new Enemy(name, 1, 10, 60,
-                30, 60,  "", "");
+                30, 60,  "", "", "");
     }
 
     private static void randomisePositionValues(Position position, int mapSize) {

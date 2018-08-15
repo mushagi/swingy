@@ -10,6 +10,8 @@ import java.awt.*;
 import java.util.List;
 
 public class HeroCell extends JPanel {
+    public static final int HERO_CELL_WIDTH = 150;
+    public static final int HERO_CELL_HEIGHT = 150 ;
     @Getter
     private final int tag ;
     private final JLabel lblImage = new JLabel();
@@ -17,8 +19,14 @@ public class HeroCell extends JPanel {
     HeroCell(Hero hero, int tag) {
         JLabel lblType = new JLabel(hero.getName());
         lblType.setForeground(Color.WHITE);
-        lblImage.setPreferredSize(new Dimension(140,100));
-        swingWorker.execute();
+        lblImage.setPreferredSize(new Dimension(HERO_CELL_WIDTH,HERO_CELL_HEIGHT));
+    
+        ImageIcon imageIcon =
+                ImageRepositoryImp.getInstance().getImageIcon(
+                        hero.getPicture(),
+                        HERO_CELL_WIDTH, HERO_CELL_HEIGHT
+                );
+        lblImage.setIcon(imageIcon);
         
         add(lblImage);
         add(lblType);
@@ -26,8 +34,8 @@ public class HeroCell extends JPanel {
         this.tag = tag;
         this.setBackground(GameConstants.Colors.LIGHTEST__GRAY);
     
-        this.setPreferredSize(new Dimension(150,150));
-        this.setMaximumSize(new Dimension(150, 150));
+        this.setPreferredSize(new Dimension(HERO_CELL_WIDTH,HERO_CELL_HEIGHT));
+        this.setMaximumSize(new Dimension(HERO_CELL_WIDTH, HERO_CELL_HEIGHT));
 
     }
 
@@ -38,21 +46,5 @@ public class HeroCell extends JPanel {
         this.setBackground(GameConstants.Colors.LIGHTEST__GRAY);
     }
     
-    private final SwingWorker<Integer, ImageIcon> swingWorker = new SwingWorker<Integer, ImageIcon>() {
-        @Override
-        protected Integer doInBackground() {
-            ImageIcon imageIcon = ImageRepositoryImp.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage.getPreferredSize());
-            
-            publish(imageIcon);
-            return 0;
-        }
-    
-        @Override
-        protected void process(List<ImageIcon> chunks) {
-            for (ImageIcon imageIcon: chunks) {
-                lblImage.setIcon(imageIcon);
-            }
-        }
-    };
     
 }

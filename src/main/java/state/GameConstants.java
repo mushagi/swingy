@@ -19,6 +19,7 @@ public class GameConstants {
     
     public static final Font MONO_FONT = new Font("Monospaced", Font.PLAIN, 14);
     
+    
 	public static class Colors {
 		public static final Color LIGHTER_BLUE = new Color(0, 56, 168);
 		public static final Color TRANSPARENT = new Color(0,0,0,0);

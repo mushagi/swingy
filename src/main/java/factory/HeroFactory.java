@@ -22,7 +22,8 @@ public class HeroFactory {
         int defence = 50;
         String winningSpeech = "I never freeze";
         String losingSpeech = "We don't do that here";
-        return new Hero(name, level, experience, attack, defence, winningSpeech, losingSpeech);
+        String picture = "blackpanther";
+        return new Hero(name, level, experience, attack, defence, winningSpeech, losingSpeech, picture);
     }
     
     private static Hero newDickMalajie() {
@@ -33,6 +34,7 @@ public class HeroFactory {
         int defence = 15;
         String winningSpeech = "Wakanda";
         String losingSpeech = "We don't do that here";
-        return new Hero(name, level, experience, attack, defence, winningSpeech, losingSpeech);
+        String picture = "blackpanther";
+        return new Hero(name, level, experience, attack, defence, winningSpeech, losingSpeech, picture);
     }
 }

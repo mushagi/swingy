@@ -7,45 +7,45 @@ import utils.ImageRepositoryImp;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class MapCell extends JPanel {
+	public static final int MAP_CELL_MIN_HEIGHT = 45;
+	public static final int MAP_CELL_MIN_WIDTH = 45;
+	public static final int MAP_CELL_MAX_HEIGHT = 85;
+	public static final int MAP_CELL_MAX_WIDTH = 85;
 	
-    private final JLabel label = new JLabel();
 	private final JLabel lblImage = new JLabel();
 	
-	public MapCell(int mapSize) {
-    	GridBagLayout layout = new GridBagLayout();
+	MapCell(int mapSize) {
+		setBackground(GameConstants.Colors.LIGHTER_GRAY);
+		
+		GridBagLayout layout = new GridBagLayout();
     	setLayout(layout);
-
-    	this.setBackground(GameConstants.Colors.LIGHTER_GRAY);
-        label.setForeground(GameConstants.Colors.DEFAULT_FONT);
-        
-	    Font font = new Font("monospaced", Font.BOLD, 9);
-	    
-	    this.label.setFont(font);
-	    
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.fill = GridBagConstraints.CENTER;
 		layout.setConstraints(lblImage, constraints);
+		
 		add(lblImage);
-        lblImage.setPreferredSize(mapSize < 9 ? new Dimension(85,85) : new Dimension(45,45));
+        lblImage.setPreferredSize(
+        		mapSize < 9 ? new Dimension(MAP_CELL_MAX_WIDTH,MAP_CELL_MAX_HEIGHT) :
+				        new Dimension(MAP_CELL_MIN_WIDTH,MAP_CELL_MIN_HEIGHT)
+        );
 	}
 	
-	public void setValues(String text, Position position, int mapSize, APlayer player) {
+	void setValues(Position position, int mapSize, APlayer player) {
 		if (player != null) {
-            ImageIcon imageIcon = ImageRepositoryImp.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage.getPreferredSize());
+			ImageIcon imageIcon =
+		            ImageRepositoryImp.getInstance().getImageIcon(
+		            		player.getPicture(),
+				            lblImage.getPreferredSize()
+		            );
             lblImage.setIcon(imageIcon);
 		}
 		else
-		{
 			lblImage.setIcon(null);
-		}
-
 		EBORDER borderType = getBorderType(mapSize, position);
-        createBorder(borderType);
-        label.setText(text + " ");
-
+		createBorder(borderType);
+		repaint();
     }
 
     private EBORDER getBorderType(int size, Position position) {
@@ -136,26 +136,4 @@ public class MapCell extends JPanel {
                 break;
         }
     }
-	private final SwingWorker<Integer, ImageIcon> swingWorker = new SwingWorker<Integer, ImageIcon>() {
-		@Override
-		protected Integer doInBackground() {
-			ImageIcon imageIcon = ImageRepositoryImp.getImageIcon(getClass().getResource("/images/blackpanther.jpg").getPath(), lblImage.getPreferredSize());
-			publish(imageIcon);
-			return 0;
-		}
-		
-		@Override
-		protected void process(List<ImageIcon> chunks) {
-			for (ImageIcon imageIcon: chunks) {
-				lblImage.setIcon(imageIcon);
-			}
-		}
-		
-		@Override
-		protected void done() {
-
-		}
-	};
-	
-	
 }
