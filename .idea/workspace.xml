@@ -7,31 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d7d537a-5d79-45d6-9a44-38e1ea9a3d9e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/FullScreenMac.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/gui/NewLoadPlayerPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/gui/NewLoadPlayerPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/factory/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/factory/EnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/players/APlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/players/APlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/players/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/players/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/state/GameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/state/GameConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/state/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/state/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ImageRepositoryImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ImageRepositoryImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/custom/ButtonRounded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/custom/ButtonRounded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/custom/HeroStatisticsTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/custom/HeroStatisticsTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/GameEndedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/GameEndedPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/NewLoadPlayerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/NewLoadPlayerPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/BattleReportTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/BattleReportTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/BottomStatisticsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/BottomStatisticsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/ButtonsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/ButtonsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/MapCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/MapCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/arena/SidePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/choosehero/ChooseHeroPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/choosehero/ChooseHeroPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/choosehero/HeroCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/choosehero/HeroCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/gui/windows/choosehero/HeroListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/gui/windows/choosehero/HeroListPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -107,7 +83,7 @@
           <file leaf-file-name="MapCell.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/windows/arena/MapCell.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="55">
+                <state relative-caret-position="405">
                   <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
                 </state>
               </provider>
@@ -397,9 +373,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="24" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="43" />
+    <option name="y" value="28" />
     <option name="width" value="1920" />
     <option name="height" value="977" />
   </component>
@@ -826,7 +802,7 @@
       <workItem from="1534232533545" duration="1453000" />
       <workItem from="1534342020967" duration="593000" />
       <workItem from="1534406030507" duration="13518000" />
-      <workItem from="1534426412456" duration="4608000" />
+      <workItem from="1534426412456" duration="4806000" />
     </task>
     <task id="LOCAL-00001" summary="done with a map and collisions">
       <created>1532206247084</created>
@@ -926,7 +902,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534174264902</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="sfsfs">
+      <created>1534433009809</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1534433009809</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -962,7 +945,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327374000" />
+    <option name="totallyTimeSpent" value="327572000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -974,7 +957,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="24" width="1920" height="977" extended-state="0" />
+    <frame x="43" y="28" width="1920" height="977" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -986,7 +969,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5035868" side_tool="true" weight="0.3283582" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.31629393" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" x="849" y="460" width="491" height="169" id="Run" order="4" sideWeight="0.49791667" visible="true" weight="0.5702948" />
+      <window_info anchor="bottom" x="849" y="460" width="491" height="169" id="Run" order="4" sideWeight="0.49791667" weight="0.5702948" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3286991" />
       <window_info anchor="bottom" x="923" y="519" width="596" height="197" id="Terminal" order="10" weight="0.4141013" />
       <window_info id="Capture Tool" order="5" />
@@ -1246,6 +1229,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
           <caret line="7" column="42" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1435,7 +1421,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/views/gui/windows/arena/MapCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
+        <state relative-caret-position="405">
           <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
         </state>
       </provider>
