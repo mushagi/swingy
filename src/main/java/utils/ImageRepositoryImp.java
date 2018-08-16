@@ -54,13 +54,16 @@ public class ImageRepositoryImp implements IImageRepository {
 	public Image getScaledImage(String imageName, Dimension dimension) {
 
 		Image image = null;
-		String imageStringHash = "scaled" + imageName + dimension.width + dimension.height;
+		String imageStringHash = "scaled" + imageName;
 		try {
-			if (images.get(imageStringHash) != null)
-				return (Image) images.get(imageStringHash);
-			BufferedImage bufferedImage  = getBufferedImage(imageName);
-			image =  bufferedImage.getScaledInstance(dimension.width, dimension.height, Image.SCALE_SMOOTH);
-			images.put(imageStringHash, image);
+			image  =  (Image) images.get(imageStringHash);
+			if (image == null) {
+				BufferedImage bufferedImage  = getBufferedImage(imageName);
+				image =  bufferedImage.getScaledInstance(dimension.width, dimension.height, Image.SCALE_SMOOTH);
+				images.put(imageStringHash, image);
+			}
+			else
+				image = image.getScaledInstance(dimension.width, dimension.height, Image.SCALE_SMOOTH);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

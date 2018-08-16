@@ -7,6 +7,7 @@ import utils.ImageRepositoryImp;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class MapCell extends JPanel {
@@ -16,9 +17,9 @@ public class MapCell extends JPanel {
 	public static final int MAP_CELL_MAX_WIDTH = 85;
     private static final Color BORDER_COLOR = new Color(119, 16, 61);
     private static final int BORDER_SIZE = 5;
-    private  Image backgroundImage;
-
-    private final JLabel lblImage = new JLabel();
+    
+    private ImagePanel imagePanel = new ImagePanel();
+    APlayer player;
 	
 	MapCell(int mapSize) {
 		setBackground(GameConstants.Colors.LIGHTER);
@@ -27,41 +28,31 @@ public class MapCell extends JPanel {
     	setLayout(layout);
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.fill = GridBagConstraints.CENTER;
-		layout.setConstraints(lblImage, constraints);
-
+		layout.setConstraints(imagePanel, constraints);
 		
-		add(lblImage);
-        lblImage.setPreferredSize(
-                    mapSize < 9 ? new Dimension(MAP_CELL_MAX_WIDTH,MAP_CELL_MAX_HEIGHT) :
-				        new Dimension(MAP_CELL_MIN_WIDTH,MAP_CELL_MIN_HEIGHT)
-        );
+		add(imagePanel);
 	}
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(backgroundImage, 0,0,getWidth(),getHeight(),null);
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		imagePanel.setImage(player);
+	}
+	
+	
+	void setValues(Position position, int mapSize, APlayer player) {
+		this.player = player;
+		imagePanel.setImage(player);
+		this.getParent().repaint();
+		this.repaint();
+		//createBorder(position, mapSize);
     }
+    
 
-    void setValues(Position position, int mapSize, APlayer player) {
 
-	  //  backgroundImage = ImageRepositoryImp.getInstance().getBufferedImage(getGrassPicture(mapSize));
-
-	    ImageIcon imageIcon = getImage(player, mapSize);
-
-	    lblImage.setIcon(imageIcon);
-		EBORDER borderType = getBorderType(mapSize, position);
-		createBorder(borderType);
-		repaint();
-    }
-
-    private ImageIcon getImage(APlayer player, int mapSize) {
+    private BufferedImage getImage(APlayer player, int mapSize) {
 	    if (player != null)
-	        return ImageRepositoryImp.getInstance().getImageIcon(
-	                player.getPicture(),
-                    lblImage.getPreferredSize()
-        );
-
+	        return ImageRepositoryImp.getInstance().getBufferedImage(player.getPicture());
 	    String grassPicture = getGrassPicture(mapSize);
         return null;
 	}
@@ -71,92 +62,83 @@ public class MapCell extends JPanel {
         return random.nextBoolean() ? "lightgrass" : "darkgrass";
     }
 
-    private EBORDER getBorderType(int size, Position position) {
+    private void createBorder(Position position, int size) {
         size--;
-        if (position.x == 0 && position.y == 0)
-            return EBORDER.LEFTTOP;
-        else if (position.x == size && position.y == 0)
-            return EBORDER.RIGHTTOP;
-        else if (position.x == 0 && position.y == size)
-            return EBORDER.LEFTBOTTOM;
-        else if (position.x == size && position.y == size)
-            return EBORDER.RIGHTBOTTOM;
-        else if (position.x == 0)
-            return EBORDER.LEFT;
-        else if (position.x == size)
-            return EBORDER.RIGHT;
-        else if (position.y == size)
-            return EBORDER.BOTTOM;
-        else if (position.y == 0)
-            return EBORDER.TOP;
-        return EBORDER.NONE;
-    }
-
-    enum EBORDER {
-        NONE,
-        LEFT,
-        RIGHT,
-        BOTTOM,
-        TOP,
-        LEFTTOP,
-        RIGHTTOP,
-        LEFTBOTTOM,
-        RIGHTBOTTOM
-    }
-
-    private void createBorder(EBORDER eborder) {
-        switch (eborder)
-        {
-            case TOP:
-                setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createMatteBorder(BORDER_SIZE,0,0,0,BORDER_COLOR),
-		                BorderFactory.createMatteBorder(0,1,1,1, GameConstants.Colors.LIGHT_SHADE)
-                ));
-                break;
-            case RIGHTTOP:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(BORDER_SIZE,0,0,BORDER_SIZE,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(0,1,1,0, GameConstants.Colors.LIGHT_SHADE)));
-                break;
-            case LEFT:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(0,BORDER_SIZE,0,0,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(1,0,1,1, GameConstants.Colors.LIGHT_SHADE)));
-                break;
-            case RIGHT:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(0,0,0,BORDER_SIZE,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(1,1,1,0, GameConstants.Colors.LIGHT_SHADE)));
-                break;
-            case BOTTOM:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(0,0,BORDER_SIZE,0,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(1,1,0,1, GameConstants.Colors.LIGHT_SHADE)));
-                break;
-            case LEFTBOTTOM:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(0,BORDER_SIZE,BORDER_SIZE,0,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(1,0,0,1, GameConstants.Colors.LIGHT_SHADE)));
-  
-                break;
-            case LEFTTOP:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(BORDER_SIZE,BORDER_SIZE,0,0,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(0,0,1,1, GameConstants.Colors.LIGHT_SHADE)));
-         
-                break;
-            case RIGHTBOTTOM:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(0,0,BORDER_SIZE,BORDER_SIZE,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(1,1,0,0, GameConstants.Colors.LIGHT_SHADE)));
-           
-                break;
-            case NONE:
-	            setBorder(BorderFactory.createCompoundBorder(
-			            BorderFactory.createMatteBorder(0,0,0,0,BORDER_COLOR),
-			            BorderFactory.createMatteBorder(1,1,1,1, GameConstants.Colors.LIGHT_SHADE)
-	            ));
-                break;
+        if (position.x != 0 && position.y != 0) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(0,0,0,0,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(1,1,1,1, GameConstants.Colors.LIGHT_SHADE)
+	        ));
         }
+        else if (position.x == 0 && position.y == 0) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(BORDER_SIZE,BORDER_SIZE,0,0,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(0,0,1,1, GameConstants.Colors.LIGHT_SHADE)));
+        }
+        else if (position.x == size && position.y == 0) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(BORDER_SIZE,0,0,BORDER_SIZE,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(0,1,1,0, GameConstants.Colors.LIGHT_SHADE)));
+        }
+        else if (position.x == 0 && position.y == size)
+        {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(0,BORDER_SIZE,BORDER_SIZE,0,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(1,0,0,1, GameConstants.Colors.LIGHT_SHADE)));
+	
+        }
+        else if (position.x == size && position.y == size) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(0,0,BORDER_SIZE,BORDER_SIZE,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(1,1,0,0, GameConstants.Colors.LIGHT_SHADE)));
+        }
+        else if (position.x == 0) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(0,BORDER_SIZE,0,0,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(1,0,1,1, GameConstants.Colors.LIGHT_SHADE)));
+        }
+        else if (position.x == size) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(0,0,0,BORDER_SIZE,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(1,1,1,0, GameConstants.Colors.LIGHT_SHADE)));
+        }
+        else if (position.y == size) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(0,0,BORDER_SIZE,0,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(1,1,0,1, GameConstants.Colors.LIGHT_SHADE)));
+        }
+        else if (position.y == 0) {
+	        setBorder(BorderFactory.createCompoundBorder(
+			        BorderFactory.createMatteBorder(BORDER_SIZE,0,0,0,BORDER_COLOR),
+			        BorderFactory.createMatteBorder(0,1,1,1, GameConstants.Colors.LIGHT_SHADE)
+	        ));
+        }
+    
     }
+}
+
+class ImagePanel extends JPanel {
+	BufferedImage image;
+	
+	public ImagePanel() {
+		this.setBackground(GameConstants.Colors.TRANSPARENT);
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		this.setSize(this.getParent().getSize());
+		this.setPreferredSize(this.getParent().getSize());
+		
+		super.paintComponent(g);
+		if ( image != null )
+			g.drawImage(image, 0, 0, this.getPreferredSize().width, this.getPreferredSize().height, this);
+	}
+	
+	void setImage(APlayer player) {
+		if ( player != null )
+			image = ImageRepositoryImp.getInstance().getBufferedImage(player.getPicture());
+		else
+			image = null;
+		this.repaint();
+	}
 }
