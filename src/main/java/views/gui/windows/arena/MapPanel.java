@@ -3,6 +3,7 @@ package views.gui.windows.arena;
 import models.players.APlayer;
 import models.world.Arena;
 import models.world.Position;
+import state.GameConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,8 @@ import static state.GameConstants.MAX_RENDERING_MAPSIZE;
 class MapPanel extends JPanel {
 
     MapPanel() {
+        setBackground(GameConstants.Colors.DARKEST);
+
     }
 
     void generateNewMap(int mapSize) {
@@ -47,8 +50,7 @@ class MapPanel extends JPanel {
         repaint();
     }
     
-    private int getStartingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize)
-    {
+    private int getStartingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize) {
         int startingRenderingPosition = positionValue - (renderMapSize / 2);
         startingRenderingPosition = startingRenderingPosition < 0 ? 0 : startingRenderingPosition;
         
@@ -57,16 +59,14 @@ class MapPanel extends JPanel {
         
         return startingRenderingPosition;
     }
-    
-    private int getEndingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize)
-    {
+
+    private int getEndingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize) {
         int endingRenderingPosition = positionValue + renderMapSize;
         
         if (endingRenderingPosition > realMapSize)
             endingRenderingPosition = realMapSize;
         return endingRenderingPosition;
     }
-
 }
 
 

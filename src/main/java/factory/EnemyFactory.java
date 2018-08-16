@@ -10,7 +10,7 @@ public class EnemyFactory {
 
     private  static Enemy createEnemy(String name) {
         return new Enemy(name, 1, 1, 5,
-                6, 6, "", "", "");
+                6, 6, "", "", "thanos");
     }
 
     public static ArrayList<Enemy> createRandomEnemies(int mapSize) {

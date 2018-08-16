@@ -16,7 +16,7 @@ class BattleReportTextArea extends JTextArea {
 		setLineWrap(true);
 		setWrapStyleWord(true);
 		setForeground(GameConstants.Colors.DEFAULT_FONT);
-		setBackground(GameConstants.Colors.DARKEST_GRAY);
+		setBackground(GameConstants.Colors.DARKEST);
 		setText(null);
 		
 		this.addText("Battle Report");

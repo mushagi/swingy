@@ -1,6 +1,7 @@
 package views.gui;
 
 import models.world.Arena;
+import utils.FullScreenMac;
 import views.ISplashScreen;
 import views.IUserInterface;
 import views.gui.windows.MainWindow;
@@ -24,6 +25,7 @@ public class GUI implements IUserInterface {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
+        FullScreenMac.enableOSXFullscreen(mainWindow);
     }
 
     @Override

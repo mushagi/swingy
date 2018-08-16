@@ -22,7 +22,7 @@ public class Hero extends APlayer {
         super("Hero", name, level, experience, attack, defence, 0, winningSpeech, losingSpeech, picture);
         heroClass = "";
     }
-    
+
     public Hero() {
     }
 }

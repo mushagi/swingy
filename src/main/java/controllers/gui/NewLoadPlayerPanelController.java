@@ -28,11 +28,21 @@ class NewLoadPlayerPanelController extends APanelController {
     
         }
     };
+    private final ActionListener onQuitListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            guiController.quitGame();
+
+        }
+    };
+
 
     @Override
     void addAllListeners() {
         loadPlayerPanel.addOnBtnNewListener(onNewGameClickedActionListener);
         loadPlayerPanel.addOnBtnLoadHeroListener(onLoadHeroClickedActionListener);
+
+        loadPlayerPanel.addOnBtnQuitListener(onQuitListener);
     }
 
     @Override

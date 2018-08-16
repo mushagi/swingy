@@ -32,7 +32,7 @@ class SidePanel extends JPanel{
     	label.setForeground(GameConstants.Colors.DEFAULT_FONT);
         messagePanel.setLayout(new GridBagLayout());
 		messagePanel.add(label);
-		messagePanel.setBackground(GameConstants.Colors.DARKEST_GRAY);
+		messagePanel.setBackground(GameConstants.Colors.DARKEST);
 	}
 
 	void showMessage(ArrayList<String> results) {

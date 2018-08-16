@@ -1,6 +1,7 @@
 package views.gui.windows.choosehero;
 
 import models.players.Hero;
+import state.GameConstants;
 import views.gui.custom.ButtonRounded;
 import views.gui.custom.RoundedBorders;
 import views.gui.custom.HeroStatisticsTextArea;
@@ -52,7 +53,7 @@ ChooseHeroPanel extends JPanel {
     private JPanel getOptionsPanel() {
         JPanel optionsPanel = new JPanel();
         optionsPanel.setPreferredSize(new Dimension(1000, 40));
-        optionsPanel.setBackground(new Color(40, 40, 40));
+        optionsPanel.setBackground(GameConstants.Colors.LIGHTEST);
         optionsPanel.add(btnNext);
         optionsPanel.add(btnBack);
         optionsPanel.add(btnQuit);
@@ -61,7 +62,7 @@ ChooseHeroPanel extends JPanel {
     }
 
     private JComponent getSidePanel() {
-        heroStatisticsTextArea.setBackground(new Color(18, 18, 18));
+        heroStatisticsTextArea.setBackground(GameConstants.Colors.DARKEST);
         heroStatisticsTextArea.setPreferredSize(new Dimension(320,400));
         return heroStatisticsTextArea;
     }
@@ -77,7 +78,7 @@ ChooseHeroPanel extends JPanel {
         lblChoose.setForeground(Color.WHITE);
 
         centerPanel.setLayout(layout);
-        Color grayish = new Color(29, 29, 29);
+        Color grayish = GameConstants.Colors.LIGHTER;
         centerPanel.setBackground(grayish);
 
         lblPlayerName.setFont(font);

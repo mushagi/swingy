@@ -17,11 +17,10 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class ImageRepositoryImp implements IImageRepository {
-	public static ImageRepositoryImp imageRepositoryImp;
-	public final String imageUrl = "/images/";
-	public final String imageExtension = ".jpg";
+	private static ImageRepositoryImp imageRepositoryImp;
+	private final String imageUrl = "/images/";
+	private final String imageExtension = ".jpg";
 	Dimension dimension = new Dimension();
-	
 	private HashMap<String, Object> images = new HashMap<>();
 	
 	public static ImageRepositoryImp getInstance(){
@@ -29,23 +28,37 @@ public class ImageRepositoryImp implements IImageRepository {
 			imageRepositoryImp = new ImageRepositoryImp();
 		return imageRepositoryImp;
 	}
+
+	public BufferedImage getBufferedImage(String imageName) {
+        String imagePath;
+        String imageStringHash = "buffered" + imageName;
+
+        if (images.get(imageStringHash) != null)
+            return (BufferedImage) images.get(imageStringHash);
+        try {
+            String url = imageUrl + imageName + imageExtension;
+            try {
+                imagePath =  getClass().getResource(url).getPath();
+            } catch (Exception e) {
+                return null;
+            }
+
+            BufferedImage bufferedImage  = ImageIO.read(new File(imagePath));
+            images.put(imageStringHash, bufferedImage);
+            return bufferedImage;
+        } catch (IOException e) {
+            return null;
+        }
+    }
 	
-	private Image getScaledImage(String imageName, Dimension dimension) {
-		String imagePath;
-		
-		String url = imageUrl + imageName + imageExtension;
-		try {
-			imagePath =  getClass().getResource(url).getPath();
-		} catch (Exception e) {
-			return null;
-		}
-		
+	public Image getScaledImage(String imageName, Dimension dimension) {
+
 		Image image = null;
-		String imageStringHash = "scaled" + imagePath + dimension.width + dimension.height;
+		String imageStringHash = "scaled" + imageName + dimension.width + dimension.height;
 		try {
 			if (images.get(imageStringHash) != null)
 				return (Image) images.get(imageStringHash);
-			BufferedImage bufferedImage  = ImageIO.read(new File(imagePath));
+			BufferedImage bufferedImage  = getBufferedImage(imageName);
 			image =  bufferedImage.getScaledInstance(dimension.width, dimension.height, Image.SCALE_SMOOTH);
 			images.put(imageStringHash, image);
 		} catch (Exception e) {
@@ -65,18 +78,19 @@ public class ImageRepositoryImp implements IImageRepository {
 		
 		if (image != null) {
 			imageIcon = new ImageIcon(image);
-			images.put(imageStringHash, image);
+			images.put(imageStringHash, imageIcon);
 		}
 		return imageIcon;
 	}
 	
 	public  void loadCache(APlayer player) {
-		getImageIcon(player.getPicture(), MapCell.MAP_CELL_MIN_WIDTH, MapCell.MAP_CELL_MIN_HEIGHT);
-		
-		getImageIcon(player.getPicture(), MapCell.MAP_CELL_MAX_WIDTH, MapCell.MAP_CELL_MAX_HEIGHT);
-		
-		getImageIcon(player.getPicture(), HeroCell.HERO_CELL_WIDTH, HeroCell.HERO_CELL_HEIGHT);
+		getImageIcon(player.getPicture());
+		getImageIcon(player.getPicture());
+		getImageIcon(player.getPicture());
 	}
+    public  void loadCache(String picture) {
+	    getBufferedImage(picture);
+    }
 	
 	public ImageIcon getImageIcon(String imagePath, int width, int height) {
 		dimension.width = width;
@@ -84,4 +98,10 @@ public class ImageRepositoryImp implements IImageRepository {
 		
 		return  getImageIcon(imagePath, dimension);
 	}
+
+    public void getImageIcon(String lightgrass) {
+        getImageIcon(lightgrass, MapCell.MAP_CELL_MIN_WIDTH, MapCell.MAP_CELL_MIN_HEIGHT);
+        getImageIcon(lightgrass, MapCell.MAP_CELL_MAX_WIDTH, MapCell.MAP_CELL_MAX_HEIGHT);
+        getImageIcon(lightgrass, HeroCell.HERO_CELL_WIDTH, HeroCell.HERO_CELL_HEIGHT);
+    }
 }

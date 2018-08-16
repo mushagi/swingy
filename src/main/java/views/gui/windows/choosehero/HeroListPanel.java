@@ -1,6 +1,7 @@
 package views.gui.windows.choosehero;
 
 import models.players.Hero;
+import state.GameConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,11 +30,11 @@ class HeroListPanel extends JPanel {
 				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scroll.setBorder(null);
-		scroll.setBackground(new Color(0,0,0,0));
-		mainPanel.setBackground(new Color(0,0,0, 0));
+		scroll.setBackground(GameConstants.Colors.TRANSPARENT);
+		mainPanel.setBackground(GameConstants.Colors.TRANSPARENT);
 		scroll.setPreferredSize(new Dimension(600, 600));
 		
-		this.setBackground(new Color(0,0,0, 0));
+		this.setBackground(GameConstants.Colors.TRANSPARENT);
 		this.add(scroll);
 	}
 	

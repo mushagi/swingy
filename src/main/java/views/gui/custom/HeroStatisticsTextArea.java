@@ -15,7 +15,7 @@ public class HeroStatisticsTextArea extends JTextArea {
 	    setEditable(false);
 	    setCursor(null);
 	    setHighlighter(null);
-	    setBackground(GameConstants.Colors.DARKEST_GRAY);
+	    setBackground(GameConstants.Colors.DARKEST);
 	    setForeground(GameConstants.Colors.DEFAULT_FONT);
     }
 

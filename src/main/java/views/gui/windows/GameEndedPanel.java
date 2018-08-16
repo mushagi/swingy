@@ -24,7 +24,7 @@ public class GameEndedPanel extends JPanel {
 		this.setLayout(layout);
 		btnNewGame.setText(gameResults.isHeroWon()? "New Game" : "Try again");
 		
-		this.setBackground(GameConstants.Colors.DARKEST_GRAY);
+		this.setBackground(GameConstants.Colors.DARKEST);
 
 		
 		JPanel messagePanel = getMessagePanel();

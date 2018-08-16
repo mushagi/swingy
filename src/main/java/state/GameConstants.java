@@ -21,12 +21,12 @@ public class GameConstants {
     
     
 	public static class Colors {
-		public static final Color LIGHTER_BLUE = new Color(0, 56, 168);
+		public static final Color LIGHT_SHADE = new Color(100, 96, 182);
 		public static final Color TRANSPARENT = new Color(0,0,0,0);
 		public static final Color DEFAULT_FONT = Color.WHITE;
-		public static Color BLUE = new Color(0, 0, 255);
-		public static final Color DARKEST_GRAY = new Color(18, 18, 18);
-		public static final Color LIGHTER_GRAY = new Color(29, 29, 29);
-		public static final Color LIGHTEST__GRAY = new Color(40, 40, 40);
+		public static Color BRIGHTEST = new Color(53, 45, 161);
+		public static final Color DARKEST = new Color(4, 4, 14);
+		public static final Color LIGHTER = new Color(11, 11, 31);
+		public static final Color LIGHTEST = new Color(23, 23, 35);
 	}
 }

@@ -9,7 +9,7 @@ public class ButtonRounded extends JButton {
 	public ButtonRounded(String text) throws HeadlessException {
 		super(text);
 		setForeground(GameConstants.Colors.DEFAULT_FONT);
-		setBackground(GameConstants.Colors.LIGHTER_GRAY);
+		setBackground(GameConstants.Colors.LIGHTER);
 		setOpaque(true);
 	}
 }

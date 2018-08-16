@@ -2,6 +2,7 @@ package views.gui.windows.arena;
 
 import models.players.Hero;
 import models.world.Arena;
+import state.GameConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +29,7 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel(int mapSize) throws HeadlessException {
         this.setLayout(new BorderLayout());
-        
+        setBackground(GameConstants.Colors.DARKEST);
         mapPanel.generateNewMap(mapSize);
         
         mapPanel.setPreferredSize(new Dimension(600, 450));

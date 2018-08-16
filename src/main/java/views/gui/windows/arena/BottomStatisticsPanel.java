@@ -12,7 +12,7 @@ class BottomStatisticsPanel extends JPanel {
 	private final JLabel lblLevel = new JLabel();
 	
 	BottomStatisticsPanel() {
-		this.setBackground(GameConstants.Colors.DARKEST_GRAY);
+		this.setBackground(GameConstants.Colors.DARKEST);
 		
 		setLayout(new GridLayout(1,3));
 		setFont(GameConstants.MONO_FONT);

@@ -33,6 +33,9 @@ public class GameState {
                 public void run() {
                     for (Hero hero : gameState.heroes)
                         ImageRepositoryImp.getInstance().loadCache(hero);
+                    ImageRepositoryImp.getInstance().loadCache("background");
+                    ImageRepositoryImp.getInstance().getImageIcon("lightgrass");
+                    ImageRepositoryImp.getInstance().getImageIcon("darkgrass");
                 }
             };
             Thread thread = new Thread(runnable);

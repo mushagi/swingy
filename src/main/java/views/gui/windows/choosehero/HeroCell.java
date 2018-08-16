@@ -7,7 +7,6 @@ import utils.ImageRepositoryImp;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class HeroCell extends JPanel {
     public static final int HERO_CELL_WIDTH = 150;
@@ -32,7 +31,7 @@ public class HeroCell extends JPanel {
         add(lblType);
         
         this.tag = tag;
-        this.setBackground(GameConstants.Colors.LIGHTEST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTEST);
     
         this.setPreferredSize(new Dimension(HERO_CELL_WIDTH,HERO_CELL_HEIGHT));
         this.setMaximumSize(new Dimension(HERO_CELL_WIDTH, HERO_CELL_HEIGHT));
@@ -40,10 +39,10 @@ public class HeroCell extends JPanel {
     }
 
     void onHover() {
-        this.setBackground(GameConstants.Colors.LIGHTER_BLUE);
+        this.setBackground(GameConstants.Colors.LIGHT_SHADE);
     }
     void unSelected() {
-        this.setBackground(GameConstants.Colors.LIGHTEST__GRAY);
+        this.setBackground(GameConstants.Colors.LIGHTEST);
     }
     
     
