@@ -30,7 +30,7 @@ public class GUI implements IUserInterface {
 
     @Override
     public void updateUserInterface(Arena arena) {
-
+    
     }
 
     @Override

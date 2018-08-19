@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class    GameResults {
     ArrayList<String> result;
     BattleReport battleReport;
+    APlayer heroBeforeGame;
     APlayer enemyWon;
     boolean heroWon;
     boolean wasBattle;

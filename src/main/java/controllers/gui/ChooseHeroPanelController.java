@@ -1,6 +1,5 @@
 package controllers.gui;
 
-import enums.HeroType;
 import lombok.AccessLevel;
 import lombok.Setter;
 import models.players.Hero;
@@ -32,6 +31,7 @@ class ChooseHeroPanelController extends APanelController {
     private final MouseListener onHeroPanelSelection = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
+            chooseHeroPanel.setAsChosen(e.getSource());
             updatePanel();
         }
 
@@ -43,6 +43,7 @@ class ChooseHeroPanelController extends APanelController {
 
         @Override
         public void mouseReleased(MouseEvent e) {
+    
         }
 
         @Override
@@ -52,7 +53,7 @@ class ChooseHeroPanelController extends APanelController {
 
         @Override
         public void mouseExited(MouseEvent e) {
-
+            chooseHeroPanel.unSelect();
         }
     };
 
@@ -80,7 +81,6 @@ class ChooseHeroPanelController extends APanelController {
 	        try {
       		        setPlayerName(e.getDocument().getText(0, e.getDocument().getLength()));
 	        } catch (BadLocationException e1) {
-		        e1.printStackTrace();
 	        }
         }
 
@@ -88,7 +88,6 @@ class ChooseHeroPanelController extends APanelController {
         public void removeUpdate(DocumentEvent e) {
 	        try { setPlayerName(e.getDocument().getText(0, e.getLength()));
 	        } catch (BadLocationException e1) {
-		        e1.printStackTrace();
 	        }
         }
 
@@ -97,7 +96,6 @@ class ChooseHeroPanelController extends APanelController {
 	        try {
 		        setPlayerName(e.getDocument().getText(0, e.getLength()));
 	        } catch (BadLocationException e1) {
-		        e1.printStackTrace();
 	        }
         }
     };

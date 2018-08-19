@@ -11,6 +11,8 @@ import views.gui.windows.choosehero.HeroCell;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +29,21 @@ public class ImageRepositoryImp implements IImageRepository {
 		if (imageRepositoryImp == null)
 			imageRepositoryImp = new ImageRepositoryImp();
 		return imageRepositoryImp;
+	}
+	
+	
+	public static BufferedImage getScaledImage(BufferedImage image, int width, int height) throws IOException {
+		int imageWidth  = image.getWidth();
+		int imageHeight = image.getHeight();
+		
+		double scaleX = (double)width/imageWidth;
+		double scaleY = (double)height/imageHeight;
+		AffineTransform scaleTransform = AffineTransform.getScaleInstance(scaleX, scaleY);
+		AffineTransformOp bilinearScaleOp = new AffineTransformOp(scaleTransform, AffineTransformOp.TYPE_BILINEAR);
+		
+		return bilinearScaleOp.filter(
+				image,
+				new BufferedImage(width, height, image.getType()));
 	}
 
 	public BufferedImage getBufferedImage(String imageName) {
@@ -50,6 +67,18 @@ public class ImageRepositoryImp implements IImageRepository {
             return null;
         }
     }
+	public BufferedImage getBufferedImageNoCache(String imageName) {
+		String imagePath;
+		try {
+			String url = imageUrl + imageName + imageExtension;
+			imagePath =  getClass().getResource(url).getPath();
+			BufferedImage bufferedImage  = ImageIO.read(new File(imagePath));
+			return bufferedImage;
+		} catch (IOException e) {
+			return null;
+		}
+	}
+ 
 	
 	public Image getScaledImage(String imageName, Dimension dimension) {
 

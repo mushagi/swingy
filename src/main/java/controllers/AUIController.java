@@ -12,12 +12,17 @@ import static enums.EDirection.*;
 public abstract class AUIController {
     protected final ArenaController arenaController;
 
-    protected AUIController(ArenaController arenaController) {
+    protected  AUIController(ArenaController arenaController) {
         this.arenaController = arenaController;
     }
-
+    
+    protected abstract void updateUserInterface();
+    
     public abstract void switchUI();
-
+    
+    public abstract void promptGameEnded();
+    
+    
     public void moveSouth() {
         arenaController.moveHero(SOUTH);
         updateUserInterface();
@@ -53,12 +58,10 @@ public abstract class AUIController {
         System.exit(0);
     }
 
-    protected abstract void updateUserInterface();
     
     public void createNewHero(Hero hero) {
         arenaController.initArena(hero);
         updateUserInterface();
-    
     }
 
     protected Collection<Hero> getAllHeroes() {
@@ -78,4 +81,5 @@ public abstract class AUIController {
     public void createNewGameExistingHero() {
         arenaController.initArena(arenaController.getHero());
     }
+    
 }

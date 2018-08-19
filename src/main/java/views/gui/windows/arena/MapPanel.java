@@ -3,17 +3,17 @@ package views.gui.windows.arena;
 import models.players.APlayer;
 import models.world.Arena;
 import models.world.Position;
-import state.GameConstants;
+import state.SwingyConstants;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static state.GameConstants.MAX_RENDERING_MAPSIZE;
+import static state.SwingyConstants.MAX_RENDERING_MAPSIZE;
 
-class MapPanel extends JPanel {
+public class MapPanel extends JPanel {
 
     MapPanel() {
-        setBackground(GameConstants.Colors.DARKEST);
+        setBackground(SwingyConstants.Colors.DARKEST);
 
     }
 
@@ -44,10 +44,10 @@ class MapPanel extends JPanel {
                 position.y = y;
                 APlayer player = arena.getMap().getGameMap().get(position);
                 MapCell mapCell = (MapCell) this.getComponent(count++);
-                mapCell.setValues(position, mapSize, player);
+                boolean isCellInBattle = arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition());
+                mapCell.setValues(position, mapSize, player, isCellInBattle);
             }
         }
-        repaint();
     }
     
     private int getStartingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize) {

@@ -55,4 +55,18 @@ public class GameResultsController {
 	public void setWasPlayerInBattle() {
     	gameResults.setWasBattle(true);
 	}
+    
+    public void setGameErrorActionMove(String actionName) {
+        addMessage("Cannot " + actionName + " while there is no enemy");
+        addMessage("Try moving the player");
+        gameResults.setError(true);
+    }
+	
+	public void setHeroBeforeGame(Hero hero) {
+		try {
+			gameResults.setHeroBeforeGame((APlayer) hero.clone());
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+	}
 }

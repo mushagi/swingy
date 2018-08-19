@@ -1,31 +1,29 @@
 package views.gui.windows;
 
-import state.GameConstants;
+import state.SwingyConstants;
 import utils.ImageRepositoryImp;
+import views.gui.custom.GameButton;
+import views.gui.custom.ImagePanel;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 
-public class NewLoadPlayerPanel extends JPanel {
-    private final MenuButton btnNewHero = new MenuButton("New Hero");
-    private final MenuButton btnLoadHero = new MenuButton("Load Hero");
-    private final MenuButton quit = new MenuButton("Quit");
+public class NewLoadPlayerPanel extends ImagePanel {
+    private final GameButton btnNewHero = new GameButton("New Hero");
+    private final GameButton btnLoadHero = new GameButton("Load Hero");
+    private final GameButton quit = new GameButton("Quit");
 
-    private final BufferedImage image;
     private JPanel menuPanel = new JPanel();
 
     private JPanel bottomPanel = new JPanel();
 
     public NewLoadPlayerPanel() {
-        this.setLayout(new BorderLayout());
-        this.setBackground(GameConstants.Colors.DARKEST);
-        image = ImageRepositoryImp.getInstance().getBufferedImage("background");
-
+	    super(ImageRepositoryImp.getInstance().getBufferedImage("background"));
+	    
+	    this.setLayout(new BorderLayout());
+        this.setBackground(SwingyConstants.Colors.DARKEST);
+        
         setUpMenuPanel();
         setUpBottonPanel();
 
@@ -40,7 +38,7 @@ public class NewLoadPlayerPanel extends JPanel {
         lblAuthor.setForeground(Color.WHITE);
 
         bottomPanel.add(lblAuthor);
-        bottomPanel.setBackground(GameConstants.Colors.TRANSPARENT);
+        bottomPanel.setBackground(SwingyConstants.Colors.TRANSPARENT);
     }
 
     private void setUpMenuPanel() {
@@ -48,16 +46,14 @@ public class NewLoadPlayerPanel extends JPanel {
 
         menuPanel.setLayout(layout);
         menuPanel.setPreferredSize(new Dimension(950, 70));
-
+        menuPanel.setOpaque(false);
+        
+	    setFocusable(false);
         JLabel lblWelcome = new JLabel("Swingy in Wakanda");
 
         lblWelcome.setFont(new Font("SansSerif", Font.ITALIC, 40));
         lblWelcome.setForeground(Color.WHITE);
-
-
-
-        menuPanel.setBackground(GameConstants.Colors.TRANSPARENT);
-
+        
         JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
         separator.setPreferredSize(new Dimension(lblWelcome.getPreferredSize().width,3));
 
@@ -85,16 +81,8 @@ public class NewLoadPlayerPanel extends JPanel {
         menuPanel.add(btnNewHero);
         menuPanel.add(btnLoadHero);
         menuPanel.add(quit);
-
-
     }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-    }
-
+    
     public void addOnBtnNewListener(ActionListener onNewGameClickedActionListener) {
         btnNewHero.addActionListener(onNewGameClickedActionListener);
 
@@ -109,57 +97,7 @@ public class NewLoadPlayerPanel extends JPanel {
         quit.addActionListener(onQuitListener);
     }
 
-    private class MenuButton extends JButton {
-        Border border = BorderFactory.createMatteBorder(0,0,10,0, GameConstants.Colors.BRIGHTEST);
-        private MenuButton(String text) throws HeadlessException {
-            super(text);
-            setBorder(null);
-            setContentAreaFilled(false);
-            setFocusPainted(false);
-            setFocusable(false);
-            setForeground(GameConstants.Colors.DEFAULT_FONT);
 
-            addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    update(false);
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    update(true);
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    update(false);
-
-                }
-            });
-        }
-
-        void update(boolean isSelected) {
-            setBorder(isSelected ? border : null);
-            getParent().getParent().getParent().repaint();
-            getParent().getParent().repaint();
-            getParent().repaint();
-            repaint();
-        }
-    }
 }
-
-
-
 
 

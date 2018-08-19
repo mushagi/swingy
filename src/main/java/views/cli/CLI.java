@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static state.GameConstants.*;
+import static state.SwingyConstants.*;
 
 public class CLI implements IUserInterface {
 

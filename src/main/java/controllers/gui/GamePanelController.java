@@ -13,14 +13,12 @@ class GamePanelController extends APanelController {
         super(guiController);
         this.gamePanel = gamePanel;
         addAllListeners();
-        updateUserInterface();
     }
 
     private final AbstractAction onNorthClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveNorth();
-            updateUserInterface();
         }
     };
 
@@ -28,7 +26,6 @@ class GamePanelController extends APanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveSouth();
-            updateUserInterface();
         }
     };
 
@@ -36,7 +33,6 @@ class GamePanelController extends APanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveEast();
-            updateUserInterface();
         }
     };
 
@@ -44,7 +40,6 @@ class GamePanelController extends APanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveWest();
-            updateUserInterface();
         }
     };
 
@@ -52,7 +47,6 @@ class GamePanelController extends APanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.attack();
-            updateUserInterface();
         }
     };
 
@@ -60,7 +54,6 @@ class GamePanelController extends APanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.runAway();
-            updateUserInterface();
         }
     };
 
@@ -99,16 +92,7 @@ class GamePanelController extends APanelController {
 			});
 		}
 	};
-    
-    private void updateUserInterface() {
-        if (!guiController.getArena().isGameInProgress()) {
-            guiController.showGameEndedPanel();
-        }
-        else
-            gamePanel.updateUserInterface(guiController.getArena());
-
-    }
-
+	
     @Override
     void addAllListeners() {
         gamePanel.addOnNorthClickedListener(onNorthClicked);
@@ -125,5 +109,9 @@ class GamePanelController extends APanelController {
     
     @Override
     void updatePanel() {
+        if (!guiController.getArena().isGameInProgress())
+            guiController.promptGameEnded();
+        else
+            gamePanel.updateUserInterface(guiController.getArena());
     }
 }

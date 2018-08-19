@@ -71,12 +71,12 @@ public class MapController {
     }
 
 
-    public boolean addPlayer(Position position, APlayer player) {
+    private boolean addPlayer(Position position, APlayer player) {
         map.getGameMap().put(position, player);
         return map.getGameMap().get(position)!= null;
     }
 
-    public boolean removePlayer(Position position) {
+    private boolean removePlayer(Position position) {
         return map.getGameMap().remove(position) != null;
     }
 
@@ -89,7 +89,7 @@ public class MapController {
         return map.getGameMap().get(position);
     }
 
-    public boolean playerExists(Position position) {
+    private boolean playerExists(Position position) {
         APlayer player = map.getGameMap().get(position);
         if (player == null) return false;
         return player.getPosition().hashCode() == position.hashCode()

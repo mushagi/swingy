@@ -13,7 +13,7 @@ import java.util.Collection;
 
 @Entity
 @Getter @Setter
-public abstract class APlayer {
+public abstract class APlayer implements Cloneable{
     @Id
     @Column(updatable = false, nullable = false, length = 100)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -83,5 +83,10 @@ public abstract class APlayer {
                 "HitPoint = " + hitPoint + "\n"+
                 "Artifact = " + artifact +"\n"+
                 "Position= " + position;
+    }
+    
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

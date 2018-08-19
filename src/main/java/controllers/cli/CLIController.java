@@ -151,7 +151,12 @@ public class CLIController extends AUIController {
         GUIController controller = ControllerFactory.newGUIController(arenaController);
         controller.run();
     }
-
+    
+    @Override
+    public void promptGameEnded() {
+    
+    }
+    
     @Override
     protected void updateUserInterface() {
         userInterface.updateUserInterface(arenaController.getArena());

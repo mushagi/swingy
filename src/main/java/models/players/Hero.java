@@ -25,4 +25,5 @@ public class Hero extends APlayer {
 
     public Hero() {
     }
+
 }

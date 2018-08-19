@@ -1,10 +1,11 @@
 package views.gui.custom;
 
 import models.players.Hero;
-import state.GameConstants;
+import state.SwingyConstants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class HeroStatisticsTextArea extends JTextArea {
 
@@ -15,8 +16,9 @@ public class HeroStatisticsTextArea extends JTextArea {
 	    setEditable(false);
 	    setCursor(null);
 	    setHighlighter(null);
-	    setBackground(GameConstants.Colors.DARKEST);
-	    setForeground(GameConstants.Colors.DEFAULT_FONT);
+	    setBackground(SwingyConstants.Colors.DARKEST);
+	    setForeground(SwingyConstants.Colors.DEFAULT_FONT);
+	    setFocusable(false);
     }
 
     public void updateWithHero(Hero hero) {
@@ -30,4 +32,5 @@ public class HeroStatisticsTextArea extends JTextArea {
 	    append(String.format(format, "Attack", hero.getAttack()));
 	    append(String.format(format, "Defence", hero.getDefence()));
     }
+    
 }

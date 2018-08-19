@@ -12,14 +12,14 @@ import models.world.Arena;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static state.GameConstants.*;
+import static state.SwingyConstants.*;
 
 public class ArenaController {
     private final IRepository<Hero> heroRepository;
     @Getter private final Arena arena;
     private final MapController mapController;
     private final GameResultsController gameResultsController;
-    private final BattleManager battleService;
+    private final BattleManager battleManager;
     private final HeroController heroController;
 
     public ArenaController(Arena arena,
@@ -31,7 +31,7 @@ public class ArenaController {
         this.arena = arena;
         this.mapController = mapController;
         this.gameResultsController = gameResultsController;
-        this.battleService = battleManager;
+        this.battleManager = battleManager;
         this.heroController = heroController;
         this.heroRepository = heroRepository;
     }
@@ -54,10 +54,8 @@ public class ArenaController {
         gameResultsController.clearGameResults();
 
         if (arena.isPlayerInABattle()) {
-            gameResultsController.addMessage("Battle Report");
-            
-            APlayer enemy = arena.getMap().getGameMap().get(arena.getHero().getPosition());
-            APlayer won = battleService.battle(arena.getHero(), enemy);
+            APlayer enemy = mapController.getPlayer(getHero().getPosition());
+            APlayer won = battleManager.battle(arena.getHero(), enemy);
             if (won == arena.getHero())
                 onHeroWon(won, enemy);
             else
@@ -65,7 +63,7 @@ public class ArenaController {
 	        gameResultsController.setWasPlayerInBattle();
         }
         else
-            gameResultsController.setGameError(ILLEGAL_ATTACK_NO_ENEMY);
+            gameResultsController.setGameErrorActionMove("fight");
     }
 
     private void onHeroWon(APlayer won, APlayer playerWonAgainst) {
@@ -100,7 +98,7 @@ public class ArenaController {
             arena.setPlayerInABattle(false);
         }
         else
-            gameResultsController.setGameError(ILLEGAL_MOVE_BATTLE_IN_PROGRESS);
+            gameResultsController.setGameErrorActionMove("run away");
     }
 
     private void setHeroToBattle() {
@@ -131,6 +129,7 @@ public class ArenaController {
         arena.setPlayerInABattle(false);
         heroController.registerHero(hero);
         gameResultsController.clearGameResults();
+        gameResultsController.setHeroBeforeGame(hero);
         mapController.addMapValues(hero);
         heroRepository.create(hero);
     }

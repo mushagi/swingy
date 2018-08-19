@@ -2,7 +2,7 @@ package views.gui.windows.arena;
 
 import models.players.Hero;
 import models.world.Arena;
-import state.GameConstants;
+import state.SwingyConstants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.*;
 public class GamePanel extends JPanel {
 
     private final MapPanel mapPanel = new MapPanel();
-    private final ButtonsPanel buttonsPanel = new ButtonsPanel();
+    private final ControlPanel controlPanel = new ControlPanel();
     private final SidePanel sidePanel = new SidePanel();
     
     private final String KEY_BINDING_MOVE_UP = "move up";
@@ -29,16 +29,15 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel(int mapSize) throws HeadlessException {
         this.setLayout(new BorderLayout());
-        setBackground(GameConstants.Colors.DARKEST);
+        setBackground(SwingyConstants.Colors.DARKEST);
         mapPanel.generateNewMap(mapSize);
         
-        mapPanel.setPreferredSize(new Dimension(600, 450));
-        buttonsPanel.setPreferredSize(new Dimension(950, 70));
         sidePanel.setPreferredSize(new Dimension(350, 450));
-        
-        add(mapPanel, BorderLayout.CENTER);
+		controlPanel.setPreferredSize(new Dimension(950, 100));
+		
+		add(mapPanel, BorderLayout.CENTER);
         add(sidePanel, BorderLayout.EAST);
-        add(buttonsPanel, BorderLayout.SOUTH);
+        add(controlPanel, BorderLayout.SOUTH);
     }
     
     public void updateUserInterface(Arena arena) {
@@ -56,37 +55,37 @@ public class GamePanel extends JPanel {
     }
     
     public void addOnNewGameListeners(AbstractAction onNewGame) {
-        buttonsPanel.addOnNewGameListener(onNewGame);
+        controlPanel.addOnNewGameListener(onNewGame);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("N"), KEY_BINDING_NEW_GAME);
 	    this.getActionMap().put(KEY_BINDING_NEW_GAME,  onNewGame);
     }
 
     public void addOnBackToMainMenuListener(AbstractAction onBackToMainMenu) {
-        buttonsPanel.addOnBackToMainMenuQuitListener(onBackToMainMenu);
+        controlPanel.addOnBackToMainMenuQuitListener(onBackToMainMenu);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("B"), KEY_BINDING_MAIN_MENU);
 	    this.getActionMap().put(KEY_BINDING_MAIN_MENU,  onBackToMainMenu);
     }
 
     public void addOnQuitListener(AbstractAction onQuit) {
-        buttonsPanel.addOnBtnQuitListener(onQuit);
+        controlPanel.addOnBtnQuitListener(onQuit);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("Q"), KEY_BINDING_QUIT);
 	    this.getActionMap().put(KEY_BINDING_QUIT,  onQuit);
     }
 
     public void addOnRunawayClickedListener(AbstractAction onRunawayClicked) {
-        buttonsPanel.getRunAway().addActionListener(onRunawayClicked);
+        controlPanel.getRunAway().addActionListener(onRunawayClicked);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("R"), KEY_BINDING_RUN);
-	    this.getActionMap().put(KEY_BINDING_FIGHT,  onRunawayClicked);
+	    this.getActionMap().put(KEY_BINDING_RUN,  onRunawayClicked);
     }
 
     public void addOnFightClickedListener(AbstractAction onFightClicked) {
-        buttonsPanel.getAttack().addActionListener(onFightClicked);
+        controlPanel.getAttack().addActionListener(onFightClicked);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("F"), KEY_BINDING_FIGHT);
 	    this.getActionMap().put(KEY_BINDING_FIGHT,  onFightClicked);
     }
 
     public void addOnWestClickedListener(AbstractAction onWestClicked) {
-        buttonsPanel.getWest().addActionListener(onWestClicked);
+        controlPanel.getWest().addActionListener(onWestClicked);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("A"), KEY_BINDING_MOVE_LEFT);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("LEFT ARROW"), KEY_BINDING_MOVE_LEFT);
 	
@@ -94,7 +93,7 @@ public class GamePanel extends JPanel {
     }
 
     public void addOnEastClickedListener(AbstractAction onEastClicked) {
-        buttonsPanel.getEast().addActionListener(onEastClicked);
+        controlPanel.getEast().addActionListener(onEastClicked);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("D"), KEY_BINDING_MOVE_RIGHT);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("RIGHT ARROW"), KEY_BINDING_MOVE_RIGHT);
 	
@@ -102,7 +101,7 @@ public class GamePanel extends JPanel {
     }
 
     public void addOnSouthClickedListener(AbstractAction onSouthClicked) {
-        buttonsPanel.getSouth().addActionListener(onSouthClicked);
+        controlPanel.getSouth().addActionListener(onSouthClicked);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("S"), KEY_BINDING_MOVE_DOWN);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("DOWN ARROW"), KEY_BINDING_MOVE_DOWN);
 	
@@ -110,7 +109,7 @@ public class GamePanel extends JPanel {
     }
 
     public void addOnNorthClickedListener(AbstractAction onNorthClicked) {
-        buttonsPanel.getNorth().addActionListener(onNorthClicked);
+        controlPanel.getNorth().addActionListener(onNorthClicked);
         this.getInputMap(WIF).put(KeyStroke.getKeyStroke("W"), KEY_BINDING_MOVE_UP);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("UP ARROW"), KEY_BINDING_MOVE_UP);
 	
@@ -118,20 +117,20 @@ public class GamePanel extends JPanel {
     }
 
     public void addOnBtnQuitListener(AbstractAction onBtnQuitClicked) {
-        buttonsPanel.addOnBtnQuitListener(onBtnQuitClicked);
+        controlPanel.addOnBtnQuitListener(onBtnQuitClicked);
     }
 
     public void addOnBackToMainMenuQuitListener(AbstractAction onBtnBackToMainMenuListener) {
-        buttonsPanel.addOnNewGameListener(onBtnBackToMainMenuListener);
+        controlPanel.addOnNewGameListener(onBtnBackToMainMenuListener);
     }
 
     public void addOnNewGameListener(AbstractAction onBtnNewGameListener) {
-        buttonsPanel.addOnNewGameListener(onBtnNewGameListener);
+        controlPanel.addOnNewGameListener(onBtnNewGameListener);
     }
     
 	
 	public void addOnShowHeroStatisticsListener(AbstractAction onShowHeroStatistics) {
-		buttonsPanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
+		controlPanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
 		this.getInputMap(WIF).put(KeyStroke.getKeyStroke("H"), KEY_BINDING_SHOW_HERO_STATS);
 		this.getActionMap().put(KEY_BINDING_SHOW_HERO_STATS,  onShowHeroStatistics);
 	}
