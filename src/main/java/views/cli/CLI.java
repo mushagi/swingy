@@ -261,4 +261,13 @@ public class CLI implements IUserInterface {
         displayOptions();
         displayPromptInput(false);
     }
+    
+    public void displaySwitchUIInProgress() {
+        printToScreen("Switching user interface...");
+    }
+    
+    public void displaySwitchUIDone() {
+        printToScreen("Switched ui");
+    
+    }
 }

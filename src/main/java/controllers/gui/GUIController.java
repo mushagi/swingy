@@ -26,8 +26,9 @@ public class GUIController extends AUIController {
 
     @Override
     public void switchUI() {
-        AUIController controller = ControllerFactory.newCLIController(arenaController);
-        controller.run();
+        guiInterface.close();
+	    AUIController controller = ControllerFactory.newCLIController(arenaController);
+	    controller.run();
     }
 	
 	@Override
@@ -47,7 +48,8 @@ public class GUIController extends AUIController {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                guiInterface = new GUI();
+	            guiInterface = new GUI();
+	            GameState.getInstance().setShowSplashScreen(false);
                 if (!arenaController.isPLayerNameLoaded())
                     showCreateNewLoadPlayerWindow();
                 else

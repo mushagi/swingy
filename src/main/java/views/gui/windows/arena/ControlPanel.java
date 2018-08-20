@@ -22,6 +22,7 @@ import java.awt.event.ActionListener;
     final GameButton backToMainMenu = new GameButton("Menu");
     final GameButton btnShowHeroStatistics = new GameButton("Show Hero Stats");
 	final GameButton btnPickUp = new GameButton("Pick Up");
+	final GameButton btnSwitchUI = new GameButton("Switch To CLI");
 	
 	private final Dimension dimension = new Dimension(100,35);
 
@@ -74,8 +75,9 @@ import java.awt.event.ActionListener;
         gameOptionsPanel.add(newGame);
         gameOptionsPanel.add(backToMainMenu);
         gameOptionsPanel.add(quit);
-    
-        layout.putConstraint(SpringLayout.EAST, backToMainMenu, -10, SpringLayout.EAST, gameOptionsPanel);
+	    gameOptionsPanel.add(btnSwitchUI);
+	
+	    layout.putConstraint(SpringLayout.EAST, backToMainMenu, -10, SpringLayout.EAST, gameOptionsPanel);
         layout.putConstraint(SpringLayout.NORTH, backToMainMenu, 5, SpringLayout.NORTH, gameOptionsPanel);
         
         layout.putConstraint(SpringLayout.NORTH, newGame, 5, SpringLayout.NORTH, gameOptionsPanel);
@@ -84,10 +86,15 @@ import java.awt.event.ActionListener;
     
         layout.putConstraint(SpringLayout.NORTH, quit, 5, SpringLayout.SOUTH, backToMainMenu);
         layout.putConstraint(SpringLayout.EAST, quit, -10, SpringLayout.EAST, gameOptionsPanel);
+	   
+	    layout.putConstraint(SpringLayout.NORTH, btnSwitchUI, 5, SpringLayout.SOUTH, newGame);
+	    layout.putConstraint(SpringLayout.EAST, btnSwitchUI, -10, SpringLayout.WEST, quit);
 	
 	    newGame.setPreferredSize(dimension);
 	    quit.setPreferredSize(dimension);
 	    backToMainMenu.setPreferredSize(dimension);
+	    btnSwitchUI.setPreferredSize(dimension);
+	    btnSwitchUI.setHorizontalAlignment(SwingConstants.RIGHT);
 	
 	    newGame.setHorizontalAlignment(SwingConstants.RIGHT);
 	    quit.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -175,4 +182,9 @@ import java.awt.event.ActionListener;
     void addOnShowHeroStatisticsListener(ActionListener onShowHeroStatistics) {
         btnShowHeroStatistics.addActionListener(onShowHeroStatistics);
     }
+	
+	
+	void addOnSwitchUI(ActionListener onSwitchUI) {
+		btnSwitchUI.addActionListener(onSwitchUI);
+	}
 }

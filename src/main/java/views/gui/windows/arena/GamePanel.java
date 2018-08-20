@@ -14,6 +14,7 @@ public class GamePanel extends JPanel {
     private final SidePanel sidePanel = new SidePanel();
     
     private final String KEY_BINDING_MOVE_UP = "move up";
+	private final String KEY_SWITCHUI = "switch ui";
 	private final String KEY_BINDING_MOVE_DOWN = "move down";
 	private final String KEY_BINDING_MOVE_RIGHT = "move right";
 	private final String KEY_BINDING_MOVE_LEFT = "move left";
@@ -112,11 +113,18 @@ public class GamePanel extends JPanel {
         controlPanel.getNorth().addActionListener(onNorthClicked);
         this.getInputMap(WIF).put(KeyStroke.getKeyStroke("W"), KEY_BINDING_MOVE_UP);
 	    this.getInputMap(WIF).put(KeyStroke.getKeyStroke("UP ARROW"), KEY_BINDING_MOVE_UP);
-	
 	    this.getActionMap().put(KEY_BINDING_MOVE_UP,  onNorthClicked);
     }
-
-    public void addOnBtnQuitListener(AbstractAction onBtnQuitClicked) {
+	
+	
+	public void onSwitchUI(AbstractAction onSwitchUI) {
+		controlPanel.addOnSwitchUI(onSwitchUI);
+		this.getInputMap(WIF).put(KeyStroke.getKeyStroke("X"), KEY_SWITCHUI);
+		this.getActionMap().put(KEY_SWITCHUI,  onSwitchUI);
+	}
+	
+	
+	public void addOnBtnQuitListener(AbstractAction onBtnQuitClicked) {
         controlPanel.addOnBtnQuitListener(onBtnQuitClicked);
     }
 

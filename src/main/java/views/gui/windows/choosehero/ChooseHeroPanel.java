@@ -55,6 +55,7 @@ ChooseHeroPanel extends JPanel {
         GradientPaint gp = new GradientPaint(0, 0, SwingyConstants.Colors.DARKEST, 12, h,SwingyConstants.Colors.BRIGHTER);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);
+        
     }
     
     public void addOnNextActionListener(ActionListener nextActionListener) {

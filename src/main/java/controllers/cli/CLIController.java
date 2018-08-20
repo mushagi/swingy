@@ -8,6 +8,7 @@ import models.players.Hero;
 import state.GameState;
 import views.cli.CLI;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,7 +16,8 @@ public class CLIController extends AUIController {
     private final Scanner scanner = new Scanner(System.in);
     private final CLI userInterface;
     private boolean IsBackToMainMenu = false;
-
+    private boolean switchedUI = false;
+    
     public CLIController(ArenaController arenaController, CLI userInterface) {
         super(arenaController);
         this.userInterface = userInterface;
@@ -79,16 +81,17 @@ public class CLIController extends AUIController {
 
     private void gameLoop() {
         updateUserInterface();
-        while (arenaController.isGameInProgress())
+        while (arenaController.isGameInProgress() && !switchedUI)
             getGameInProgressInput();
-        if (IsBackToMainMenu)
-            run();
-        else {
-            userInterface.printResultsMessage(arenaController.getArena());
-            waitForAnyKeyPress();
-            promptNewGame();
+        if (!switchedUI) {
+            if (IsBackToMainMenu)
+                run();
+            else {
+                userInterface.printResultsMessage(arenaController.getArena());
+                waitForAnyKeyPress();
+                promptNewGame();
+            }
         }
-
     }
 
     private void getGameInProgressInput() {
@@ -127,6 +130,7 @@ public class CLIController extends AUIController {
             case "X":
             case "x":
                 switchUI();
+                break;
             case "Z":
             case "z":
                 viewHeroStats();
@@ -148,8 +152,16 @@ public class CLIController extends AUIController {
 
     @Override
     public void switchUI() {
-        GUIController controller = ControllerFactory.newGUIController(arenaController);
-        controller.run();
+        switchedUI = true;
+        userInterface.displaySwitchUIInProgress();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                GUIController controller = ControllerFactory.newGUIController(arenaController);
+                controller.run();
+            }
+        });
+        userInterface.displaySwitchUIDone();
     }
     
     @Override

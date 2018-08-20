@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 
 public class GameButton extends JButton {
     Border hoverBorder = BorderFactory.createMatteBorder(0,0,10,0, SwingyConstants.Colors.BRIGHTEST);
+    Border normalBorder = BorderFactory.createMatteBorder(0,0,3,0, SwingyConstants.Colors.BRIGHTERSHADE);
     Border selectedBorder = BorderFactory.createMatteBorder(0,0,10,0, SwingyConstants.Colors.REDDISH);
     private static boolean isMousePressed;
     private static GameButton activeButton;
@@ -18,7 +19,7 @@ public class GameButton extends JButton {
     public GameButton(String text) throws HeadlessException {
         super(text);
 
-        setBorder(null);
+        setBorder(normalBorder);
         setContentAreaFilled(false);
         setFocusPainted(false);
         setFocusable(false);
@@ -27,6 +28,7 @@ public class GameButton extends JButton {
         addMouseListener(mouseListener);
     }
     
+
     private MouseListener mouseListener = new MouseListener() {
         
         private boolean left = false;
@@ -39,7 +41,7 @@ public class GameButton extends JButton {
         @Override
         public void mousePressed(MouseEvent e) {
             if (activeButton != e.getSource() && activeButton != null){
-                activeButton.updateBorder(null);
+                activeButton.updateBorder(normalBorder);
             }
             activeButton = (GameButton) e.getSource();
             updateBorder(selectedBorder);
@@ -62,7 +64,7 @@ public class GameButton extends JButton {
         @Override
         public void mouseExited(MouseEvent e) {
             if (!isMousePressed)
-                updateBorder(null);
+                updateBorder(normalBorder);
             left = true;
         }
         

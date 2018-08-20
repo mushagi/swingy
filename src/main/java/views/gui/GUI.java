@@ -1,6 +1,7 @@
 package views.gui;
 
 import models.world.Arena;
+import state.GameState;
 import utils.FullScreenMac;
 import views.ISplashScreen;
 import views.IUserInterface;
@@ -16,6 +17,7 @@ public class GUI implements IUserInterface {
     public GUI() {
         mainWindow= new MainWindow();
         mainWindow.setVisible(true);
+        showSplashScreen();
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException e) {
@@ -37,6 +39,7 @@ public class GUI implements IUserInterface {
     public void showSplashScreen() {
         ISplashScreen splashScreen = new SplashScreenGUI();
         splashScreen.showSplashScreen();
+        addMainWindowContentPane((JPanel) splashScreen);
     }
 
     @Override
@@ -50,5 +53,10 @@ public class GUI implements IUserInterface {
         mainWindow.setVisible(true);
         pane.setFocusable(true);
         pane.requestFocusInWindow();
+    }
+    
+    public void close() {
+        mainWindow.setVisible(false);
+        mainWindow.dispose();
     }
 }

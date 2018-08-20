@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 
 class GamePanelController extends APanelController {
     private final GamePanel gamePanel;
-
+    
     
     GamePanelController(GUIController guiController, GamePanel gamePanel) {
         super(guiController);
@@ -92,7 +92,20 @@ class GamePanelController extends APanelController {
 			});
 		}
 	};
-	
+    
+    private final AbstractAction onSwitchUI = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    guiController.switchUI();
+                }
+            });
+        }
+    };
+    
+    
     @Override
     void addAllListeners() {
         gamePanel.addOnNorthClickedListener(onNorthClicked);
@@ -105,6 +118,7 @@ class GamePanelController extends APanelController {
         gamePanel.addOnBackToMainMenuListener(onBackToMainMenu);
         gamePanel.addOnNewGameListeners(onNewGame);
         gamePanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
+        gamePanel.onSwitchUI(onSwitchUI);
     }
     
     @Override
