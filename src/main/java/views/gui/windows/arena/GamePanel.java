@@ -3,13 +3,14 @@ package views.gui.windows.arena;
 import models.players.Hero;
 import models.world.Arena;
 import state.SwingyConstants;
+import views.gui.custom.AbstractMapView;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
 
-    private final MapPanel mapPanel = new MapPanel();
+    private final AbstractMapView abstractMapView = new MapPanel();
     private final ControlPanel controlPanel = new ControlPanel();
     private final SidePanel sidePanel = new SidePanel();
     
@@ -31,18 +32,18 @@ public class GamePanel extends JPanel {
 	public GamePanel(int mapSize) throws HeadlessException {
         this.setLayout(new BorderLayout());
         setBackground(SwingyConstants.Colors.DARKEST);
-        mapPanel.generateNewMap(mapSize);
+        abstractMapView.generateNewMap(mapSize);
         
         sidePanel.setPreferredSize(new Dimension(350, 450));
 		controlPanel.setPreferredSize(new Dimension(950, 100));
 		
-		add(mapPanel, BorderLayout.CENTER);
+		add(abstractMapView, BorderLayout.CENTER);
         add(sidePanel, BorderLayout.EAST);
         add(controlPanel, BorderLayout.SOUTH);
     }
     
     public void updateUserInterface(Arena arena) {
-    	mapPanel.updateMap(arena);
+    	abstractMapView.updateMap(arena);
     	if (arena.getGameResults().isWasBattle())
 	        sidePanel.showBattleReport(arena.getGameResults().getBattleReport());
         else

@@ -36,7 +36,10 @@ class GamePanelController extends APanelController {
         }
     };
 
-    private final AbstractAction onWestClicked = new AbstractAction() {
+    private final AbstractAction onWestClicked =
+            
+            
+            new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.moveWest();

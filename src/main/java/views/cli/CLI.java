@@ -14,7 +14,8 @@ import java.util.Collection;
 import static state.SwingyConstants.*;
 
 public class CLI implements IUserInterface {
-
+    private MapCLi mapCLi = new MapCLi();
+    
     public void displayLoadCreateHeroPrompt(boolean isInvalidInput) {
         clearScreen();
         System.out.print("" +
@@ -35,6 +36,15 @@ public class CLI implements IUserInterface {
     }
 
     void printMap(final Arena arena, ArrayList<String> sideString) {
+        
+        mapCLi.setSideIterator(sideString.iterator());
+        mapCLi.updateMap(arena);
+        mapCLi.finishUpSideIterator();
+        
+        
+        /*        mapCLi.setSideIterator(sideString.iterator());
+        mapCLi.updateMap(arena);
+        mapCLi.finishUpSideIterator();
         int max = Math.max(arena.getMap().getSize(), sideString.size());
         int y = 0;
         StringBuilder mapLine = new StringBuilder();
@@ -48,7 +58,7 @@ public class CLI implements IUserInterface {
                     Position position = new Position(y, x);
                     if (arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition()))
                         mapLine.append("|*");
-                    else if (arena.getMap().getGameMap().containsKey(position)) {
+                    else(positi if (arena.getMap().getGameMap().containsKeyon)) {
                         APlayer player = arena.getMap().getGameMap().get(position);
                         mapLine.append(player.getType().equals("Hero") ? "|0" : "|X");
                     }
@@ -62,7 +72,7 @@ public class CLI implements IUserInterface {
             sideStringLine = i < sideString.size() ? sideString.get(i) : "";
             System.out.format("%-"+arena.getMap().getSize() * 3+"s%s\n", mapLine, sideStringLine);
 
-        }
+        }*/
 
     }
 

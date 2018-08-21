@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-public class MapCell extends JPanel {
+public class MapCell extends AbstractMapCell {
 	public static final int MAP_CELL_MIN_HEIGHT = 45;
 	public static final int MAP_CELL_MIN_WIDTH = 45;
 	public static final int MAP_CELL_MAX_HEIGHT = 85;
@@ -20,7 +20,6 @@ public class MapCell extends JPanel {
     private static final int BORDER_SIZE = 5;
     
     private ImagePanel imagePanel = new ImagePanel();
-    APlayer player;
 	
 	MapCell(int mapSize) {
 		setBackground(SwingyConstants.Colors.LIGHTER);
@@ -37,7 +36,8 @@ public class MapCell extends JPanel {
 	}
 	
 	
-	void setValues(Position position, int mapSize, APlayer player, boolean isCellInBattle) {
+	@Override
+	public void updateValues(Position position, int mapSize, APlayer player, boolean isCellInBattle) {
 		this.player = player;
 		if (isCellInBattle)
 			imagePanel.changeImage(ImageRepositoryImp.getInstance().getBufferedImage("danger"));
@@ -62,41 +62,9 @@ public class MapCell extends JPanel {
         Random random = new Random();
         return random.nextBoolean() ? "lightgrass" : "darkgrass";
     }
-
-    private EBORDER getBorderType(int size, Position position) {
-        size--;
-        if (position.x == 0 && position.y == 0)
-            return EBORDER.LEFTTOP;
-        else if (position.x == size && position.y == 0)
-            return EBORDER.RIGHTTOP;
-        else if (position.x == 0 && position.y == size)
-            return EBORDER.LEFTBOTTOM;
-        else if (position.x == size && position.y == size)
-            return EBORDER.RIGHTBOTTOM;
-        else if (position.x == 0)
-            return EBORDER.LEFT;
-        else if (position.x == size)
-            return EBORDER.RIGHT;
-        else if (position.y == size)
-            return EBORDER.BOTTOM;
-        else if (position.y == 0)
-            return EBORDER.TOP;
-        return EBORDER.NONE;
-    }
-
-    enum EBORDER {
-        NONE,
-        LEFT,
-        RIGHT,
-        BOTTOM,
-        TOP,
-        LEFTTOP,
-        RIGHTTOP,
-        LEFTBOTTOM,
-        RIGHTBOTTOM
-    }
-
-    private void createBorder(EBORDER eborder) {
+	
+	@Override
+	protected void createBorder(EBORDER eborder) {
         switch (eborder)
         {
             case TOP:
