@@ -23,15 +23,36 @@ public class MapCLi extends AbstractMapView {
 	protected void updateMapCell(int mapSize, int count, Position position, APlayer player, boolean isCellInBattle) {
 		int maxMapSize = Math.min(mapSize, MAX_RENDERING_MAPSIZE)  ;
 		String sideText = sideIterator.hasNext() ? sideIterator.next() : "";
-		
+		if (count == 0){
+            printHorizontalBorder(mapSize);
+            printVerticalBorder();
+        }
 		if (count % maxMapSize == 0 && count != 0) {
-			System.out.print("| ");
+			System.out.print("  ");
 			System.out.println(sideText);
-		}
-		mapCell.updateValues(position, mapSize, player, isCellInBattle );
+            printVerticalBorder();
+
+        }
+        mapCell.updateValues(position, mapSize, player, isCellInBattle );
+
+        if (count == (mapSize * mapSize) - 1)
+            printHorizontalBorder(mapSize);
 	}
-	
-	void finishUpSideIterator() {
+
+    private void printVerticalBorder() {
+	    if
+        System.out.print("*");
+    }
+
+    private void printHorizontalBorder(int mapSize) {
+        System.out.println();
+	    for (int x = 0; x <= mapSize; x++) {
+	        System.out.print("**");
+	    }
+	    System.out.println();
+    }
+
+    void finishUpSideIterator() {
 		
 		//while (sideIterator.hasNext())
 			//System.out.println(sideIterator.next() + "\n");
