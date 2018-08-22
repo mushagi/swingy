@@ -9,11 +9,11 @@ public class CliMapCell extends AbstractMapCell {
 	@Override
 	public void updateValues(Position position, int mapSize, APlayer player, boolean isCellInBattle) {
 		if ( player == null )
-			System.out.print("• ");
+			System.out.print("•  ");
 		else if ( isCellInBattle )
-			System.out.print("⦾ ");
+			System.out.print("⦾  ");
 		else
-			System.out.print(player.getType().equals("Hero") ? "0 " : "X ");
+			System.out.print(player.getType().equals("Hero") ? "0  " : "X  ");
 	}
 	
 	@Override

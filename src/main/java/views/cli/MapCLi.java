@@ -21,35 +21,50 @@ public class MapCLi extends AbstractMapView {
 	
 	@Override
 	protected void updateMapCell(int mapSize, int count, Position position, APlayer player, boolean isCellInBattle) {
-		int maxMapSize = Math.min(mapSize, MAX_RENDERING_MAPSIZE)  ;
-		String sideText = sideIterator.hasNext() ? sideIterator.next() : "";
-		if (count == 0){
-            printHorizontalBorder(mapSize);
-            printVerticalBorder();
-        }
-		if (count % maxMapSize == 0 && count != 0) {
-			System.out.print("  ");
+		count++;
+		int maxMapSize = Math.min(mapSize, MAX_RENDERING_MAPSIZE);
+		
+		if (count == 1 && position.x == 0)
+		{
+			printHorizontalBorder(maxMapSize, position.x, mapSize);
+			if (position.x + maxMapSize >= mapSize)
+				System.out.print("***");
+			System.out.println();
+		}
+		
+		
+		if (position.x == 0)
+			System.out.print("*  ");
+
+		mapCell.updateValues(position, mapSize, player, isCellInBattle );
+		
+		if (position.x == mapSize - 1)
+			System.out.print("*");
+		
+		if (count % maxMapSize == 0) {
+			String sideText = sideIterator != null && sideIterator.hasNext() ? sideIterator.next() : "";
 			System.out.println(sideText);
-            printVerticalBorder();
-
-        }
-        mapCell.updateValues(position, mapSize, player, isCellInBattle );
-
-        if (count == (mapSize * mapSize) - 1)
-            printHorizontalBorder(mapSize);
+		}
+		if (count == maxMapSize * maxMapSize && position.x == mapSize - 1){
+			printHorizontalBorder(maxMapSize, position.x, mapSize);
+  			if (position.x + maxMapSize >= mapSize)
+				System.out.print("***");
+			System.out.println();
+		}
 	}
 
     private void printVerticalBorder() {
-	    if
-        System.out.print("*");
+		
     }
 
-    private void printHorizontalBorder(int mapSize) {
-        System.out.println();
-	    for (int x = 0; x <= mapSize; x++) {
-	        System.out.print("**");
+    private void printHorizontalBorder(int renderMapSize, int positionValue, int mapSize) {
+		
+	    for (int x = 0; x < renderMapSize; x++) {
+	        System.out.print("***");
 	    }
-	    System.out.println();
+
+	    System.out.print("*");
+
     }
 
     void finishUpSideIterator() {

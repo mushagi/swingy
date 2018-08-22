@@ -28,7 +28,7 @@ public class HeroFactory {
     
     private static Hero newDickMalajie() {
         String name = "Dick Mal";
-        int level = 15;
+        int level = 2;
         int experience = 12;
         int attack = 14;
         int defence = 15;

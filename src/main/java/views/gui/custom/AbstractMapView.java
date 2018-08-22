@@ -45,7 +45,7 @@ public abstract class AbstractMapView extends JPanel {
 	    return startingRenderingPosition;
 	}
 	
-	private int getEndingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize) {
+	public int getEndingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize) {
 	    int endingRenderingPosition = positionValue + renderMapSize;
 	    
 	    if (endingRenderingPosition > realMapSize)
