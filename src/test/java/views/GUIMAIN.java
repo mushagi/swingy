@@ -1,10 +1,10 @@
 package views;
 
-import controllers.models.ArenaController;
-import factory.ArenaControllerFactory;
-import factory.ArenaFactory;
-import views.gui.GUI;
-import views.gui.windows.GameEndedPanel;
+import za.co.wethinkcode.mmayibo.swingy.controllers.models.ArenaController;
+import za.co.wethinkcode.mmayibo.swingy.factory.ArenaControllerFactory;
+import za.co.wethinkcode.mmayibo.swingy.factory.ArenaFactory;
+import za.co.wethinkcode.mmayibo.swingy.views.gui.GUI;
+import za.co.wethinkcode.mmayibo.swingy.views.gui.windows.GameEndedPanel;
 
 import javax.swing.JPanel;
 

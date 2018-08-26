@@ -17,12 +17,12 @@
         <property name="logger.org.hibernate">false</property>
 
         <!-- manage automatic database creation -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
         <!-- add resources here -->
-        <mapping class="models.players.Hero"/>
-        <mapping class="models.artifacts.Artifact"/>
-        <mapping class="models.world.Position"/>
+        <mapping class="za.co.wethinkcode.mmayibo.swingy.models.players.Hero"/>
+        <mapping class="za.co.wethinkcode.mmayibo.swingy.models.world.Artifact"/>
+        <mapping class="za.co.wethinkcode.mmayibo.swingy.models.world.Position"/>
 
 
     </session-factory>

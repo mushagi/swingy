@@ -1,9 +1,9 @@
 package views.cli;
 
-import factory.ArenaFactory;
-import models.world.Arena;
-import models.world.Position;
+import za.co.wethinkcode.mmayibo.swingy.factory.ArenaFactory;
+import za.co.wethinkcode.mmayibo.swingy.models.world.Arena;
 import org.junit.jupiter.api.Test;
+import za.co.wethinkcode.mmayibo.swingy.views.cli.CLI;
 
 import java.util.ArrayList;
 
@@ -12,18 +12,7 @@ class CLITest {
     @Test
     void displayHeroList() {
 
-        Arena arena = ArenaFactory.newArena();
-        CLI cli = new CLI();
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("dsfsssfsdfsdfsdfsdfsdfsdfsdfsdfsdfdsfds sdfgsdfsdf sdfsdfsdfsfsdv df");
-        strings.add("dsdf");
-        strings.add("sdf");
-        strings.add("dsfssdf");
-        strings.add("dsfssdf");
-        strings.add("dsff");
 
-        arena.getMap().setSize(10);
-        cli.printMap(arena, strings);
 
     }
 }
