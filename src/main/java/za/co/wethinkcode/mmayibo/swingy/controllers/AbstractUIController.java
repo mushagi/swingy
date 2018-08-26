@@ -84,5 +84,8 @@ public abstract class AbstractUIController {
     public void createNewGameExistingHero() {
         arenaController.initArena(arenaController.getHero());
     }
+    public void clearArena() {
+        arenaController.clearArena();
+    }
     
 }

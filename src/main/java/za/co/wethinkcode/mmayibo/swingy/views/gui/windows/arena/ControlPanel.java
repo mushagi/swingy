@@ -183,8 +183,13 @@ import java.awt.event.ActionListener;
         btnShowHeroStatistics.addActionListener(onShowHeroStatistics);
     }
 	
-	
-	void addOnSwitchUI(ActionListener onSwitchUI) {
+	void addOnPickUp(ActionListener onPickUp) {
+		btnSwitchUI.addActionListener(onPickUp);
+	}
+ 
+	void addOnSwitchUI(AbstractAction onSwitchUI) {
 		btnSwitchUI.addActionListener(onSwitchUI);
 	}
+	
+	
 }

@@ -9,7 +9,7 @@ import za.co.wethinkcode.mmayibo.swingy.views.gui.windows.GameEndedPanel;
 import javax.swing.JPanel;
 
 
-public class GUIMAIN extends JPanel {
+class GUIMAIN extends JPanel {
 	
 
 	

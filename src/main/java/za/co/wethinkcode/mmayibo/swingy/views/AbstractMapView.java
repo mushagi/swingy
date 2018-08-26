@@ -27,8 +27,8 @@ public abstract class AbstractMapView extends JPanel {
 	            position.x = x;
 	            position.y = y;
 	            
-	            PositionValue positionValue = arena.getMap().getGameMap().get(position);;
-	            boolean isCellInBattle = arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition());
+	            PositionValue positionValue = arena.getMap().getGameMap().get(position);
+		        boolean isCellInBattle = arena.isPlayerInABattle() && position.equals(arena.getHero().getPosition());
 	            updateMapCell(mapSize, count, position, positionValue, isCellInBattle);
 	            count++;
 	        }
@@ -47,7 +47,7 @@ public abstract class AbstractMapView extends JPanel {
 	    return startingRenderingPosition;
 	}
 	
-	public int getEndingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize) {
+	private int getEndingRenderingPositionValue(int positionValue, int realMapSize, int renderMapSize) {
 	    int endingRenderingPosition = positionValue + renderMapSize;
 	    
 	    if (endingRenderingPosition > realMapSize)

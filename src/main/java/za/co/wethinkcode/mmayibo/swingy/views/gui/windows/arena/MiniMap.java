@@ -5,9 +5,9 @@ import za.co.wethinkcode.mmayibo.swingy.models.world.Arena;
 import javax.swing.*;
 import java.awt.*;
 
-public class MiniMap extends JPanel {
+class MiniMap extends JPanel {
 	
-	private JPanel playerPos = new JPanel();
+	private final JPanel playerPos = new JPanel();
 	public MiniMap() {
 		setSize(new Dimension(100,100));
 	//	setBorder(BorderFactory.createEtchedBorder(0, Color.RED, Color.YELLOW));

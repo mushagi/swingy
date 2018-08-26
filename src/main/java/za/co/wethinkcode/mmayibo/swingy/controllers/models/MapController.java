@@ -147,4 +147,9 @@ public class MapController {
 			return;
 		positionValue.getDroppedArtificats().clear();
 	}
+    
+    public void clear() {
+        map.getGameMap().clear();
+        map.setSize(0);
+    }
 }

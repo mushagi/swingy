@@ -29,11 +29,12 @@ public class CLIController extends AbstractUIController {
         showSplashScreen();
   
 	    if (!arenaController.isPLayerNameLoaded()){
-
 		    loadHero();
-		    getPlayerName();
+            if(!switchedUI)
+                getPlayerName();
 	    }
-	    gameLoop();
+        if(!switchedUI)
+            gameLoop();
     }
 
     private void getPlayerName() {
@@ -70,8 +71,14 @@ public class CLIController extends AbstractUIController {
                     getHeroFromAList(arenaController.getAllHeroes(), true);
                     isValidInput = true;
                     break;
-                case "3":
+                case "Q":
+                case "q":
                     quitGame();
+                    isValidInput  = true;
+                    break;
+                case "x":
+                case "X":
+                    switchUI();
                     isValidInput  = true;
                     break;
                 default:
@@ -88,8 +95,11 @@ public class CLIController extends AbstractUIController {
         while (arenaController.isGameInProgress() && !switchedUI)
             getGameInProgressInput();
         if (!switchedUI) {
-            if (IsBackToMainMenu)
+            if (IsBackToMainMenu){
+                arenaController.clearArena();
                 run();
+            }
+
             else {
                 userInterface.printResultsMessage(arenaController.getArena());
                 waitForAnyKeyPress();
@@ -256,6 +266,11 @@ public class CLIController extends AbstractUIController {
                     isValidOption = true;
                     IsBackToMainMenu = true;
                     break;
+	            case "x":
+	            case "X":
+	            	switchUI();
+		            isValidOption = true;
+		            break;
                 default:
                     int heroId;
 

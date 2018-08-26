@@ -11,8 +11,6 @@ import za.co.wethinkcode.mmayibo.swingy.models.players.Hero;
 import za.co.wethinkcode.mmayibo.swingy.models.world.Arena;
 import za.co.wethinkcode.mmayibo.swingy.state.GameState;
 
-import java.util.ArrayList;
-
 public class ArenaControllerFactory {
     public static ArenaController newArenaControllerFromGameData() {
         MapController mapController = new MapController(GameState.getInstance().getArena().getMap());

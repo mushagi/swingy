@@ -11,7 +11,7 @@ public abstract class AbstractMapCell extends JPanel {
 	
 	public abstract void updateValues(Position position, int mapSize, PositionValue positionValue, boolean isCellInBattle);
 	
-	public EBORDER getBorderType(int size, Position position) {
+	EBORDER getBorderType(int size, Position position) {
 	    size--;
 	    if (position.x == 0 && position.y == 0)
 	        return EBORDER.LEFTTOP;

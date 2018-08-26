@@ -6,7 +6,6 @@ import za.co.wethinkcode.mmayibo.swingy.utils.ImageRepositoryImp;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class ImagePanel extends JPanel {
 	private BufferedImage bufferedImage;
@@ -16,7 +15,7 @@ public class ImagePanel extends JPanel {
 		setOpaque(false);
 	}
 	
-	public ImagePanel(BufferedImage bufferedImage) {
+	protected ImagePanel(BufferedImage bufferedImage) {
 		setOpaque(true);
 		this.bufferedImage = bufferedImage;
 	}
@@ -29,11 +28,7 @@ public class ImagePanel extends JPanel {
 		int height = getHeight();
 		if ( bufferedImage != null){
 			if (width > 0 && height > 0) {
-				try {
-					scaledBufferedImage = ImageRepositoryImp.getScaledImage(bufferedImage, width, height);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				scaledBufferedImage = ImageRepositoryImp.getScaledImage(bufferedImage, width, height);
 			}
 		}
 	}

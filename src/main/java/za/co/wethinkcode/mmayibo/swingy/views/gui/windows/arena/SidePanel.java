@@ -15,9 +15,9 @@ class SidePanel extends JPanel{
 		    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     
 	private final BottomStatisticsPanel bottomStats = new BottomStatisticsPanel();
-	private HeroStatisticsTextArea heroStatisticsTextArea = new HeroStatisticsTextArea();
-	private SidePanelTextArea sidePanelTextArea = new SidePanelTextArea();
-	private MessagePanel messagePanel = new MessagePanel();
+	private final HeroStatisticsTextArea heroStatisticsTextArea = new HeroStatisticsTextArea();
+	private final SidePanelTextArea sidePanelTextArea = new SidePanelTextArea();
+	private final MessagePanel messagePanel = new MessagePanel();
 	private boolean isShowingHeroStatistics = false;
 
     SidePanel() {
@@ -72,8 +72,8 @@ class SidePanel extends JPanel{
     }
     
     private class MessagePanel extends JPanel{
-    	JLabel label = new JLabel();
-	    StringBuilder stringBuilder = new StringBuilder();
+    	final JLabel label = new JLabel();
+	    final StringBuilder stringBuilder = new StringBuilder();
 	
 	    MessagePanel() {
 	    	this.setOpaque(false);

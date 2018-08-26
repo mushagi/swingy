@@ -28,7 +28,7 @@ public class SwingyConstants {
 		public static final Color REDDISH = new Color(119, 16, 61);
 		public static final Color BRIGHTEST = new Color(112, 33, 185);
 		public static final Color BRIGHTERSHADE = new Color(0, 68, 255) ;
-		public static Color BRIGHTER = new Color(28, 26, 61);
+		public static final Color BRIGHTER = new Color(28, 26, 61);
 		public static final Color DARKEST = new Color(4, 4, 14);
 		public static final Color LIGHTER = new Color(16, 16, 32);
 		public static final Color LIGHTEST = new Color(23, 23, 35);

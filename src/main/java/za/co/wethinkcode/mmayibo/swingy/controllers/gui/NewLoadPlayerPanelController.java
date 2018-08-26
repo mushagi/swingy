@@ -35,13 +35,19 @@ class NewLoadPlayerPanelController extends APanelController {
 
         }
     };
-
+    
+    private final ActionListener onSwitchUIListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            guiController.switchUI();
+        }
+    };
 
     @Override
     void addAllListeners() {
         loadPlayerPanel.addOnBtnNewListener(onNewGameClickedActionListener);
         loadPlayerPanel.addOnBtnLoadHeroListener(onLoadHeroClickedActionListener);
-
+        loadPlayerPanel.addOnBtnSwitchUIListener(onSwitchUIListener);
         loadPlayerPanel.addOnBtnQuitListener(onQuitListener);
     }
 

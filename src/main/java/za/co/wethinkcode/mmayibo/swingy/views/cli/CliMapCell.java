@@ -20,8 +20,10 @@ public class CliMapCell extends AbstractMapCell {
 			System.out.print("0$ ");
 		else if (!positionValue.getDroppedArtificats().isEmpty())
 			System.out.print("$  ");
-		else
+		else {
+			assert player != null;
 			System.out.print(player.getType().equals("Hero") ? "0  " : "X  ");
+		}
 
 	}
 	

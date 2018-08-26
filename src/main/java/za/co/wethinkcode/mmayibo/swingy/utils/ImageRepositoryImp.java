@@ -1,9 +1,6 @@
 package za.co.wethinkcode.mmayibo.swingy.utils;
 
-import za.co.wethinkcode.mmayibo.swingy.models.players.AbstractPlayer;
 import za.co.wethinkcode.mmayibo.swingy.repository.IImageRepository;
-import za.co.wethinkcode.mmayibo.swingy.views.gui.windows.arena.MapCell;
-import za.co.wethinkcode.mmayibo.swingy.views.gui.windows.choosehero.HeroCell;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -11,16 +8,13 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
 public class ImageRepositoryImp implements IImageRepository {
 	private static ImageRepositoryImp imageRepositoryImp;
-	private final String imageUrl = "/images/";
-	private final String imageExtension = ".jpg";
-	Dimension dimension = new Dimension();
-	private HashMap<String, Object> images = new HashMap<>();
+	private final Dimension dimension = new Dimension();
+	private final HashMap<String, Object> images = new HashMap<>();
 	
 	public static ImageRepositoryImp getInstance(){
 		if (imageRepositoryImp == null)
@@ -29,7 +23,7 @@ public class ImageRepositoryImp implements IImageRepository {
 	}
 	
 	
-	public static BufferedImage getScaledImage(BufferedImage image, int width, int height) throws IOException {
+	public static BufferedImage getScaledImage(BufferedImage image, int width, int height) {
 		int imageWidth  = image.getWidth();
 		int imageHeight = image.getHeight();
 		
@@ -45,6 +39,8 @@ public class ImageRepositoryImp implements IImageRepository {
 
 	public BufferedImage getBufferedImage(String imageName) {
         String imageStringHash = "buffered" + imageName;
+		String imageExtension = ".jpg";
+		String imageUrl = "/images/";
 		String url = imageUrl + imageName + imageExtension;
 
         if (images.get(imageStringHash) != null)
@@ -59,22 +55,10 @@ public class ImageRepositoryImp implements IImageRepository {
             return null;
         }
     }
-	public BufferedImage getBufferedImageNoCache(String imageName) {
-		String imagePath;
-		try {
-			String url = imageUrl + imageName + imageExtension;
-			imagePath =  getClass().getResource(url).getPath();
-			BufferedImage bufferedImage  = ImageIO.read(new File(imagePath));
-			return bufferedImage;
-		} catch (IOException e) {
-			return null;
-		}
-	}
- 
 	
-	public Image getScaledImage(String imageName, Dimension dimension) {
+	private Image getScaledImage(String imageName, Dimension dimension) {
 
-		Image image = null;
+		Image image;
 		String imageStringHash = "scaled" + imageName;
 		try {
 			image  =  (Image) images.get(imageStringHash);
@@ -91,7 +75,7 @@ public class ImageRepositoryImp implements IImageRepository {
 		return image;
 	}
 	
-	public  ImageIcon getImageIcon(String imageUrl, Dimension dimension) {
+	private ImageIcon getImageIcon(String imageUrl, Dimension dimension) {
 		
 		String imageStringHash = "imageicon" + imageUrl + dimension.width + dimension.height;
 		if (images.get(imageStringHash) != null){
@@ -107,25 +91,7 @@ public class ImageRepositoryImp implements IImageRepository {
 		return imageIcon;
 	}
 	
-	public  void loadCache(AbstractPlayer player) {
-		getImageIcon(player.getPicture());
-		getImageIcon(player.getPicture());
-		getImageIcon(player.getPicture());
-	}
     public  void loadCache(String picture) {
 	    getBufferedImage(picture);
-    }
-	
-	public ImageIcon getImageIcon(String imagePath, int width, int height) {
-		dimension.width = width;
-		dimension.height = height;
-		
-		return  getImageIcon(imagePath, dimension);
-	}
-
-    public void getImageIcon(String lightgrass) {
-        getImageIcon(lightgrass, MapCell.MAP_CELL_MIN_WIDTH, MapCell.MAP_CELL_MIN_HEIGHT);
-        getImageIcon(lightgrass, MapCell.MAP_CELL_MAX_WIDTH, MapCell.MAP_CELL_MAX_HEIGHT);
-        getImageIcon(lightgrass, HeroCell.HERO_CELL_WIDTH, HeroCell.HERO_CELL_HEIGHT);
     }
 }

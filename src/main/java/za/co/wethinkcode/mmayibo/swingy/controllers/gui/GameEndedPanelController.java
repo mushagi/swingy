@@ -37,6 +37,7 @@ class GameEndedPanelController extends APanelController {
 	private final ActionListener onBackToMainMenu = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			guiController.clearArena();
 			guiController.showCreateNewLoadPlayerWindow();
 		}
 	};

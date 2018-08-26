@@ -9,16 +9,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HeroCell extends JPanel {
-    public static final int HERO_CELL_WIDTH = 150;
-    public static final int HERO_CELL_HEIGHT = 150 ;
-    private Color chosenColor = SwingyConstants.Colors.REDDISH;
-    private Color selectedColor = SwingyConstants.Colors.LIGHT_SHADE;
-	private Color normalColor = SwingyConstants.Colors.LIGHTEST;
+    private static final int HERO_CELL_WIDTH = 150;
+    private static final int HERO_CELL_HEIGHT = 150 ;
+    private final Color chosenColor = SwingyConstants.Colors.REDDISH;
+    private final Color selectedColor = SwingyConstants.Colors.LIGHT_SHADE;
+	private final Color normalColor = SwingyConstants.Colors.LIGHTEST;
 	private boolean isChosen = false;
 	@Getter
     private final int tag ;
-	ImagePanel imagePanel = new ImagePanel();
-	JLabel lblType = new JLabel();
 	
 	
 	public HeroCell(Hero hero, int tag) {
@@ -28,7 +26,9 @@ public class HeroCell extends JPanel {
 		this.setPreferredSize(new Dimension(HERO_CELL_WIDTH,HERO_CELL_HEIGHT));
 		this.setMaximumSize(new Dimension(HERO_CELL_WIDTH, HERO_CELL_HEIGHT));
 		this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		ImagePanel imagePanel = new ImagePanel();
 		imagePanel.changeImage(hero);
+		JLabel lblType = new JLabel();
 		lblType.setFont(SwingyConstants.MONO_FONT_BOLD);
 		lblType.setText(hero.getName());
         lblType.setForeground(Color.WHITE);

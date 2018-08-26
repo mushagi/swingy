@@ -25,7 +25,7 @@ public class ArenaController {
     private final GameResultsController gameResultsController;
     private final BattleManager battleManager;
     private final HeroController heroController;
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public ArenaController(Arena arena,
                            MapController mapController,
@@ -221,5 +221,16 @@ public class ArenaController {
         }
         else
             gameResultsController.addMessage("No artificat in this position");
+	}
+	
+	public void clearArena() {
+		arena.setHero(null);
+		arena.setPlayerInABattle(false);
+		arena.setGameInProgress(true);
+		arena.setHeroRunningAway(false);
+		arena.setPlayerName(null);
+		arena.setPLayerNameLoaded(false);
+		gameResultsController.clearGameResults();
+		mapController.clear();
 	}
 }

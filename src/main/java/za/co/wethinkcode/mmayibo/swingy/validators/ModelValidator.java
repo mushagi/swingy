@@ -11,7 +11,7 @@ import java.util.Set;
 public class ModelValidator {
 	
 	private static ModelValidator modelValidator;
-	private Validator validator;
+	private final Validator validator;
 	
 	public static ModelValidator getInstance() {
 		if ( modelValidator == null)

@@ -49,7 +49,7 @@ class GamePanelController extends APanelController {
             guiController.attack();
         }
     };
-
+    
     private final AbstractAction onRunawayClicked = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -64,20 +64,20 @@ class GamePanelController extends APanelController {
         }
 
     };
-
-
+    
     private final AbstractAction onBackToMainMenu = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-        
+            guiController.clearArena();
+            guiController.showCreateNewLoadPlayerWindow();
         }
     };
     
-  
     private final AbstractAction onNewGame = new AbstractAction() {
         @Override
-        public void actionPerformed(ActionEvent e) { 
-
+        public void actionPerformed(ActionEvent e) {
+            guiController.createNewGameExistingHero();
+            guiController.updateUserInterface();
         }
     };
 	
@@ -105,6 +105,17 @@ class GamePanelController extends APanelController {
         }
     };
     
+    private final AbstractAction onPickUp = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    guiController.pickUp();
+                }
+            });
+        }
+    };
     
     @Override
     void addAllListeners() {
@@ -118,6 +129,7 @@ class GamePanelController extends APanelController {
         gamePanel.addOnBackToMainMenuListener(onBackToMainMenu);
         gamePanel.addOnNewGameListeners(onNewGame);
         gamePanel.addOnShowHeroStatisticsListener(onShowHeroStatistics);
+        gamePanel.addOnPickUp(onPickUp);
         gamePanel.onSwitchUI(onSwitchUI);
     }
     

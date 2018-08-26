@@ -1,6 +1,7 @@
 package za.co.wethinkcode.mmayibo.swingy.views.gui.windows.choosehero;
 
 import za.co.wethinkcode.mmayibo.swingy.models.players.Hero;
+import za.co.wethinkcode.mmayibo.swingy.models.world.Arena;
 import za.co.wethinkcode.mmayibo.swingy.state.SwingyConstants;
 import za.co.wethinkcode.mmayibo.swingy.views.gui.custom.GameButton;
 import za.co.wethinkcode.mmayibo.swingy.views.gui.custom.RoundedBorders;
@@ -22,10 +23,10 @@ ChooseHeroPanel extends JPanel {
     private HeroCell currentlySelected;
     private HeroCell chosen;
     
-    private ArrayList<Hero> heroes;
-    private CenterPanel centerPanel;
-    private ControlPanel controlPanel;
-	private SidePanel sidePanel ;
+    private final ArrayList<Hero> heroes;
+    private final CenterPanel centerPanel;
+    private final ControlPanel controlPanel;
+	private final SidePanel sidePanel ;
 	
 	public ChooseHeroPanel(Collection<Hero> heroes) {
         this.heroes = (ArrayList<Hero>) heroes;
@@ -69,6 +70,12 @@ ChooseHeroPanel extends JPanel {
     public void addOnHeroPanelSelectionListener(MouseListener mouseListener) {
         centerPanel.heroListPanel.addMouseListeners(mouseListener);
     }
+	
+	public void invalidName(Arena arena) {
+		for (String message : arena.getGameResults().getResult()) {
+			centerPanel.lblError.setText(message);
+		}
+	}
 
     public void setSelected(Object source) {
         HeroCell heroCell = (HeroCell) source;
@@ -107,11 +114,12 @@ ChooseHeroPanel extends JPanel {
 	}
 	
 	private class CenterPanel extends JPanel  {
-        Font font = new Font("SansSerif", Font.ITALIC, 14);
+        final Font font = new Font("SansSerif", Font.ITALIC, 14);
 	    private final JLabel lblChoose = new JLabel("Choose a Wakandian: ");
-	    private final JLabel lblPlayerName = new JLabel("Your name");
+		private final JLabel lblError = new JLabel();
+		private final JLabel lblPlayerName = new JLabel("Your name");
 	    private final JTextField txtPlayerName = new JTextField(13);
-	    private HeroListPanel heroListPanel;
+	    private final HeroListPanel heroListPanel;
 	    
         CenterPanel(Collection<Hero> heroes) {
             heroListPanel = new HeroListPanel(heroes);
@@ -121,15 +129,17 @@ ChooseHeroPanel extends JPanel {
             
             this.add(lblPlayerName);
             this.add(txtPlayerName);
-            this.add(lblChoose);
+	        this.add(lblError);
+	        this.add(lblChoose);
             this.add(heroListPanel);
             
             
             lblChoose.setLabelFor(txtPlayerName);
             lblChoose.setFont(font);
             lblChoose.setForeground(Color.WHITE);
-            
-            lblPlayerName.setFont(font);
+	        lblError.setForeground(Color.RED);
+	        lblError.setFont(font);
+	        lblPlayerName.setFont(font);
             lblPlayerName.setForeground(Color.WHITE);
         }
         
@@ -171,6 +181,8 @@ ChooseHeroPanel extends JPanel {
             layout.putConstraint(SpringLayout.NORTH, lblPlayerName, 15, SpringLayout.NORTH, this);
             layout.putConstraint(SpringLayout.WEST, txtPlayerName, 10, SpringLayout.EAST, lblPlayerName);
             layout.putConstraint(SpringLayout.NORTH, txtPlayerName, 10, SpringLayout.NORTH, this);
+	        layout.putConstraint(SpringLayout.WEST, lblError, 10, SpringLayout.EAST, txtPlayerName);
+	        layout.putConstraint(SpringLayout.NORTH, lblError, 10, SpringLayout.NORTH, this);
             layout.putConstraint(SpringLayout.NORTH, lblChoose, 30, SpringLayout.SOUTH, lblPlayerName);
             layout.putConstraint(SpringLayout.WEST, lblChoose, 0, SpringLayout.WEST, lblPlayerName);
             layout.putConstraint(SpringLayout.NORTH, heroListPanel, 2, SpringLayout.SOUTH, lblChoose);
@@ -183,7 +195,7 @@ ChooseHeroPanel extends JPanel {
 		private final GameButton btnQuit = new GameButton("Quit");
 		
 		private final Dimension dimension = new Dimension(200,35);
-		SpringLayout layout = new SpringLayout();
+		final SpringLayout layout = new SpringLayout();
 		
 		ControlPanel() {
 			setUpLayout();

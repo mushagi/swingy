@@ -17,7 +17,6 @@ public class GameEndedPanel extends JPanel {
 	private final GameButton btnBackToMenu = new GameButton("Main Menu");
 	private final GameButton btnQuit = new GameButton("Quit");
 	private final ResultsPanel resultsPanel = new ResultsPanel();
-	private final Dimension dimension = new Dimension(200,40);
 	
 	public GameEndedPanel(Arena arena) {
 		this.arena = arena;
@@ -26,6 +25,7 @@ public class GameEndedPanel extends JPanel {
 		
 		btnNewGame.setText(gameResults.isHeroWon()? "New Game" : "Try again");
 		
+		Dimension dimension = new Dimension(200, 40);
 		btnBackToMenu.setPreferredSize(dimension);
 		btnQuit.setPreferredSize(dimension);
 		btnNewGame.setPreferredSize(dimension);
@@ -105,10 +105,10 @@ public class GameEndedPanel extends JPanel {
 	}
 	
 	private class ResultsPanel extends JPanel{
-		JLabel label = new JLabel();
-		StringBuilder stringBuilder = new StringBuilder();
+		final JLabel label = new JLabel();
+		final StringBuilder stringBuilder = new StringBuilder();
 		
-		public ResultsPanel() {
+		ResultsPanel() {
 			this.setLayout(new GridBagLayout());
 			this.setOpaque(false);
 			this.setPreferredSize(new Dimension(700, 400));
@@ -119,7 +119,7 @@ public class GameEndedPanel extends JPanel {
 			this.add(label);
 		}
 		
-		public void setUpHeroWonMessage(Arena arena) {
+		void setUpHeroWonMessage(Arena arena) {
 			stringBuilder.setLength(0);
 			stringBuilder.append("<html><div style='text-align: center;'>");
 			stringBuilder
@@ -135,7 +135,7 @@ public class GameEndedPanel extends JPanel {
 			
 		}
 		
-		public void setUpHeroLostMessage(Arena arena) {
+		void setUpHeroLostMessage(Arena arena) {
 			stringBuilder.setLength(0);
 			stringBuilder.append("<html><div style='text-align: center;'>");
 			stringBuilder

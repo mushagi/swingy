@@ -20,7 +20,7 @@ public class MapCell extends AbstractMapCell {
     private static final Color BORDER_COLOR = SwingyConstants.Colors.REDDISH;
     private static final int BORDER_SIZE = 5;
     
-    private ImagePanel imagePanel = new ImagePanel();
+    private final ImagePanel imagePanel = new ImagePanel();
 	
 	MapCell(int mapSize) {
 		setBackground(SwingyConstants.Colors.LIGHTER);
@@ -29,11 +29,6 @@ public class MapCell extends AbstractMapCell {
     	setLayout(layout);
     	imagePanel.setPreferredSize(new Dimension(200,200));
 		add(imagePanel, BorderLayout.CENTER);
-	}
-	
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
 	}
 	
 	

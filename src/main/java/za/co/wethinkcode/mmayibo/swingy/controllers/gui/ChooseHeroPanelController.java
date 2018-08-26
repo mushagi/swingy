@@ -21,7 +21,7 @@ class  ChooseHeroPanelController extends APanelController {
     @Setter(AccessLevel.PRIVATE)
     private String playerName = "";
     private int selectedPlayer;
-
+    
     ChooseHeroPanelController(GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
         super(guiController);
         this.chooseHeroPanel = chooseHeroPanel;
@@ -64,6 +64,8 @@ class  ChooseHeroPanelController extends APanelController {
 	        guiController.loadPlayerNameToArena(playerName);
 	        if (guiController.getArena().isPLayerNameLoaded())
 	        	guiController.showGamePanel();
+	        else
+                chooseHeroPanel.invalidName(guiController.getArena());
         }
     };
 
@@ -79,14 +81,14 @@ class  ChooseHeroPanelController extends APanelController {
         public void insertUpdate(DocumentEvent e) {
 	        try {
       		        setPlayerName(e.getDocument().getText(0, e.getDocument().getLength()));
-	        } catch (BadLocationException e1) {
+	        } catch (BadLocationException ignored) {
 	        }
         }
 
         @Override
         public void removeUpdate(DocumentEvent e) {
 	        try { setPlayerName(e.getDocument().getText(0, e.getLength()));
-	        } catch (BadLocationException e1) {
+	        } catch (BadLocationException ignored) {
 	        }
         }
 
@@ -94,7 +96,7 @@ class  ChooseHeroPanelController extends APanelController {
         public void changedUpdate(DocumentEvent e) {
 	        try {
 		        setPlayerName(e.getDocument().getText(0, e.getLength()));
-	        } catch (BadLocationException e1) {
+	        } catch (BadLocationException ignored) {
 	        }
         }
     };

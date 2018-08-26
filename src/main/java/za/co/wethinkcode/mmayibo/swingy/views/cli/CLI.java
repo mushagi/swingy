@@ -12,15 +12,16 @@ import java.util.Collection;
 import static za.co.wethinkcode.mmayibo.swingy.state.SwingyConstants.*;
 
 public class CLI implements IUserInterface {
-    private MapCLi mapCLi = new MapCLi();
+    private final MapCLi mapCLi = new MapCLi();
     
     public void displayLoadCreateHeroPrompt(boolean isInvalidInput) {
         clearScreen();
         System.out.print("" +
                 "Do you want to create a new player or load a player?\n" +
-                "1. New\n" +
-                "2. Load\n" +
-                "3. Quit\n");
+                "1 - New\n" +
+                "2 - Load\n\n" +
+                "X - Switch UI\n" +
+                "Q - Quit\n");
         displayPromptInput(isInvalidInput);
     }
 
@@ -36,7 +37,7 @@ public class CLI implements IUserInterface {
         System.out.println("Invalid input bro");
     }
 
-    void printMap(final Arena arena, ArrayList<String> sideString) {
+    private void printMap(final Arena arena, ArrayList<String> sideString) {
         mapCLi.setSideIterator(sideString.iterator());
         mapCLi.updateMap(arena);
         mapCLi.finishUpSideIterator();
@@ -214,9 +215,12 @@ public class CLI implements IUserInterface {
         System.out.format("_____________________________________________________________________________________\n");
 
         for (Hero hero: allHeroes) {
-            System.out.format("%-20d%-20s%-20s%-20d%-20d\n", count++, hero.getName(), hero.getType(), hero.getLevel(), hero.getExperience());
+            System.out.format("%-20d%-20s%-20s%-20d%-20d\n", count++, hero.getName(), hero.getHeroType(), hero.getLevel(), hero.getExperience());
         }
-        printToScreen("\nB . Back To Main Menu\nQ - Quit\n");
+        printToScreen("\n" +
+                "B . Back To Main Menu\n" +
+                "X - Switch UI\n" +
+                "Q - Quit\n");
         displayPromptInput(isWithValidOption);
     }
 

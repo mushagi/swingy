@@ -13,10 +13,11 @@ import static za.co.wethinkcode.mmayibo.swingy.state.SwingyConstants.MAX_RENDERI
 public class MapCLi extends AbstractMapView {
 	@Setter
 	Iterator<String> sideIterator;
-	private CliMapCell mapCell = new CliMapCell();
-	String borderChar = SwingyConstants.ConsoleColors.PURPLE_BOLD + "*" + SwingyConstants.ConsoleColors.RESET;
-	String borderSpaceChar = borderChar + "  ";
-	String multipleBorderChar = borderChar + borderChar + borderChar;
+	private final CliMapCell mapCell = new CliMapCell();
+	private final String borderChar = SwingyConstants.ConsoleColors.PURPLE_BOLD + "*" + SwingyConstants.ConsoleColors.RESET;
+	private final String borderSpaceChar = borderChar + "  ";
+	private final String multipleBorderChar = borderChar + borderChar + borderChar;
+	private static int wideCount = 0;
 	@Override
 	public void generateNewMap(int mapSize) {
 	
@@ -35,7 +36,7 @@ public class MapCLi extends AbstractMapView {
 		System.out.print(position.x == mapSize - 1 ? borderSpaceChar : "");
 		
 		if (count % maxMapSize == 0) {
-			String sideText = sideIterator != null && sideIterator.hasNext() ? sideIterator.next() : "";
+			String sideText = sideIterator != null && sideIterator.hasNext() ?  "\t" + sideIterator.next(): "";
 			System.out.println(sideText);
 		}
 		
@@ -52,7 +53,8 @@ public class MapCLi extends AbstractMapView {
 		for (int x = 0; x < renderMapSize; x++) {
 			System.out.print(multipleBorderChar);
 		}
-		System.out.print(borderSpaceChar);
+		wideCount = (renderMapSize * 3) + 1;
+		System.out.println(borderChar);
 	}
     private void printTopHorizontalBorder(int renderMapSize, Position position, int mapSize) {
 	    if (position.x == 0 && position.x + renderMapSize == mapSize)
@@ -67,8 +69,13 @@ public class MapCLi extends AbstractMapView {
     }
 
     void finishUpSideIterator() {
-		while (sideIterator.hasNext())
-			System.out.println(sideIterator.next() + "\n");
+		while (sideIterator.hasNext()){
+			for (int x = 0; x < wideCount; x++) {
+				System.out.print(" ");
+			}
+			
+			System.out.println("\t\t"+sideIterator.next() + "\n");
+		}
 	}
 	
 }

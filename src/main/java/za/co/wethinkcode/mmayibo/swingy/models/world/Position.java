@@ -10,7 +10,7 @@ import java.util.Objects;
 @Setter
 public class Position implements Cloneable {
     @Id
-    @Column(updatable = true, nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     

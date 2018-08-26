@@ -6,8 +6,6 @@ import za.co.wethinkcode.mmayibo.swingy.models.world.Artifact;
 import za.co.wethinkcode.mmayibo.swingy.models.world.Position;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -37,10 +35,8 @@ public abstract class AbstractPlayer implements Cloneable{
     @Transient
     int hitPoint;
 
-    @NotNull
     String winningSpeech;
 
-    @NotNull
     String losingSpeech;
     
     String picture;

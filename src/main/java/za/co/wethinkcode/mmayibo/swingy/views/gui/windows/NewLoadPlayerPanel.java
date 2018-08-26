@@ -12,11 +12,13 @@ import java.awt.event.ActionListener;
 public class NewLoadPlayerPanel extends ImagePanel {
     private final GameButton btnNewHero = new GameButton("New Hero");
     private final GameButton btnLoadHero = new GameButton("Load Hero");
+    private final GameButton btnSwitchUI = new GameButton("Switch UI");
+    
     private final GameButton quit = new GameButton("Quit");
 
-    private JPanel menuPanel = new JPanel();
+    private final JPanel menuPanel = new JPanel();
 
-    private JPanel bottomPanel = new JPanel();
+    private final JPanel bottomPanel = new JPanel();
 
     public NewLoadPlayerPanel() {
 	    super(ImageRepositoryImp.getInstance().getBufferedImage("background"));
@@ -68,18 +70,23 @@ public class NewLoadPlayerPanel extends ImagePanel {
 
         layout.putConstraint(SpringLayout.NORTH, btnLoadHero, 20, SpringLayout.SOUTH, btnNewHero);
         layout.putConstraint(SpringLayout.WEST, btnLoadHero, 20, SpringLayout.WEST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, btnSwitchUI, 20, SpringLayout.SOUTH, btnLoadHero);
+        layout.putConstraint(SpringLayout.WEST, btnSwitchUI, 20, SpringLayout.WEST, this);
 
-        layout.putConstraint(SpringLayout.NORTH, quit, 20, SpringLayout.SOUTH, btnLoadHero);
+        layout.putConstraint(SpringLayout.NORTH, quit, 20, SpringLayout.SOUTH, btnSwitchUI);
         layout.putConstraint(SpringLayout.WEST, quit, 20, SpringLayout.WEST, this);
 
         btnNewHero.setPreferredSize(new Dimension(370,35));
         btnLoadHero.setPreferredSize(new Dimension(370,35));
+        btnSwitchUI.setPreferredSize(new Dimension(370,35));
         quit.setPreferredSize(new Dimension(370,35));
 
         menuPanel.add(lblWelcome);
         menuPanel.add(separator);
         menuPanel.add(btnNewHero);
         menuPanel.add(btnLoadHero);
+        menuPanel.add(btnSwitchUI);
         menuPanel.add(quit);
     }
     
@@ -91,10 +98,12 @@ public class NewLoadPlayerPanel extends ImagePanel {
     public void addOnBtnLoadHeroListener(ActionListener onLoadHeroClickedActionListener) {
         btnLoadHero.addActionListener(onLoadHeroClickedActionListener);
     }
-
-
+    
     public void addOnBtnQuitListener(ActionListener onQuitListener) {
         quit.addActionListener(onQuitListener);
+    }
+    public void addOnBtnSwitchUIListener(ActionListener onSwitchUIListener) {
+        btnSwitchUI.addActionListener(onSwitchUIListener);
     }
 
 

@@ -15,9 +15,9 @@ public class GameState {
     @Getter private final Arena arena;
     @Getter@Setter
     boolean showSplashScreen;
-    ArrayList<Hero> heroes = new ArrayList<>();
     
     private static GameState gameState;
+    
     private GameState() {
         arena = ArenaFactory.newArena();
         showSplashScreen = true;
@@ -26,19 +26,14 @@ public class GameState {
     public static GameState getInstance() {
         if (gameState == null){
             gameState = new GameState();
-            for (HeroType type : HeroType.values())
-                gameState.heroes.add(HeroFactory.newHero(type));
+   
             Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
-                    for (Hero hero : gameState.heroes)
-                        ImageRepositoryImp.getInstance().loadCache(hero);
+                    for (Hero hero : getAvailableHeroes())
+                        ImageRepositoryImp.getInstance().loadCache(hero.getPicture());
                     ImageRepositoryImp.getInstance().loadCache("background");
                     ImageRepositoryImp.getInstance().loadCache("danger");
-    
-                    ImageRepositoryImp.getInstance().getImageIcon("lightgrass");
-                    ImageRepositoryImp.getInstance().getImageIcon("darkgrass");
-                    
                 }
             };
             Thread thread = new Thread(runnable);
@@ -47,7 +42,10 @@ public class GameState {
         return gameState;
     }
 
-    public ArrayList<Hero> getAvailableHeroes() {
+    public static ArrayList<Hero> getAvailableHeroes() {
+    	final ArrayList<Hero> heroes = new ArrayList<>();
+	    for (HeroType type : HeroType.values())
+	    	heroes.add(HeroFactory.newHero(type));
         return heroes;
     }
 }
