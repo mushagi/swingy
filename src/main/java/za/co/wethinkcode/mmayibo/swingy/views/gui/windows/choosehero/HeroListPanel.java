@@ -17,7 +17,7 @@ class HeroListPanel extends JPanel {
 		
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new FlowLayout());
-		mainPanel.setPreferredSize(new Dimension(580,heroes.size() * 53));
+		mainPanel.setPreferredSize(new Dimension(580,heroes.size() * 90));
 		mainPanel.setLayout(new FlowLayout());
 		
 		for (Hero hero: heroes){
@@ -32,8 +32,8 @@ class HeroListPanel extends JPanel {
 		scroll.setBorder(null);
 		scroll.setBackground(SwingyConstants.Colors.TRANSPARENT);
 		mainPanel.setBackground(SwingyConstants.Colors.TRANSPARENT);
-		scroll.setPreferredSize(new Dimension(600, 600));
-		
+		mainPanel.setPreferredSize(new Dimension(580,heroes.size() * 53));
+
 		this.setBackground(SwingyConstants.Colors.TRANSPARENT);
 		this.add(scroll);
 	}

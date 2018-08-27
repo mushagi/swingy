@@ -87,5 +87,8 @@ public abstract class AbstractUIController {
     public void clearArena() {
         arenaController.clearArena();
     }
-    
+
+    public void clearForNewGame() {
+        arenaController.clearForNewGame();
+    }
 }

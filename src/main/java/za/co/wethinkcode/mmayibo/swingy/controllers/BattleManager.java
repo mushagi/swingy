@@ -30,6 +30,8 @@ BattleManager {
         while (playerOne.getHitPoint() > 0 && playerTwo.getHitPoint() > 0)
         {
             attack(playerOne, playerTwo);
+            if (playerTwo.getHitPoint() <= 0)
+                break;
             attack(playerTwo, playerOne);
         }
         

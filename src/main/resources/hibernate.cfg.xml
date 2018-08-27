@@ -17,7 +17,7 @@
         <property name="logger.org.hibernate">false</property>
 
         <!-- manage automatic database creation -->
-        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- add resources here -->
         <mapping class="za.co.wethinkcode.mmayibo.swingy.models.players.Hero"/>

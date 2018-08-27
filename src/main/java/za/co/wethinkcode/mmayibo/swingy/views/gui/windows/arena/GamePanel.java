@@ -30,6 +30,11 @@ public class GamePanel extends JPanel {
         add(sidePanel, BorderLayout.EAST);
         add(controlPanel, BorderLayout.SOUTH);
     }
+
+    public void generateMap(int mapSize){
+	    abstractMapView.generateNewMap(mapSize);
+
+    }
     
     public void updateUserInterface(Arena arena) {
     	abstractMapView.updateMap(arena);

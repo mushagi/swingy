@@ -76,7 +76,9 @@ class GamePanelController extends APanelController {
     private final AbstractAction onNewGame = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            guiController.clearForNewGame();
             guiController.createNewGameExistingHero();
+            gamePanel.generateMap(guiController.getArena().getMap().getSize());
             guiController.updateUserInterface();
         }
     };

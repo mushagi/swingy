@@ -11,13 +11,11 @@ import static za.co.wethinkcode.mmayibo.swingy.state.SwingyConstants.MAX_RENDERI
 
 public class MapPanel extends AbstractMapView {
 
-    MapPanel() {
-        setBackground(SwingyConstants.Colors.DARKEST);
-
-    }
 
     @Override
     public void generateNewMap(int mapSize) {
+        removeAll();
+        setBackground(SwingyConstants.Colors.DARKEST);
         int maxMapSize = Math.min(mapSize, MAX_RENDERING_MAPSIZE);
         this.setLayout(new GridLayout(maxMapSize, maxMapSize));
         for (int y = 0; y < maxMapSize; y++) {

@@ -13,7 +13,6 @@ class BattleManagerTest {
     void battle() {
         BattleManager battleManager = new BattleManager(new GameResultsController(new GameResults()));
 
-        AbstractPlayer enemy = EnemyFactory.newEnemy("BlackW", "The guy");
 
 
 

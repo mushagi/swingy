@@ -225,12 +225,16 @@ public class ArenaController {
 	
 	public void clearArena() {
 		arena.setHero(null);
-		arena.setPlayerInABattle(false);
-		arena.setGameInProgress(true);
-		arena.setHeroRunningAway(false);
-		arena.setPlayerName(null);
-		arena.setPLayerNameLoaded(false);
-		gameResultsController.clearGameResults();
-		mapController.clear();
+        arena.setPlayerName(null);
+        arena.setPLayerNameLoaded(false);
+        clearForNewGame();
 	}
+
+    public void clearForNewGame() {
+        arena.setPlayerInABattle(false);
+        arena.setGameInProgress(true);
+        arena.setHeroRunningAway(false);
+        gameResultsController.clearGameResults();
+        mapController.clear();
+    }
 }
