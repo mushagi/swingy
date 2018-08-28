@@ -6,22 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7d7d537a-5d79-45d6-9a44-38e1ea9a3d9e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/BattleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/BattleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/cli/CLIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/cli/CLIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/ChooseHeroPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/ChooseHeroPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/NewLoadPlayerPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/NewLoadPlayerPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/HeroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/HeroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/ArtificatFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/ArtificatFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/EnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/HeroFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/HeroFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/AbstractPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/cli/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/cli/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/gui/windows/choosehero/ChooseHeroPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/gui/windows/choosehero/ChooseHeroPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/gui/windows/choosehero/HeroListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/gui/windows/choosehero/HeroListPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -56,14 +43,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.51754385">
+    <splitter split-orientation="horizontal" split-proportion="0.38229755">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="HeroFactory.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/HeroFactory.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-832">
-                  <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+                <state relative-caret-position="540">
+                  <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -162,11 +149,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="EnemyFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/EnemyFactory.java">
+          <file leaf-file-name="GUIController.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="193">
-                  <caret line="168" column="25" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+                <state relative-caret-position="424">
+                  <caret line="94" column="39" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -174,74 +161,11 @@
           <file leaf-file-name="CLIController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/cli/CLIController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="885">
-                  <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArtificatFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/ArtificatFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+                <state relative-caret-position="375">
+                  <caret line="289" column="11" selection-start-line="289" selection-start-column="11" selection-end-line="290" selection-end-column="55" />
                   <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="NewLoadPlayerPanelController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/NewLoadPlayerPanelController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HeroController.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/HeroController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="461">
-                  <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1265#1266#0" expanded="true" />
-                    <element signature="e#1302#1303#0" expanded="true" />
-                    <element signature="e#1374#1375#0" expanded="true" />
-                    <element signature="e#1435#1436#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/GameManager.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BattleReport.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/BattleReport.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArenaController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="158">
-                  <caret line="162" column="26" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
+                    <element signature="e#5266#5490#0" expanded="true" />
+                    <element signature="e#5489#5490#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -250,8 +174,8 @@
           <file leaf-file-name="AbstractUIController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/AbstractUIController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="338">
-                  <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+                <state relative-caret-position="353">
+                  <caret line="66" column="28" lean-forward="true" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1621#1622#0" expanded="true" />
@@ -265,16 +189,78 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MapController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/MapController.java">
+          <file leaf-file-name="HeroController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/HeroController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="143">
-                  <caret line="54" selection-start-line="54" selection-end-line="54" />
+                <state relative-caret-position="387">
+                  <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
                   <folding>
-                    <element signature="e#2537#2538#0" expanded="true" />
-                    <element signature="e#2564#2565#0" expanded="true" />
-                    <element signature="e#4536#4537#0" expanded="true" />
-                    <element signature="e#4591#4592#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1265#1266#0" expanded="true" />
+                    <element signature="e#1302#1303#0" expanded="true" />
+                    <element signature="e#1374#1375#0" expanded="true" />
+                    <element signature="e#1435#1436#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GameResults.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/messages/GameResults.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="27">
+                  <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Arena.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/world/Arena.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HibernateUtil.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/database/HibernateUtil.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CLI.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/cli/CLI.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1945">
+                  <caret line="220" column="20" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IRepository.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/database/IRepository.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ArenaController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="243" column="14" selection-start-line="243" selection-end-line="244" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#5956#5957#0" expanded="true" />
+                    <element signature="e#6002#6003#0" expanded="true" />
+                    <element signature="e#8431#8432#0" expanded="true" />
+                    <element signature="e#8468#8469#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -346,10 +332,7 @@
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/Enemy.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/NewLoadPlayerPanelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/MapController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/ChooseHeroPanelController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/cli/CLIController.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/cli/CLI.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/gui/windows/choosehero/ChooseHeroPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/gui/windows/choosehero/HeroListPanel.java" />
@@ -357,6 +340,9 @@
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/BattleManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/EnemyFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/HeroController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/cli/CLIController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java" />
       </list>
     </option>
   </component>
@@ -473,6 +459,24 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="swingy" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -482,7 +486,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="swingy" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
@@ -491,7 +496,93 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="swingy" type="462c0819:PsiDirectoryNode" />
-              <item name="factory" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="players" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="cli" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="custom" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="windows" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="windows" type="462c0819:PsiDirectoryNode" />
+              <item name="arena" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="swingy366" type="b2602c69:ProjectViewProjectNode" />
+              <item name="swingy366" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="swingy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="windows" type="462c0819:PsiDirectoryNode" />
+              <item name="choosehero" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -694,7 +785,7 @@
       <workItem from="1535268938125" duration="31697000" />
       <workItem from="1535357533038" duration="10000000" />
       <workItem from="1535440929489" duration="7028000" />
-      <workItem from="1535456237908" duration="1460000" />
+      <workItem from="1535456237908" duration="2853000" />
     </task>
     <task id="LOCAL-00001" summary="done with a map and collisions">
       <created>1532206247084</created>
@@ -885,7 +976,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535376419818</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="done">
+      <created>1535457905277</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1535457905277</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -921,7 +1019,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="742759000" />
+    <option name="totallyTimeSpent" value="744152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="977" extended-state="6" />
@@ -929,19 +1027,19 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32928312" />
-      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.4941427" weight="0.34920636" />
+      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.49361023" weight="0.34920636" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.4030884" side_tool="true" visible="true" weight="0.30385488" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.40362087" side_tool="true" visible="true" weight="0.30385488" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.18651363" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3283582" />
-      <window_info anchor="bottom" x="183" y="83" width="1483" height="887" id="Run" order="4" sideWeight="0.5969116" visible="true" weight="0.30385488" />
+      <window_info anchor="bottom" x="183" y="83" width="1483" height="887" id="Run" order="4" sideWeight="0.5963791" visible="true" weight="0.30385488" />
       <window_info anchor="bottom" x="923" y="489" width="764" height="208" id="Terminal" order="10" sideWeight="0.49893504" weight="0.4229025" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" x="726" y="303" width="468" height="415" id="Project" order="6" sideWeight="0.4964132" visible="true" weight="0.1517572" />
+      <window_info active="true" content_ui="combo" x="726" y="303" width="468" height="415" id="Project" order="6" sideWeight="0.4964132" visible="true" weight="0.1799787" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32998565" />
       <window_info anchor="right" id="Database" order="8" weight="0.3292683" />
       <window_info anchor="bottom" id="Structure" order="13" side_tool="true" weight="0.38127545" />
@@ -1007,9 +1105,9 @@
     <MESSAGE value="fir niqwasas" />
     <MESSAGE value="sadsad" />
     <MESSAGE value="sadsadasdsadas" />
-    <MESSAGE value="done" />
     <MESSAGE value="dsadasd" />
-    <option name="LAST_COMMIT_MESSAGE" value="dsadasd" />
+    <MESSAGE value="done" />
+    <option name="LAST_COMMIT_MESSAGE" value="done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1019,12 +1117,6 @@
           <line>47</line>
           <properties />
           <option name="timeStamp" value="505" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="514" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/players/Hero.java</url>
@@ -1037,31 +1129,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/state/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/utils/ImageRepositoryImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="e#3076#3077#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/gui/windows/arena/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1174,17 +1241,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/database/IRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/src.zip!/javax/swing/AbstractButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="1924" column="16" selection-start-line="1924" selection-start-column="16" selection-end-line="1924" selection-end-column="16" />
+          <folding>
+            <element signature="e#68197#68198#0" expanded="true" />
+            <element signature="e#68254#68255#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1295,20 +1359,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/cli/CLI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3105">
-          <caret line="220" column="20" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="76" column="99" selection-start-line="76" selection-start-column="99" selection-end-line="76" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/NewLoadPlayerPanelController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1350,32 +1400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="162" column="26" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/AbstractUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1621#1622#0" expanded="true" />
-            <element signature="e#1668#1669#0" expanded="true" />
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2108#2109#0" expanded="true" />
-            <element signature="e#2220#2221#0" expanded="true" />
-            <element signature="e#2269#2270#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1387,13 +1411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
           <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/HeroFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-832">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1414,17 +1431,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/cli/CLIController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/messages/GameResults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
+        <state relative-caret-position="27">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/models/world/Arena.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/database/IRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/database/HibernateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/views/cli/CLI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1945">
+          <caret line="220" column="20" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/factory/HeroFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/AbstractUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="66" column="28" lean-forward="true" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1621#1622#0" expanded="true" />
+            <element signature="e#1668#1669#0" expanded="true" />
+            <element signature="e#2040#2041#0" expanded="true" />
+            <element signature="e#2108#2109#0" expanded="true" />
+            <element signature="e#2220#2221#0" expanded="true" />
+            <element signature="e#2269#2270#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/HeroController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        <state relative-caret-position="387">
+          <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1265#1266#0" expanded="true" />
@@ -1432,6 +1500,38 @@
             <element signature="e#1374#1375#0" expanded="true" />
             <element signature="e#1435#1436#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/models/ArenaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="243" column="14" selection-start-line="243" selection-end-line="244" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5956#5957#0" expanded="true" />
+            <element signature="e#6002#6003#0" expanded="true" />
+            <element signature="e#8431#8432#0" expanded="true" />
+            <element signature="e#8468#8469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/cli/CLIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="289" column="11" selection-start-line="289" selection-start-column="11" selection-end-line="290" selection-end-column="55" />
+          <folding>
+            <element signature="e#5266#5490#0" expanded="true" />
+            <element signature="e#5489#5490#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/za/co/wethinkcode/mmayibo/swingy/controllers/gui/GUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="94" column="39" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="39" />
         </state>
       </provider>
     </entry>

@@ -287,6 +287,8 @@ public class CLIController extends AbstractUIController {
                         continue;
                     }
                     createNewHero(heroes.get(heroId - 1));
+                    if (isDatabaseSource)
+                        arenaController.setPlayerLoaded();
                     isValidOption = true;
                     break;
             }

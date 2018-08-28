@@ -239,4 +239,8 @@ public class ArenaController {
         gameResultsController.clearGameResults();
         mapController.clear();
     }
+
+    public void setPlayerLoaded() {
+        arena.setPLayerNameLoaded(true);
+    }
 }

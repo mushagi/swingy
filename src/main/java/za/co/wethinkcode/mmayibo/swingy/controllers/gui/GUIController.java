@@ -92,6 +92,7 @@ public class GUIController extends AbstractUIController {
     
     void showChooseHeroPanelFromDatabase() {
         Collection<Hero> heroes = arenaController.getAllHeroes();
+        arenaController.setPlayerLoaded();
         ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes, true);
         currentPanelController = new ChooseHeroPanelController(this, chooseHeroPanel, heroes, true);
         switchMainWindowPanel(chooseHeroPanel);
