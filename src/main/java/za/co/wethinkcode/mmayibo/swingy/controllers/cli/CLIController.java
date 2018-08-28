@@ -17,7 +17,8 @@ public class CLIController extends AbstractUIController {
     private final CLI userInterface;
     private boolean IsBackToMainMenu = false;
     private boolean switchedUI = false;
-    
+    private boolean isFromDatabase =false;
+
     public CLIController(ArenaController arenaController, CLI userInterface) {
         super(arenaController);
         this.userInterface = userInterface;
@@ -30,7 +31,7 @@ public class CLIController extends AbstractUIController {
   
 	    if (!arenaController.isPLayerNameLoaded()){
 		    loadHero();
-            if(!switchedUI)
+            if(!switchedUI && !isFromDatabase)
                 getPlayerName();
 	    }
         if(!switchedUI)
@@ -66,9 +67,12 @@ public class CLIController extends AbstractUIController {
                 case "1":
                     getHeroFromAList(GameState.getInstance().getAvailableHeroes(), false);
                     isValidInput = true;
+                    isFromDatabase = false;
+
                     break;
                 case "2":
-                    getHeroFromAList(arenaController.getAllHeroes(), true);
+                    isFromDatabase = true;
+                    getHeroFromAList(arenaController.getAllHeroes(), isFromDatabase);
                     isValidInput = true;
                     break;
                 case "Q":

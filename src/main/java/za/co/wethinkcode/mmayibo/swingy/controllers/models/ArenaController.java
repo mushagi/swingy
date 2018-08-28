@@ -99,7 +99,7 @@ public class ArenaController {
 	}
 	
 	private Artifact getRandomDroppedArtificact(AbstractPlayer player) {
-    	ArrayList<Artifact> artifacts = (ArrayList<Artifact>) player.getArtifact();
+    	ArrayList<Artifact> artifacts = (ArrayList<Artifact>) player.getArtifacts();
     	int numberOfPlayerArtificats = artifacts.size();
 		if (numberOfPlayerArtificats> 0) {
     		int randomNumber = random.nextInt(numberOfPlayerArtificats);
@@ -160,6 +160,7 @@ public class ArenaController {
     }
 
     public void initArena(Hero hero) {
+        heroController.validateHero(hero);
         arena.setHero(hero);
         arena.setGameInProgress(true);
         arena.setPlayerInABattle(false);
@@ -168,6 +169,7 @@ public class ArenaController {
         gameResultsController.setHeroBeforeGame(hero);
         mapController.addMapValues(hero);
     }
+
 
     public void loadPlayerName(String name) {
     	gameResultsController.clearGameResults();

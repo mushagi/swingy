@@ -11,7 +11,7 @@ public class Enemy extends AbstractPlayer {
                  String winningSpeech,
                  String losingSpeech,
                  String picture) {
-        super("Enemy", name, level, experience, attack, defence, 0, winningSpeech, losingSpeech, picture);
-        artifact.add(new Artifact());
+        super("Enemy", name, level, experience, attack, defence, 100, winningSpeech, losingSpeech, picture);
+        artifacts.add(new Artifact());
     }
 }

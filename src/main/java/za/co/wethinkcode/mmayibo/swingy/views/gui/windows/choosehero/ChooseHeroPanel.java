@@ -27,9 +27,11 @@ ChooseHeroPanel extends JPanel {
     private final CenterPanel centerPanel;
     private final ControlPanel controlPanel;
 	private final SidePanel sidePanel ;
-	
-	public ChooseHeroPanel(Collection<Hero> heroes) {
+	private final boolean isFromDatabase ;
+
+	public ChooseHeroPanel(Collection<Hero> heroes, boolean isFromDatabase) {
         this.heroes = (ArrayList<Hero>) heroes;
+        this.isFromDatabase = isFromDatabase;
         BorderLayout layout = new BorderLayout();
         
         this.setLayout(layout);
@@ -42,6 +44,14 @@ ChooseHeroPanel extends JPanel {
 		this.add(centerPanel, BorderLayout.CENTER);
         this.add(sidePanel, BorderLayout.EAST);
         this.add(controlPanel, BorderLayout.SOUTH);
+
+        if (isFromDatabase)
+		{
+			centerPanel.lblError.setVisible(false);
+			centerPanel.txtPlayerName.setVisible(false);
+			centerPanel.lblPlayerName.setVisible(false);
+		}
+
     }
 
 
@@ -120,20 +130,18 @@ ChooseHeroPanel extends JPanel {
 		private final JLabel lblPlayerName = new JLabel("Your name");
 	    private final JTextField txtPlayerName = new JTextField(13);
 	    private final HeroListPanel heroListPanel;
-	    
+
         CenterPanel(Collection<Hero> heroes) {
             heroListPanel = new HeroListPanel(heroes);
             this.setOpaque(false);
             this.setUpNameTxtPlayerName();
             this.setUpLayout();
-            
             this.add(lblPlayerName);
             this.add(txtPlayerName);
 	        this.add(lblError);
 	        this.add(lblChoose);
             this.add(heroListPanel);
-            
-            
+
             lblChoose.setLabelFor(txtPlayerName);
             lblChoose.setFont(font);
             lblChoose.setForeground(Color.WHITE);
@@ -186,7 +194,11 @@ ChooseHeroPanel extends JPanel {
             layout.putConstraint(SpringLayout.NORTH, lblChoose, 30, SpringLayout.SOUTH, lblPlayerName);
             layout.putConstraint(SpringLayout.WEST, lblChoose, 0, SpringLayout.WEST, lblPlayerName);
             layout.putConstraint(SpringLayout.NORTH, heroListPanel, 2, SpringLayout.SOUTH, lblChoose);
-        }
+			layout.putConstraint(SpringLayout.WEST, heroListPanel, 2, SpringLayout.WEST, this);
+			layout.putConstraint(SpringLayout.EAST, heroListPanel, -2, SpringLayout.EAST, this);
+			layout.putConstraint(SpringLayout.SOUTH, heroListPanel, -2, SpringLayout.SOUTH, this);
+
+		}
     }
 	
 	private  class  ControlPanel extends JPanel {

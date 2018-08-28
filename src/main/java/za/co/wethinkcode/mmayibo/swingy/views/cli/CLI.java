@@ -218,7 +218,7 @@ public class CLI implements IUserInterface {
             System.out.format("%-20d%-20s%-20s%-20d%-20d\n", count++, hero.getName(), hero.getHeroType(), hero.getLevel(), hero.getExperience());
         }
         printToScreen("\n" +
-                "B . Back To Main Menu\n" +
+                "B - Back To Main Menu\n" +
                 "X - Switch UI\n" +
                 "Q - Quit\n");
         displayPromptInput(isWithValidOption);

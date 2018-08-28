@@ -14,6 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Collection;
 
 class  ChooseHeroPanelController extends APanelController {
     private final ChooseHeroPanel chooseHeroPanel;
@@ -21,10 +23,17 @@ class  ChooseHeroPanelController extends APanelController {
     @Setter(AccessLevel.PRIVATE)
     private String playerName = "";
     private int selectedPlayer;
-    
-    ChooseHeroPanelController(GUIController guiController, ChooseHeroPanel chooseHeroPanel) {
+    private ArrayList<Hero> heroes;
+    private final boolean isFromDatabase ;
+
+    ChooseHeroPanelController(GUIController guiController,
+                              ChooseHeroPanel chooseHeroPanel,
+                              Collection<Hero> heroes,
+                              boolean isFromDatabase) {
         super(guiController);
+        this.isFromDatabase = isFromDatabase;
         this.chooseHeroPanel = chooseHeroPanel;
+        this.heroes = (ArrayList<Hero>) heroes;
         addAllListeners();
     }
 
@@ -59,9 +68,9 @@ class  ChooseHeroPanelController extends APanelController {
     private final ActionListener onNextActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Hero hero = GameState.getInstance().getAvailableHeroes().get(selectedPlayer);
+            Hero hero = heroes.get(selectedPlayer);
             guiController.createNewHero(hero);
-	        guiController.loadPlayerNameToArena(playerName);
+	        guiController.loadPlayerNameToArena(isFromDatabase ? hero.getName() : playerName);
 	        if (guiController.getArena().isPLayerNameLoaded())
 	        	guiController.showGamePanel();
 	        else
@@ -107,8 +116,10 @@ class  ChooseHeroPanelController extends APanelController {
             guiController.quitGame();
         }
     };
-    
-    
+
+
+
+
     @Override
     void addAllListeners() {
         chooseHeroPanel.addOnNextActionListener(onNextActionListener);

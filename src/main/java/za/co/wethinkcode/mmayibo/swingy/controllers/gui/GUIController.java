@@ -73,8 +73,8 @@ public class GUIController extends AbstractUIController {
 
     void showChooseHeroPanel() {
         Collection<Hero> heroes = GameState.getInstance().getAvailableHeroes();
-        ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
-        currentPanelController = new ChooseHeroPanelController(this, chooseHeroPanel);
+        ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes, false);
+        currentPanelController = new ChooseHeroPanelController(this, chooseHeroPanel, heroes, false);
         
         switchMainWindowPanel(chooseHeroPanel);
     }
@@ -92,8 +92,8 @@ public class GUIController extends AbstractUIController {
     
     void showChooseHeroPanelFromDatabase() {
         Collection<Hero> heroes = arenaController.getAllHeroes();
-        ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes);
-        currentPanelController = new ChooseHeroPanelController(this, chooseHeroPanel);
+        ChooseHeroPanel chooseHeroPanel = new ChooseHeroPanel(heroes, true);
+        currentPanelController = new ChooseHeroPanelController(this, chooseHeroPanel, heroes, true);
         switchMainWindowPanel(chooseHeroPanel);
     }
 }

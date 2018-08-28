@@ -39,7 +39,7 @@ public class HeroController {
     }
 
     private int calculateExperience(AbstractPlayer playerWonAgainst) {
-        return 100 + playerWonAgainst.getExperience();
+        return 60 + playerWonAgainst.getExperience();
     }
 
     Hero createHero(HeroType type) {
@@ -64,10 +64,17 @@ public class HeroController {
     
     public void addArtificats(ArrayList<Artifact> artifacts) {
         for (Artifact artificat: artifacts)
-            hero.getArtifact().add(artificat);
+            hero.getArtifacts().add(artificat);
     }
 	
 	public void setName(String name) {
 		hero.setName(name);
 	}
+
+    public void validateHero(Hero hero) {
+        if (hero.getPosition() == null)
+            hero.setPosition(new Position());
+        if (hero.getArtifacts() == null)
+            hero.setArtifacts(new ArrayList<Artifact>());
+    }
 }

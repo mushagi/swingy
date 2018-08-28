@@ -10,32 +10,36 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 class HeroListPanel extends JPanel {
+	private final JScrollPane scroll = new JScrollPane(
+			JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+			JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
 	private final ArrayList<HeroCell> components = new ArrayList<>();
 	
 	public HeroListPanel(Collection<Hero> heroes) {
 		int tag = 0;
-		
+		setLayout(new BorderLayout());
+
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new FlowLayout());
-		mainPanel.setPreferredSize(new Dimension(580,heroes.size() * 90));
 		mainPanel.setLayout(new FlowLayout());
-		
 		for (Hero hero: heroes){
 			HeroCell heroCell = new HeroCell(hero, tag++);
 			mainPanel.add(heroCell);
 			components.add(heroCell);
 		}
-		
-		JScrollPane scroll = new JScrollPane(mainPanel,
-				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+		scroll.setViewportView(mainPanel);
 		scroll.setBorder(null);
-		scroll.setBackground(SwingyConstants.Colors.TRANSPARENT);
-		mainPanel.setBackground(SwingyConstants.Colors.TRANSPARENT);
-		mainPanel.setPreferredSize(new Dimension(580,heroes.size() * 53));
+
+		scroll.setOpaque(false);
+		scroll.getViewport().setOpaque(false);
+		mainPanel.setOpaque(false);
+
+		mainPanel.setPreferredSize(new Dimension(500,heroes.size() * 50));
 
 		this.setBackground(SwingyConstants.Colors.TRANSPARENT);
-		this.add(scroll);
+		this.add(scroll, BorderLayout.CENTER);
 	}
 	
 	void addMouseListeners(MouseListener mouseListener) {

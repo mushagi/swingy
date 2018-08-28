@@ -46,7 +46,7 @@ public abstract class AbstractPlayer implements Cloneable{
     
     @Column(length = 100)
     @OneToMany(cascade = CascadeType.ALL)
-    Collection<Artifact> artifact;
+    Collection<Artifact> artifacts;
     
     @Transient
     Position position;
@@ -62,7 +62,7 @@ public abstract class AbstractPlayer implements Cloneable{
         this.attack = attack;
         this.defence = defence;
         this.hitPoint = hitPoint;
-        this.artifact = new ArrayList<>();
+        this.artifacts = new ArrayList<>();
         this.position =  new Position(0, 0);
         this.winningSpeech = winningSpeech;
         this.losingSpeech = losingSpeech;
@@ -80,7 +80,7 @@ public abstract class AbstractPlayer implements Cloneable{
                 "Attack = " + attack + "\n"+
                 "Defence = " + defence + "\n" +
                 "HitPoint = " + hitPoint + "\n"+
-                "Artifact = " + artifact +"\n"+
+                "Artifact = " + artifacts +"\n"+
                 "Position= " + position;
     }
     

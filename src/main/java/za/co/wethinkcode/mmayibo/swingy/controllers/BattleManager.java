@@ -30,8 +30,6 @@ BattleManager {
         while (playerOne.getHitPoint() > 0 && playerTwo.getHitPoint() > 0)
         {
             attack(playerOne, playerTwo);
-            if (playerTwo.getHitPoint() <= 0)
-                break;
             attack(playerTwo, playerOne);
         }
         
@@ -69,7 +67,7 @@ BattleManager {
 
     private  int getArtifactsDefence(AbstractPlayer defender) {
         int totalArtifactDefence = 0;
-        for (Artifact artifact: defender.getArtifact()) {
+        for (Artifact artifact: defender.getArtifacts()) {
             if (artifact.getEArtifactType() == EArtifactType.Armour) {
                 totalArtifactDefence += artifact.getPower();
             }
@@ -83,36 +81,28 @@ BattleManager {
     }
 
     private  int luckyShot(AbstractPlayer player) {
-        if(player.getType().equals("Hero")) {
+        if (player.getType().equals("Hero")){
             Random random = new Random();
-            int randomNumber = random.nextInt(5);
-            if (randomNumber == 4) {
+            int randomNumber = random.nextInt(2);
+            if (randomNumber == 1) {
                 attackSimulation.append("Lucky shot to the defender. ");
-                return 10;
+                return 70;
             }
         }
-        return 0;
+
+            return 0;
     }
 
     private  int getArtifactsAttack(AbstractPlayer attacker) {
-        Artifact chosenArtifact = getTheMostPowerfulArtifact(attacker);
-        if (chosenArtifact != null)
-            attackSimulation.append("A ").append(chosenArtifact.getPower()).append(" is being used. ");
-        return chosenArtifact == null ? 0 : chosenArtifact.getPower();
-    }
-
-    private  Artifact getTheMostPowerfulArtifact(AbstractPlayer attacker) {
-        Artifact mostPowerfulArtifact = null;
-        for (Artifact artifact : attacker.getArtifact()) {
-            if (artifact.getEArtifactType() == EArtifactType.Weapon) {
-                if (mostPowerfulArtifact == null)
-                    mostPowerfulArtifact = artifact;
-                else
-                    if (artifact.getPower() > mostPowerfulArtifact.getPower())
-                        mostPowerfulArtifact = artifact;
-            }
+        int artificactPowers = 0;
+        for (Artifact artifact: attacker.getArtifacts()) {
+            attackSimulation.append("A ").append(artifact.getName()).append(" with power of ").append(artifact.getPower()).append(" is being used. ");
+            if (artifact.getName() != null && artifact.getName().equals("Helm"))
+                attacker.setHitPoint(artifact.getPower());
+            else
+                artificactPowers += artifact.getPower();
         }
-        return mostPowerfulArtifact;
+        return artificactPowers;
     }
 
     private  int getRandomNumberOfAttacks() {

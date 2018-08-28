@@ -25,7 +25,6 @@ class NewLoadPlayerPanelController extends APanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             guiController.showChooseHeroPanelFromDatabase();
-    
         }
     };
     private final ActionListener onQuitListener = new ActionListener() {
